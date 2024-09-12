@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_71edb2b2cc150f5a369849d784a7dec3 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_71edb2b2cc150f5a369849d784a7dec3" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_71edb2b2cc150f5a369849d784a7dec3 = L.map(
+                "map_71edb2b2cc150f5a369849d784a7dec3",
+                {
+                    center: [37.7749, -122.4194],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5359099f24b4d1130794f1a6825b7b45 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_5359099f24b4d1130794f1a6825b7b45.addTo(map_71edb2b2cc150f5a369849d784a7dec3);
+        
+    
+
+        function geo_json_e3d0e3f73caea65d5bf02e4ef60df38d_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_e3d0e3f73caea65d5bf02e4ef60df38d = L.geoJson(null, {
+                onEachFeature: geo_json_e3d0e3f73caea65d5bf02e4ef60df38d_onEachFeature,
+            
+        });
+
+        function geo_json_e3d0e3f73caea65d5bf02e4ef60df38d_add (data) {
+            geo_json_e3d0e3f73caea65d5bf02e4ef60df38d
+                .addData(data);
+        }
+            geo_json_e3d0e3f73caea65d5bf02e4ef60df38d_add({"bbox": [-123.71918144387038, 40.993936778235216, -121.44597377415681, 42.009426845638316], "features": [{"bbox": [-123.71918144387038, 40.993936778235216, -121.44597377415681, 42.009426845638316], "geometry": {"coordinates": [[[-121.44597377415681, 41.183897658536395], [-121.44674156648395, 41.42923795822554], [-121.44944419618973, 41.77596095787763], [-121.4571793648422, 41.775934758877376], [-121.45733528394415, 41.94983438396452], [-121.44783796597869, 41.99738606316573], [-122.00111975357414, 42.00382778415703], [-122.37613102939895, 42.009426845638316], [-122.71566487538396, 42.00409862346446], [-123.04403659803708, 42.00314944471919], [-123.14591656397667, 42.00876122535845], [-123.3475996702971, 41.99915186204539], [-123.5178137101185, 42.000764652094496], [-123.53903009457066, 41.987926814663275], [-123.53316988163017, 41.95520610744135], [-123.5660177875263, 41.90307968837841], [-123.61298962985005, 41.88085235239181], [-123.64232251553574, 41.88977053861512], [-123.67096918673546, 41.8452209585308], [-123.70388696510378, 41.82926600058336], [-123.67975351479404, 41.74221984776427], [-123.66023889787867, 41.720559931099636], [-123.68968404591088, 41.66901507958334], [-123.692635201248, 41.6343469433414], [-123.71918144387038, 41.59535400020906], [-123.68142016910852, 41.58682044697811], [-123.6934687441016, 41.55749271779485], [-123.65251257427647, 41.53920015311842], [-123.6309662944338, 41.4727425540026], [-123.61190349944951, 41.461964563806674], [-123.64164264637957, 41.400064875228], [-123.66124350766054, 41.38200632305889], [-123.49926100508296, 41.38241350205402], [-123.47412071652455, 41.36603640211226], [-123.44264209337125, 41.25117399449203], [-123.45519432020156, 41.236914938570926], [-123.40810767137496, 41.18009053636013], [-123.37616120109045, 41.15108621577248], [-123.35116054817153, 41.16257838159574], [-123.27350060457997, 41.12262749416266], [-123.24558188775673, 41.0782446421338], [-123.20342719395707, 41.07169717927003], [-123.10917033460272, 41.07550584871738], [-123.05553950737747, 41.04670461744576], [-123.03699652992107, 41.0040939298759], [-122.982845065057, 41.01420200112172], [-122.91754722197788, 40.993936778235216], [-122.90160928209202, 41.01529657853423], [-122.92327775547093, 41.07193908793191], [-122.96616136156771, 41.080922940115315], [-122.97381810239779, 41.11086341831263], [-122.93539738401401, 41.17727936159387], [-122.89431980408564, 41.20277384564759], [-122.8121114052097, 41.20246275195679], [-122.77660692018354, 41.231108415999394], [-122.7243828601448, 41.247989414123396], [-122.69775041656382, 41.27559014415573], [-122.64513625051502, 41.3044588296396], [-122.63576138916446, 41.33042127606419], [-122.58869370596264, 41.32729487875228], [-122.5668445010754, 41.36645673074149], [-122.5350455110909, 41.341210771331454], [-122.50472367050374, 41.343426063353235], [-122.5229173587865, 41.21346577896901], [-122.49927941719301, 41.18476975014039], [-122.0710346066681, 41.183471058400954], [-121.73425466986731, 41.18323865113271], [-121.44597377415681, 41.183897658536395]]], "type": "Polygon"}, "id": "0", "properties": {"abbrev": "SIS", "abcode": "c047", "ansi": "093", "fullname": "Siskiyou County", "name": "Siskiyou"}, "type": "Feature"}], "type": "FeatureCollection"});
+        geo_json_e3d0e3f73caea65d5bf02e4ef60df38d.setStyle(function(feature) {return feature.properties.style;});
+
+        
+    
+            geo_json_e3d0e3f73caea65d5bf02e4ef60df38d.addTo(map_71edb2b2cc150f5a369849d784a7dec3);
+        
+</script>
+</html>
