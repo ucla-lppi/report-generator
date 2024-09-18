@@ -3,27 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>County Data</title>
+    <title>{{ county_name }} County Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        @page :first {
+            margin-top: 30mm;
+        }
+        body {
+            font-family: 'Quattrocento Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            text-align: right;
+            font-size: 12px;
+            padding-right: 10mm;
+            padding-bottom: 10mm;
+        }
+    </style>
 </head>
 <body>
-    <h1>County Data</h1>
-    <table border="1">
+    <header class="first-page-header">
+        <img src="{{ url_for('static', filename='imgs/lppi-logo.png') }}" alt="Header Logo" class="header-logo">
+    </header>
+
+    <h1 class="report-title">Extreme Heat DRAFT<br>{{ county_name }} County</h1>
+
+    <table class="two-column-layout">
+        <tr>
+            <td class="left-column">
+                <img src="{{ map_path }}" alt="Map" class="map-image">
+            </td>
+            <td class="right-column">
+                <b>Population Characteristics</b>
+                <div class="population-characteristics">
+                    <p>Total Population size in 2022: {{ total_pop }} million</p>
+                    <p>Latino Population: {{ latino_pop }} million ({{ pct_latino }}%)</p>
+                    <p>Non-Latino White Population: {{ nlw_pop }} million ({{ pct_nlw }}%)</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <h2>County Statistics</h2>
+    <table class="county-statistics">
         <thead>
-            <tr>
-                {% for column in columns %}
-                <th>{{ column }}</th>
-                {% endfor %}
+            <tr style="background-color: lightblue;">
+                <th>Statistic</th>
+                <th>Latino</th>
+                <th>NL White</th>
+                <th>Total</th>
             </tr>
         </thead>
         <tbody>
-            {% for row in data %}
+            {% for stat, values in county_statistics.items() %}
             <tr>
-                {% for item in row %}
-                <td>{{ item }}</td>
-                {% endfor %}
+                <td class="stat-name">{{ stat }}</td>
+                <td>{{ values['Latino'] }}</td>
+                <td>{{ values['NL White'] }}</td>
+                <td>{{ values['Total'] }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+
+    <h2>Infographics</h2>
+    <img src="{{ plt_path }}" alt="Infographic">
+
+    <div class="footer">
+        <span class="pageNumber"></span>
+    </div>
 </body>
 </html>
