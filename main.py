@@ -75,6 +75,7 @@ def county_report(standardized_county_name):
     nlw_pop = round(county_pop_data['nlw'] / 1_000_000, 1)
     pct_latino = int(county_pop_data['pct_latino'] * 100)
     pct_nlw = int(county_pop_data['pct_nlw'] * 100)
+    ranking_by_latino_county = county_pop_data['ranking_by_latino_county']
     
     # Extract county statistics
     county_statistics = {
@@ -140,6 +141,7 @@ def county_report(standardized_county_name):
         nlw_pop=nlw_pop,
         pct_latino=pct_latino,
         pct_nlw=pct_nlw,
+        ranking_by_latino_county=ranking_by_latino_county,
         county_statistics=county_statistics
     )
 
