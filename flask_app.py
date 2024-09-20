@@ -190,68 +190,92 @@ def county_report(standardized_county_name, use_openai=False):
         county_statistics=county_statistics,
         generated_text=generated_text
     )
+import math
+
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.WARNING, format='%(asctime)s - %(levelname)s - %(message)s')
+
 def generate_case_text(
-	original_county_name, total_pop, latino_pop, pct_latino, nlw_pop, pct_nlw,
-	ranking_by_latino_county, latino_90F, nl_white_90F, latino_heat_wave, nl_white_heat_wave,
-	latino_mid_cent_90F, nl_white_mid_cent_90F, latino_end_cent_90F, nl_white_end_cent_90F,
-	latino_mid_cent_100F, nl_white_mid_cent_100F, latino_end_cent_100F, nl_white_end_cent_100F,
-	avg_pct_under_18_latino, avg_pct_under_18_nl_white, avg_pct_over_65_latino, avg_pct_over_65_nl_white
+    original_county_name, total_pop, latino_pop, pct_latino, nlw_pop, pct_nlw,
+    ranking_by_latino_county, latino_90F, nl_white_90F, latino_heat_wave, nl_white_heat_wave,
+    latino_mid_cent_90F, nl_white_mid_cent_90F, latino_end_cent_90F, nl_white_end_cent_90F,
+    latino_mid_cent_100F, nl_white_mid_cent_100F, latino_end_cent_100F, nl_white_end_cent_100F,
+    avg_pct_under_18_latino, avg_pct_under_18_nl_white, avg_pct_over_65_latino, avg_pct_over_65_nl_white
 ):
-	# Convert all values to integers
-	total_pop = round(total_pop)
-	latino_pop = round(latino_pop)
-	pct_latino = round(pct_latino)
-	nlw_pop = round(nlw_pop)
-	pct_nlw = round(pct_nlw)
-	ranking_by_latino_county = round(ranking_by_latino_county)
-	latino_90F = round(latino_90F)
-	nl_white_90F = round(nl_white_90F)
-	latino_heat_wave = round(latino_heat_wave)
-	nl_white_heat_wave = round(nl_white_heat_wave)
-	latino_mid_cent_90F = round(latino_mid_cent_90F)
-	nl_white_mid_cent_90F = round(nl_white_mid_cent_90F)
-	latino_end_cent_90F = round(latino_end_cent_90F)
-	nl_white_end_cent_90F = round(nl_white_end_cent_90F)
-	latino_mid_cent_100F = round(latino_mid_cent_100F)
-	nl_white_mid_cent_100F = round(nl_white_mid_cent_100F)
-	latino_end_cent_100F = round(latino_end_cent_100F)
-	nl_white_end_cent_100F = round(nl_white_end_cent_100F)
-	avg_pct_under_18_latino = round(avg_pct_under_18_latino)
-	avg_pct_under_18_nl_white = round(avg_pct_under_18_nl_white)
-	avg_pct_over_65_latino = round(avg_pct_over_65_latino)
-	avg_pct_over_65_nl_white = round(avg_pct_over_65_nl_white)
+    # Helper function to check for NaN values
+    def is_nan(value):
+        return math.isnan(value)
 
-	# Calculate percentage differences
-	diff_90F = latino_90F - nl_white_90F
-	diff_heat_wave = latino_heat_wave - nl_white_heat_wave
-	diff_mid_cent_90F = latino_mid_cent_90F - nl_white_mid_cent_90F
-	diff_end_cent_90F = latino_end_cent_90F - nl_white_end_cent_90F
-	diff_mid_cent_100F = latino_mid_cent_100F - nl_white_mid_cent_100F
-	diff_end_cent_100F = latino_end_cent_100F - nl_white_end_cent_100F
-	diff_under_18 = avg_pct_under_18_latino - avg_pct_under_18_nl_white
-	diff_over_65 = avg_pct_over_65_latino - avg_pct_over_65_nl_white
+    # Check if any critical value is NaN
+    critical_values = [
+        total_pop, latino_pop, pct_latino, nlw_pop, pct_nlw, ranking_by_latino_county,
+        latino_90F, nl_white_90F, latino_heat_wave, nl_white_heat_wave,
+        latino_mid_cent_90F, nl_white_mid_cent_90F, latino_end_cent_90F, nl_white_end_cent_90F,
+        latino_mid_cent_100F, nl_white_mid_cent_100F, latino_end_cent_100F, nl_white_end_cent_100F,
+        avg_pct_under_18_latino, avg_pct_under_18_nl_white, avg_pct_over_65_latino, avg_pct_over_65_nl_white
+    ]
+    
+    if any(is_nan(value) for value in critical_values):
+        logging.warning(f"Skipping report for {original_county_name} County due to NaN values in critical data.")
+        return f"<b>Neighborhood-Level Analysis</b><br>Data for {original_county_name} County is incomplete or invalid."
 
-	# Generate the content
-	content = f"""
-	<b>Neighborhood-Level Analysis</b><br>
-	Map 1. Latino and NL White Neighborhoods in {original_county_name} County<br>
-	High-Temperature Days<br>
-	The federal government defines extreme heat in the U.S. as a period of 2 to 3 days above 90 degrees Fahrenheit.
-	<ul>
-		<li>Latino neighborhoods historically experience more days with high temperatures. For instance, the average number of days with temperatures reaching 90°F between 2018 and 2022 is higher in Latino neighborhoods ({latino_90F} days) compared to NL White neighborhoods ({nl_white_90F} days), representing a significant increase of {diff_90F} days. This pattern extends to higher temperature thresholds of 95, 100, and 105 degrees Fahrenheit.</li>
-		<li>Latino neighborhoods endure longer heat waves. In recent years, these neighborhoods experienced an average of {latino_heat_wave} consecutive days with temperatures at or above 90°F, while NL White neighborhoods experienced {nl_white_heat_wave} consecutive days, a difference of {diff_heat_wave} days.</li>
-	</ul>
-	<br>
-	Looking forward, Latino neighborhoods are projected to experience a greater number of days with higher temperatures. Between 2035 and 2064, Latino neighborhoods are expected to experience an average of {latino_mid_cent_90F} days with temperatures of 90°F or higher, while NL White neighborhoods are expected to experience {nl_white_mid_cent_90F} days, a difference of {diff_mid_cent_90F} days. Between 2070 and 2099, Latino neighborhoods are expected to experience {latino_end_cent_90F} days with temperatures of 90°F or higher, while NL White neighborhoods are expected to experience {nl_white_end_cent_90F} days, a difference of {diff_end_cent_90F} days.
-	<br>
-	Projected average number of days with temperatures of 100°F or higher:
-	<ul>
-		<li>Between 2035 and 2064: Latino neighborhoods: {latino_mid_cent_100F} days, NL White neighborhoods: {nl_white_mid_cent_100F} days, a difference of {diff_mid_cent_100F} days.</li>
-		<li>Between 2070 and 2099: Latino neighborhoods: {latino_end_cent_100F} days, NL White neighborhoods: {nl_white_end_cent_100F} days, a difference of {diff_end_cent_100F} days.</li>
-	</ul>
-	Older adults and children are at higher risk for heat-related illnesses. On average, a higher percentage of residents in Latino neighborhoods are 18 and under ({avg_pct_under_18_latino}%) compared to predominantly NL White neighborhoods ({avg_pct_under_18_nl_white}%), a difference of {diff_under_18}%. However, predominantly NL White neighborhoods, on average, have a higher percentage of the elderly ({avg_pct_over_65_nl_white}%), with more residents being 65 and over, compared to Latino neighborhoods ({avg_pct_over_65_latino}%), a difference of {diff_over_65}%.
-	"""
-	return content
+    # Convert all values to integers
+    total_pop = round(total_pop)
+    latino_pop = round(latino_pop)
+    pct_latino = round(pct_latino)
+    nlw_pop = round(nlw_pop)
+    pct_nlw = round(pct_nlw)
+    ranking_by_latino_county = round(ranking_by_latino_county)
+    latino_90F = round(latino_90F)
+    nl_white_90F = round(nl_white_90F)
+    latino_heat_wave = round(latino_heat_wave)
+    nl_white_heat_wave = round(nl_white_heat_wave)
+    latino_mid_cent_90F = round(latino_mid_cent_90F)
+    nl_white_mid_cent_90F = round(nl_white_mid_cent_90F)
+    latino_end_cent_90F = round(latino_end_cent_90F)
+    nl_white_end_cent_90F = round(nl_white_end_cent_90F)
+    latino_mid_cent_100F = round(latino_mid_cent_100F)
+    nl_white_mid_cent_100F = round(nl_white_mid_cent_100F)
+    latino_end_cent_100F = round(latino_end_cent_100F)
+    nl_white_end_cent_100F = round(nl_white_end_cent_100F)
+    avg_pct_under_18_latino = round(avg_pct_under_18_latino)
+    avg_pct_under_18_nl_white = round(avg_pct_under_18_nl_white)
+    avg_pct_over_65_latino = round(avg_pct_over_65_latino)
+    avg_pct_over_65_nl_white = round(avg_pct_over_65_nl_white)
+
+    # Calculate percentage differences
+    diff_90F = latino_90F - nl_white_90F
+    diff_heat_wave = latino_heat_wave - nl_white_heat_wave
+    diff_mid_cent_90F = latino_mid_cent_90F - nl_white_mid_cent_90F
+    diff_end_cent_90F = latino_end_cent_90F - nl_white_end_cent_90F
+    diff_mid_cent_100F = latino_mid_cent_100F - nl_white_mid_cent_100F
+    diff_end_cent_100F = latino_end_cent_100F - nl_white_end_cent_100F
+    diff_under_18 = avg_pct_under_18_latino - avg_pct_under_18_nl_white
+    diff_over_65 = avg_pct_over_65_latino - avg_pct_over_65_nl_white
+
+    # Generate the content
+    content = f"""
+    <b>Neighborhood-Level Analysis</b><br>
+    Map 1. Latino and NL White Neighborhoods in {original_county_name} County<br>
+    High-Temperature Days<br>
+    The federal government defines extreme heat in the U.S. as a period of 2 to 3 days above 90 degrees Fahrenheit.
+    <ul>
+        <li>Latino neighborhoods historically experience more days with high temperatures. For instance, the average number of days with temperatures reaching 90°F between 2018 and 2022 is higher in Latino neighborhoods ({latino_90F} days) compared to NL White neighborhoods ({nl_white_90F} days), representing a significant increase of {diff_90F} days. This pattern extends to higher temperature thresholds of 95, 100, and 105 degrees Fahrenheit.</li>
+        <li>Latino neighborhoods endure longer heat waves. In recent years, these neighborhoods experienced an average of {latino_heat_wave} consecutive days with temperatures at or above 90°F, while NL White neighborhoods experienced {nl_white_heat_wave} consecutive days, a difference of {diff_heat_wave} days.</li>
+    </ul>
+    <br>
+    Looking forward, Latino neighborhoods are projected to experience a greater number of days with higher temperatures. Between 2035 and 2064, Latino neighborhoods are expected to experience an average of {latino_mid_cent_90F} days with temperatures of 90°F or higher, while NL White neighborhoods are expected to experience {nl_white_mid_cent_90F} days, a difference of {diff_mid_cent_90F} days. Between 2070 and 2099, Latino neighborhoods are expected to experience {latino_end_cent_90F} days with temperatures of 90°F or higher, while NL White neighborhoods are expected to experience {nl_white_end_cent_90F} days, a difference of {diff_end_cent_90F} days.
+    <br>
+    Projected average number of days with temperatures of 100°F or higher:
+    <ul>
+        <li>Between 2035 and 2064: Latino neighborhoods: {latino_mid_cent_100F} days, NL White neighborhoods: {nl_white_mid_cent_100F} days, a difference of {diff_mid_cent_100F} days.</li>
+        <li>Between 2070 and 2099: Latino neighborhoods: {latino_end_cent_100F} days, NL White neighborhoods: {nl_white_end_cent_100F} days, a difference of {diff_end_cent_100F} days.</li>
+    </ul>
+    Older adults and children are at higher risk for heat-related illnesses. On average, a higher percentage of residents in Latino neighborhoods are 18 and under ({avg_pct_under_18_latino}%) compared to predominantly NL White neighborhoods ({avg_pct_under_18_nl_white}%), a difference of {diff_under_18}%. However, predominantly NL White neighborhoods, on average, have a higher percentage of the elderly ({avg_pct_over_65_nl_white}%), with more residents being 65 and over, compared to Latino neighborhoods ({avg_pct_over_65_latino}%), a difference of {diff_over_65}%.
+    """
+    return content
 
 @app.route('/output/<path:filename>')
 def serve_output_file(filename):
