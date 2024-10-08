@@ -255,28 +255,31 @@ def generate_case_text(
     diff_under_18 = avg_pct_under_18_latino - avg_pct_under_18_nl_white
     diff_over_65 = avg_pct_over_65_latino - avg_pct_over_65_nl_white
 
-    # Generate the content
+    # Helper function to format differences
+    def format_difference(diff):
+        return "roughly the same amount" if abs(diff) < 1 else f"{abs(diff)} days"
+
+    # Generate the content with conditional logic
     content = f"""
     <b>Neighborhood-Level Analysis</b><br>
     Map 1. Latino and NL White Neighborhoods in {original_county_name} County<br>
     High-Temperature Days<br>
     The federal government defines extreme heat in the U.S. as a period of 2 to 3 days above 90 degrees Fahrenheit.
     <ul>
-        <li>Latino neighborhoods historically experience more days with high temperatures. For instance, the average number of days with temperatures reaching 90°F between 2018 and 2022 is higher in Latino neighborhoods ({latino_90F} days) compared to NL White neighborhoods ({nl_white_90F} days), representing a significant increase of {diff_90F} days. This pattern extends to higher temperature thresholds of 95, 100, and 105 degrees Fahrenheit.</li>
-        <li>Latino neighborhoods endure longer heat waves. In recent years, these neighborhoods experienced an average of {latino_heat_wave} consecutive days with temperatures at or above 90°F, while NL White neighborhoods experienced {nl_white_heat_wave} consecutive days, a difference of {diff_heat_wave} days.</li>
+        <li>Latino neighborhoods historically experience {'more' if diff_90F > 0 else 'fewer'} days with high temperatures. For instance, the average number of days with temperatures reaching 90°F between 2018 and 2022 is {latino_90F} days in Latino neighborhoods compared to {nl_white_90F} days in NL White neighborhoods, representing a difference of {format_difference(diff_90F)}.</li>
+        <li>Latino neighborhoods endure {'longer' if diff_heat_wave > 0 else 'shorter'} heat waves. In recent years, these neighborhoods experienced an average of {latino_heat_wave} consecutive days with temperatures at or above 90°F, while NL White neighborhoods experienced {nl_white_heat_wave} consecutive days, a difference of {format_difference(diff_heat_wave)}.</li>
     </ul>
     <br>
-    Looking forward, Latino neighborhoods are projected to experience a greater number of days with higher temperatures. Between 2035 and 2064, Latino neighborhoods are expected to experience an average of {latino_mid_cent_90F} days with temperatures of 90°F or higher, while NL White neighborhoods are expected to experience {nl_white_mid_cent_90F} days, a difference of {diff_mid_cent_90F} days. Between 2070 and 2099, Latino neighborhoods are expected to experience {latino_end_cent_90F} days with temperatures of 90°F or higher, while NL White neighborhoods are expected to experience {nl_white_end_cent_90F} days, a difference of {diff_end_cent_90F} days.
+    Looking forward, Latino neighborhoods are projected to experience {'a greater' if diff_mid_cent_90F > 0 else 'a lesser'} number of days with higher temperatures. Between 2035 and 2064, Latino neighborhoods are expected to experience an average of {latino_mid_cent_90F} days with temperatures of 90°F or higher, while NL White neighborhoods are expected to experience {nl_white_mid_cent_90F} days, a difference of {format_difference(diff_mid_cent_90F)}. Between 2070 and 2099, Latino neighborhoods are expected to experience {latino_end_cent_90F} days with temperatures of 90°F or higher, while NL White neighborhoods are expected to experience {nl_white_end_cent_90F} days, a difference of {format_difference(diff_end_cent_90F)}.
     <br>
     Projected average number of days with temperatures of 100°F or higher:
     <ul>
-        <li>Between 2035 and 2064: Latino neighborhoods: {latino_mid_cent_100F} days, NL White neighborhoods: {nl_white_mid_cent_100F} days, a difference of {diff_mid_cent_100F} days.</li>
-        <li>Between 2070 and 2099: Latino neighborhoods: {latino_end_cent_100F} days, NL White neighborhoods: {nl_white_end_cent_100F} days, a difference of {diff_end_cent_100F} days.</li>
+        <li>Between 2035 and 2064: Latino neighborhoods: {latino_mid_cent_100F} days, NL White neighborhoods: {nl_white_mid_cent_100F} days, a difference of {format_difference(diff_mid_cent_100F)}.</li>
+        <li>Between 2070 and 2099: Latino neighborhoods: {latino_end_cent_100F} days, NL White neighborhoods: {nl_white_end_cent_100F} days, a difference of {format_difference(diff_end_cent_100F)}.</li>
     </ul>
-    Older adults and children are at higher risk for heat-related illnesses. On average, a higher percentage of residents in Latino neighborhoods are 18 and under ({avg_pct_under_18_latino}%) compared to predominantly NL White neighborhoods ({avg_pct_under_18_nl_white}%), a difference of {diff_under_18}%. However, predominantly NL White neighborhoods, on average, have a higher percentage of the elderly ({avg_pct_over_65_nl_white}%), with more residents being 65 and over, compared to Latino neighborhoods ({avg_pct_over_65_latino}%), a difference of {diff_over_65}%.
+    Older adults and children are at higher risk for heat-related illnesses. On average, a higher percentage of residents in Latino neighborhoods are 18 and under ({avg_pct_under_18_latino}%) compared to predominantly NL White neighborhoods ({avg_pct_under_18_nl_white}%), a difference of {format_difference(diff_under_18)}%. However, predominantly NL White neighborhoods, on average, have a higher percentage of the elderly ({avg_pct_over_65_nl_white}%), with more residents being 65 and over, compared to Latino neighborhoods ({avg_pct_over_65_latino}%), a difference of {format_difference(diff_over_65)}%.
     """
     return content
-
 @app.route('/output/<path:filename>')
 def serve_output_file(filename):
     return send_from_directory('output', filename)

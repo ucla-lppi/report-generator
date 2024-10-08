@@ -12,23 +12,23 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, output_dir, basema
         print(gdf.head())
 
         print(f"Loading population data from {pop_data_path}")
-        pop_df = pd.read_csv(pop_data_path, dtype={'tract_id': str})
+        pop_df = pd.read_csv(pop_data_path, dtype={'GEOID': str})
         print(f"Population data loaded: {pop_df.shape[0]} records")
         print(pop_df.head())
 
         print("Ensuring the columns used for joining have the same data type")
         gdf['GEOID'] = gdf['GEOID'].astype(str)
-        pop_df['tract_id'] = pop_df['tract_id'].astype(str)
+        pop_df['GEOID'] = pop_df['GEOID'].astype(str)
 
         print("Unique GEOID values in GeoDataFrame:")
         print(gdf['GEOID'].unique()[:10])  # Print first 10 unique values
 
-        print("Unique tract_id values in population DataFrame:")
-        print(pop_df['tract_id'].unique()[:10])  # Print first 10 unique values
+        print("Unique GEOID values in population DataFrame:")
+        print(pop_df['GEOID'].unique()[:10])  # Print first 10 unique values
 
         print("Setting index for join")
         gdf.set_index('GEOID', inplace=True)
-        pop_df.set_index('tract_id', inplace=True)
+        pop_df.set_index('GEOID', inplace=True)
 
         print("Performing the join")
         joined_gdf = gdf.join(pop_df, how='inner')
@@ -36,22 +36,42 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, output_dir, basema
         print(joined_gdf.head())
 
         print("Getting unique counties")
-        counties = joined_gdf['county_name'].unique()
+        def extract_county(full_name):
+            try:
+                return full_name.split(';')[1].strip()
+            except IndexError:
+                print(f"Unexpected FULL_CENSUS_TRACT_NAME format: {full_name}")
+                return None
+
+        joined_gdf['county'] = joined_gdf['FULL_CENSUS_TRACT_NAME'].apply(extract_county)
+        counties = joined_gdf['county'].dropna().unique()
         print(f"Counties found: {counties}")
 
         for county in counties:
             try:
                 print(f"Processing county: {county}")
-                county_gdf = joined_gdf[joined_gdf['county_name'] == county]
+                county_gdf = joined_gdf[joined_gdf['county'] == county]
                 print(f"County data: {county_gdf.shape[0]} records")
 
-                # Ensure geometries are valid
-                county_gdf = county_gdf[county_gdf.is_valid]
+                # Ensure geometries are valid and not empty
+                county_gdf = county_gdf[county_gdf.is_valid & ~county_gdf.is_empty]
+
+                if county_gdf.empty:
+                    print(f"No valid geometries for {county}")
+                    continue
 
                 fig, ax = plt.subplots(1, 1, figsize=(15, 15))
 
-                county_gdf[county_gdf['majority_hispanic']].plot(ax=ax, color='red', edgecolor='black', label='Majority Hispanic')
-                county_gdf[~county_gdf['majority_hispanic']].plot(ax=ax, color='blue', edgecolor='black', label='Majority White')
+                # Plot based on neighborhood_type
+                if not county_gdf[county_gdf['neighborhood_type'] == 'Latino Neighborhood'].empty:
+                    county_gdf[county_gdf['neighborhood_type'] == 'Latino Neighborhood'].plot(ax=ax, color='lightpink', edgecolor='lightgray', label='Latino Neighborhood')
+                if not county_gdf[county_gdf['neighborhood_type'] == 'White Neighborhood'].empty:
+                    county_gdf[county_gdf['neighborhood_type'] == 'White Neighborhood'].plot(ax=ax, color='#2774AE', edgecolor='lightgray', label='White Neighborhood')
+
+                # Plot other areas with white fill and no outlines
+                other_gdf = county_gdf[~county_gdf['neighborhood_type'].isin(['Latino Neighborhood', 'White Neighborhood'])]
+                if not other_gdf.empty:
+                    other_gdf.plot(ax=ax, color='white', edgecolor='none', label='Other')
 
                 ctx.add_basemap(ax, source=basemap_source, zoom=zoom)
 
@@ -74,4 +94,3 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, output_dir, basema
 
     except Exception as e:
         print(f"An error occurred: {e}")
-        

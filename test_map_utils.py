@@ -1,12 +1,14 @@
 import unittest
 import os
 from map_utils import generate_majority_tracts_map
+# `python -m unittest test_map_utils.py`
+
 
 class TestMapUtils(unittest.TestCase):
 
     def setUp(self):
         self.geojson_path = 'inputs/geojson/ca_census_tracts.geojson'
-        self.pop_data_path = 'output/random_population_data.csv'
+        self.pop_data_path = 'inputs/tract_level_results.csv'
         self.output_dir = 'output/test_maps'
         os.makedirs(self.output_dir, exist_ok=True)
 
