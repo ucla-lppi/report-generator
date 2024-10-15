@@ -8,7 +8,7 @@ class TestMapUtils(unittest.TestCase):
 
     def setUp(self):
         self.geojson_path = 'inputs/geojson/ca_census_tracts.geojson'
-        self.pop_data_path = 'inputs/tract_level_results.csv'
+        self.pop_data_path = 'inputs/tract_level_data.csv'
         self.output_dir = 'output/test_maps'
         os.makedirs(self.output_dir, exist_ok=True)
 

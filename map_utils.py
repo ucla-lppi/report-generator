@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import contextily as ctx
 import os
+from matplotlib.patches import Patch
 
 def generate_majority_tracts_map(geojson_path, pop_data_path, output_dir, basemap_source=ctx.providers.OpenStreetMap.Mapnik, zoom=10):
     try:
@@ -16,9 +17,9 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, output_dir, basema
         print(f"Population data loaded: {pop_df.shape[0]} records")
         print(pop_df.head())
 
-        print("Ensuring the columns used for joining have the same data type")
-        gdf['GEOID'] = gdf['GEOID'].astype(str)
-        pop_df['GEOID'] = pop_df['GEOID'].astype(str)
+        print("Ensuring the columns used for joining have the same data type and padding GEOID with leading zeros")
+        gdf['GEOID'] = gdf['GEOID'].astype(str).str.zfill(11)
+        pop_df['GEOID'] = pop_df['GEOID'].astype(str).str.zfill(11)
 
         print("Unique GEOID values in GeoDataFrame:")
         print(gdf['GEOID'].unique()[:10])  # Print first 10 unique values
@@ -35,15 +36,10 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, output_dir, basema
         print(f"Joined data: {joined_gdf.shape[0]} records")
         print(joined_gdf.head())
 
-        print("Getting unique counties")
-        def extract_county(full_name):
-            try:
-                return full_name.split(';')[1].strip()
-            except IndexError:
-                print(f"Unexpected FULL_CENSUS_TRACT_NAME format: {full_name}")
-                return None
+        print("Reprojecting to California Albers NAD 83")
+        joined_gdf = joined_gdf.to_crs(epsg=3310)
 
-        joined_gdf['county'] = joined_gdf['FULL_CENSUS_TRACT_NAME'].apply(extract_county)
+        print("Getting unique counties")
         counties = joined_gdf['county'].dropna().unique()
         print(f"Counties found: {counties}")
 
@@ -62,20 +58,38 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, output_dir, basema
 
                 fig, ax = plt.subplots(1, 1, figsize=(15, 15))
 
-                # Plot based on neighborhood_type
-                if not county_gdf[county_gdf['neighborhood_type'] == 'Latino Neighborhood'].empty:
-                    county_gdf[county_gdf['neighborhood_type'] == 'Latino Neighborhood'].plot(ax=ax, color='lightpink', edgecolor='lightgray', label='Latino Neighborhood')
-                if not county_gdf[county_gdf['neighborhood_type'] == 'White Neighborhood'].empty:
-                    county_gdf[county_gdf['neighborhood_type'] == 'White Neighborhood'].plot(ax=ax, color='#2774AE', edgecolor='lightgray', label='White Neighborhood')
+                # Get unique neighborhood types
+                neighborhood_types = county_gdf['Neighborhood_type'].unique()
+                colors = {
+                    '70+ Latino': 'lightpink',
+                    '50+ Latino': 'lightpink',
+                    '70+ NL White': '#2774AE',
+                    '50+ NL White': '#2774AE',
+                    'Other': 'white'
+                }
+                edgecolors = {
+                    '70+ Latino': 'lightgray',
+                    '50+ Latino': 'lightgray',
+                    '70+ NL White': 'lightgray',
+                    '50+ NL White': 'lightgray',
+                    'Other': 'none'
+                }
 
-                # Plot other areas with white fill and no outlines
-                other_gdf = county_gdf[~county_gdf['neighborhood_type'].isin(['Latino Neighborhood', 'White Neighborhood'])]
-                if not other_gdf.empty:
-                    other_gdf.plot(ax=ax, color='white', edgecolor='none', label='Other')
+                for neighborhood_type in neighborhood_types:
+                    if not county_gdf[county_gdf['Neighborhood_type'] == neighborhood_type].empty:
+                        county_gdf[county_gdf['Neighborhood_type'] == neighborhood_type].plot(
+                            ax=ax, 
+                            color=colors.get(neighborhood_type, 'white'), 
+                            edgecolor=edgecolors.get(neighborhood_type, 'none'), 
+                            linewidth=0.5, 
+                            label=neighborhood_type
+                        )
 
                 ctx.add_basemap(ax, source=basemap_source, zoom=zoom)
 
-                legend = ax.legend(loc='upper right', title='Census Tracts')
+                # Create legend dynamically
+                legend_elements = [Patch(facecolor=colors[nt], edgecolor=edgecolors[nt], label=nt) for nt in neighborhood_types]
+                ax.legend(handles=legend_elements, loc='upper right', title='Census Tracts')
 
                 ax.set_aspect('equal')  # Set aspect ratio to be equal
                 ax.set_axis_off()
