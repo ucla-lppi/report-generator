@@ -5,7 +5,7 @@ import contextily as ctx
 import os
 from matplotlib.patches import Patch
 
-def generate_majority_tracts_map(geojson_path, pop_data_path, output_dir, basemap_source=ctx.providers.OpenStreetMap.Mapnik, zoom=10):
+def generate_majority_tracts_map(geojson_path, pop_data_path, output_dir, basemap_source=ctx.providers.CartoDB.Positron, label_layer=ctx.providers.CartoDB.PositronOnlyLabels, zoom=10):
     try:
         print(f"Loading GeoJSON data from {geojson_path}")
         gdf = gpd.read_file(geojson_path)
@@ -36,8 +36,8 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, output_dir, basema
         print(f"Joined data: {joined_gdf.shape[0]} records")
         print(joined_gdf.head())
 
-        print("Reprojecting to California Albers NAD 83")
-        joined_gdf = joined_gdf.to_crs(epsg=3310)
+        print("Reprojecting to Web Mercator (EPSG:3857)")
+        joined_gdf = joined_gdf.to_crs(epsg=3857)
 
         print("Getting unique counties")
         counties = joined_gdf['county'].dropna().unique()
@@ -82,13 +82,15 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, output_dir, basema
                             color=colors.get(neighborhood_type, 'white'), 
                             edgecolor=edgecolors.get(neighborhood_type, 'none'), 
                             linewidth=0.5, 
+                            alpha=0.6,  # Set transparency
                             label=neighborhood_type
                         )
 
                 ctx.add_basemap(ax, source=basemap_source, zoom=zoom)
+                ctx.add_basemap(ax, source=label_layer, zoom=zoom)
 
                 # Create legend dynamically
-                legend_elements = [Patch(facecolor=colors[nt], edgecolor=edgecolors[nt], label=nt) for nt in neighborhood_types]
+                legend_elements = [Patch(facecolor=colors[nt], edgecolor=edgecolors[nt], label=nt, alpha=0.6) for nt in neighborhood_types]
                 ax.legend(handles=legend_elements, loc='upper right', title='Census Tracts')
 
                 ax.set_aspect('equal')  # Set aspect ratio to be equal
