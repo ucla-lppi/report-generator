@@ -5,7 +5,7 @@ import contextily as ctx
 import os
 from matplotlib.patches import Patch
 
-def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_path, output_dir, basemap_source=ctx.providers.CartoDB.Positron, label_layer=ctx.providers.CartoDB.PositronOnlyLabels, zoom=10, dpi=300):
+def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_path, roads_path, output_dir, basemap_source=ctx.providers.CartoDB.Positron, label_layer=ctx.providers.CartoDB.PositronOnlyLabels, zoom=10, dpi=300):
     try:
         print(f"Loading GeoJSON data from {geojson_path}")
         gdf = gpd.read_file(geojson_path)
@@ -21,6 +21,11 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
         counties_gdf = gpd.read_file(county_geojson_path)
         print(f"County boundaries loaded: {counties_gdf.shape[0]} records")
         print(counties_gdf.head())
+
+        print(f"Loading roads data from {roads_path}")
+        roads_gdf = gpd.read_file(roads_path)
+        print(f"Roads data loaded: {roads_gdf.shape[0]} records")
+        print(roads_gdf.head())
 
         print("Ensuring the columns used for joining have the same data type and padding GEOID with leading zeros")
         gdf['GEOID'] = gdf['GEOID'].astype(str).str.zfill(11)
@@ -44,6 +49,7 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
         print("Reprojecting to Web Mercator (EPSG:3857)")
         joined_gdf = joined_gdf.to_crs(epsg=3857)
         counties_gdf = counties_gdf.to_crs(epsg=3857)
+        roads_gdf = roads_gdf.to_crs(epsg=3857)
 
         print("Getting unique counties")
         counties = joined_gdf['county'].dropna().unique()
@@ -65,10 +71,16 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
                 # Get the matching county shape
                 county_shape = counties_gdf[counties_gdf['name'] == county]
 
+                # Clip the roads to the county boundaries
+                clipped_roads = gpd.overlay(roads_gdf, county_shape, how='intersection')
+
                 fig, ax = plt.subplots(1, 1, figsize=(15, 15))
 
                 # Plot the county boundary with a gray outline and no fill
                 county_shape.boundary.plot(ax=ax, linewidth=2.5, edgecolor='gray', zorder=3, alpha=0.45)
+
+                # Plot the clipped roads with a thicker gray line and higher transparency
+                clipped_roads.plot(ax=ax, color='#e3e3e3', linewidth=1.5, alpha=1, zorder=2)
 
                 # Get unique neighborhood types
                 neighborhood_types = county_gdf['Neighborhood_type'].unique()
@@ -86,6 +98,13 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
                     '50+ NL White': 'lightgray',
                     'Other': 'none'
                 }
+                human_friendly_labels = {
+                    '70+ Latino': 'Over 70% Latino',
+                    '50+ Latino': 'Over 50% Latino',
+                    '70+ NL White': 'Over 70% Non-Latino White',
+                    '50+ NL White': 'Over 50% Non-Latino White',
+                    'Other': 'Other'
+                }
 
                 for neighborhood_type in neighborhood_types:
                     if not county_gdf[county_gdf['Neighborhood_type'] == neighborhood_type].empty:
@@ -95,7 +114,7 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
                             edgecolor=edgecolors.get(neighborhood_type, 'none'), 
                             linewidth=0.5, 
                             alpha=0.6,  # Set transparency
-                            label=neighborhood_type
+                            label=human_friendly_labels.get(neighborhood_type, neighborhood_type)
                         )
 
                 ctx.add_basemap(ax, source=basemap_source, zoom=zoom)
@@ -105,7 +124,7 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
                 ax.set_axis_off()
 
                 # Create legend dynamically and add it last
-                legend_elements = [Patch(facecolor=colors[nt], edgecolor=edgecolors[nt], label=nt, alpha=0.6) for nt in neighborhood_types]
+                legend_elements = [Patch(facecolor=colors[nt], edgecolor=edgecolors[nt], label=human_friendly_labels[nt], alpha=0.6) for nt in neighborhood_types]
                 ax.legend(handles=legend_elements, loc='upper right', title='Census Tracts')
 
                 os.makedirs(output_dir, exist_ok=True)
