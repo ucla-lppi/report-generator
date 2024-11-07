@@ -28,6 +28,11 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
         print(f"County boundaries loaded: {counties_gdf.shape[0]} records")
         print(counties_gdf.head())
 
+        print(f"Loading roads data from {roads_path}")
+        roads_gdf = gpd.read_file(roads_path)
+        print(f"Roads data loaded: {roads_gdf.shape[0]} records")
+        print(roads_gdf.head())
+
         print("Ensuring the columns used for joining have the same data type and padding GEOID with leading zeros")
         gdf['GEOID'] = gdf['GEOID'].astype(str).str.zfill(11)
         pop_df['GEOID'] = pop_df['GEOID'].astype(str).str.zfill(11)
@@ -50,6 +55,7 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
         print("Reprojecting to Web Mercator (EPSG:3857)")
         joined_gdf = joined_gdf.to_crs(epsg=3857)
         counties_gdf = counties_gdf.to_crs(epsg=3857)
+        roads_gdf = roads_gdf.to_crs(epsg=3857)
 
         print("Getting unique counties")
         counties = joined_gdf['county'].dropna().unique()
@@ -70,6 +76,9 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
 
                 # Get the matching county shape
                 county_shape = counties_gdf[counties_gdf['name'] == county]
+
+                # Clip the roads to the county boundaries
+                clipped_roads = gpd.overlay(roads_gdf, county_shape, how='intersection')
 
                 fig, ax = plt.subplots(1, 1, figsize=(15, 15))
 

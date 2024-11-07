@@ -1,9 +1,10 @@
-// {
-//     "terminal.integrated.profiles.windows": {
-//         "Command Prompt": {
-//             "path": ["${env:windir}\\System32\\cmd.exe"],
-//             "args": ["/K", "conda activate gis"]
-//         }
-//     },
-//     "terminal.integrated.defaultProfile.windows": "Command Prompt"
-// }
+{
+    "python.testing.unittestEnabled": true,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./",
+        "-p",
+        "test_*.py"
+    ]
+}
