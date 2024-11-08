@@ -15,7 +15,13 @@ class TestMapUtils(unittest.TestCase):
         os.makedirs(self.output_dir, exist_ok=True)
 
     def test_generate_majority_tracts_map(self):
-        generate_majority_tracts_map(self.geojson_path, self.pop_data_path, self.ca_counties_path, self.ca_roads_path, self.output_dir)
+        generate_majority_tracts_map(
+            self.geojson_path, 
+            self.pop_data_path, 
+            self.ca_counties_path, 
+            road_data_path=self.ca_roads_path, 
+            output_dir=self.output_dir
+        )
         
         # Load the GeoJSON file to get the list of counties
         counties_gdf = gpd.read_file(self.ca_counties_path)
