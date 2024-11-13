@@ -5,11 +5,10 @@ import contextily as ctx
 import os
 from matplotlib.patches import Patch
 import numpy as np
-import jenkspy
 
 heat_variable = 'avg_90F'
 
-def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_path, output_dir, basemap_source=ctx.providers.CartoDB.Positron, label_layer=ctx.providers.CartoDB.PositronOnlyLabels, zoom=10, dpi=300, map_type=None, heat_data_path=None, population_filter=None, road_data_path=None):
+def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_path, output_dir, basemap_source=ctx.providers.CartoDB.Positron, label_layer=ctx.providers.CartoDB.PositronOnlyLabels, zoom=10, dpi=300, map_type=None, heat_data_path=None, population_filter=None, road_data_path=None, display=False):
     try:
         print(f"Loading GeoJSON data from {geojson_path}")
         gdf = gpd.read_file(geojson_path)
@@ -69,11 +68,6 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
         overall_average = joined_gdf[heat_variable].mean()
         print(f"Overall average: {overall_average}")
 
-        # Calculate breaks using jenkspy on the combined data
-        breaks = jenkspy.jenks_breaks(joined_gdf[heat_variable], n_classes=2)
-        breaks = [round(b) for b in breaks]  # Round the break values to the nearest integer
-        print(f"Jenks breaks: {breaks}")
-
         for county in counties:
             try:
                 print(f"Processing county: {county}")
@@ -110,19 +104,23 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
                 county_shape.boundary.plot(ax=ax, linewidth=2.5, edgecolor='gray', zorder=3, alpha=0.45)
 
                 if map_type == "heat":
+                    # Define color categories based on overall average
+                    below_avg = overall_average
+                    above_avg = overall_average
+
                     # Create legend elements
                     legend_elements = []
 
                     # Define colors for Latino and White neighborhoods
                     latino_colors = ['#fc9272', '#fb6a4a']
-                    white_colors = ['#f4e57f', '#f9c148']
+                    white_colors = ['#6baed6', '#0570b0']
 
                     # Plot Latino areas
                     for i, (color, label) in enumerate(zip(latino_colors, ['Below Average', 'Above Average'])):
                         if label == 'Below Average':
-                            mask = latino_gdf[heat_variable] <= breaks[1]
+                            mask = latino_gdf[heat_variable] < below_avg
                         else:
-                            mask = latino_gdf[heat_variable] > breaks[1]
+                            mask = latino_gdf[heat_variable] > above_avg
 
                         if not latino_gdf[mask].empty:
                             latino_gdf[mask].plot(ax=ax, color=color, edgecolor='none', linewidth=0.5, alpha=0.6)
@@ -131,9 +129,9 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
                     # Plot White areas
                     for i, (color, label) in enumerate(zip(white_colors, ['Below Average', 'Above Average'])):
                         if label == 'Below Average':
-                            mask = white_gdf[heat_variable] <= breaks[1]
+                            mask = white_gdf[heat_variable] < below_avg
                         else:
-                            mask = white_gdf[heat_variable] > breaks[1]
+                            mask = white_gdf[heat_variable] > above_avg
 
                         if not white_gdf[mask].empty:
                             white_gdf[mask].plot(ax=ax, color=color, edgecolor='none', linewidth=0.5, alpha=0.6)
@@ -150,11 +148,7 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
 
                     # Add legend to the plot
                     if legend_elements:
-                        legend_title = ''
-                        if heat_variable == 'avg_90F':
-                            legend_title = 'Annual Number of Days with 90°F+'
-                        if heat_variable == 'LONG_90_DAY':
-                            legend_title = 'Exposure to Heatwaves over 90°F+'
+                        legend_title = 'Average Number of Days with 90°F+'
                         legend = ax.legend(handles=legend_elements, loc='upper right', title=legend_title)
                         legend.set_zorder(10)  # Ensure legend is on top
 
@@ -165,16 +159,18 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
                 ax.set_axis_off()
 
                 # Create output directory for combined maps
-                output_subdir = os.path.join(output_dir, 'combined_maps', f'{heat_variable}')
+                output_subdir = os.path.join(output_dir, 'combined_maps')
                 os.makedirs(output_subdir, exist_ok=True)
 
-                output_path = os.path.join(output_subdir, f'{county}_heat_map_combined.png')
-                print(f"Saving map to {output_path}")
+                if display:
+                    plt.show()
+                else:
+                    output_path = os.path.join(output_subdir, f'{county}_heat_map_combined.png')
+                    print(f"Saving map to {output_path}")
+                    plt.savefig(output_path, bbox_inches='tight', pad_inches=0.1, dpi=dpi)
+                    plt.close()
 
-                plt.savefig(output_path, bbox_inches='tight', pad_inches=0.1, dpi=dpi)
-                plt.close()
-
-                print(f"Map for {county} saved to {output_path}")
+                    print(f"Map for {county} saved to {output_path}")
             except Exception as e:
                 print(f"An error occurred while processing {county}: {e}")
 
