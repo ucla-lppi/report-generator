@@ -7,7 +7,8 @@ from matplotlib.patches import Patch
 import numpy as np
 import jenkspy
 
-heat_variable = 'avg_90F'
+heat_variable = 'LONG_90_DAY'
+# heat_variable = 'avg_90F'
 
 def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_path, output_dir, basemap_source=ctx.providers.CartoDB.Positron, label_layer=ctx.providers.CartoDB.PositronOnlyLabels, zoom=10, dpi=300, map_type=None, heat_data_path=None, population_filter=None, road_data_path=None):
     try:
@@ -141,7 +142,7 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
 
                     # Add overall average to the legend if it's a valid number
                     if pd.notna(overall_average):
-                        legend_elements.append(Patch(facecolor='none', edgecolor='none', label=f'Overall Average: {round(overall_average)} days'))
+                        legend_elements.append(Patch(facecolor='none', edgecolor='none', label=f'State Average: {round(overall_average)} days'))
 
                     # Plot areas with no temperature data in light gray
                     no_data_gdf = combined_gdf[combined_gdf[heat_variable].isna()]
