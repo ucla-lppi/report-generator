@@ -10,7 +10,7 @@ class TestHeatMaps(unittest.TestCase):
         self.ca_counties_path = 'inputs/geojson/ca_counties_simplified.geojson'
         self.pop_data_path = 'inputs/tract_level_data.csv'
         self.heat_data_path = 'inputs/heat_data.csv'
-        self.output_dir = 'output/test_heat_maps'
+        self.output_dir = 'output/final_heat_maps'
         self.roads_path = 'inputs/geojson/ca_primary_secondary_roads.geojson'
         os.makedirs(self.output_dir, exist_ok=True)
 

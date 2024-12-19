@@ -4,6 +4,7 @@ from threading import Timer
 from data_utils import create_county_name_mapping, fetch_population_data, load_geojson, ensure_directories
 from pdf_utils import generate_pdfs
 from flask_app import start_flask_app
+import pandas as pd
 
 # Load environment variables from .env file
 from dotenv import load_dotenv
@@ -25,7 +26,9 @@ gdf = load_geojson(geojson_path)
 
 # Fetch population data (all rows)
 csv_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTDl0u8xAvazJjlCn62edUDjjK1tLwyi4hXihYpYIGOxawrN3_HfzvYKJ1ARzH4AzhrHZysIpkc_1Nc/pub?output=csv'
+csv_url_for_text ='https://docs.google.com/spreadsheets/d/e/2PACX-1vQiypgV-S8LImCs_esQOIbFsEXkXiAndnmo7RdW9pFutH-hYMwl5eZf3RddwzUy8PcdEEu4PLk9a1k6/pub?output=csv'
 pop_data = fetch_population_data(csv_url)
+text_data = pd.read_csv(csv_url_for_text)
 
 # Create a mapping of standardized county names to original names
 county_name_mapping = create_county_name_mapping(pop_data)

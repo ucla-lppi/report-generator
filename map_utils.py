@@ -4,11 +4,19 @@ import matplotlib.pyplot as plt
 import contextily as ctx
 import os
 from matplotlib.patches import Patch
-import numpy as np
-import jenkspy
 
-heat_variable = 'LONG_90_DAY'
-# heat_variable = 'avg_90F'
+# Define colors for neighborhoods
+COLOR_ABOVE_AVERAGE = '#5b0000'
+COLOR_ZERO_DAY_COUNT = '#fc9b9b'
+COLOR_BELOW_EQUAL_AVERAGE = '#ac3434'
+
+# Define county boundary style
+COUNTY_BOUNDARY_COLOR = 'gray'
+COUNTY_BOUNDARY_LINEWIDTH = 2.5
+COUNTY_BOUNDARY_ALPHA = 0.45
+
+# heat_variable = 'categorical_average'
+heat_variable = 'categorical_average'
 
 def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_path, output_dir, basemap_source=ctx.providers.CartoDB.Positron, label_layer=ctx.providers.CartoDB.PositronOnlyLabels, zoom=10, dpi=300, map_type=None, heat_data_path=None, population_filter=None, road_data_path=None):
     try:
@@ -66,15 +74,6 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
         counties = joined_gdf['county'].dropna().unique()
         print(f"Counties found: {counties}")
 
-        # Calculate overall county average and standard deviation
-        overall_average = joined_gdf[heat_variable].mean()
-        print(f"Overall average: {overall_average}")
-
-        # Calculate breaks using jenkspy on the combined data
-        breaks = jenkspy.jenks_breaks(joined_gdf[heat_variable], n_classes=2)
-        breaks = [round(b) for b in breaks]  # Round the break values to the nearest integer
-        print(f"Jenks breaks: {breaks}")
-
         for county in counties:
             try:
                 print(f"Processing county: {county}")
@@ -88,76 +87,54 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
                     print(f"No valid geometries for {county}")
                     continue
 
-                # Filter based on population type
-                latino_gdf = county_gdf[county_gdf['Neighborhood_type'] == '70+ Latino']
-                white_gdf = county_gdf[county_gdf['Neighborhood_type'] == '70+ NL White']
+                # Filter based on neighborhood type
+                latino_gdf = county_gdf[county_gdf['Neighborhood_type'].isin(['50+ Latino', '70+ Latino'])]
 
-                # Combine Latino and White neighborhoods
-                combined_gdf = pd.concat([latino_gdf, white_gdf])
-
-                if combined_gdf.empty:
-                    print(f"No valid Latino or White 70+ neighborhoods for {county}")
-                    continue
+                # Dissolve Latino boundaries
+                dissolved_latino_gdf = latino_gdf.dissolve()
 
                 # Get the matching county shape
                 county_shape = counties_gdf[counties_gdf['name'] == county]
 
-                # Clip the roads to the county boundaries
-                clipped_roads = gpd.overlay(roads_gdf, county_shape, how='intersection')
-
                 fig, ax = plt.subplots(1, 1, figsize=(15, 15))
 
                 # Plot the county boundary with a gray outline and no fill
-                county_shape.boundary.plot(ax=ax, linewidth=2.5, edgecolor='gray', zorder=3, alpha=0.45)
+                county_shape.boundary.plot(ax=ax, linewidth=COUNTY_BOUNDARY_LINEWIDTH, edgecolor=COUNTY_BOUNDARY_COLOR, zorder=3, alpha=COUNTY_BOUNDARY_ALPHA)
 
-                if map_type == "heat":
-                    # Create legend elements
-                    legend_elements = []
+                # Create legend elements
+                legend_elements = []
 
-                    # Define colors for Latino and White neighborhoods
-                    latino_colors = ['#fc9272', '#fb6a4a']
-                    white_colors = ['#f4e57f', '#f9c148']
+                # Define colors for neighborhoods
+                colors = {
+                    'Above Average': COLOR_ABOVE_AVERAGE,
+                    'Zero Day Count': COLOR_ZERO_DAY_COUNT,
+                    'Below/Equal Average': COLOR_BELOW_EQUAL_AVERAGE
+                }
 
-                    # Plot Latino areas
-                    for i, (color, label) in enumerate(zip(latino_colors, ['Below Average', 'Above Average'])):
-                        if label == 'Below Average':
-                            mask = latino_gdf[heat_variable] <= breaks[1]
-                        else:
-                            mask = latino_gdf[heat_variable] > breaks[1]
+                # Plot all areas
+                for label, color in colors.items():
+                    mask = county_gdf[heat_variable] == label
+                    if not county_gdf[mask].empty:
+                        county_gdf[mask].plot(ax=ax, color=color, edgecolor='none', linewidth=0.5, alpha=0.6)
+                        legend_elements.append(Patch(facecolor=color, edgecolor='none', label=f'{label}', alpha=0.6))
 
-                        if not latino_gdf[mask].empty:
-                            latino_gdf[mask].plot(ax=ax, color=color, edgecolor='none', linewidth=0.5, alpha=0.6)
-                            legend_elements.append(Patch(facecolor=color, edgecolor='none', label=f'{label} (Latino) ({round(latino_gdf[mask][heat_variable].min())}-{round(latino_gdf[mask][heat_variable].max())} days)', alpha=0.6))
+                # Plot dissolved Latino areas with a darker border and light hatch marks
+                for label, color in colors.items():
+                    mask = dissolved_latino_gdf[heat_variable] == label
+                    if not dissolved_latino_gdf[mask].empty:
+                        dissolved_latino_gdf[mask].plot(ax=ax, color='none', edgecolor='black', linewidth=1.0, alpha=0.6)
+                        dissolved_latino_gdf[mask].plot(ax=ax, color='none', edgecolor='black', linewidth=0.5, alpha=0.3, hatch='/', zorder=4)
 
-                    # Plot White areas
-                    for i, (color, label) in enumerate(zip(white_colors, ['Below Average', 'Above Average'])):
-                        if label == 'Below Average':
-                            mask = white_gdf[heat_variable] <= breaks[1]
-                        else:
-                            mask = white_gdf[heat_variable] > breaks[1]
+                # Plot areas with no data in light gray
+                no_data_gdf = county_gdf[county_gdf[heat_variable].isna()]
+                print(f"No data records: {no_data_gdf.shape[0]}")
+                no_data_gdf.plot(ax=ax, color='#d9d9d9', edgecolor='lightgray', linewidth=0.5, alpha=0.6)
 
-                        if not white_gdf[mask].empty:
-                            white_gdf[mask].plot(ax=ax, color=color, edgecolor='none', linewidth=0.5, alpha=0.6)
-                            legend_elements.append(Patch(facecolor=color, edgecolor='none', label=f'{label} (White) ({round(white_gdf[mask][heat_variable].min())}-{round(white_gdf[mask][heat_variable].max())} days)', alpha=0.6))
-
-                    # Add overall average to the legend if it's a valid number
-                    if pd.notna(overall_average):
-                        legend_elements.append(Patch(facecolor='none', edgecolor='none', label=f'State Average: {round(overall_average)} days'))
-
-                    # Plot areas with no temperature data in light gray
-                    no_data_gdf = combined_gdf[combined_gdf[heat_variable].isna()]
-                    print(f"No data records: {no_data_gdf.shape[0]}")
-                    no_data_gdf.plot(ax=ax, color='#d9d9d9', edgecolor='lightgray', linewidth=0.5, alpha=0.6)
-
-                    # Add legend to the plot
-                    if legend_elements:
-                        legend_title = ''
-                        if heat_variable == 'avg_90F':
-                            legend_title = 'Annual Number of Days with 90°F+'
-                        if heat_variable == 'LONG_90_DAY':
-                            legend_title = 'Exposure to Heatwaves over 90°F+'
-                        legend = ax.legend(handles=legend_elements, loc='upper right', title=legend_title)
-                        legend.set_zorder(10)  # Ensure legend is on top
+                # Add legend to the plot
+                if legend_elements:
+                    legend_elements.append(Patch(facecolor='none', edgecolor='black', label='Latino Neighborhoods', hatch='/', alpha=0.3))
+                    legend = ax.legend(handles=legend_elements, loc='upper right', title='Categorical Average')
+                    legend.set_zorder(10)  # Ensure legend is on top
 
                 ctx.add_basemap(ax, source=basemap_source, zoom=zoom)
                 ctx.add_basemap(ax, source=label_layer, zoom=zoom)
@@ -166,7 +143,7 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
                 ax.set_axis_off()
 
                 # Create output directory for combined maps
-                output_subdir = os.path.join(output_dir, 'combined_maps', f'{heat_variable}')
+                output_subdir = os.path.join(output_dir, 'combined_maps')
                 os.makedirs(output_subdir, exist_ok=True)
 
                 output_path = os.path.join(output_subdir, f'{county}_heat_map_combined.png')

@@ -8,13 +8,15 @@ def check_url(url):
         response = requests.get(url)
         if response.status_code == 200:
             print(f"URL {url} is accessible.")
-            return True
+            return True, None
         else:
-            print(f"URL {url} returned status code {response.status_code}.")
-            return False
+            error_msg = f"URL {url} returned status code {response.status_code}."
+            print(error_msg)
+            return False, error_msg
     except Exception as e:
-        print(f"Error accessing URL {url}: {e}")
-        return False
+        error_msg = f"Error accessing URL {url}: {e}"
+        print(error_msg)
+        return False, error_msg
 
 def generate_openai_content(prompt):
     api_key = os.getenv('OPENAI_API_KEY')
