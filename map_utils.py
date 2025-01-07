@@ -15,10 +15,40 @@ COUNTY_BOUNDARY_COLOR = 'gray'
 COUNTY_BOUNDARY_LINEWIDTH = 2.5
 COUNTY_BOUNDARY_ALPHA = 0.45
 
+output_geojson_path = 'output/joined_heat_data.geojson'
+
 # heat_variable = 'categorical_average'
 heat_variable = 'categorical_average'
 
-def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_path, output_dir, basemap_source=ctx.providers.CartoDB.Positron, label_layer=ctx.providers.CartoDB.PositronOnlyLabels, zoom=10, dpi=300, map_type=None, heat_data_path=None, population_filter=None, road_data_path=None):
+def join_heat_data_to_census(census_geojson_path, heat_data_path, output_geojson_path):
+    try:
+        print(f"Loading census GeoJSON data from {census_geojson_path}")
+        census_gdf = gpd.read_file(census_geojson_path)
+        print(f"Census data loaded: {census_gdf.shape[0]} records")
+        print(census_gdf.head())
+
+        print(f"Loading heat data from {heat_data_path}")
+        heat_df = pd.read_csv(heat_data_path, dtype={'GEOID': str})
+        print(f"Heat data loaded: {heat_df.shape[0]} records")
+        print(heat_df.head())
+
+        print("Ensuring GEOID columns have the same data type and padding with leading zeros")
+        census_gdf['GEOID'] = census_gdf['GEOID'].astype(str).str.zfill(11)
+        heat_df['GEOID'] = heat_df['GEOID'].astype(str).str.zfill(11)
+
+        print("Performing the join on GEOID")
+        joined_gdf = census_gdf.merge(heat_df, on='GEOID', how='left')
+        print(f"Joined data: {joined_gdf.shape[0]} records")
+        print(joined_gdf.head())
+
+        print(f"Saving joined data to {output_geojson_path}")
+        joined_gdf.to_file(output_geojson_path, driver='GeoJSON')
+        print("Join and save successful.")
+
+    except Exception as e:
+        print(f"An error occurred while joining heat data to census tracts: {e}")
+
+def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_path, output_dir, basemap_source=ctx.providers.CartoDB.Positron, label_layer=ctx.providers.CartoDB.PositronOnlyLabels, zoom=10, dpi=300, map_type=None, heat_data_path=None, population_filter=None, road_data_path=None, county_filter=None):
     try:
         print(f"Loading GeoJSON data from {geojson_path}")
         gdf = gpd.read_file(geojson_path)
@@ -51,7 +81,7 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
         pop_df['GEOID'] = pop_df['GEOID'].astype(str).str.zfill(11)
         if map_type == "heat" and heat_data_path:
             heat_df['GEOID'] = heat_df['GEOID'].astype(str).str.zfill(11)
-
+        join_heat_data_to_census(geojson_path, heat_data_path, output_geojson_path)
         print("Setting index for join")
         gdf.set_index('GEOID', inplace=True)
         pop_df.set_index('GEOID', inplace=True)
@@ -71,8 +101,11 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
         roads_gdf = roads_gdf.to_crs(epsg=3857)
 
         print("Getting unique counties")
-        counties = joined_gdf['county'].dropna().unique()
-        print(f"Counties found: {counties}")
+        if county_filter:
+            counties = [county_filter]
+        else:
+            counties = joined_gdf['county'].dropna().unique()
+        print(f"Counties to process: {counties}")
 
         for county in counties:
             try:
@@ -106,9 +139,9 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
 
                 # Define colors for neighborhoods
                 colors = {
-                    'Above Average': COLOR_ABOVE_AVERAGE,
                     'Zero Day Count': COLOR_ZERO_DAY_COUNT,
-                    'Below/Equal Average': COLOR_BELOW_EQUAL_AVERAGE
+                    'Below/Equal Average': COLOR_BELOW_EQUAL_AVERAGE,
+                    'Above Average': COLOR_ABOVE_AVERAGE
                 }
 
                 # Plot all areas
@@ -124,7 +157,6 @@ def generate_majority_tracts_map(geojson_path, pop_data_path, county_geojson_pat
                     if not dissolved_latino_gdf[mask].empty:
                         dissolved_latino_gdf[mask].plot(ax=ax, color='none', edgecolor='black', linewidth=1.0, alpha=0.6)
                         dissolved_latino_gdf[mask].plot(ax=ax, color='none', edgecolor='black', linewidth=0.5, alpha=0.3, hatch='/', zorder=4)
-
                 # Plot areas with no data in light gray
                 no_data_gdf = county_gdf[county_gdf[heat_variable].isna()]
                 print(f"No data records: {no_data_gdf.shape[0]}")

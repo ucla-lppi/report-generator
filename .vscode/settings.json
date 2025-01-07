@@ -6,5 +6,12 @@
         "./",
         "-p",
         "test_*.py"
-    ]
+	],
+	"workbench.editorAssociations": {
+		"0": {
+			"viewType": "jupyter.notebook.ipynb",
+			"filenamePattern": "*.ipynb"
+		},
+		"file:/**/*.csv": "jupyter-data-wrangler"
+	}
 }
