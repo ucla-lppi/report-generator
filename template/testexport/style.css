@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 .version {
     background-color: #ffffff;
     display: flex;
@@ -28,7 +30,8 @@
     width: 558px;
     top: 10px;
     left: 20px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 600;
     color: #ffffff;
     font-size: 14px;
@@ -37,7 +40,8 @@
   }
   
   .version .text-wrapper {
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 600;
     color: #ffffff;
     font-size: 14px;
@@ -98,7 +102,8 @@
     width: 96px;
     top: 41px;
     left: 229px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #ac3434;
     font-size: 12px;
@@ -120,7 +125,8 @@
     width: 96px;
     top: 75px;
     left: 229px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 400;
     color: #000000;
     font-size: 11px;
@@ -134,7 +140,8 @@
   }
   
   .version .text-wrapper-3 {
-    font-family: "Lexend-Regular", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
   }
   
   .version .graph {
@@ -186,7 +193,8 @@
     width: fit-content;
     margin-top: -1.77px;
     font-size: 11px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 600;
     color: #000000;
     letter-spacing: 0;
@@ -266,7 +274,8 @@
     width: 23px;
     top: 9px;
     left: 4px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #000000;
     font-size: 10px;
@@ -288,7 +297,8 @@
     width: 27px;
     top: 9px;
     left: 2px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #000000;
     font-size: 10px;
@@ -310,7 +320,8 @@
     width: 81px;
     top: 33px;
     left: 19px;
-    font-family: "Lexend-ExtraBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 800;
     font-weight: 800;
     color: #000000;
     font-size: 14px;
@@ -324,7 +335,8 @@
     width: 82px;
     top: 46px;
     left: 19px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 600;
     color: #000000;
     font-size: 12px;
@@ -338,7 +350,8 @@
     width: 250px;
     top: 5px;
     left: 0;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #000000;
     font-size: 14px;
@@ -371,7 +384,8 @@
     width: 77px;
     top: 169px;
     left: 122px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 600;
     color: #000000;
     font-size: 11px;
@@ -386,7 +400,8 @@
     width: 78px;
     top: 148px;
     left: 122px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 600;
     color: #000000;
     font-size: 11px;
@@ -418,7 +433,8 @@
     position: relative;
     width: fit-content;
     margin-top: -1.00px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 600;
     color: #000000;
     font-size: 11px;
@@ -431,7 +447,8 @@
     width: 77px;
     top: 190px;
     left: 122px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 600;
     color: #000000;
     font-size: 11px;
@@ -464,7 +481,8 @@
     width: 97px;
     top: 41px;
     left: 247px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #ac3434;
     font-size: 12px;
@@ -478,7 +496,8 @@
     left: 247px;
     position: absolute;
     top: 74px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 400;
     color: #000000;
     font-size: 11px;
@@ -500,7 +519,8 @@
     width: 325px;
     top: 108px;
     left: 0;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 600;
     color: #000000;
     font-size: 11px;
@@ -524,7 +544,8 @@
     width: 96px;
     top: 41px;
     left: 0;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #ac3434;
     font-size: 12px;
@@ -538,7 +559,8 @@
     width: 96px;
     top: 75px;
     left: 0;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 400;
     color: #000000;
     font-size: 11px;
@@ -639,7 +661,8 @@
     width: 90px;
     top: 160px;
     left: 3px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #ac3434;
     font-size: 12px;
@@ -653,7 +676,8 @@
     width: 90px;
     top: 160px;
     left: 211px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #ac3434;
     font-size: 12px;
@@ -667,7 +691,8 @@
     width: 95px;
     top: 160px;
     left: 105px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #ac3434;
     font-size: 12px;
@@ -681,7 +706,8 @@
     width: 95px;
     top: 40px;
     left: 153px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #ac3434;
     font-size: 12px;
@@ -695,7 +721,8 @@
     width: 96px;
     top: 41px;
     left: 48px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #ac3434;
     font-size: 11px;
@@ -709,7 +736,8 @@
     width: 90px;
     top: 193px;
     left: 3px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 400;
     color: #000000;
     font-size: 11px;
@@ -723,7 +751,8 @@
     width: 96px;
     top: 193px;
     left: 208px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 400;
     color: #000000;
     font-size: 11px;
@@ -737,7 +766,8 @@
     width: 90px;
     top: 193px;
     left: 107px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 400;
     color: #000000;
     font-size: 11px;
@@ -751,7 +781,8 @@
     left: 151px;
     position: absolute;
     top: 74px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 400;
     color: #000000;
     font-size: 11px;
@@ -765,7 +796,8 @@
     width: 96px;
     top: 74px;
     left: 48px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 400;
     color: #000000;
     font-size: 11px;
@@ -830,7 +862,8 @@
     width: 96px;
     top: 42px;
     left: 0;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #ac3434;
     font-size: 11px;
@@ -863,7 +896,8 @@
     width: 96px;
     top: 41px;
     left: 0;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #ac3434;
     font-size: 11px;
@@ -877,7 +911,8 @@
     width: 96px;
     top: 74px;
     left: 0;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 400;
     color: #000000;
     font-size: 11px;
@@ -910,7 +945,8 @@
     width: 90px;
     top: 41px;
     left: 3px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #ac3434;
     font-size: 12px;
@@ -924,7 +960,8 @@
     width: 90px;
     top: 74px;
     left: 3px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 400;
     color: #000000;
     font-size: 11px;
@@ -990,7 +1027,8 @@
     width: 414px;
     top: 0;
     left: 6px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #333333;
     font-size: 16px;
@@ -1003,7 +1041,8 @@
     width: 165px;
     top: 441px;
     left: 16px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 400;
     color: #000000;
     font-size: 11px;
@@ -1068,7 +1107,8 @@
     width: 144px;
     top: 11px;
     left: 12px;
-    font-family: "Lexend-Regular", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 400;
     color: #ffffff;
     font-size: 11px;
@@ -1092,7 +1132,8 @@
     width: 144px;
     top: 18px;
     left: 12px;
-    font-family: "Lexend-Regular", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 400;
     color: #ffffff;
     font-size: 11px;
@@ -1135,7 +1176,8 @@
     width: 144px;
     top: 53px;
     left: 12px;
-    font-family: "Lexend-Regular", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 400;
     color: #ffffff;
     font-size: 11px;
@@ -1148,7 +1190,8 @@
     width: 414px;
     top: 0;
     left: 1px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #333333;
     font-size: 16px;
@@ -1161,7 +1204,8 @@
     width: 137px;
     top: 52px;
     left: 252px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 600;
     color: #000000;
     font-size: 12px;
@@ -1175,7 +1219,8 @@
     width: 170px;
     top: 77px;
     left: 219px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 600;
     color: #000000;
     font-size: 12px;
@@ -1189,7 +1234,8 @@
     width: 226px;
     top: 101px;
     left: 178px;
-    font-family: "Lexend-Medium", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 500;
     font-weight: 500;
     color: #000000;
     font-size: 11px;
@@ -1204,7 +1250,8 @@
     color: #ac3434;
     position: absolute;
     width: 43px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     font-size: 20px;
     letter-spacing: 0;
@@ -1217,7 +1264,8 @@
     color: #ac6a34;
     position: absolute;
     width: 43px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     font-size: 20px;
     letter-spacing: 0;
@@ -1229,7 +1277,8 @@
     width: 414px;
     top: 197px;
     left: 417px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #333333;
     font-size: 16px;
@@ -1242,7 +1291,8 @@
     width: 414px;
     top: 360px;
     left: 417px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #333333;
     font-size: 16px;
@@ -1276,7 +1326,8 @@
     left: 74px;
     font-size: 12px;
     text-align: right;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 600;
     color: #000000;
     letter-spacing: 0;
@@ -1288,7 +1339,8 @@
     width: 170px;
     top: 48px;
     left: 41px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 600;
     color: #000000;
     font-size: 12px;
@@ -1302,7 +1354,8 @@
     width: 226px;
     top: 72px;
     left: 0;
-    font-family: "Lexend-Medium", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 500;
     font-weight: 500;
     color: #000000;
     font-size: 11px;
@@ -1316,7 +1369,8 @@
     width: 43px;
     top: 18px;
     left: 19px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #ac3434;
     font-size: 20px;
@@ -1330,7 +1384,8 @@
     color: #ac6a34;
     position: absolute;
     width: 43px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     font-size: 20px;
     letter-spacing: 0;
@@ -1350,7 +1405,8 @@
     width: 226px;
     top: 74px;
     left: 0;
-    font-family: "Lexend-Medium", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 500;
     font-weight: 500;
     color: #000000;
     font-size: 11px;
@@ -1383,7 +1439,8 @@
     width: 480px;
     top: 0;
     left: 99px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #333333;
     font-size: 32px;
@@ -1397,7 +1454,8 @@
     width: 237px;
     top: 110px;
     left: 20px;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #ac3434;
     font-size: 20px;
@@ -1418,7 +1476,8 @@
     width: 437px;
     top: 0;
     left: 0;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #ac3434;
     font-size: 20px;
@@ -1431,7 +1490,8 @@
     width: 437px;
     top: 27px;
     left: 0;
-    font-family: "Lexend-Bold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 700;
     font-weight: 700;
     color: #333333;
     font-size: 14px;
@@ -1453,7 +1513,8 @@
     width: 325px;
     top: 8px;
     left: 19px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 600;
     color: #ffffff;
     font-size: 12px;
@@ -1463,7 +1524,8 @@
   }
   
   .version .text-wrapper-37 {
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 600;
     color: #ffffff;
     font-size: 12px;
@@ -1479,7 +1541,8 @@
     width: 333px;
     top: 10px;
     left: 501px;
-    font-family: "Lexend-SemiBold", Helvetica;
+    font-family: "Lexend", Helvetica;
+    font-weight: 400;
     font-weight: 600;
     color: #ffffff;
     font-size: 11px;
