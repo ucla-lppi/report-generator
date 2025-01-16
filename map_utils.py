@@ -84,6 +84,18 @@ def generate_majority_tracts_map(
         print(f"County boundaries loaded: {counties_gdf.shape[0]} records")
         print(counties_gdf.head())
 
+        # Load Google Sheet data
+        print("Loading Google Sheet data from CSV")
+        google_sheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTDl0u8xAvazJjlCn62edUDjjK1tLwyi4hXihYpYIGOxawrN3_HfzvYKJ1ARzH4AzhrHZysIpkc_1Nc/pub?output=csv'
+        google_df = pd.read_csv(google_sheet_url, dtype={'County': str})
+        print(f"Google Sheet data loaded: {google_df.shape[0]} records")
+        print(google_df.head())
+
+        print("Merging Google Sheet data with county GeoDataFrame")
+        counties_gdf = counties_gdf.merge(google_df, how='left', left_on='name', right_on='County')
+        print(f"Counties after merge: {counties_gdf.shape[0]} records")
+        print(counties_gdf.head())
+
         print(f"Loading roads data from {road_data_path}")
         roads_gdf = gpd.read_file(road_data_path)
         print(f"Roads data loaded: {roads_gdf.shape[0]} records")
@@ -126,10 +138,10 @@ def generate_majority_tracts_map(
             'Below/Equal Average': 1,
             'Above Average': 2
         }
-        joined_gdf['categorical_average_num'] = joined_gdf['categorical_average'].map(category_mapping)
-        state_average = joined_gdf['categorical_average_num'].mean()
-        print(f"State Average: {state_average:.2f}")
-
+        # joined_gdf['categorical_average_num'] = joined_gdf['categorical_average'].map(category_mapping)
+        state_average = counties_gdf['avgDays_90F_state'].iloc[0]
+        print(f"State Average from Google Sheet (rounded to 1 decimal): {state_average:.0f}")
+        county_average = counties_gdf['avgDays_90F_county'].iloc[0]
         for county in counties:
             try:
                 print(f"Processing county: {county}")
@@ -143,6 +155,7 @@ def generate_majority_tracts_map(
                     print(f"No valid geometries for {county}")
                     continue
 
+
                 # Filter based on neighborhood type
                 latino_gdf = county_gdf[county_gdf['Neighborhood_type'].isin(['50+ Latino', '70+ Latino'])]
 
@@ -151,8 +164,10 @@ def generate_majority_tracts_map(
                 print(f"Dissolved Latino neighborhoods: {dissolved_latino_gdf.shape[0]} records")
 
                 # Calculate county average
-                county_average = county_gdf['categorical_average_num'].mean()
-                print(f"County Average: {county_average:.2f}")
+                # Retrieve county average from merged data
+                county_average = counties_gdf[counties_gdf['name'] == county]['avgDays_90F_county'].values[0]
+                print(f"County Average from Google Sheet: {county_average:.0f}")
+
 
                 # Get the matching county shape
                 county_shape = counties_gdf[counties_gdf['name'] == county]
@@ -279,20 +294,20 @@ def generate_majority_tracts_map(
                         Patch(
                             facecolor='none',
                             edgecolor='none',
-                            label=f'County Average: {county_average:.2f}'
+                            label=f'County Average: {county_average:.0f}'
                         )
                     )
                     legend_elements.append(
                         Patch(
                             facecolor='none',
                             edgecolor='none',
-                            label=f'State Average: {state_average:.2f}'
+                            label=f'State Average: {state_average:.0f}'
                         )
                     )
                     legend = ax.legend(
                         handles=legend_elements,
                         loc='upper right',
-                        title='Categorical Average',
+                        title='Number Extreme Heat Days',
                         frameon=True
                     )
                     legend.set_zorder(10)  # Ensure legend is on top

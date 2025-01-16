@@ -32,9 +32,21 @@ def generate_maps(joined_geojson_path, pop_data_path, county_geojson_path, roads
         print(f"Population data loaded: {pop_df.shape[0]} records")
         print(pop_df.head())
 
-        print(f"Loading county boundaries from {county_geojson_path}")
+        print("Loading county boundaries from {county_geojson_path}")
         counties_gdf = gpd.read_file(county_geojson_path)
         print(f"County boundaries loaded: {counties_gdf.shape[0]} records")
+        print(counties_gdf.head())
+
+        # Load Google Sheet data
+        print("Loading Google Sheet data from CSV")
+        google_sheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTDl0u8xAvazJjlCn62edUDjjK1tLwyi4hXihYpYIGOxawrN3_HfzvYKJ1ARzH4AzhrHZysIpkc_1Nc/pub?output=csv'
+        google_df = pd.read_csv(google_sheet_url, dtype={'County': str})
+        print(f"Google Sheet data loaded: {google_df.shape[0]} records")
+        print(google_df.head())
+
+        print("Merging Google Sheet data with county GeoDataFrame")
+        counties_gdf = counties_gdf.merge(google_df, how='left', left_on='name', right_on='County')
+        print(f"Counties after merge: {counties_gdf.shape[0]} records")
         print(counties_gdf.head())
 
         print(f"Loading roads data from {roads_geojson_path}")
