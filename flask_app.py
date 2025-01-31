@@ -173,6 +173,18 @@ def build_county_report_data(standardized_county_name):
 		'Percentage Disadvantaged Communities':{
 			'Latino': f"{round(county_pop_data['pct_dac_lat'])}%",
 			'NL White': f"{round(county_pop_data['pct_dac_comp'])}%"
+		},
+		'Impervious Surfaces':{
+			'Latino': f"{round(county_pop_data['pct_imp_surf_lat'])}%",
+			'NL White': f"{round(county_pop_data['pct_imp_surf_comp'])}%"
+		},
+		'Tree Canopy':{
+			'Latino': f"{round(county_pop_data['pct_tree_lat'])}%",
+			'NL White': f"{round(county_pop_data['pct_tree_comp'])}%"
+		},
+		'Old Housing':{
+			'Latino': f"{round(county_pop_data['pct_old_house_lat'])}%",
+			'NL White': f"{round(county_pop_data['pct_old_house_comp'])}%"
 		}
 	}
 

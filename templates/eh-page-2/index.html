@@ -57,19 +57,19 @@
           <span class="span">NL white<br /></span> <span class="text-wrapper-3">neighborhoods</span>
         </p>
         <div class="overlap-3">
-          <img
-            class="tree-canopy-graphic"
-            src="{{ url_for('static', filename='extremeheat/images/tree-canopy-graphic.png') }}"
-          />
-          <img
-            class="img"
-            src="{{ url_for('static', filename='extremeheat/images/impervious-surfaces-graphic.png') }}"
-          />
-          <img
-            class="older-housing-units-3"
-            src="{{ url_for('static', filename='extremeheat/images/older-housing-units-graphic.png') }}"
-          />
-        </div>
+			<img class="tree-canopy-graphic" src="{{ url_for('static', filename='extremeheat/images/tree-canopy-graphic.png') }}" />
+			<img class="img" src="{{ url_for('static', filename='extremeheat/images/impervious-surfaces-graphic.png') }}" />
+			<img class="older-housing-units-3" src="{{ url_for('static', filename='extremeheat/images/older-housing-units-graphic.png') }}" />
+			<div class="tree-canopy-graphic-2">share of land</div>
+			<div class="older-housing-units-4">share of housing units</div>
+			<div class="impervious-surfaces-2">share of land</div>
+			<div class="tree-canopy-lat">{{ county_statistics['Tree Canopy']['Latino'] }}</div>
+			<div class="tree-canopy-NLW">{{ county_statistics['Tree Canopy']['NL White'] }}</div>
+			<div class="impervious-surfaces-3">{{ county_statistics['Impervious Surfaces']['Latino'] }}</div>
+			<div class="impervious-surfaces-4">{{ county_statistics['Impervious Surfaces']['NL White'] }}</div>
+			<div class="older-housing-units-5">{{ county_statistics['Old Housing']['Latino'] }}</div>
+			<div class="older-housing-units-6">{{ county_statistics['Old Housing']['NL White'] }}</div>
+		  </div>
         <div class="overlap-wrapper">
           <div class="overlap-4">
             <div class="workers-tab"></div>

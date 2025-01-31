@@ -127,7 +127,7 @@
 .version .p {
   position: absolute;
   width: 515px;
-  top: 19px;
+  top: 18px;
   left: 0;
   font-family: "Lexend", Helvetica;
   font-weight: 400;
@@ -139,7 +139,7 @@
 
 .version .text-wrapper-2 {
   width: 150px;
-  top: 1;
+  top: 0;
   font-family: "Lexend", Helvetica;
   font-weight: 700;
   color: #000000;
@@ -181,16 +181,16 @@
 }
 
 .version .older-housing-units-2 {
+  position: absolute;
   width: 410px;
   top: 0;
+  left: 0;
   font-family: "Lexend", Helvetica;
   font-weight: 700;
   color: #000000;
   font-size: 12px;
   letter-spacing: 0;
   line-height: normal;
-  position: absolute;
-  left: 0;
 }
 
 .version .barriers-graphic {
@@ -232,164 +232,163 @@
   line-height: normal;
 }
 
-
 .version .overlap-3 {
-	position: absolute;
-	width: 190px;
-	height: 220px;
-	top: 144px;
-	left: 606px;
-  }
-  
-  .version .tree-canopy-graphic {
-	position: absolute;
-	width: 185px;
-	height: 56px;
-	top: 0;
-	left: 3px;
-  }
-  
-  .version .img {
-	position: absolute;
-	width: 185px;
-	height: 56px;
-	top: 71px;
-	left: 3px;
-  }
-  
-  .version .older-housing-units-3 {
-	position: absolute;
-	width: 185px;
-	height: 56px;
-	top: 142px;
-	left: 3px;
-  }
-  
-  .version .tree-canopy-graphic-2 {
-	position: absolute;
-	width: 100px;
-	top: 53px;
-	left: 45px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #333333;
-	font-size: 12px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .older-housing-units-4 {
-	position: absolute;
-	width: 190px;
-	top: 195px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #333333;
-	font-size: 12px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .impervious-surfaces-2 {
-	position: absolute;
-	width: 100px;
-	top: 124px;
-	left: 45px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #333333;
-	font-size: 12px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .tree-canopy-lat {
-	position: absolute;
-	width: 64px;
-	top: 11px;
-	left: 7px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ffffff;
-	font-size: 20px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .tree-canopy-NLW {
-	position: absolute;
-	width: 65px;
-	top: 11px;
-	left: 119px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ffffff;
-	font-size: 20px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .impervious-surfaces-3 {
-	position: absolute;
-	width: 64px;
-	top: 82px;
-	left: 7px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ffffff;
-	font-size: 20px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .impervious-surfaces-4 {
-	position: absolute;
-	width: 65px;
-	top: 82px;
-	left: 119px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ffffff;
-	font-size: 20px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .older-housing-units-5 {
-	position: absolute;
-	width: 64px;
-	top: 153px;
-	left: 7px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ffffff;
-	font-size: 20px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .older-housing-units-6 {
-	position: absolute;
-	width: 65px;
-	top: 153px;
-	left: 119px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ffffff;
-	font-size: 20px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
+  position: absolute;
+  width: 190px;
+  height: 220px;
+  top: 144px;
+  left: 606px;
+}
+
+.version .tree-canopy-graphic {
+  position: absolute;
+  width: 185px;
+  height: 56px;
+  top: 0;
+  left: 3px;
+}
+
+.version .img {
+  position: absolute;
+  width: 185px;
+  height: 56px;
+  top: 71px;
+  left: 3px;
+}
+
+.version .older-housing-units-3 {
+  position: absolute;
+  width: 185px;
+  height: 56px;
+  top: 142px;
+  left: 3px;
+}
+
+.version .tree-canopy-graphic-2 {
+  position: absolute;
+  width: 100px;
+  top: 53px;
+  left: 45px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #333333;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .older-housing-units-4 {
+  position: absolute;
+  width: 190px;
+  top: 195px;
+  left: 0;
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #333333;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .impervious-surfaces-2 {
+  position: absolute;
+  width: 100px;
+  top: 124px;
+  left: 45px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #333333;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .tree-canopy-lat {
+  position: absolute;
+  width: 64px;
+  top: 11px;
+  left: 7px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .tree-canopy-NLW {
+  position: absolute;
+  width: 65px;
+  top: 11px;
+  left: 119px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .impervious-surfaces-3 {
+  position: absolute;
+  width: 64px;
+  top: 82px;
+  left: 7px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .impervious-surfaces-4 {
+  position: absolute;
+  width: 65px;
+  top: 82px;
+  left: 119px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .older-housing-units-5 {
+  position: absolute;
+  width: 64px;
+  top: 153px;
+  left: 7px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .older-housing-units-6 {
+  position: absolute;
+  width: 65px;
+  top: 153px;
+  left: 119px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
 
 .version .overlap-wrapper {
   position: absolute;
@@ -418,7 +417,7 @@
 .version .workers-subtitle {
   position: absolute;
   width: 356px;
-  top: 2;
+  top: 0;
   left: 11px;
   font-family: "Lexend", Helvetica;
   font-weight: 700;
@@ -443,7 +442,7 @@
 .version .workers-info-text {
   position: absolute;
   width: 455px;
-  top: 31px;
+  top: 29px;
   left: 12px;
   font-family: "Lexend", Helvetica;
   font-weight: 400;
@@ -940,6 +939,7 @@
 .version .masked-hospital-icon {
   width: 7px;
   left: 31px;
+  position: absolute;
   height: 14px;
   top: 0;
 }
