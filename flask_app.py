@@ -76,10 +76,10 @@ def build_county_report_data(standardized_county_name):
 
 	county_statistics = {
 		'Population': {
-			'Total': county_pop_data['pop_county_total'],
-			'Latino': county_pop_data['pop_county_lat'],
-			'NL White': county_pop_data['pop_county_nlw'],
-			'Other': county_pop_data['pop_county_other']
+			'Total': total_pop,
+			'Latino': latino_pop,
+			'NL White': nlw_pop,
+			'Other': pop_county_other
 		},
 		'Average Heat Days': {
 			'County': int(round(county_pop_data['avgDays_90F_county'])),
