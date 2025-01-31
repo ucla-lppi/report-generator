@@ -66,14 +66,15 @@ def draw_donut(data, county_name, output_dir):
     main_number = parts[0]
     main_unit = parts[1] if len(parts) > 1 else ''
 
+    # Adjust center text positions
     ax.text(
-        0, 0.05, main_number,
+        0, -0.05, main_number,  # lowered from 0.05 to -0.05
         ha='center', va='center',
         fontproperties=fp_extra_bold,
         fontsize=16, color='#000000'
     )
     ax.text(
-        0, -0.15, main_unit,
+        0, -0.25, main_unit,  # lowered from -0.15 to -0.25
         ha='center', va='center',
         fontproperties=fp_semi_bold,
         fontsize=12, color='#000000'
@@ -88,7 +89,7 @@ def draw_donut(data, county_name, output_dir):
 
         # Calculate the centroid angle for the label and circle
         label_angle = (w.theta1 + w.theta2) / 2
-        label_rad = 0.85  # Adjust this value to position the label closer or farther from the center
+        label_rad = 1.05  # Adjust this value to position the label closer or farther from the center
         label_x = label_rad * math.cos(math.radians(label_angle))
         label_y = label_rad * math.sin(math.radians(label_angle))
 
@@ -98,7 +99,8 @@ def draw_donut(data, county_name, output_dir):
             ax.add_patch(shadow_circle)
 
         # Draw main circle
-        circle = Circle((label_x, label_y), 0.2, facecolor='#ffffff', edgecolor='#dedede', linewidth=1, zorder=5)
+        circle = Circle((label_x, label_y), 0.25, facecolor='#ffffff', edgecolor='#dedede', linewidth=1, zorder=5)
+
         ax.add_patch(circle)
 
         # Draw label
