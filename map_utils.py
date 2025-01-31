@@ -173,7 +173,7 @@ def generate_majority_tracts_map(
                 county_shape = counties_gdf[counties_gdf['name'] == county]
 
                 # Calculate figsize based on aspect ratio similar to 590x760 (~0.776)
-                aspect_ratio = 590 / 760  # ≈0.776
+                aspect_ratio = 387 / 507  # ≈0.776
                 desired_width_inches = 8  # Choose a larger width for better visibility
                 desired_height_inches = desired_width_inches / aspect_ratio  # ≈10.3
                 figsize = (desired_width_inches, desired_height_inches)
@@ -304,13 +304,13 @@ def generate_majority_tracts_map(
                             label=f'State Average: {state_average:.0f}'
                         )
                     )
-                    legend = ax.legend(
-                        handles=legend_elements,
-                        loc='upper right',
-                        title='Number Extreme Heat Days',
-                        frameon=True
-                    )
-                    legend.set_zorder(10)  # Ensure legend is on top
+                    # legend = ax.legend(
+                    #     handles=legend_elements,
+                    #     loc='upper right',
+                    #     title='Number Extreme Heat Days',
+                    #     frameon=True
+                    # )
+                    # legend.set_zorder(10)  # Ensure legend is on top
 
                 # Add Basemap Layers
                 ctx.add_basemap(ax, source=basemap_source, zoom=zoom)
