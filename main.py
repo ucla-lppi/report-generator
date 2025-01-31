@@ -35,7 +35,7 @@ text_data = pd.read_csv(csv_url_for_text)
 county_name_mapping = create_county_name_mapping(pop_data)
 def generate_static_html(county_name_mapping, report_type, output_dir):
     reports_dir = os.path.join(output_dir, "heatreports")
-    local_reports_dir = os.path.join(output_dir, "local_heatreports")
+    local_reports_dir = os.path.join("temp", "heatreports")
     os.makedirs(reports_dir, exist_ok=True)
     os.makedirs(local_reports_dir, exist_ok=True)
 

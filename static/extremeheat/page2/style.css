@@ -310,7 +310,7 @@
   .version .tree-canopy-lat {
 	position: absolute;
 	width: 64px;
-	top: 11px;
+	top: 12px;
 	left: 7px;
 	font-family: "Lexend", Helvetica;
 	font-weight: 700;
@@ -324,7 +324,7 @@
   .version .tree-canopy-NLW {
 	position: absolute;
 	width: 65px;
-	top: 11px;
+	top: 12px;
 	left: 119px;
 	font-family: "Lexend", Helvetica;
 	font-weight: 700;
@@ -338,7 +338,7 @@
   .version .impervious-surfaces-3 {
 	position: absolute;
 	width: 64px;
-	top: 82px;
+	top: 83px;
 	left: 7px;
 	font-family: "Lexend", Helvetica;
 	font-weight: 700;
@@ -352,7 +352,7 @@
   .version .impervious-surfaces-4 {
 	position: absolute;
 	width: 65px;
-	top: 82px;
+	top: 83px;
 	left: 119px;
 	font-family: "Lexend", Helvetica;
 	font-weight: 700;
@@ -366,7 +366,7 @@
   .version .older-housing-units-5 {
 	position: absolute;
 	width: 64px;
-	top: 153px;
+	top: 154px;
 	left: 7px;
 	font-family: "Lexend", Helvetica;
 	font-weight: 700;
@@ -380,7 +380,7 @@
   .version .older-housing-units-6 {
 	position: absolute;
 	width: 65px;
-	top: 153px;
+	top: 154px;
 	left: 119px;
 	font-family: "Lexend", Helvetica;
 	font-weight: 700;
@@ -945,7 +945,7 @@
 }
 
 .version .hospital-icon {
-  position: absolute;
+  position: relative;
   width: 12px;
   height: 12px;
   top: 0;
