@@ -127,7 +127,7 @@
 .version .p {
   position: absolute;
   width: 515px;
-  top: 18px;
+  top: 19px;
   left: 0;
   font-family: "Lexend", Helvetica;
   font-weight: 400;
@@ -139,7 +139,7 @@
 
 .version .text-wrapper-2 {
   width: 150px;
-  top: 0;
+  top: 1;
   font-family: "Lexend", Helvetica;
   font-weight: 700;
   color: #000000;
@@ -291,7 +291,7 @@
 .version .workers-subtitle {
   position: absolute;
   width: 356px;
-  top: 0;
+  top: 2;
   left: 11px;
   font-family: "Lexend", Helvetica;
   font-weight: 700;
@@ -316,7 +316,7 @@
 .version .workers-info-text {
   position: absolute;
   width: 455px;
-  top: 29px;
+  top: 31px;
   left: 12px;
   font-family: "Lexend", Helvetica;
   font-weight: 400;
