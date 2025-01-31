@@ -1,567 +1,337 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <meta charset="utf-8"/>
-  <link href="/report-generator/static/extremeheat/global.css" rel="stylesheet"/>
-  <link rel="stylesheet" href="/report-generator/static/extremeheat/style.css">
-
- </head>
- <body>
-  <div class="version">
-   <div class="div">
-    <div class="overlap">
-     <div class="overlap-group">
-      <div class="overlap-2">
-       <div class="median-age-card">
-        <div class="overlap-group-2">
-         <div class="median-age">
-          Median
-          <br/>
-          Age
-         </div>
-         <img class="median-age-icon" src="/report-generator/static/extremeheat/images/median-age-icon.svg"/>
-        </div>
-        <p class="p">
-         <span class="text-wrapper">
-          Latino:
-         </span>
-         <span class="span" id="median-age-latino">
-          28 yrs
-          <br/>
-         </span>
-         <span class="text-wrapper">
-          NL white:
-         </span>
-         <span class="span" id="median-age-nl-white">
-          52 yrs
-         </span>
-        </p>
-       </div>
-       <div class="population-card">
-        <div class="overlap-3">
-         <div class="population-labeled">
-          <img class="mongmongbliss" src="/report-generator/static/extremeheat/images/mongmongbliss-1@2x.png"/>
-         </div>
-         <div class="population-chart">
-          Population
-         </div>
-         <div class="population-legend">
-          <div class="latino-legend-item">
-           <div class="latino-color">
-           </div>
-           <div class="text-wrapper-2">
-            Latino
-           </div>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./extremeheat/global.css" />
+    <link rel="stylesheet" href="./extremeheat/style.css" />
+  </head>
+  <body>
+    <div class="version">
+      <div class="div">
+        <div class="overlap">
+          <div class="overlap-group">
+            <div class="overlap-2">
+              <div class="median-age-card">
+                <div class="overlap-group-2">
+                  <div class="median-age">Median<br />Age</div>
+                  <img class="median-age-icon" src="https://c.animaapp.com/Ci2A0n3x/img/median-age-icon.svg" />
+                </div>
+                <p class="p">
+                  <span class="text-wrapper">Latino:</span>
+                  <span class="span"> 32 yrs<br /></span>
+                  <span class="text-wrapper">NL white:</span>
+                  <span class="span"> 45 yrs</span>
+                </p>
+              </div>
+              <div class="population-card">
+                <div class="overlap-3">
+                  <div class="population-labeled">
+                    <img class="mongmongbliss" src="https://c.animaapp.com/Ci2A0n3x/img/mongmongbliss-1@2x.png" />
+                  </div>
+                  <div class="population-chart">Population</div>
+                  <div class="population-legend">
+                    <div class="latino-legend-item">
+                      <div class="latino-color"></div>
+                      <div class="text-wrapper-2">Latino</div>
+                    </div>
+                    <div class="NLW-legend-item">
+                      <div class="NLW-color"></div>
+                      <div class="text-wrapper-2">NL white</div>
+                    </div>
+                    <div class="NLW-count">2.5 million</div>
+                    <div class="latino-count">4.9 million</div>
+                    <div class="other-legend-item">
+                      <div class="other-color"></div>
+                      <div class="text-wrapper-3">Other</div>
+                    </div>
+                    <div class="other-count">2.6 million</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="overlap-4">
+              <div class="SNAP-benefits-card">
+                <div class="overlap-5">
+                  <div class="div-2"></div>
+                  <div class="SNAP-benefits">SNAP<br />Benefits</div>
+                  <p class="SNAP-benefits-data">
+                    <span class="text-wrapper">Latino:</span>
+                    <span class="span"> 16%<br /></span>
+                    <span class="text-wrapper">NL white:</span>
+                    <span class="span"> 6%</span>
+                  </p>
+                  <img class="SNAP-benefits-icon" src="https://c.animaapp.com/Ci2A0n3x/img/snap-benefits-icon.svg" />
+                </div>
+              </div>
+              <p class="text-wrapper-4">*NL white = Non-Latino white</p>
+            </div>
           </div>
-          <div class="NLW-legend-item">
-           <div class="NLW-color">
-           </div>
-           <div class="text-wrapper-2">
-            NL white
-           </div>
+          <div class="non-citzen">
+            <div class="non-citizen">Non-Citizen<br />Population</div>
+            <p class="p">
+              <span class="text-wrapper">Latino:</span>
+              <span class="span"> 21%<br /></span>
+              <span class="text-wrapper">NL white:</span>
+              <span class="span"> 5%</span>
+            </p>
+            <img class="img" src="https://c.animaapp.com/Ci2A0n3x/img/non-citizen-population-icon.svg" />
           </div>
-          <div class="NLW-count" id="nl-white-population">
-           262K
+        </div>
+        <div class="overlap-6">
+          <div class="overlap-7">
+            <div class="div-2">
+              <div class="limited-english">Limited English<br />Proficiency</div>
+              <p class="p">
+                <span class="text-wrapper">Latino:</span>
+                <span class="span"> 32%<br /></span>
+                <span class="text-wrapper">NL white:</span>
+                <span class="span"> 7%</span>
+              </p>
+              <img
+                class="limited-english-2"
+                src="https://c.animaapp.com/Ci2A0n3x/img/limited-english-proficiency-icon.svg"
+              />
+            </div>
+            <div class="overlap-8">
+              <div class="poverty-rate-card">
+                <div class="overlap-9">
+                  <div class="poverty-rate"></div>
+                  <div class="poverty-rate-2">Poverty<br />Rate</div>
+                  <p class="poverty-rate-data">
+                    <span class="text-wrapper">Latino:</span>
+                    <span class="span"> 16%<br /></span>
+                    <span class="text-wrapper">NL white:</span>
+                    <span class="span"> 10%</span>
+                  </p>
+                  <img class="poverty-rate-icon" src="https://c.animaapp.com/Ci2A0n3x/img/poverty-rate-icon.svg" />
+                </div>
+              </div>
+              <div class="renter-occupied">
+                <div class="overlap-9">
+                  <div class="div-2"></div>
+                  <div class="text-wrapper-5">Renter Occupied<br />Households</div>
+                  <p class="div-3">
+                    <span class="text-wrapper">Latino:</span>
+                    <span class="span"> 60%<br /></span>
+                    <span class="text-wrapper">NL white:</span>
+                    <span class="span"> 46%</span>
+                  </p>
+                  <img
+                    class="renter-occupied-2"
+                    src="https://c.animaapp.com/Ci2A0n3x/img/renter-occupied-households-icon.svg"
+                  />
+                </div>
+              </div>
+              <div class="uninsured-rate-card">
+                <div class="uninsured-rate">Uninsured<br />Rate</div>
+                <p class="div-4">
+                  <span class="text-wrapper">Latino:</span>
+                  <span class="span"> 13%<br /></span>
+                  <span class="text-wrapper">NL white:</span>
+                  <span class="span"> 4%</span>
+                </p>
+                <img class="img-2" src="https://c.animaapp.com/Ci2A0n3x/img/uninsured-rate-icon.svg" />
+              </div>
+              <div class="life-expectancy-card">
+                <div class="overlap-10">
+                  <div class="life-expectancy">Life<br />Expectancy</div>
+                  <img
+                    class="life-expectancy-icon"
+                    src="https://c.animaapp.com/Ci2A0n3x/img/life-expectancy-icon.svg"
+                  />
+                </div>
+                <p class="p">
+                  <span class="text-wrapper">Latino:</span>
+                  <span class="span"> 80 yrs<br /></span>
+                  <span class="text-wrapper">NL white:</span>
+                  <span class="span"> 80 yrs</span>
+                </p>
+              </div>
+              <div class="fair-poor-health">
+                <div class="fair-poor-health-2">Fair/Poor<br />Health Status</div>
+                <p class="div-4">
+                  <span class="text-wrapper">Latino:</span>
+                  <span class="span"> 20%<br /></span>
+                  <span class="text-wrapper">NL white:</span>
+                  <span class="span"> 10%</span>
+                </p>
+                <img class="img-2" src="https://c.animaapp.com/Ci2A0n3x/img/fair-poor-health-status-icon.svg" />
+              </div>
+            </div>
+            <div class="household-median">
+              <div class="text-wrapper-5">Household Median Income</div>
+              <p class="div-3">
+                <span class="text-wrapper">Latino:</span>
+                <span class="span"> $71k<br /></span>
+                <span class="text-wrapper">NL white:</span>
+                <span class="span"> $105k</span>
+              </p>
+              <img
+                class="household-median-2"
+                src="https://c.animaapp.com/Ci2A0n3x/img/household-median-income-icon.svg"
+              />
+            </div>
           </div>
-          <div class="latino-count" id="latino-population">
-           125K
+          <div class="food-insecurity-card">
+            <div class="food-insecurity">Food<br />Insecurity</div>
+            <p class="food-insecurity-data">
+              <span class="text-wrapper">Latino:</span>
+              <span class="span"> 19%<br /></span>
+              <span class="text-wrapper">NL white:</span>
+              <span class="span"> 10%</span>
+            </p>
+            <img class="food-insecurity-icon" src="https://c.animaapp.com/Ci2A0n3x/img/food-insecurity-icon.svg" />
           </div>
-          <div class="other-legend-item">
-           <div class="other-color">
-           </div>
-           <div class="text-wrapper-3">
-            Other
-           </div>
+        </div>
+        <div class="overlap-11">
+          <div class="overlap-12">
+            <div class="map-averages">
+              <p class="map-averages-data">County Average: 27<br />State Average: 51</p>
+            </div>
+            <div class="map-legend">
+              <div class="overlap-13">
+                <div class="map-legend-rectangle"></div>
+                <p class="legend-text">
+                  <span class="text-wrapper-6">Categorical Average<br /></span>
+                  <span class="span"
+                    >Zero Day Count<br />Below/Equal Avg.<br />Above Avg.<br />Latino Neighborhoods</span
+                  >
+                </p>
+                <div class="zero-day-count"></div>
+                <div class="below-equal-avg"></div>
+                <div class="above-avg-legend"></div>
+                <div class="latino-neighborhoods">
+                  <div class="overlap-group-3">
+                    <img class="line" src="https://c.animaapp.com/Ci2A0n3x/img/line-1.svg" />
+                    <img class="line-2" src="https://c.animaapp.com/Ci2A0n3x/img/line-2.svg" />
+                    <div class="border"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="other-count" id="other-population">
-           51K
+          <div class="extreme-heat-days">Extreme Heat Days</div>
+          <p class="map-title">Latino Neighborhoods and Exposure to Extreme Heat Days (≥ 90°F), 2018-2022</p>
+          <div class="overlap-14">
+            <div class="extreme-heat-data">
+              <div class="extreme-heat-info">
+                <div class="extreme-heat-info-wrapper">
+                  <p class="extreme-heat-info-2">
+                    At 90°F, the risk of <br />heat-related illnesses and conditions increases significantly.
+                  </p>
+                </div>
+              </div>
+              <div class="overlap-wrapper">
+                <div class="extreme-heat-info-wrapper">
+                  <p class="extreme-heat-info-3">
+                    The Federal Emergency Management Agency defines a period of extreme heat in most of the U.S. as a
+                    period of 2 to 3 days above 90°F.
+                  </p>
+                </div>
+              </div>
+              <div class="overlap-group-wrapper">
+                <div class="extreme-heat-info-wrapper">
+                  <p class="extreme-heat-info-4">
+                    Looking forward, Latino neighborhoods are projected to experience a greater number of days with
+                    higher temperatures.
+                  </p>
+                </div>
+              </div>
+              <p class="extreme-heat-annual">Annual Number of Extreme Heat Days<br />(2018-2022)</p>
+              <p class="extreme-heat">Longest Period of Consecutive Extreme Heat <br />Days (2022)</p>
+              <p class="extreme-heat-2">Projected Number of Extreme Heat Days by <br />Mid-Century (2035–2064)</p>
+              <div class="div-wrapper">
+                <div class="overlap-15">
+                  <div class="overlap-group-4">
+                    <div class="div-5"></div>
+                    <p class="text-wrapper-7">consecutive days ≥ 90°F annually</p>
+                  </div>
+                  <p class="div-6"><span class="text-wrapper-8">555 </span> <span class="text-wrapper-9">days</span></p>
+                  <p class="div-7">
+                    <span class="text-wrapper-10">555 </span> <span class="text-wrapper-9">days</span>
+                  </p>
+                  <p class="div-8">
+                    <span class="text-wrapper-6">NL white<br /></span> <span class="span">neighborhoods</span>
+                  </p>
+                  <p class="div-9">
+                    <span class="text-wrapper-6">Latino<br /></span> <span class="span">neighborhoods</span>
+                  </p>
+                </div>
+              </div>
+              <div class="extreme-heat-annual-2">
+                <div class="overlap-15">
+                  <div class="overlap-group-4">
+                    <div class="div-5"></div>
+                    <p class="text-wrapper-7">average days ≥ 90°F annually</p>
+                  </div>
+                  <p class="div-6"><span class="text-wrapper-8">555 </span> <span class="text-wrapper-9">days</span></p>
+                  <p class="div-7">
+                    <span class="text-wrapper-10">555 </span> <span class="text-wrapper-9">days</span>
+                  </p>
+                  <p class="div-8">
+                    <span class="text-wrapper-6">NL white<br /></span> <span class="span">neighborhoods</span>
+                  </p>
+                  <p class="div-9">
+                    <span class="text-wrapper-6">Latino<br /></span> <span class="span">neighborhoods</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="extreme-heat-3">
+              <div class="overlap-15">
+                <div class="overlap-group-4">
+                  <div class="div-5"></div>
+                  <p class="text-wrapper-7">expected days ≥ 90°F annually</p>
+                </div>
+                <p class="div-6"><span class="text-wrapper-8">555 </span> <span class="text-wrapper-9">days</span></p>
+                <p class="div-7"><span class="text-wrapper-10">555 </span> <span class="text-wrapper-9">days</span></p>
+                <p class="div-8">
+                  <span class="text-wrapper-6">NL white<br /></span> <span class="span">neighborhoods</span>
+                </p>
+                <p class="div-9">
+                  <span class="text-wrapper-6">Latino<br /></span> <span class="span">neighborhoods</span>
+                </p>
+              </div>
+            </div>
           </div>
-         </div>
-        </div>
-       </div>
-      </div>
-      <div class="overlap-4">
-       <div class="SNAP-benefits-card">
-        <div class="overlap-5">
-         <div class="div-2">
-         </div>
-         <div class="SNAP-benefits">
-          SNAP
-          <br/>
-          Benefits
-         </div>
-         <p class="SNAP-benefits-data">
-          <span class="text-wrapper">
-           Latino:
-          </span>
-          <span class="span" id="snap-benefits-latino">
-           11%
-          </span>
-		  <br />
-          <span class="text-wrapper">
-           NL white:
-          </span>
-          <span class="span" id="snap-benefits-nl-white">
-           5%
-          </span>
-         </p>
-         <img class="SNAP-benefits-icon" src="/report-generator/static/extremeheat/images/snap-benefits-icon.svg"/>
-        </div>
-       </div>
-       <p class="text-wrapper-4">
-        *NL white = Non-Latino white
-       </p>
-      </div>
-     </div>
-     <div class="non-citzen">
-      <div class="non-citizen">
-       Non-Citizen
-       <br/>
-       Population
-      </div>
-      <p class="p">
-       <span class="text-wrapper">
-        Latino:
-       </span>
-       <span class="span">
-        31%
-        <br/>
-       </span>
-       <span class="text-wrapper">
-        NL white:
-       </span>
-       <span class="span">
-        2%
-       </span>
-      </p>
-      <img class="img" src="/report-generator/static/extremeheat/images/non-citizen-population-icon.svg"/>
-     </div>
-    </div>
-    <div class="overlap-6">
-     <div class="overlap-7">
-      <div class="div-2">
-       <div class="limited-english">
-        Limited English
-        <br/>
-        Proficiency
-       </div>
-       <p class="p">
-        <span class="text-wrapper">
-         Latino:
-        </span>
-        <span class="span">
-         40%
-         <br/>
-        </span>
-        <span class="text-wrapper">
-         NL white:
-        </span>
-        <span class="span">
-         2%
-        </span>
-       </p>
-       <img class="limited-english-2" src="/report-generator/static/extremeheat/images/limited-english-proficiency-icon.svg"/>
-      </div>
-      <div class="overlap-8">
-       <div class="poverty-rate-card">
-        <div class="overlap-9">
-         <div class="poverty-rate">
-         </div>
-         <div class="poverty-rate-2">
-          Poverty
-          <br/>
-          Rate
-         </div>
-         <p class="poverty-rate-data">
-          <span class="text-wrapper">
-           Latino:
-          </span>
-          <span class="span">
-           15%
-          </span>
-          <br/>
-          <span class="text-wrapper">
-           NL white:
-          </span>
-          <span class="span">
-           7%
-          </span>
-         </p>
-         <img class="poverty-rate-icon" src="/report-generator/static/extremeheat/images/poverty-rate-icon.svg"/>
-        </div>
-       </div>
-       <div class="renter-occupied">
-        <div class="overlap-9">
-         <div class="div-2">
-         </div>
-         <div class="text-wrapper-5">
-          Renter Occupied
-          <br/>
-          Households
-         </div>
-         <p class="div-3">
-          <span class="text-wrapper">
-           Latino:
-          </span>
-          <span class="span">
-           59%
-           <br/>
-          </span>
-          <span class="text-wrapper">
-           NL white:
-          </span>
-          <span class="span">
-           36%
-          </span>
-         </p>
-         <img class="renter-occupied-2" src="/report-generator/static/extremeheat/images/renter-occupied-households-icon.svg"/>
-        </div>
-       </div>
-       <div class="uninsured-rate-card">
-        <div class="uninsured-rate">
-         Uninsured
-         <br/>
-         Rate
-        </div>
-        <p class="div-4">
-         <span class="text-wrapper">
-          Latino:
-         </span>
-         <span class="span">
-          14%
-          <br/>
-         </span>
-         <span class="text-wrapper">
-          NL white:
-         </span>
-         <span class="span">
-          4%
-         </span>
-        </p>
-        <img class="img-2" src="/report-generator/static/extremeheat/images/uninsured-rate-icon.svg"/>
-       </div>
-       <div class="life-expectancy-card">
-        <div class="overlap-10">
-         <div class="life-expectancy">
-          Life
-          <br/>
-          Expectancy
-         </div>
-         <img class="life-expectancy-icon" src="/report-generator/static/extremeheat/images/life-expectancy-icon.svg"/>
-        </div>
-        <p class="p">
-         <span class="text-wrapper">
-          Latino:
-         </span>
-         <span class="span">
-          82 yrs
-          <br/>
-         </span>
-         <span class="text-wrapper">
-          NL white:
-         </span>
-         <span class="span">
-          81 yrs
-         </span>
-        </p>
-       </div>
-       <div class="fair-poor-health">
-        <div class="fair-poor-health-2">
-         Fair/Poor
-         <br/>
-         Health Status
-        </div>
-        <p class="div-4">
-         <span class="text-wrapper">
-          Latino:
-         </span>
-         <span class="span">
-          22%
-          <br/>
-         </span>
-         <span class="text-wrapper">
-          NL white:
-         </span>
-         <span class="span">
-          10%
-         </span>
-        </p>
-        <img class="img-2" src="/report-generator/static/extremeheat/images/fair-poor-health-status-icon.svg"/>
-       </div>
-      </div>
-      <div class="household-median">
-       <div class="text-wrapper-5">
-        Household Median Income
-       </div>
-       <p class="div-3">
-        <span class="text-wrapper">
-         Latino:
-        </span>
-        <span class="span">
-         $76k
-         <br/>
-        </span>
-        <span class="text-wrapper">
-         NL white:
-        </span>
-        <span class="span">
-         $110k
-        </span>
-       </p>
-       <img class="household-median-2" src="/report-generator/static/extremeheat/images/household-median-income-icon.svg"/>
-      </div>
-     </div>
-     <div class="food-insecurity-card">
-      <div class="food-insecurity">
-       Food
-       <br/>
-       Insecurity
-      </div>
-      <p class="food-insecurity-data">
-       <span class="text-wrapper">
-        Latino:
-       </span>
-       <span class="span">
-        17%
-        <br/>
-       </span>
-       <span class="text-wrapper">
-        NL white:
-       </span>
-       <span class="span">
-        8%
-       </span>
-      </p>
-      <img class="food-insecurity-icon" src="/report-generator/static/extremeheat/images/food-insecurity-icon.svg"/>
-     </div>
-    </div>
-    <div class="overlap-11">
-     <div class="overlap-12">
-      <div class="map-averages">
-       <p class="map-averages-data">
-        County Average: 20
-        <br/>
-        State Average: 51
-       </p>
-      </div>
-      <div class="map-legend">
-       <div class="overlap-13">
-        <div class="map-legend-rectangle">
-        </div>
-        <p class="legend-text">
-         <span class="text-wrapper-6">
-          Categorical Average
-          <br/>
-         </span>
-         <span class="span">
-          Zero Day Count
-          <br/>
-          Below Avg.
-          <br/>
-          Above Avg.
-          <br/>
-          Latino
-                                    Neighborhoods
-         </span>
-        </p>
-        <div class="zero-day-count">
-        </div>
-        <div class="below-equal-avg">
-        </div>
-        <div class="above-avg-legend">
-        </div>
-        <div class="latino-neighborhoods">
-         <div class="overlap-group-3">
-          <img class="line" src="/report-generator/static/extremeheat/images/line-1.svg"/>
-          <img class="line-2" src="/report-generator/static/extremeheat/images/line-2.svg"/>
-          <div class="border">
+          <footer class="footer">
+            <p class="footer-website">
+              <span class="text-wrapper-11">For more information, visit </span>
+              <span class="text-wrapper-12">LatinoClimateHealth.org</span>
+            </p>
+            <p class="footer-LPPI">UCLA Latino Policy and Politics Institute (updated 02/25)</p>
+            <div class="page-number"><div class="page-number-2">1</div></div>
+          </footer>
+          <div class="extreme-heat-4">
+            <div class="overlap-16">
+              <div class="extreme-heat-5"></div>
+              <p class="extreme-heat-6">
+                <span class="text-wrapper-12">Extreme heat days</span>
+                <span class="text-wrapper-13">
+                  are defined as days<br />where the temperature is at or above 90°F.</span
+                >
+              </p>
+              <div class="extreme-heat-bubble"></div>
+              <div class="extreme-heat-accent">!!</div>
+            </div>
           </div>
-         </div>
         </div>
-       </div>
+        <div class="topic-title">
+          <div class="overlap-17">
+            <div class="topic-title-2"></div>
+            <div class="topic-title-3">EXTREME HEAT</div>
+          </div>
+        </div>
+        <div class="county-statistics">County Statistics</div>
+        <div class="neighborhood-level">Neighborhood Statistics</div>
+        <div class="factsheet-heading">
+          <p class="factsheet-heading-2">
+            <span class="text-wrapper-14">Climate Change and Health Factsheets<br /></span>
+            <span class="text-wrapper-15">Los Angeles County</span>
+          </p>
+          <img class="factsheet-heading-3" src="https://c.animaapp.com/Ci2A0n3x/img/factsheet-heading-logo@2x.png" />
+        </div>
       </div>
-     </div>
-     <div class="extreme-heat-days">
-      Extreme Heat Days
-     </div>
-     <p class="map-title">
-      Latino Neighborhoods and Exposure to Extreme Heat Days (≥ 90°F), 2018-2022
-     </p>
-     <div class="extreme-heat-data">
-      <div class="extreme-heat-info">
-       <div class="extreme-heat-info-wrapper">
-        <p class="extreme-heat-info-2">
-         At 90°F, the risk of
-         <br/>
-         heat-related illnesses and conditions increases
-                                significantly.
-        </p>
-       </div>
-      </div>
-      <div class="overlap-wrapper">
-       <div class="extreme-heat-info-wrapper">
-        <p class="extreme-heat-info-3">
-         The Federal Emergency Management Agency defines a period of extreme heat in most of the
-                                U.S. as a period of 2 to 3 days above 90°F.
-        </p>
-       </div>
-      </div>
-      <div class="overlap-group-wrapper">
-       <div class="extreme-heat-info-wrapper">
-        <p class="extreme-heat-info-4">
-         Looking forward, Latino neighborhoods are projected to experience a greater number of
-                                days with higher
-                                temperatures.
-        </p>
-       </div>
-      </div>
-      <p class="extreme-heat-annual">
-       Annual Number of Extreme Heat Days
-       <br/>
-       (2018-2022)
-      </p>
-      <p class="extreme-heat">
-       Longest Period of Consecutive Extreme Heat
-       <br/>
-       Days (2022)
-      </p>
-      <p class="extreme-heat-2">
-       Projected Number of Extreme Heat Days by
-       <br/>
-       Mid-Century (2035–2064)
-      </p>
-      <div class="div-wrapper">
-       <div class="overlap-14">
-        <div class="div-5">
-        </div>
-        <div class="text-wrapper-7">
-         Latino neighborhoods
-        </div>
-        <div class="text-wrapper-8">
-         NL white neighborhoods
-        </div>
-        <p class="text-wrapper-9">
-         consecutive days ≥ 90°F annually
-        </p>
-        <div class="text-wrapper-10">
-			14
-        </div>
-        <div class="text-wrapper-11">
-         0
-        </div>
-       </div>
-      </div>
-      <div class="extreme-heat-3">
-       <div class="overlap-14">
-        <div class="div-5">
-        </div>
-        <div class="text-wrapper-7">
-         Latino neighborhoods
-        </div>
-        <div class="text-wrapper-8">
-         NL white neighborhoods
-        </div>
-        <p class="text-wrapper-12">
-         expected days ≥ 90°F annually
-        </p>
-        <div class="text-wrapper-10">
-          41
-        </div>
-        <div class="text-wrapper-11">
-		  8
-        </div>
-       </div>
-      </div>
-      <div class="extreme-heat-annual-2">
-       <div class="overlap-14">
-        <div class="div-5">
-        </div>
-        <div class="text-wrapper-7">
-         Latino neighborhoods
-        </div>
-        <div class="text-wrapper-8">
-         NL white neighborhoods
-        </div>
-        <p class="text-wrapper-9">
-         average days ≥ 90°F annually
-        </p>
-        <div class="text-wrapper-10">
-         30
-        </div>
-        <div class="text-wrapper-11">
-         0
-        </div>
-       </div>
-      </div>
-     </div>
-     <footer class="footer">
-      <p class="footer-website">
-       <span class="text-wrapper-13">
-        For more information, visit
-       </span>
-       <span class="text-wrapper-14">
-        LatinoClimateHealth.org
-       </span>
-      </p>
-      <p class="footer-LPPI">
-       UCLA Latino Policy and Politics Institute, 2025
-      </p>
-      <div class="page-number">
-       <div class="page-number-2">
-        1
-       </div>
-      </div>
-     </footer>
-     <div class="extreme-heat-4">
-      <div class="overlap-15">
-       <div class="extreme-heat-5">
-       </div>
-       <p class="extreme-heat-6">
-        <span class="text-wrapper-14">
-         Extreme heat days
-        </span>
-        <span class="text-wrapper-15">
-         are defined as days
-         <br/>
-         where the temperature is at or above 90°F.
-        </span>
-       </p>
-       <div class="extreme-heat-bubble">
-       </div>
-       <div class="extreme-heat-accent">
-        !!
-       </div>
-      </div>
-     </div>
     </div>
-    <div class="topic-title">
-     <div class="overlap-16">
-      <div class="topic-title-2">
-      </div>
-      <div class="topic-title-3">
-       EXTREME HEAT
-      </div>
-     </div>
-    </div>
-    <div class="county-statistics">
-     County Statistics
-    </div>
-    <div class="neighborhood-level">
-     Neighborhood Statistics
-    </div>
-    <div class="factsheet-heading">
-     <p class="factsheet-heading-2">
-      <span class="text-wrapper-16">
-       2025 Climate Change Factsheets
-       <br/>
-      </span>
-      <span class="text-wrapper-17" id="county-name">
-       Monterey County
-      </span>
-     </p>
-     <img class="factsheet-heading-3" src="/report-generator/static/extremeheat/images/factsheet-heading-logo@2x.png"/>
-    </div>
-   </div>
-  </div>
- </body>
+  </body>
 </html>
