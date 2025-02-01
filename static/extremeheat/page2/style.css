@@ -967,7 +967,7 @@
   .version .heat-related-illness-10 {
 	position: absolute;
 	top: 141px;
-	width: 80px; /* Adjust as needed */
+	width: 75px; /* Adjust as needed */
 	height: 30px; /* Adjust as needed */
 	display: flex;
 	flex-wrap: wrap;
@@ -983,7 +983,7 @@
   }
 
 .version .heat-related-illness-10 {
-  width: 20px;
+  width: 75px;
   height: 14px;
   top: 141px;
   position: absolute;
