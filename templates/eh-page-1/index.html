@@ -2,8 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-	<link rel="stylesheet" href="{{ url_for('static', filename='extremeheat/page' + page|string + '/style.css') }}" />
-	<link rel="stylesheet" href="{{ url_for('static', filename='extremeheat/page' + page|string + '/globals.css') }}" /></head>
+	<!-- <link rel="stylesheet" href="{{ url_for('static', filename='extremeheat/page' + page|string + '/style.css') }}" /> -->
+	<!-- <link rel="stylesheet" href="{{ url_for('static', filename='extremeheat/page' + page|string + '/globals.css') }}" /></head> -->
+	 <!-- for local testing purposes -->
+	  <link rel="stylesheet" href="../../static/extremeheat/page1/style.css" />
+	  <link rel="stylesheet" href="../../static/extremeheat/globals.css" />
   <body>
     <div class="version">
       <div class="div">
@@ -38,7 +41,7 @@
                   <div class="population-labeled">
 						<img
 						class="mongmongbliss"
-						src="{{ url_for('static', filename='extremeheat/images/population_donut/{}_donut.svg'.format(county_name)) }}"
+						src="{{ url_for('static', filename='extremeheat/images/population_donut/{}_donut.svg'.format(county_name|replace(' ', '_'))) }}"
 					/>
                   </div>
                   <div class="population-chart">Population</div>
@@ -355,10 +358,19 @@
               </div>
               <div class="overlap-group-wrapper">
                 <div class="extreme-heat-info-wrapper">
-                  <p class="extreme-heat-info-4">
-                    Looking forward, Latino neighborhoods are projected to experience a greater number of days with
-                    higher temperatures.
-                  </p>
+					{% if county_statistics['Mid-Century Projections']['Latino'] > county_statistics['Mid-Century Projections']['NL White'] %}
+					<p class="extreme-heat-info-4">
+					  Looking forward, Latino neighborhoods are projected to experience a greater number of days with higher temperatures.
+					</p>
+				  {% elif county_statistics['Mid-Century Projections']['Latino'] < county_statistics['Mid-Century Projections']['NL White'] %}
+					<p class="extreme-heat-info-4">
+					  Looking forward, non-Latino white neighborhoods are projected to experience a greater number of days with higher temperatures.
+					</p>
+				  {% else %}
+					<p class="extreme-heat-info-4">
+					  Looking forward, both Latino and non-Latino white neighborhoods are projected to experience a similar number of days with higher temperatures.
+					</p>
+				  {% endif %}
                 </div>
               </div>
               <p class="extreme-heat-annual">
@@ -384,13 +396,13 @@
                   </div>
                   <p class="div-6">
                     <span class="text-wrapper-8">
-                      {{ county_statistics['Average Longest Heat Wave']['NL White'] }}
+                      {{ county_statistics['Average Longest Heat Wave']['Latino'] }}
                     </span>
                     <span class="text-wrapper-9"> days</span>
                   </p>
                   <p class="div-7">
                     <span class="text-wrapper-10">
-                      {{ county_statistics['Average Longest Heat Wave']['Latino'] }}
+                      {{ county_statistics['Average Longest Heat Wave']['NL White'] }}
                     </span>
                     <span class="text-wrapper-9"> days</span>
                   </p>
@@ -412,13 +424,13 @@
                   </div>
                   <p class="div-6">
                     <span class="text-wrapper-8">
-                      {{ county_statistics['Average Heat Days']['NL White'] }}
+                      {{ county_statistics['Average Heat Days']['Latino'] }}
                     </span>
                     <span class="text-wrapper-9"> days</span>
                   </p>
                   <p class="div-7">
                     <span class="text-wrapper-10">
-                      {{ county_statistics['Average Heat Days']['Latino'] }}
+                      {{ county_statistics['Average Heat Days']['NL White'] }}
                     </span>
                     <span class="text-wrapper-9"> days</span>
                   </p>
@@ -441,13 +453,13 @@
                 </div>
                 <p class="div-6">
                   <span class="text-wrapper-8">
-                    {{ county_statistics['Mid-Century Projections']['NL White'] }}
+                    {{ county_statistics['Mid-Century Projections']['Latino'] }}
                   </span>
                   <span class="text-wrapper-9"> days</span>
                 </p>
                 <p class="div-7">
                   <span class="text-wrapper-10">
-                    {{ county_statistics['Mid-Century Projections']['Latino'] }}
+                    {{ county_statistics['Mid-Century Projections']['NL White'] }}
                   </span>
                   <span class="text-wrapper-9"> days</span>
                 </p>
@@ -465,7 +477,9 @@
           <footer class="footer">
             <p class="footer-website">
               <span class="text-wrapper-11">For more information, visit </span>
-              <span class="text-wrapper-12">LatinoClimateHealth.org</span>
+			  <a href="https://LatinoClimateHealth.org" style="text-decoration: none;">
+				<span class="text-wrapper-12">LatinoClimateHealth.org</span>
+			  </a>
             </p>
             <p class="footer-LPPI">UCLA Latino Policy and Politics Institute (updated 02/25)</p>
 			<div class="page-number">

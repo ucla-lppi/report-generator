@@ -67,52 +67,108 @@ def draw_donut(data, county_name, output_dir):
     main_unit = parts[1] if len(parts) > 1 else ''
 
     # Adjust center text positions
+    center_fontsize = 18
+    unit_fontsize = 14
+    label_fontsize = 14
+
+    wedge_angles = np.cumsum([0] + wedge_sizes) / sum(wedge_sizes) * 360
+
+    # Modify the label placement logic to adjust both the radial distance and the angle
+    # if bubbles are too close together.
+    placed_labels = []  # store already placed label positions
+    min_distance = 0.75  # minimum separation between bubble centers to avoid overlap (based on bubble radius)
+    labels_overlapped = False  # flag to check if any labels overlap
+    for i, w in enumerate(wedges):
+        # Initial label position calculation
+        orig_label_angle = (w.theta1 + w.theta2) / 2
+        label_angle = orig_label_angle
+        label_rad = 1.15  # initial radial position for label bubble
+        label_x = label_rad * math.cos(math.radians(label_angle))
+        label_y = label_rad * math.sin(math.radians(label_angle))
+        
+        # Adjust the label position repeatedly until no overlap occurs.
+        attempts = 0
+        while True:
+            overlap = False
+            for (prev_x, prev_y) in placed_labels:
+                distance = math.sqrt((label_x - prev_x)**2 + (label_y - prev_y)**2)
+                if distance < min_distance:
+                    overlap = True
+                    labels_overlapped = True  # set the flag if any overlap occurs
+                    break
+            # If no overlap, break out of loop.
+            if not overlap:
+                break
+            # If overlapping, adjust the position:
+            # Increase the radial distance and add a small horizontal offset based on the attempt count.
+            label_rad += (min_distance - distance) * 0.5
+            label_angle = orig_label_angle + (attempts * 2)  # shift angle by 2° per attempt
+            label_x = label_rad * math.cos(math.radians(label_angle))
+            label_y = label_rad * math.sin(math.radians(label_angle))
+            attempts += 1
+        
+        placed_labels.append((label_x, label_y))
+        
+        # Draw shadow effect with multiple circles with transparency
+        for j in range(1, 4):
+            shadow_circle = Circle(
+                (label_x, label_y),
+                0.25 + j*0.01,
+                facecolor='#dedede',
+                edgecolor='none',
+                alpha=0.05 * (4-j),
+                zorder=4-j
+            )
+            ax.add_patch(shadow_circle)
+        
+        # Draw main bubble circle (the white circle)
+        circle = Circle(
+            (label_x, label_y),
+            0.35,
+            facecolor='#ffffff',
+            edgecolor='#dedede',
+            linewidth=1,
+            zorder=5
+        )
+        ax.add_patch(circle)
+        
+        # Draw percentage label in the bubble (perfectly centered)
+        ax.text(
+            label_x, label_y, f"{wedge_sizes[i]:.0f}%",
+            ha='center', va='center', fontsize=label_fontsize,
+            fontproperties=fp_bold,
+            zorder=6, color='#000000'
+        )
+
+    # Adjust axis limits and font sizes if labels overlap
+    if labels_overlapped:
+        ax.set_xlim(-1.75, 1.75)
+        ax.set_ylim(-1.75, 1.75)
+        center_fontsize = 14  # decrease font size if labels overlap
+        unit_fontsize = 10
+        label_fontsize = 12  # decrease label font size if labels overlap
+    else:
+        ax.set_xlim(-1.5, 1.5)
+        ax.set_ylim(-1.5, 1.5)
+
+    # Draw center text
     ax.text(
         0, -0.05, main_number,  # lowered from 0.05 to -0.05
         ha='center', va='center',
         fontproperties=fp_extra_bold,
-        fontsize=16, color='#000000'
+        fontsize=center_fontsize, color='#000000'  # use adjusted font size
     )
     ax.text(
         0, -0.25, main_unit,  # lowered from -0.15 to -0.25
         ha='center', va='center',
         fontproperties=fp_semi_bold,
-        fontsize=12, color='#000000'
+        fontsize=unit_fontsize, color='#000000'  # use adjusted font size
     )
 
-    wedge_angles = np.cumsum([0] + wedge_sizes) / sum(wedge_sizes) * 360
-    for i, w in enumerate(wedges):
-        angle = (wedge_angles[i] + wedge_angles[i+1]) / 2
-        rad = 1.0
-        x = rad * math.cos(math.radians(angle))
-        y = rad * math.sin(math.radians(angle))
-
-        # Calculate the centroid angle for the label and circle
-        label_angle = (w.theta1 + w.theta2) / 2
-        label_rad = 1.05  # Adjust this value to position the label closer or farther from the center
-        label_x = label_rad * math.cos(math.radians(label_angle))
-        label_y = label_rad * math.sin(math.radians(label_angle))
-
-        # Draw shadow effect with multiple circles with transparency
-        for j in range(1, 4):
-            shadow_circle = Circle((label_x, label_y), 0.2 + j*0.01, facecolor='#dedede', edgecolor='none', alpha=0.05 * (4-j), zorder=4-j)
-            ax.add_patch(shadow_circle)
-
-        # Draw main circle
-        circle = Circle((label_x, label_y), 0.25, facecolor='#ffffff', edgecolor='#dedede', linewidth=1, zorder=5)
-
-        ax.add_patch(circle)
-
-        # Draw label
-        ax.text(
-            label_x, label_y, f"{wedge_sizes[i]:.0f}%",
-            ha='center', va='center', fontsize=10,
-            fontproperties=fp_bold,
-            zorder=6, color='#000000'
-        )
-
     svg_io = StringIO()
+
     plt.savefig(svg_io, format='svg', bbox_inches='tight', transparent=True)
+    
     plt.close(fig)
 
     svg_content = svg_io.getvalue()
@@ -141,8 +197,13 @@ def draw_donut(data, county_name, output_dir):
     else:
         svg_content = svg_content.replace('<svg ', f'<svg {font_face}\n')
 
+    # Standardize county name by replacing spaces with underscores
+    county_filename = county_name.replace(" ", "_")
+    # Set output directory to the fixed path
+    output_dir = os.path.join("static", "extremeheat", "images", "population_donut")
     os.makedirs(output_dir, exist_ok=True)
-    outfile = os.path.join(output_dir, f"{county_name}_donut.svg")
+    outfile = os.path.join(output_dir, f"{county_filename}_donut.svg")
+    
     with open(outfile, 'w', encoding='utf-8') as f:
         f.write(svg_content)
     print(f"Saved {outfile}")

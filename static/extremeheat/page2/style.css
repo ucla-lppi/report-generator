@@ -56,7 +56,7 @@
 .version .health-subtitle {
   position: absolute;
   width: 126px;
-  top: 0;
+  top: 2px;
   left: 10px;
   font-family: "Lexend", Helvetica;
   font-weight: 700;
@@ -418,7 +418,7 @@
 .version .workers-subtitle {
   position: absolute;
   width: 356px;
-  top: 2;
+  top: 2px;
   left: 11px;
   font-family: "Lexend", Helvetica;
   font-weight: 700;
@@ -563,7 +563,7 @@
 .version .disadvantaged-2 {
   position: absolute;
   width: 285px;
-  top: 0;
+  top: 2px;
   left: 10px;
   font-family: "Lexend", Helvetica;
   font-weight: 700;
@@ -690,7 +690,7 @@
 
 .version .text-wrapper-8 {
   width: 185px;
-  top: 0;
+  top: 1px;
   font-family: "Lexend", Helvetica;
   font-weight: 700;
   color: #f2f2f2;
@@ -858,7 +858,7 @@
 .version .per-people {
   position: absolute;
   width: 175px;
-  top: 168px;
+  top: 175px;
   left: 171px;
   font-family: "Lexend", Helvetica;
   font-weight: 400;
@@ -1048,7 +1048,7 @@
 }
 
 .version .age-subtitle {
-  top: 0;
+  top: 1px;
   font-family: "Lexend", Helvetica;
   font-weight: 700;
   color: #f2f2f2;

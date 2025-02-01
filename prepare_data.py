@@ -16,13 +16,15 @@ county_name_mapping = create_county_name_mapping(pop_data)
 
 # Generate donut charts for each county
 for original_county_name, standardized_county_name in county_name_mapping.items():
-    total_population = pop_data[pop_data['County'] == original_county_name]['pop_county_total'].values[0]
-    county_data = {
-        'Latino': (pop_data[pop_data['County'] == original_county_name]['pop_county_lat'].values[0] / total_population) * 100,
-        'NL White': (pop_data[pop_data['County'] == original_county_name]['pop_county_nlw'].values[0] / total_population) * 100,
-        'Other': (pop_data[pop_data['County'] == original_county_name]['pop_county_other'].values[0] / total_population) * 100,
-        'Total': total_population
-    }
-    draw_donut(county_data, standardized_county_name, output_dir)
+	total_population = pop_data[pop_data['County'] == original_county_name]['pop_county_total'].values[0]
+	county_data = {
+		'Latino': (pop_data[pop_data['County'] == original_county_name]['pop_county_lat'].values[0] / total_population) * 100,
+		'NL White': (pop_data[pop_data['County'] == original_county_name]['pop_county_nlw'].values[0] / total_population) * 100,
+		'Other': (pop_data[pop_data['County'] == original_county_name]['pop_county_other'].values[0] / total_population) * 100,
+		'Total': total_population
+	}
+	# only process if standardized county name is not empty
+	if standardized_county_name != '':	
+		draw_donut(county_data, standardized_county_name, output_dir)
 
 print("All donut charts generated and saved.")
