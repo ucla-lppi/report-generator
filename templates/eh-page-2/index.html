@@ -228,7 +228,17 @@
 				/>
 				{% endfor %}
 			</div>
+			<div class="heat-related-illness-10">
+				{% set icon_size = 12 if num_icons_latino <= 5 and num_icons_nl_white <= 5 else 12 %}
 
+				{% for _ in range(num_icons_nl_white) %}
+				<img
+				  class="hospital-icon"
+				  src="{{ url_for('static', filename='extremeheat/images/hospital-icon-1.svg') }}"
+				  style="width: {{ icon_size }}px; height: {{ icon_size }}px;"
+				/>
+				{% endfor %}
+			</div>
           </div>
         </div>
         <div class="div-wrapper">
