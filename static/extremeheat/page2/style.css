@@ -929,23 +929,65 @@
   left: 265px;
 }
 
-.version .heat-related-illness-9,
-.version .heat-related-illness-10 {
-  position: absolute;
-  top: 141px;
-  width: 80px; /* Adjust as needed */
-  height: 30px; /* Adjust as needed */
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  align-items: center;
-  justify-content: flex-start;
-}
+/* You can keep .heat-related-illness-8 as is if it's just text. */
 
-.version .hospital-icon {
-  /* Default size, will be overridden by inline styles */
-  width: 12px;
-  height: 12px;
+/* For .heat-related-illness-9: */
+.version .heat-related-illness-9 {
+	/* Remove or comment out width/height to let flex handle the layout */
+	/* width: 38px; */
+	/* height: 14px; */
+	position: absolute;
+	top: 141px;
+	left: 171px;
+  
+	/* Add flex properties */
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 4px;
+  }
+  
+  /* Same idea for .heat-related-illness-10: */
+  .version .heat-related-illness-10 {
+	/* Remove or comment out width/height */
+	/* width: 20px; */
+	/* height: 14px; */
+	position: absolute;
+	top: 141px;
+	left: 265px;
+  
+	/* Add flex properties */
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 4px;
+  }
+  
+  .version .heat-related-illness-9,
+  .version .heat-related-illness-10 {
+	position: absolute;
+	top: 141px;
+	width: 80px; /* Adjust as needed */
+	height: 30px; /* Adjust as needed */
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	align-items: center;
+	justify-content: flex-start;
+  }
+  
+  .version .hospital-icon {
+	/* Default size, will be overridden by inline styles */
+	width: 12px;
+	height: 12px;
+  }
+
+.version .heat-related-illness-10 {
+  width: 20px;
+  height: 14px;
+  top: 141px;
+  position: absolute;
+  left: 265px;
 }
 
 .version .masked-hospital-icon-2 {
@@ -1326,3 +1368,8 @@
   letter-spacing: 0;
   line-height: normal;
 }
+
+.page-number a {
+	text-decoration: none;
+	color: inherit; /* Ensure the link inherits the color of the surrounding text */
+  }

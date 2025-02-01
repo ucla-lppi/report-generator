@@ -1434,3 +1434,8 @@
   left: 620px;
   object-fit: cover;
 }
+
+.page-number a {
+	text-decoration: none;
+	color: inherit;
+  }
