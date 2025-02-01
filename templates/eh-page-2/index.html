@@ -213,12 +213,12 @@
             <p class="heat-related-illness-8">
               <span class="span">NL white<br /></span> <span class="text-wrapper-7">neighborhoods</span>
             </p>
-			{% set num_icons_latino = county_statistics['Heat Related Emergency Department Visits']['Latino'] | int %}
-			{% set num_icons_nl_white = county_statistics['Heat Related Emergency Department Visits']['NL White'] | int %}
-			{% set max_icons = max(num_icons_latino, num_icons_nl_white) %}
-			{% set icon_size = 12 if max_icons <= 5 else 10 %}
-			
-			<div class="heat-related-illness-9">
+			{% set extra_padding_class = 'extra-padding' if num_icons_latino > 5 or num_icons_nl_white > 5 else '' %}
+
+			<div class="heat-related-illness-9 {{ extra_padding_class }}">
+				{% set num_icons_latino = county_statistics['Heat Related Emergency Department Visits']['Latino'] | int %}
+				{% set icon_size = 12 if num_icons_latino <= 5 and num_icons_nl_white <= 5 else 10 %}
+
 				{% for _ in range(num_icons_latino) %}
 				<img
 				  class="hospital-icon"
@@ -228,6 +228,9 @@
 				{% endfor %}
 			</div>
 			<div class="heat-related-illness-10">
+				{% set num_icons_nl_white = county_statistics['Heat Related Emergency Department Visits']['NL White'] | int %}
+				{% set icon_size = 12 if num_icons_latino <= 5 and num_icons_nl_white <= 5 else 10 %}
+
 				{% for _ in range(num_icons_nl_white) %}
 				<img
 				  class="hospital-icon"
