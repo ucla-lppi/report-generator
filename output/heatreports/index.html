@@ -53,82 +53,85 @@
 		<li><a href="Ventura_page1.html">Ventura</a> | <a href="Ventura_page2.html">page 2</a></li>
 	</ul>
 </div>
-    <script src="https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.js"></script>
-    <script>
-        // Initialize the map
-        var map = new maplibregl.Map({
-            container: 'map',
-            style: 'https://demotiles.maplibre.org/style.json', // Map style to use
-            center: [-119.4179, 36.7783], // Starting position [lng, lat]
-            zoom: 5 // Starting zoom level
-        });
+	<script src="https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.js"></script>
+	<script>
+		// Initialize the map
+		var map = new maplibregl.Map({
+			container: 'map',
+			style: 'https://demotiles.maplibre.org/style.json', // Map style to use
+			center: [-119.4179, 36.7783], // Starting position [lng, lat]
+			zoom: 5 // Starting zoom level
+		});
 
-        // Add navigation control (the +/- zoom buttons)
-        map.addControl(new maplibregl.NavigationControl(), 'top-right');
+		// Add navigation control (the +/- zoom buttons)
+		map.addControl(new maplibregl.NavigationControl(), 'top-right');
 
-        // Load GeoJSON data
-        map.on('load', function () {
-            fetch('counties.geojson')
-                .then(response => response.json())
-                .then(data => {
-                    // Filter the GeoJSON data to include only counties with corresponding HTML pages
-                    const validCounties = [
-                        'Alameda', 'Contra Costa', 'Fresno', 'Imperial', 'Kern', 'Kings', 'Los Angeles', 'Madera', 'Merced', 'Monterey', 'Orange', 'Riverside', 'Sacramento', 'Santa Barbara', 'Santa Clara', 'Santa Cruz', 'San Bernardino', 'San Diego', 'San Joaquin', 'San Mateo', 'Stanislaus', 'Tulare', 'Ventura'
-                    ];
-                    data.features = data.features.filter(feature => validCounties.includes(feature.properties.name));
+		// Disable scroll zoom
+		map.scrollZoom.disable();
 
-                    map.addSource('counties', {
-                        'type': 'geojson',
-                        'data': data
-                    });
+		// Load GeoJSON data
+		map.on('load', function () {
+			fetch('counties.geojson')
+				.then(response => response.json())
+				.then(data => {
+					// Filter the GeoJSON data to include only counties with corresponding HTML pages
+					const validCounties = [
+						'Alameda', 'Contra Costa', 'Fresno', 'Imperial', 'Kern', 'Kings', 'Los Angeles', 'Madera', 'Merced', 'Monterey', 'Orange', 'Riverside', 'Sacramento', 'Santa Barbara', 'Santa Clara', 'Santa Cruz', 'San Bernardino', 'San Diego', 'San Joaquin', 'San Mateo', 'Stanislaus', 'Tulare', 'Ventura'
+					];
+					data.features = data.features.filter(feature => validCounties.includes(feature.properties.name));
 
-                    // Add a layer to use the image to represent the data
-                    map.addLayer({
-                        'id': 'counties-layer',
-                        'type': 'fill',
-                        'source': 'counties',
-                        'layout': {},
-                        'paint': {
-                            'fill-color': '#888888',
-                            'fill-opacity': 0.4
-                        }
-                    });
+					map.addSource('counties', {
+						'type': 'geojson',
+						'data': data
+					});
 
-                    // Add a layer for the county borders
-                    map.addLayer({
-                        'id': 'counties-borders',
-                        'type': 'line',
-                        'source': 'counties',
-                        'layout': {},
-                        'paint': {
-                            'line-color': '#000000',
-                            'line-width': 1
-                        }
-                    });
+					// Add a layer to use the image to represent the data
+					map.addLayer({
+						'id': 'counties-layer',
+						'type': 'fill',
+						'source': 'counties',
+						'layout': {},
+						'paint': {
+							'fill-color': '#888888',
+							'fill-opacity': 0.4
+						}
+					});
 
-                    // Add popups with links to the county reports
-                    map.on('click', 'counties-layer', function (e) {
-                        var countyName = e.features[0].properties.name.replace(/ /g, '_');
-                        var popupContent = '<b>' + countyName + '</b><br>' +
-                            '<a href="https://ucla-lppi.github.io/report-generator/output/heatreports/' + countyName + '_page1.html">Page 1</a><br>' +
-                            '<a href="https://ucla-lppi.github.io/report-generator/output/heatreports/' + countyName + '_page2.html">Page 2</a>';
-                        new maplibregl.Popup()
-                            .setLngLat(e.lngLat)
-                            .setHTML(popupContent)
-                            .addTo(map);
-                    });
+					// Add a layer for the county borders
+					map.addLayer({
+						'id': 'counties-borders',
+						'type': 'line',
+						'source': 'counties',
+						'layout': {},
+						'paint': {
+							'line-color': '#000000',
+							'line-width': 1
+						}
+					});
 
-                    // Change the cursor to a pointer when the mouse is over the counties layer
-                    map.on('mouseenter', 'counties-layer', function () {
-                        map.getCanvas().style.cursor = 'pointer';
-                    });
+					// Add popups with links to the county reports
+					map.on('click', 'counties-layer', function (e) {
+						var countyName = e.features[0].properties.name.replace(/ /g, '_');
+						var popupContent = '<b>' + countyName + '</b><br>' +
+							'<a href="https://ucla-lppi.github.io/report-generator/output/heatreports/' + countyName + '_page1.html">Page 1</a><br>' +
+							'<a href="https://ucla-lppi.github.io/report-generator/output/heatreports/' + countyName + '_page2.html">Page 2</a>';
+						new maplibregl.Popup()
+							.setLngLat(e.lngLat)
+							.setHTML(popupContent)
+							.addTo(map);
+					});
 
-                    // Change it back to a pointer when it leaves
-                    map.on('mouseleave', 'counties-layer', function () {
-                        map.getCanvas().style.cursor = '';
-                    });
-                });
-        });
-    </script>
+					// Change the cursor to a pointer when the mouse is over the counties layer
+					map.on('mouseenter', 'counties-layer', function () {
+						map.getCanvas().style.cursor = 'pointer';
+					});
+
+					// Change it back to a pointer when it leaves
+					map.on('mouseleave', 'counties-layer', function () {
+						map.getCanvas().style.cursor = '';
+					});
+				});
+		});
+	</script>
 </body>
 </html>
