@@ -1445,3 +1445,7 @@
 	text-decoration: none;
 	color: inherit;
   }
+
+  a, a:visited {
+	text-decoration: none;
+  }
