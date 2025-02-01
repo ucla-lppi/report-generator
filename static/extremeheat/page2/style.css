@@ -939,7 +939,7 @@
 	position: absolute;
 	top: 141px;
 	left: 171px;
-  
+	height: 14px; /* Adjust as needed */
 	/* Add flex properties */
 	display: flex;
 	flex-direction: row;
@@ -968,7 +968,7 @@
 	position: absolute;
 	top: 141px;
 	width: 75px; /* Adjust as needed */
-	height: 14px; /* Adjust as needed */
+
 	display: flex;
 	flex-wrap: wrap;
 	gap: 4px;
