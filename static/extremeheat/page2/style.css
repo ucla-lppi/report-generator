@@ -1372,3 +1372,7 @@
 	text-decoration: none;
 	color: inherit; /* Ensure the link inherits the color of the surrounding text */
   }
+
+  .version .extra-padding {
+	padding-bottom: 10px; /* Adjust as needed */
+  }
