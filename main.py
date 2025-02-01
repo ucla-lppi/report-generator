@@ -59,8 +59,8 @@ def generate_static_html(county_name_mapping, report_type, output_dir):
                     # Local output
                     local_out_file = os.path.join(local_reports_dir, f'{standardized_county_name}_page{page}.html')
                     with open(local_out_file, 'w', encoding='utf-8') as f:
-                        updated_html = r.text.replace('href="/static/', 'href="static/')
-                        updated_html = updated_html.replace('src="/static/', 'src="static/')
+                        updated_html = r.text.replace('href="/static/', 'href="../static/')
+                        updated_html = updated_html.replace('src="/static/', 'src="../static/')
                         f.write(updated_html)
                     print(f"Saved static HTML for local export: {local_out_file}")
                 else:
