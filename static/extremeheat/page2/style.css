@@ -1373,5 +1373,10 @@
   
   .version .text-wrapper-footer {
 	text-decoration: underline;
-	color: #fff;
+	color: #fff !important;
+  }
+
+  a, a:visited {
+	text-decoration: none;
+	color: #fff !important;
   }
