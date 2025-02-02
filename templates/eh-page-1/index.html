@@ -359,7 +359,7 @@
 				{% set nl = county_statistics['Mid-Century Projections']['NL White'] %}
 				{% set avg = (lat + nl) / 2 %}
 				<div class="extreme-heat-info-wrapper">
-				  {% if avg != 0 and (abs(lat - nl) / avg) < 0.01 %}
+				  {% if avg != 0 and ((lat - nl)|abs / avg) < 0.01 %}
 					<p class="extreme-heat-info-4">
 					  Looking forward, both Latino and NL white neighborhoods are projected to experience a similar number of days with higher temperatures.
 					</p>
