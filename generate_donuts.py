@@ -82,7 +82,7 @@ def draw_donut(data, county_name, output_dir):
         # Initial label position calculation
         orig_label_angle = (w.theta1 + w.theta2) / 2
         label_angle = orig_label_angle
-        label_rad = 1.15  # initial radial position for label bubble
+        label_rad = 1.10  # initial radial position for label bubble
         label_x = label_rad * math.cos(math.radians(label_angle))
         label_y = label_rad * math.sin(math.radians(label_angle))
         
@@ -132,9 +132,10 @@ def draw_donut(data, county_name, output_dir):
         )
         ax.add_patch(circle)
         
-        # Draw percentage label in the bubble (perfectly centered)
+		# Draw percentage label in the bubble (adjusted vertically for better centering)
         ax.text(
-            label_x, label_y, f"{wedge_sizes[i]:.0f}%",
+            label_x, label_y - 0.025,  # Adjusted the y-coordinate downward by 0.025
+            f"{wedge_sizes[i]:.0f}%",
             ha='center', va='center', fontsize=label_fontsize,
             fontproperties=fp_bold,
             zorder=6, color='#000000'

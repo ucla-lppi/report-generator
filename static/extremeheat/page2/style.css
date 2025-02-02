@@ -1260,14 +1260,7 @@
   top: 10px;
 }
 
-.version .text-wrapper-12 {
-  font-family: "Lexend", Helvetica;
-  font-weight: 600;
-  color: #ffffff;
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: 20px;
-}
+
 
 .version .text-wrapper-13 {
   font-size: 20px;
@@ -1376,4 +1369,9 @@
 
   .version .extra-padding {
 	padding-bottom: 10px; /* Adjust as needed */
+  }
+  
+  .version .text-wrapper-footer {
+	text-decoration: underline;
+	color: #fff;
   }
