@@ -992,8 +992,21 @@
 .version .extreme-heat-info-4 {
   top: 19px;
   position: absolute;
-  width: 150px;
+  width: 138px;
   left: 13px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .extreme-heat-info-4-bigger {
+  top: 19px;
+  position: absolute;
+  width: 150px;
+  left: 11px;
   font-family: "Lexend", Helvetica;
   font-weight: 400;
   color: #ffffff;
