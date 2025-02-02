@@ -133,10 +133,10 @@
 /* Make the donut image (mongmongbliss) cover the whole card and sit beneath the other layers */
 .version .mongmongbliss {
 	position: absolute;
-	top: 0;
+	top: 10px;
 	left: 18px;
 	width: 85%;
-	height: 75%;
+	height: 70%;
 	object-fit: cover;
 	z-index: 1;
   }
