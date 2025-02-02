@@ -355,21 +355,24 @@
                 </div>
               </div>
               <div class="overlap-group-wrapper">
-                <div class="extreme-heat-info-wrapper">
-					{% if county_statistics['Mid-Century Projections']['Latino'] > county_statistics['Mid-Century Projections']['NL White'] %}
-					<p class="extreme-heat-info-4">
-					  Looking forward, Latino neighborhoods are projected to experience a greater number of days with higher temperatures.
-					</p>
-				  {% elif county_statistics['Mid-Century Projections']['Latino'] < county_statistics['Mid-Century Projections']['NL White'] %}
-					<p class="extreme-heat-info-4">
-					  Looking forward, NL white neighborhoods are projected to experience a greater number of days with higher temperatures.
-					</p>
-				  {% else %}
+				{% set lat = county_statistics['Mid-Century Projections']['Latino'] %}
+				{% set nl = county_statistics['Mid-Century Projections']['NL White'] %}
+				{% set avg = (lat + nl) / 2 %}
+				<div class="extreme-heat-info-wrapper">
+				  {% if avg != 0 and (abs(lat - nl) / avg) < 0.01 %}
 					<p class="extreme-heat-info-4">
 					  Looking forward, both Latino and NL white neighborhoods are projected to experience a similar number of days with higher temperatures.
 					</p>
+				  {% elif lat > nl %}
+					<p class="extreme-heat-info-4">
+					  Looking forward, Latino neighborhoods are projected to experience a greater number of days with higher temperatures.
+					</p>
+				  {% else %}
+					<p class="extreme-heat-info-4">
+					  Looking forward, NL white neighborhoods are projected to experience a greater number of days with higher temperatures.
+					</p>
 				  {% endif %}
-                </div>
+				</div>
               </div>
               <p class="extreme-heat-annual">
                 Annual Number of Extreme Heat Days

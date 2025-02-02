@@ -139,8 +139,8 @@ def build_county_report_data(standardized_county_name):
 			'NL White': f"{county_pop_data['pct_health_stat_nlw']}%"
 		},
 		'Workers Heat Exposed':{
-			'Latino': f"{round(county_pop_data['pct_out_lat'])}%",
-			'NL White': f"{round(county_pop_data['pct_out_comp'])}%"
+			'Latino': f"{round(county_pop_data['pct_broad_lat'])}%",
+			'NL White': f"{round(county_pop_data['pct_broad_comp'])}%"
 		},
 		'Percentage of Population Under 18': {
 			'Latino': f"{round(county_pop_data['pct_under_18_lat'])}%",
