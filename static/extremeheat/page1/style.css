@@ -1002,19 +1002,6 @@
   line-height: normal;
 }
 
-#ehibigger{
-  top: 10px !important;
-  position: absolute;
-  width: 150px;
-  left: 11px;
-  font-family: "Lexend", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 11px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
 .version .extreme-heat-annual {
   position: absolute;
   width: 411px;
@@ -1463,4 +1450,17 @@
   a, a:visited {
 	text-decoration: none;
 	color: #fff !important;
+  }
+
+.extreme-heat-info-bigger {
+	top: 10px;
+	position: absolute;
+	width: 138px;
+	left: 13px;
+	font-family: "Lexend", Helvetica;
+	font-weight: 400;
+	color: #ffffff;
+	font-size: 11px;
+	letter-spacing: 0;
+	line-height: normal;
   }
