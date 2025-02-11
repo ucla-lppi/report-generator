@@ -70,68 +70,88 @@
 		map.scrollZoom.disable();
 
 		// Load GeoJSON data
-		map.on('load', function () {
-			fetch('counties.geojson')
-				.then(response => response.json())
-				.then(data => {
-					// Filter the GeoJSON data to include only counties with corresponding HTML pages
-					const validCounties = [
-						'Alameda', 'Contra Costa', 'Fresno', 'Imperial', 'Kern', 'Kings', 'Los Angeles', 'Madera', 'Merced', 'Monterey', 'Orange', 'Riverside', 'Sacramento', 'Santa Barbara', 'Santa Clara', 'Santa Cruz', 'San Bernardino', 'San Diego', 'San Joaquin', 'San Mateo', 'Stanislaus', 'Tulare', 'Ventura'
-					];
-					data.features = data.features.filter(feature => validCounties.includes(feature.properties.name));
+// Inside map.on('load', function () { ... })
 
-					map.addSource('counties', {
-						'type': 'geojson',
-						'data': data
-					});
+// Load counties data
+fetch('counties.geojson')
+  .then(response => response.json())
+  .then(data => {
+    const validCounties = [
+      'Alameda', 'Contra Costa', 'Fresno', 'Imperial', 'Kern', 'Kings', 'Los Angeles', 'Madera',
+      'Merced', 'Monterey', 'Orange', 'Riverside', 'Sacramento', 'Santa Barbara', 'Santa Clara',
+      'Santa Cruz', 'San Bernardino', 'San Diego', 'San Joaquin', 'San Mateo', 'Stanislaus',
+      'Tulare', 'Ventura'
+    ];
+    data.features = data.features.filter(feature => validCounties.includes(feature.properties.name));
 
-					// Add a layer to use the image to represent the data
-					map.addLayer({
-						'id': 'counties-layer',
-						'type': 'fill',
-						'source': 'counties',
-						'layout': {},
-						'paint': {
-							'fill-color': '#888888',
-							'fill-opacity': 0.4
-						}
-					});
+    map.addSource('counties', {
+      'type': 'geojson',
+      'data': data
+    });
 
-					// Add a layer for the county borders
-					map.addLayer({
-						'id': 'counties-borders',
-						'type': 'line',
-						'source': 'counties',
-						'layout': {},
-						'paint': {
-							'line-color': '#000000',
-							'line-width': 1
-						}
-					});
+    map.addLayer({
+      'id': 'counties-layer',
+      'type': 'fill',
+      'source': 'counties',
+      'layout': {},
+      'paint': {
+        'fill-color': '#888888',
+        'fill-opacity': 0.4
+      }
+    });
 
-					// Add popups with links to the county reports
-					map.on('click', 'counties-layer', function (e) {
-						var countyName = e.features[0].properties.name.replace(/ /g, '_');
-						var popupContent = '<b>' + countyName + '</b><br>' +
-							'<a href="https://ucla-lppi.github.io/report-generator/output/heatreports/' + countyName + '_page1.html">Page 1</a><br>' +
-							'<a href="https://ucla-lppi.github.io/report-generator/output/heatreports/' + countyName + '_page2.html">Page 2</a>';
-						new maplibregl.Popup()
-							.setLngLat(e.lngLat)
-							.setHTML(popupContent)
-							.addTo(map);
-					});
+    map.addLayer({
+      'id': 'counties-borders',
+      'type': 'line',
+      'source': 'counties',
+      'layout': {},
+      'paint': {
+        'line-color': '#000000',
+        'line-width': 1
+      }
+    });
 
-					// Change the cursor to a pointer when the mouse is over the counties layer
-					map.on('mouseenter', 'counties-layer', function () {
-						map.getCanvas().style.cursor = 'pointer';
-					});
+    // Add click events, popups etc.
+    map.on('click', 'counties-layer', function (e) {
+      var countyName = e.features[0].properties.name.replace(/ /g, '_');
+      var popupContent = '<b>' + countyName + '</b><br>' +
+        '<a href="https://ucla-lppi.github.io/report-generator/output/heatreports/' + countyName + '_page1.html">Page 1</a><br>' +
+        '<a href="https://ucla-lppi.github.io/report-generator/output/heatreports/' + countyName + '_page2.html">Page 2</a>';
+      new maplibregl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(popupContent)
+        .addTo(map);
+    });
 
-					// Change it back to a pointer when it leaves
-					map.on('mouseleave', 'counties-layer', function () {
-						map.getCanvas().style.cursor = '';
-					});
-				});
-		});
+    map.on('mouseenter', 'counties-layer', function () {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+
+    map.on('mouseleave', 'counties-layer', function () {
+      map.getCanvas().style.cursor = '';
+    });
+  });
+
+// Load California land boundary GeoJSON and add to map
+fetch('california_land_boundary.geojson')
+  .then(response => response.json())
+  .then(boundaryData => {
+    map.addSource('california-boundary', {
+      'type': 'geojson',
+      'data': boundaryData
+    });
+
+    map.addLayer({
+      'id': 'california-boundary-layer',
+      'type': 'line',
+      'source': 'california-boundary',
+      'layout': {},
+      'paint': {
+        'line-color': '#FF00FF',
+        'line-width': 2
+      }
+    });
+  });
 	</script>
 </body>
 </html>
