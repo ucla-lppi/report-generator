@@ -33,127 +33,211 @@
         }
     </style>
 </head>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif !important;
+        }
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+</head>
 <body class="container my-4">
     <h1 class="mb-3">Heat Reports</h1>
-    <p>Click on county or scroll down for list!</p>
+    <p>Click on a county on the map or scroll down to view the list!</p>
     <div id="map" class="mb-4"></div>
     <h2>County Reports</h2>
-    <ul class="county-list">
-        <li>
-            <a href="Alameda_page1.html">Alameda</a> | 
-            <a href="Alameda_page2.html">page 2</a> | 
-            <a href="pdfs/Alameda_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
+    <!-- Updated to use a Bootstrap List Group -->
+    <ul class="list-group">
+        <li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+            <span class="fw-bold">Alameda</span>:
+            <a href="Alameda_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+            <a href="Alameda_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+            <a href="pdfs/Alameda_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+                <i class="bi bi-file-earmark-pdf"></i> PDF
+            </a>
         </li>
-        <li>
-            <a href="Contra_Costa_page1.html">Contra_Costa</a> | 
-            <a href="Contra_Costa_page2.html">page 2</a> | 
-            <a href="pdfs/Contra_Costa_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
+        <li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+            <span class="fw-bold">Contra-Costa</span>:
+            <a href="Contra_Costa_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+            <a href="Contra_Costa_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+            <a href="pdfs/Contra_Costa_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+                <i class="bi bi-file-earmark-pdf"></i> PDF
+            </a>
         </li>
-        <li>
-            <a href="Fresno_page1.html">Fresno</a> | 
-            <a href="Fresno_page2.html">page 2</a> | 
-            <a href="pdfs/Fresno_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
+        <li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+            <span class="fw-bold">Fresno</span>:
+            <a href="Fresno_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+            <a href="Fresno_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+            <a href="pdfs/Fresno_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+                <i class="bi bi-file-earmark-pdf"></i> PDF
+            </a>
         </li>
-        <li>
-            <a href="Imperial_page1.html">Imperial</a> | 
-            <a href="Imperial_page2.html">page 2</a> | 
-            <a href="pdfs/Imperial_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
+        <li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+            <span class="fw-bold">Imperial</span>:
+            <a href="Imperial_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+            <a href="Imperial_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+            <a href="pdfs/Imperial_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+                <i class="bi bi-file-earmark-pdf"></i> PDF
+            </a>
         </li>
-        <li>
-            <a href="Kern_page1.html">Kern</a> | 
-            <a href="Kern_page2.html">page 2</a> | 
-            <a href="pdfs/Kern_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
+        <li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+            <span class="fw-bold">Kern</span>:
+            <a href="Kern_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+            <a href="Kern_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+            <a href="pdfs/Kern_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+                <i class="bi bi-file-earmark-pdf"></i> PDF
+            </a>
         </li>
-        <li>
-            <a href="Kings_page1.html">Kings</a> | 
-            <a href="Kings_page2.html">page 2</a> | 
-            <a href="pdfs/Kings_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
+        <!-- Add additional counties in similar blocks -->
+        <li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+            <span class="fw-bold">Kings</span>:
+            <a href="Kings_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+            <a href="Kings_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+            <a href="pdfs/Kings_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+                <i class="bi bi-file-earmark-pdf"></i> PDF
+            </a>
         </li>
-        <li>
-            <a href="Los_Angeles_page1.html">Los_Angeles</a> | 
-            <a href="Los_Angeles_page2.html">page 2</a> | 
-            <a href="pdfs/Los_Angeles_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
+        <li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+            <span class="fw-bold">Los Angeles</span>:
+            <a href="Los_Angeles_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+            <a href="Los_Angeles_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+            <a href="pdfs/Los_Angeles_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+                <i class="bi bi-file-earmark-pdf"></i> PDF
+            </a>
         </li>
-        <li>
-            <a href="Madera_page1.html">Madera</a> | 
-            <a href="Madera_page2.html">page 2</a> | 
-            <a href="pdfs/Madera_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
-        </li>
-        <li>
-            <a href="Merced_page1.html">Merced</a> | 
-            <a href="Merced_page2.html">page 2</a> | 
-            <a href="pdfs/Merced_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
-        </li>
-        <li>
-            <a href="Monterey_page1.html">Monterey</a> | 
-            <a href="Monterey_page2.html">page 2</a> | 
-            <a href="pdfs/Monterey_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
-        </li>
-        <li>
-            <a href="Orange_page1.html">Orange</a> | 
-            <a href="Orange_page2.html">page 2</a> | 
-            <a href="pdfs/Orange_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
-        </li>
-        <li>
-            <a href="Riverside_page1.html">Riverside</a> | 
-            <a href="Riverside_page2.html">page 2</a> | 
-            <a href="pdfs/Riverside_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
-        </li>
-        <li>
-            <a href="Sacramento_page1.html">Sacramento</a> | 
-            <a href="Sacramento_page2.html">page 2</a> | 
-            <a href="pdfs/Sacramento_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
-        </li>
-        <li>
-            <a href="Santa_Barbara_page1.html">Santa_Barbara</a> | 
-            <a href="Santa_Barbara_page2.html">page 2</a> | 
-            <a href="pdfs/Santa_Barbara_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
-        </li>
-        <li>
-            <a href="Santa_Clara_page1.html">Santa_Clara</a> | 
-            <a href="Santa_Clara_page2.html">page 2</a> | 
-            <a href="pdfs/Santa_Clara_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
-        </li>
-        <li>
-            <a href="Santa_Cruz_page1.html">Santa_Cruz</a> | 
-            <a href="Santa_Cruz_page2.html">page 2</a> | 
-            <a href="pdfs/Santa_Cruz_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
-        </li>
-        <li>
-            <a href="San_Bernardino_page1.html">San_Bernardino</a> | 
-            <a href="San_Bernardino_page2.html">page 2</a> | 
-            <a href="pdfs/San_Bernardino_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
-        </li>
-        <li>
-            <a href="San_Diego_page1.html">San_Diego</a> | 
-            <a href="San_Diego_page2.html">page 2</a> | 
-            <a href="pdfs/San_Diego_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
-        </li>
-        <li>
-            <a href="San_Joaquin_page1.html">San_Joaquin</a> | 
-            <a href="San_Joaquin_page2.html">page 2</a> | 
-            <a href="pdfs/San_Joaquin_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
-        </li>
-        <li>
-            <a href="San_Mateo_page1.html">San_Mateo</a> | 
-            <a href="San_Mateo_page2.html">page 2</a> | 
-            <a href="pdfs/San_Mateo_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
-        </li>
-        <li>
-            <a href="Stanislaus_page1.html">Stanislaus</a> | 
-            <a href="Stanislaus_page2.html">page 2</a> | 
-            <a href="pdfs/Stanislaus_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
-        </li>
-        <li>
-            <a href="Tulare_page1.html">Tulare</a> | 
-            <a href="Tulare_page2.html">page 2</a> | 
-            <a href="pdfs/Tulare_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
-        </li>
-        <li>
-            <a href="Ventura_page1.html">Ventura</a> | 
-            <a href="Ventura_page2.html">page 2</a> | 
-            <a href="pdfs/Ventura_extreme_heat.pdf" target="_blank">PDF <i class="fa-solid fa-file-pdf"></i></a>
-        </li>
+		<li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+			<span class="fw-bold">Madera</span>:
+			<a href="Madera_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+			<a href="Madera_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+			<a href="pdfs/Madera_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+				<i class="bi bi-file-earmark-pdf"></i> PDF
+			</a>
+		</li>
+		<li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+			<span class="fw-bold">Merced</span>:
+			<a href="Merced_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+			<a href="Merced_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+			<a href="pdfs/Merced_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+				<i class="bi bi-file-earmark-pdf"></i> PDF
+			</a>
+		</li>
+		<li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+			<span class="fw-bold">Monterey</span>:
+			<a href="Monterey_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+			<a href="Monterey_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+			<a href="pdfs/Monterey_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+				<i class="bi bi-file-earmark-pdf"></i> PDF
+			</a>
+		</li>
+		<li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+			<span class="fw-bold">Orange</span>:
+			<a href="Orange_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+			<a href="Orange_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+			<a href="pdfs/Orange_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+				<i class="bi bi-file-earmark-pdf"></i> PDF
+			</a>
+		</li>
+		<li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+			<span class="fw-bold">Riverside</span>:
+			<a href="Riverside_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+			<a href="Riverside_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+			<a href="pdfs/Riverside_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+				<i class="bi bi-file-earmark-pdf"></i> PDF
+			</a>
+		</li>
+		<li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+			<span class="fw-bold">Sacramento</span>:
+			<a href="Sacramento_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+			<a href="Sacramento_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+			<a href="pdfs/Sacramento_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+				<i class="bi bi-file-earmark-pdf"></i> PDF
+			</a>
+		</li>
+		<li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+			<span class="fw-bold">Santa Barbara</span>:
+			<a href="Santa_Barbara_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+			<a href="Santa_Barbara_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+			<a href="pdfs/Santa_Barbara_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+				<i class="bi bi-file-earmark-pdf"></i> PDF
+			</a>
+		</li>
+		<li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+			<span class="fw-bold">Santa Clara</span>:
+			<a href="Santa_Clara_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+			<a href="Santa_Clara_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+			<a href="pdfs/Santa_Clara_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+				<i class="bi bi-file-earmark-pdf"></i> PDF
+			</a>
+		</li>
+		<li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+			<span class="fw-bold">Santa Cruz</span>:
+			<a href="Santa_Cruz_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+			<a href="Santa_Cruz_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+			<a href="pdfs/Santa_Cruz_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+				<i class="bi bi-file-earmark-pdf"></i> PDF
+			</a>
+		</li>
+		<li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+			<span class="fw-bold">San Bernardino</span>:
+			<a href="San_Bernardino_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+			<a href="San_Bernardino_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+			<a href="pdfs/San_Bernardino_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+				<i class="bi bi-file-earmark-pdf"></i> PDF
+			</a>
+		</li>
+		<li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+			<span class="fw-bold">San Diego</span>:
+			<a href="San_Diego_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+			<a href="San_Diego_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+			<a href="pdfs/San_Diego_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+				<i class="bi bi-file-earmark-pdf"></i> PDF
+			</a>
+		</li>
+		<li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+			<span class="fw-bold">San Joaquin</span>:
+			<a href="San_Joaquin_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+			<a href="San_Joaquin_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+			<a href="pdfs/San_Joaquin_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+				<i class="bi bi-file-earmark-pdf"></i> PDF
+			</a>
+		</li>
+		<li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+			<span class="fw-bold">San Mateo</span>:
+			<a href="San_Mateo_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+			<a href="San_Mateo_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+			<a href="pdfs/San_Mateo_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+				<i class="bi bi-file-earmark-pdf"></i> PDF
+			</a>
+		</li>
+		<li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+			<span class="fw-bold">Stanislaus</span>:
+			<a href="Stanislaus_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+			<a href="Stanislaus_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+			<a href="pdfs/Stanislaus_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+				<i class="bi bi-file-earmark-pdf"></i> PDF
+			</a>
+		</li>
+		<li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+			<span class="fw-bold">Tulare</span>:
+			<a href="Tulare_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+			<a href="Tulare_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+			<a href="pdfs/Tulare_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+				<i class="bi bi-file-earmark-pdf"></i> PDF
+			</a>
+		</li>
+		<li class="list-group-item d-flex flex-wrap align-items-center gap-2">
+			<span class="fw-bold">Ventura</span>:
+			<a href="Ventura_page1.html" class="btn btn-sm btn-primary">Page 1</a>
+			<a href="Ventura_page2.html" class="btn btn-sm btn-secondary">Page 2</a>
+			<a href="pdfs/Ventura_extreme_heat.pdf" target="_blank" class="btn btn-sm btn-danger">
+				<i class="bi bi-file-earmark-pdf"></i> PDF
+			</a>
+		</li>
+        <!-- Repeat similar blocks for Madera, Merced, Monterey, Orange, Riversdie, Sacramento, etc. -->
     </ul>
     <script src="https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.js"></script>
     <script>
