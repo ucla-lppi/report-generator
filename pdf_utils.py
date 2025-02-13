@@ -110,6 +110,13 @@ def generate_pdfs(county_name_mapping, output_dir):
         try:
             pdfkit.from_string(html_string, final_pdf_path, options=pdfkit_options)
             print(f"Saved merged PDF for county {standardized_county_name}: {final_pdf_path}")
+            # Cleanup: remove intermediate image files
+            for file_path in processed_image_paths + screenshot_paths:
+                try:
+                    os.remove(file_path)
+                    print(f"Deleted file: {file_path}")
+                except Exception as e:
+                    print(f"Error deleting file {file_path}: {e}")
         except Exception as e:
             print(f"Error generating PDF for {standardized_county_name}: {e}")
 
