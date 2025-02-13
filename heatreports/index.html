@@ -211,7 +211,8 @@ fetch('data/counties.geojson')
       var countyName = e.features[0].properties.name.replace(/ /g, '_');
       var popupContent = '<b>' + countyName + '</b><br>' +
         '<a href="https://ucla-lppi.github.io/report-generator/output/heatreports/' + countyName + '_page1.html">Page 1</a><br>' +
-        '<a href="https://ucla-lppi.github.io/report-generator/output/heatreports/' + countyName + '_page2.html">Page 2</a>';
+        '<a href="https://ucla-lppi.github.io/report-generator/output/heatreports/' + countyName + '_page2.html">Page 2</a>'
+		`<a href="https://ucla-lppi.github.io/report-generator/output/heatreports/pdfs/${countyName}_extreme_heat.pdf" target="_blank">PDF<i class="fa-solid fa-file-pdf"></i></a>`;
       new maplibregl.Popup()
         .setLngLat(e.lngLat)
         .setHTML(popupContent)
