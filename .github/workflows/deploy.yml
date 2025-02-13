@@ -12,38 +12,38 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.9"
+    #   - name: Set up Python
+    #     uses: actions/setup-python@v4
+    #     with:
+    #       python-version: "3.9"
 
-      - name: Install Firefox
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y firefox
+    #   - name: Install Firefox
+    #     run: |
+    #       sudo apt-get update
+    #       sudo apt-get install -y firefox
 
-      - name: Install Geckodriver
-        run: |
-          GECKODRIVER_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | grep 'tag_name' | cut -d\" -f4)
-          echo "Installing geckodriver version ${GECKODRIVER_VERSION}"
-          wget https://github.com/mozilla/geckodriver/releases/download/${GECKODRIVER_VERSION}/geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz
-          tar -xzf geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz
-          chmod +x geckodriver
-          sudo mv geckodriver /usr/local/bin/
+    #   - name: Install Geckodriver
+    #     run: |
+    #       GECKODRIVER_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | grep 'tag_name' | cut -d\" -f4)
+    #       echo "Installing geckodriver version ${GECKODRIVER_VERSION}"
+    #       wget https://github.com/mozilla/geckodriver/releases/download/${GECKODRIVER_VERSION}/geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz
+    #       tar -xzf geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz
+    #       chmod +x geckodriver
+    #       sudo mv geckodriver /usr/local/bin/
       
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+    #   - name: Install Dependencies
+    #     run: |
+    #       python -m pip install --upgrade pip
+    #       pip install -r requirements.txt
 
-      - name: Build Static Files
-        env:
-          GITHUB_PAGES: true
-        run: |
-          python main.py build-gh
+    #   - name: Build Static Files
+    #     env:
+    #       GITHUB_PAGES: true
+    #     run: |
+    #       python main.py build-gh
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          publish_dir: ./output
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+    #   - name: Deploy to GitHub Pages
+    #     uses: peaceiris/actions-gh-pages@v3
+    #     with:
+    #       publish_dir: ./output
+    #       github_token: ${{ secrets.GITHUB_TOKEN }}
