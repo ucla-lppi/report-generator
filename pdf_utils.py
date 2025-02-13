@@ -31,7 +31,7 @@ def check_url(url):
 
 def generate_pdfs(county_name_mapping, output_dir):
     reports_dir = os.path.join(output_dir, "heatreports")
-    pdf_output_dir = os.path.join(output_dir, "pdf_reports")
+    pdf_output_dir = os.path.join(reports_dir, "pdfs")
     os.makedirs(pdf_output_dir, exist_ok=True)
 
     # Set up Firefox options for headless mode.

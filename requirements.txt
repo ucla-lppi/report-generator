@@ -7,3 +7,5 @@ flask
 # openai
 requests
 contextily
+selenium
+Pillow
