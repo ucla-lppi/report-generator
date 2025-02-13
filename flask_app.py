@@ -20,6 +20,11 @@ pop_data = fetch_population_data(csv_url)
 
 county_name_mapping = create_county_name_mapping(pop_data)
 
+if os.getenv('GITHUB_PAGES'):
+    app.config['STATIC_BASE'] = '/report-generator/static'
+else:
+    app.config['STATIC_BASE'] = '/static'
+
 def build_county_report_data(standardized_county_name):
 	original_county_name = next((key for key, value in county_name_mapping.items() if value == standardized_county_name), None)
 	if not original_county_name:
@@ -201,6 +206,10 @@ def build_county_report_data(standardized_county_name):
 		'county_statistics': county_statistics,
 		'column_values': column_values
 	}
+
+@app.context_processor
+def inject_static_base():
+    return dict(static_base=app.config.get('STATIC_BASE'))
 
 @app.route('/county_report/<report_type>/<standardized_county_name>.html')
 def county_report_multi(report_type, standardized_county_name):

@@ -74,7 +74,7 @@
 // Inside map.on('load', function () { ... })
 
 // Load counties data
-fetch('counties.geojson')
+fetch('data/counties.geojson')
   .then(response => response.json())
   .then(data => {
     const validCounties = [
@@ -134,7 +134,7 @@ fetch('counties.geojson')
   });
 
 // Load California land boundary GeoJSON and add to map
-fetch('california_land_boundary.geojson')
+fetch('data/california_land_boundary.geojson')
   .then(response => response.json())
   .then(boundaryData => {
     map.addSource('california-boundary', {

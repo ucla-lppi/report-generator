@@ -1,0 +1,37 @@
+name: Build and Deploy Static Site
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build Static Files
+        env:
+          GITHUB_PAGES: true
+        run: |
+          python main.py build-gh
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          # Publish the generated static files from the output directory (adjust if needed)
+          publish_dir: ./output
+          # Use the built-in GitHub token or, if available, a deploy_key from your repo/org secrets.
+          github_token: ${{ secrets.GITHUB_TOKEN }}

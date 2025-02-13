@@ -17,3 +17,20 @@ button:focus-visible {
 a {
   text-decoration: none;
 }
+
+@media print {
+	html, body {
+	  margin: 0;
+	  padding: 0;
+	  width: 2550px; /* full letter width at 300 DPI */
+	  height: 3300px; /* full letter height */
+	  overflow: visible;
+	}
+  }
+  @media print {
+	body {
+	  margin: 0;
+	  padding: 0;
+	  width: 100% !important;
+	}
+  }
