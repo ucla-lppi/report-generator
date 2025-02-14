@@ -1,793 +1,793 @@
 .version {
-	background-color: #ffffff;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	width: 100%;
-  }
-  
-  .version .div {
-	background-color: #ffffff;
-	overflow: hidden;
-	width: 850px;
-	height: 1100px;
-	position: relative;
-  }
-  
-  .version .overlap {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.version .div {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 850px;
+  height: 1100px;
+  position: relative;
+}
+
+.version .overlap {
+  position: absolute;
+  width: 429px;
+  height: 241px;
+  top: 146px;
+  left: -17px;
+}
+
+.version .overlap-group {
+  position: absolute;
+  width: 381px;
+  height: 241px;
+  top: 0;
+  left: 0;
+}
+
+.version .overlap-2 {
+  position: absolute;
+  width: 325px;
+  height: 215px;
+  top: 0;
+  left: 0;
+}
+
+.version .median-age-card {
+  width: 96px;
+  height: 109px;
+  left: 229px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+  position: absolute;
+  top: 0;
+}
+
+.version .overlap-group-2 {
+  position: absolute;
+  width: 96px;
+  height: 67px;
+  top: 4px;
+  left: 0;
+}
+
+.version .median-age {
+  position: absolute;
+  width: 96px;
+  top: 37px;
+  left: 0;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ac3434;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 15px;
+}
+
+.version .median-age-icon {
+  width: 41px;
+  height: 41px;
+  left: 27px;
+  position: absolute;
+  top: 0;
+}
+
+.version .p {
+  position: absolute;
+  width: 96px;
+  top: 75px;
+  left: 0;
+  font-family: "Lexend", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .text-wrapper {
+  font-weight: 600;
+}
+
+.version .span {
+  font-family: "Lexend", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+
+.version .population-card {
+  position: relative;
+  width: 252px;
+  height: 215px;
+  top: 0;
+  left: 0;
+}
+
+.version .overlap-3 {
+  position: relative;
+  width: 250px;
+  height: 215px;
+}
+
+.version .population-labeled {
+  position: absolute;
+  width: 177px;
+  height: 215px;
+  top: 0;
+  left: 35px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+/* Make the donut image (mongmongbliss) cover the whole card and sit beneath the other layers */
+.version .mongmongbliss {
 	position: absolute;
-	width: 429px;
-	height: 241px;
-	top: 146px;
-	left: -17px;
-  }
-  
-  .version .overlap-group {
-	position: absolute;
-	width: 381px;
-	height: 241px;
-	top: 0;
-	left: 0;
-  }
-  
-  .version .overlap-2 {
-	position: absolute;
-	width: 325px;
-	height: 215px;
-	top: 0;
-	left: 0;
-  }
-  
-  .version .median-age-card {
-	width: 96px;
-	height: 109px;
-	left: 229px;
-	background-color: #f2f2f2;
-	border-radius: 10px;
-	box-shadow: 0px 4px 4px #00000040;
-	position: absolute;
-	top: 0;
-  }
-  
-  .version .overlap-group-2 {
-	position: absolute;
-	width: 96px;
-	height: 67px;
-	top: 4px;
-	left: 0;
-  }
-  
-  .version .median-age {
-	position: absolute;
-	width: 96px;
-	top: 37px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ac3434;
-	font-size: 12px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: 15px;
-  }
-  
-  .version .median-age-icon {
-	width: 41px;
-	height: 41px;
-	left: 27px;
-	position: absolute;
-	top: 0;
-  }
-  
-  .version .p {
-	position: absolute;
-	width: 96px;
-	top: 75px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 400;
-	color: #000000;
-	font-size: 11px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .text-wrapper {
-	font-weight: 600;
-  }
-  
-  .version .span {
-	font-family: "Lexend", Helvetica;
-	font-weight: 400;
-	color: #000000;
-	font-size: 11px;
-	letter-spacing: 0;
-  }
-  
-  .version .population-card {
-	position: absolute;
-	width: 252px;
-	height: 215px;
-	top: 0;
-	left: 0;
-  }
-  
-  .version .overlap-3 {
-	position: relative;
-	width: 250px;
-	height: 215px;
-  }
-  
-  .version .population-labeled {
-	position: absolute;
-	width: 177px;
-	height: 215px;
-	top: 0;
-	left: 35px;
-	background-color: #f2f2f2;
-	border-radius: 10px;
-	box-shadow: 0px 4px 4px #00000040;
-  }
-  
-  .version .mongmongbliss {
-	position: absolute;
-	width: 124px;
-	height: 104px;
-	top: 31px;
-	left: 29px;
+	top: 10px;
+	left: 18px;
+	width: 85%;
+	height: 70%;
 	object-fit: cover;
+	z-index: 1;
   }
   
-  .version .population-chart {
-	position: absolute;
-	width: 250px;
-	top: 5px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #000000;
-	font-size: 14px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .population-legend {
-	position: absolute;
-	width: 153px;
-	height: 57px;
-	top: 148px;
-	left: 47px;
-  }
-  
-  .version .latino-legend-item {
-	display: inline-flex;
-	height: 12px;
-	align-items: center;
-	justify-content: center;
-	gap: 5px;
-	position: absolute;
-	top: 0;
-	left: 0;
-  }
-  
-  .version .latino-color {
-	position: relative;
-	width: 11px;
-	height: 11px;
-	background-color: #ac3434;
-	border-radius: 5.5px;
-  }
-  
-  .version .text-wrapper-2 {
-	position: relative;
-	width: fit-content;
-	margin-top: -1.77px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #000000;
-	font-size: 11px;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .NLW-legend-item {
-	display: inline-flex;
-	height: 12px;
-	align-items: center;
-	justify-content: center;
-	gap: 5px;
-	position: absolute;
-	top: 21px;
-	left: 0;
-  }
-  
-  .version .NLW-color {
-	position: relative;
-	width: 11px;
-	height: 11px;
-	background-color: #ac6a34;
-	border-radius: 5.5px;
-  }
-  
-  .version .NLW-count {
-	position: absolute;
-	width: 77px;
-	top: 20px;
-	left: 75px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #000000;
-	font-size: 11px;
-	text-align: right;
-	letter-spacing: 0;
-	line-height: normal;
-	white-space: nowrap;
-  }
-  
-  .version .latino-count {
-	position: absolute;
-	width: 78px;
-	top: -1px;
-	left: 75px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #000000;
-	font-size: 11px;
-	text-align: right;
-	letter-spacing: 0;
-	line-height: normal;
-	white-space: nowrap;
-  }
-  
-  .version .other-legend-item {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	gap: 5px;
-	position: absolute;
-	top: 43px;
-	left: 0;
-  }
-  
-  .version .other-color {
-	position: relative;
-	width: 11px;
-	height: 11px;
-	background-color: #333333;
-	border-radius: 5.5px;
-  }
-  
-  .version .text-wrapper-3 {
-	position: relative;
-	width: fit-content;
-	margin-top: -1.00px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #000000;
-	font-size: 11px;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .other-count {
-	position: absolute;
-	width: 77px;
-	top: 41px;
-	left: 75px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #000000;
-	font-size: 11px;
-	text-align: right;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .overlap-4 {
-	position: absolute;
-	width: 344px;
-	height: 122px;
-	top: 119px;
-	left: 37px;
-  }
-  
-  .version .SNAP-benefits-card {
-	position: absolute;
-	width: 97px;
-	height: 109px;
-	top: 0;
-	left: 247px;
-  }
-  
-  .version .overlap-5 {
-	position: relative;
-	height: 109px;
-  }
-  
-  .version .div-2 {
-	position: absolute;
-	width: 96px;
-	height: 109px;
-	top: 0;
-	left: 0;
-	background-color: #f2f2f2;
-	border-radius: 10px;
-	box-shadow: 0px 4px 4px #00000040;
-  }
-  
-  .version .SNAP-benefits {
-	position: absolute;
-	width: 97px;
-	top: 41px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ac3434;
-	font-size: 12px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: 15px;
-  }
-  
-  .version .SNAP-benefits-data {
-	position: absolute;
-	width: 97px;
-	top: 74px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 400;
-	color: #000000;
-	font-size: 11px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .SNAP-benefits-icon {
-	position: absolute;
-	width: 35px;
-	height: 35px;
-	top: 5px;
-	left: 31px;
-  }
-  
-  .version .text-wrapper-4 {
-	position: absolute;
-	width: 325px;
-	top: 108px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #000000;
-	font-size: 11px;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .non-citzen {
-	position: absolute;
-	width: 96px;
-	height: 109px;
-	top: 0;
-	left: 333px;
-	background-color: #f2f2f2;
-	border-radius: 10px;
-	box-shadow: 0px 4px 4px #00000040;
-  }
-  
-  .version .non-citizen {
-	position: absolute;
-	width: 96px;
-	top: 41px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ac3434;
-	font-size: 12px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: 15px;
-  }
-  
-  .version .img {
-	position: absolute;
-	width: 30px;
-	height: 30px;
-	top: 9px;
-	left: 35px;
-  }
-  
-  .version .overlap-6 {
-	position: absolute;
-	width: 457px;
-	height: 228px;
-	top: 146px;
-	left: 371px;
-  }
-  
-  .version .overlap-7 {
-	position: absolute;
-	width: 408px;
-	height: 228px;
-	top: 0;
-	left: 49px;
-  }
-  
-  .version .limited-english {
-	position: absolute;
-	width: 96px;
-	top: 42px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ac3434;
-	font-size: 11px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: 15px;
-  }
-  
-  .version .limited-english-2 {
-	position: absolute;
-	width: 30px;
-	height: 30px;
-	top: 9px;
-	left: 33px;
-  }
-  
-  .version .overlap-8 {
-	position: absolute;
-	width: 304px;
-	height: 227px;
-	top: 1px;
-	left: 56px;
-  }
-  
-  .version .poverty-rate-card {
-	position: absolute;
-	width: 98px;
-	height: 120px;
-	top: 0;
-	left: 151px;
-  }
-  
-  .version .overlap-9 {
-	position: relative;
-	height: 119px;
-  }
-  
-  .version .poverty-rate {
-	position: absolute;
-	width: 96px;
-	height: 109px;
-	top: 0;
-	left: 1px;
-	background-color: #f2f2f2;
-	border-radius: 10px;
-	box-shadow: 0px 4px 4px #00000040;
-  }
-  
-  .version .poverty-rate-2 {
-	position: absolute;
-	width: 95px;
-	top: 40px;
-	left: 2px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ac3434;
-	font-size: 12px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: 15px;
-  }
-  
-  .version .poverty-rate-data {
-	position: absolute;
-	width: 98px;
-	top: 74px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 400;
-	color: #000000;
-	font-size: 11px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .poverty-rate-icon {
-	position: absolute;
-	width: 30px;
-	height: 30px;
-	top: 8px;
-	left: 34px;
-  }
-  
-  .version .renter-occupied {
-	position: absolute;
-	width: 96px;
-	height: 120px;
-	top: 0;
-	left: 48px;
-  }
-  
-  .version .text-wrapper-5 {
-	position: absolute;
-	width: 96px;
-	top: 41px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ac3434;
-	font-size: 11px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: 15px;
-  }
-  
-  .version .div-3 {
-	position: absolute;
-	width: 96px;
-	top: 74px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 400;
-	color: #000000;
-	font-size: 11px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .renter-occupied-2 {
-	position: absolute;
-	width: 30px;
-	height: 30px;
-	top: 7px;
-	left: 33px;
-  }
-  
-  .version .uninsured-rate-card {
-	position: absolute;
-	width: 96px;
-	height: 109px;
-	top: 118px;
-	left: 0;
-	background-color: #f2f2f2;
-	border-radius: 10px;
-	box-shadow: 0px 4px 4px #00000040;
-  }
-  
-  .version .uninsured-rate {
-	position: absolute;
-	width: 90px;
-	top: 42px;
-	left: 3px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ac3434;
-	font-size: 12px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: 15px;
-  }
-  
-  .version .div-4 {
-	position: absolute;
-	width: 90px;
-	top: 75px;
-	left: 3px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 400;
-	color: #000000;
-	font-size: 11px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .img-2 {
-	position: absolute;
-	width: 30px;
-	height: 30px;
-	top: 11px;
-	left: 33px;
-  }
-  
-  .version .life-expectancy-card {
-	position: absolute;
-	width: 96px;
-	height: 109px;
-	top: 118px;
-	left: 208px;
-	background-color: #f2f2f2;
-	border-radius: 10px;
-	box-shadow: 0px 4px 4px #00000040;
-  }
-  
-  .version .overlap-10 {
-	position: absolute;
-	width: 90px;
-	height: 62px;
-	top: 10px;
-	left: 3px;
-  }
-  
-  .version .life-expectancy {
-	position: absolute;
-	width: 90px;
-	top: 32px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ac3434;
-	font-size: 12px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: 15px;
-  }
-  
-  .version .life-expectancy-icon {
-	position: absolute;
-	width: 33px;
-	height: 33px;
-	top: 0;
-	left: 28px;
-  }
-  
-  .version .fair-poor-health {
-	position: absolute;
-	width: 96px;
-	height: 109px;
-	top: 118px;
-	left: 104px;
-	background-color: #f2f2f2;
-	border-radius: 10px;
-	box-shadow: 0px 4px 4px #00000040;
-  }
-  
-  .version .fair-poor-health-2 {
-	position: absolute;
-	width: 95px;
-	top: 42px;
-	left: 1px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ac3434;
-	font-size: 12px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: 15px;
-  }
-  
-  .version .household-median {
-	position: absolute;
-	width: 96px;
-	height: 109px;
-	top: 1px;
-	left: 312px;
-	background-color: #f2f2f2;
-	border-radius: 10px;
-	box-shadow: 0px 4px 4px #00000040;
-  }
-  
-  .version .household-median-2 {
-	position: absolute;
-	width: 30px;
-	height: 30px;
-	top: 8px;
-	left: 33px;
-  }
-  
-  .version .food-insecurity-card {
-	position: absolute;
-	width: 96px;
-	height: 109px;
-	top: 119px;
-	left: 0;
-	background-color: #f2f2f2;
-	border-radius: 10px;
-	box-shadow: 0px 4px 4px #00000040;
-  }
-  
-  .version .food-insecurity {
-	position: absolute;
-	width: 90px;
-	top: 41px;
-	left: 3px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ac3434;
-	font-size: 12px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: 15px;
-  }
-  
-  .version .food-insecurity-data {
-	position: absolute;
-	width: 90px;
-	top: 74px;
-	left: 3px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 400;
-	color: #000000;
-	font-size: 11px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .food-insecurity-icon {
-	position: absolute;
-	width: 30px;
-	height: 30px;
-	top: 10px;
-	left: 33px;
-  }
-  
-  .version .overlap-11 {
-	position: absolute;
-	width: 850px;
-	height: 666px;
-	top: 434px;
-	left: 0;
-	background-image: url(./img/swoosh-bg.png);
-	background-size: 100% 100%;
-  }
-  
-  .version .overlap-12 {
-	position: absolute;
-	width: 395px;
-	height: 515px;
-	top: 108px;
-	left: 14px;
-	background-size: 100% 100%;
-  }
-  
-  .version .map-averages {
+
+.version .population-chart {
+  position: absolute;
+  width: 250px;
+  top: 7px;
+  left: 0;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  z-index: 5;
+
+}
+
+.version .population-legend {
+  position: absolute;
+  z-index: 5;
+  width: 153px;
+  height: 57px;
+  top: 148px;
+  left: 47px;
+}
+
+.version .latino-legend-item {
+  display: inline-flex;
+  height: 12px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.version .latino-color {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  background-color: #ac3434;
+  border-radius: 5.5px;
+}
+
+.version .text-wrapper-2 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.77px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .NLW-legend-item {
+  display: inline-flex;
+  height: 12px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  position: absolute;
+  top: 21px;
+  left: 0;
+}
+
+.version .NLW-color {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  background-color: #ac6a34;
+  border-radius: 5.5px;
+}
+
+.version .NLW-count {
+  position: absolute;
+  width: 77px;
+  top: 20px;
+  left: 75px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 11px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.version .latino-count {
+  position: absolute;
+  width: 77px;
+  top: -1px;
+  left: 75px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 11px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.version .other-legend-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  position: absolute;
+  top: 42px;
+  left: 0;
+}
+
+.version .other-color {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  background-color: #333333;
+  border-radius: 5.5px;
+}
+
+.version .text-wrapper-3 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .other-count {
+  position: absolute;
+  width: 77px;
+  top: 41px;
+  left: 75px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 11px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .overlap-4 {
+  position: absolute;
+  width: 344px;
+  height: 122px;
+  top: 119px;
+  left: 37px;
+}
+
+.version .SNAP-benefits-card {
+  position: absolute;
+  width: 97px;
+  height: 109px;
+  top: 0;
+  left: 247px;
+}
+
+.version .overlap-5 {
+  position: relative;
+  height: 109px;
+}
+
+.version .div-2 {
+  position: absolute;
+  width: 96px;
+  height: 109px;
+  top: 0;
+  left: 0;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.version .SNAP-benefits {
+  position: absolute;
+  width: 97px;
+  top: 41px;
+  left: 0;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ac3434;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 15px;
+}
+
+.version .SNAP-benefits-data {
+  position: absolute;
+  width: 97px;
+  top: 74px;
+  left: 0;
+  font-family: "Lexend", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .SNAP-benefits-icon {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 5px;
+  left: 31px;
+}
+
+.version .text-wrapper-4 {
+  position: absolute;
+  width: 325px;
+  top: 108px;
+  left: 0;
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .non-citzen {
+  position: absolute;
+  width: 96px;
+  height: 109px;
+  top: 0;
+  left: 333px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.version .non-citizen {
+  position: absolute;
+  width: 96px;
+  top: 41px;
+  left: 0;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ac3434;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 15px;
+}
+
+.version .img {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 9px;
+  left: 35px;
+}
+
+.version .overlap-6 {
+  position: absolute;
+  width: 457px;
+  height: 228px;
+  top: 146px;
+  left: 371px;
+}
+
+.version .overlap-7 {
+  position: absolute;
+  width: 408px;
+  height: 228px;
+  top: 0;
+  left: 49px;
+}
+
+.version .limited-english {
+  position: absolute;
+  width: 96px;
+  top: 42px;
+  left: 0;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ac3434;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 15px;
+}
+
+.version .limited-english-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 9px;
+  left: 33px;
+}
+
+.version .overlap-8 {
+  position: absolute;
+  width: 304px;
+  height: 227px;
+  top: 1px;
+  left: 56px;
+}
+
+.version .poverty-rate-card {
+  position: absolute;
+  width: 98px;
+  height: 120px;
+  top: 0;
+  left: 151px;
+}
+
+.version .overlap-9 {
+  position: relative;
+  height: 119px;
+}
+
+.version .poverty-rate {
+  position: absolute;
+  width: 96px;
+  height: 109px;
+  top: 0;
+  left: 1px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.version .poverty-rate-2 {
+  position: absolute;
+  width: 95px;
+  top: 40px;
+  left: 2px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ac3434;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 15px;
+}
+
+.version .poverty-rate-data {
+  position: absolute;
+  width: 98px;
+  top: 74px;
+  left: 0;
+  font-family: "Lexend", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .poverty-rate-icon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  left: 34px;
+}
+
+.version .renter-occupied {
+  position: absolute;
+  width: 96px;
+  height: 120px;
+  top: 0;
+  left: 48px;
+}
+
+.version .text-wrapper-5 {
+  position: absolute;
+  width: 96px;
+  top: 41px;
+  left: 0;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ac3434;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 15px;
+}
+
+.version .div-3 {
+  position: absolute;
+  width: 96px;
+  top: 74px;
+  left: 0;
+  font-family: "Lexend", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .renter-occupied-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 7px;
+  left: 33px;
+}
+
+.version .uninsured-rate-card {
+  position: absolute;
+  width: 96px;
+  height: 109px;
+  top: 118px;
+  left: 0;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.version .uninsured-rate {
+  position: absolute;
+  width: 90px;
+  top: 42px;
+  left: 3px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ac3434;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 15px;
+}
+
+.version .div-4 {
+  position: absolute;
+  width: 90px;
+  top: 75px;
+  left: 3px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .img-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 11px;
+  left: 33px;
+}
+
+.version .life-expectancy-card {
+  position: absolute;
+  width: 96px;
+  height: 109px;
+  top: 118px;
+  left: 208px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.version .overlap-10 {
+  position: absolute;
+  width: 90px;
+  height: 62px;
+  top: 10px;
+  left: 3px;
+}
+
+.version .life-expectancy {
+  position: absolute;
+  width: 90px;
+  top: 32px;
+  left: 0;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ac3434;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 15px;
+}
+
+.version .life-expectancy-icon {
+  position: absolute;
+  width: 33px;
+  height: 33px;
+  top: 0;
+  left: 28px;
+}
+
+.version .fair-poor-health {
+  position: absolute;
+  width: 96px;
+  height: 109px;
+  top: 118px;
+  left: 104px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.version .fair-poor-health-2 {
+  position: absolute;
+  width: 95px;
+  top: 42px;
+  left: 1px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ac3434;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 15px;
+}
+
+.version .household-median {
+  position: absolute;
+  width: 96px;
+  height: 109px;
+  top: 1px;
+  left: 312px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.version .household-median-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  left: 33px;
+}
+
+.version .food-insecurity-card {
+  position: absolute;
+  width: 96px;
+  height: 109px;
+  top: 119px;
+  left: 0;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.version .food-insecurity {
+  position: absolute;
+  width: 90px;
+  top: 41px;
+  left: 3px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ac3434;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 15px;
+}
+
+.version .food-insecurity-data {
+  position: absolute;
+  width: 90px;
+  top: 74px;
+  left: 3px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .food-insecurity-icon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 10px;
+  left: 33px;
+}
+
+.version .overlap-11 {
+  position: absolute;
+  width: 850px;
+  height: 666px;
+  top: 434px;
+  left: 0;
+  background-image: url(./img/swoosh-bg.png);
+  background-size: 100% 100%;
+}
+
+.version .overlap-12 {
+  position: absolute;
+  width: 395px;
+  height: 515px;
+  top: 108px;
+  left: 14px;
+  background-image: url(./img/map.png);
+  background-size: 100% 100%;
+}
+
+.version .map-averages {
+  position: absolute;
+  width: 140px;
+  height: 41px;
+  top: 450px;
+  left: 240px;
+  background-color: #8a2a60;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px #00000040;
+}
+
+.version .map-averages-data {
+  position: absolute;
+  width: 116px;
+  top: 5px;
+  left: 13px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #f2f2f2;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+
+.version .map-averages-top {
 	position: absolute;
 	width: 140px;
 	height: 41px;
-	top: 450px;
+	top: 11px;
 	left: 240px;
 	background-color: #8a2a60;
 	border-radius: 10px;
 	box-shadow: 2px 2px 2px #00000040;
-  }
-  
-  .version .map-averages-top {
-	position: absolute;
-	width: 140px;
-	height: 41px;
-	top: 11px;
-	left: 240px;
-	background-color: #8a2a60;
-	border-radius: 10px;
-	box-shadow: 2px 2px 2px #00000040;
-  }
-  
-  .version .map-averages-data {
-	position: absolute;
-	width: 116px;
-	top: 5px;
-	left: 13px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #f2f2f2;
-	font-size: 11px;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .map-legend {
-	position: absolute;
-	width: 176px;
-	height: 87px;
-	top: 404px;
-	left: 13px;
   }
   
   .version .map-legend-top {
@@ -798,658 +798,690 @@
 	  left: 13px;
 	}
   
-  .version .overlap-13 {
-	position: relative;
-	height: 87px;
+
+.version .map-legend {
+  position: absolute;
+  width: 176px;
+  height: 87px;
+  top: 404px;
+  left: 13px;
+}
+
+.version .overlap-13 {
+  position: relative;
+  height: 87px;
+}
+
+.version .map-legend-rectangle {
+  position: absolute;
+  width: 171px;
+  height: 87px;
+  top: 0;
+  left: 5px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px #00000040;
+}
+
+.version .legend-text {
+  position: absolute;
+  width: 165px;
+  top: 8px;
+  left: 0;
+  font-family: "Lexend", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 11px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .text-wrapper-6 {
+  font-weight: 700;
+}
+
+.version .zero-day-count {
+  position: absolute;
+  width: 20px;
+  height: 8px;
+  top: 26px;
+  left: 16px;
+  background-color: #f9bfbe;
+}
+
+.version .below-equal-avg {
+  position: absolute;
+  width: 20px;
+  height: 8px;
+  top: 40px;
+  left: 16px;
+  background-color: #c98281;
+}
+
+.version .above-avg-legend {
+  position: absolute;
+  width: 20px;
+  height: 8px;
+  top: 54px;
+  left: 16px;
+  background-color: #986261;
+}
+
+.version .latino-neighborhoods {
+  position: absolute;
+  width: 20px;
+  height: 8px;
+  top: 68px;
+  left: 16px;
+}
+
+.version .overlap-group-3 {
+  position: relative;
+  height: 8px;
+}
+
+.version .line {
+  width: 11px;
+  height: 6px;
+  top: 0;
+  left: 1px;
+  position: absolute;
+  object-fit: cover;
+}
+
+.version .line-2 {
+  width: 13px;
+  height: 7px;
+  top: 1px;
+  left: 7px;
+  position: absolute;
+  object-fit: cover;
+}
+
+.version .border {
+  position: absolute;
+  width: 20px;
+  height: 8px;
+  top: 0;
+  left: 0;
+  border: 1px solid;
+  border-color: #463636;
+}
+
+.version .extreme-heat-days {
+  position: absolute;
+  width: 437px;
+  top: 4px;
+  left: 20px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #333333;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .map-title {
+  position: absolute;
+  width: 414px;
+  top: 61px;
+  left: 20px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #333333;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .overlap-14 {
+  position: absolute;
+  width: 418px;
+  height: 475px;
+  top: 124px;
+  left: 421px;
+}
+
+.version .extreme-heat-data {
+  position: absolute;
+  width: 418px;
+  height: 475px;
+  top: 0;
+  left: 0;
+}
+
+.version .extreme-heat-info {
+  top: 44px;
+  position: absolute;
+  width: 169px;
+  height: 107px;
+  left: 0;
+}
+
+.version .extreme-heat-info-wrapper {
+  position: relative;
+  width: 167px;
+  height: 107px;
+  background-color: #333333;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.version .extreme-heat-info-2 {
+  top: 25px;
+  position: absolute;
+  width: 138px;
+  left: 13px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .overlap-wrapper {
+  top: 203px;
+  position: absolute;
+  width: 169px;
+  height: 107px;
+  left: 0;
+}
+
+.version .extreme-heat-info-3 {
+  top: 12px;
+  position: absolute;
+  width: 138px;
+  left: 13px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .overlap-group-wrapper {
+  top: 368px;
+  position: absolute;
+  width: 169px;
+  height: 107px;
+  left: 0;
+}
+
+.version .extreme-heat-info-4 {
+  top: 19px;
+  position: absolute;
+  width: 138px;
+  left: 13px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .extreme-heat-annual {
+  position: absolute;
+  width: 411px;
+  top: 0;
+  left: 1px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #333333;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .extreme-heat {
+  position: absolute;
+  width: 411px;
+  top: 159px;
+  left: 0;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #333333;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .extreme-heat-2 {
+  position: absolute;
+  width: 411px;
+  top: 322px;
+  left: 0;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #333333;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .div-wrapper {
+  position: absolute;
+  width: 185px;
+  height: 14px;
+  top: 254px;
+  left: 202px;
+}
+
+.version .overlap-15 {
+  position: relative;
+  width: 234px;
+  height: 107px;
+  top: -51px;
+  left: -25px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.version .overlap-group-4 {
+  position: absolute;
+  width: 234px;
+  height: 16px;
+  top: 78px;
+  left: 0;
+}
+
+.version .div-5 {
+  position: absolute;
+  width: 212px;
+  height: 15px;
+  top: 1px;
+  left: 11px;
+  background-color: #8a2a60;
+  border-radius: 10px;
+}
+
+.version .text-wrapper-7 {
+  position: absolute;
+  width: 234px;
+  top: 1px;
+  left: 0px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 500;
+  color: #f2f2f2;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .div-6 {
+  width: 86px;
+  top: 44px;
+  font-weight: 700;
+  color: #ac3434;
+  font-size: 20px;
+  position: absolute;
+  left: 14px;
+  font-family: "Lexend", Helvetica;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .text-wrapper-8 {
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ac3434;
+  font-size: 20px;
+  letter-spacing: 0;
+}
+
+.version .text-wrapper-9 {
+  font-size: 14px;
+}
+
+.version .div-7 {
+  width: 93px;
+  top: 44px;
+  font-weight: 700;
+  color: #ac6a34;
+  font-size: 20px;
+  position: absolute;
+  left: 132px;
+  font-family: "Lexend", Helvetica;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .text-wrapper-10 {
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ac6a34;
+  font-size: 20px;
+  letter-spacing: 0;
+}
+
+.version .div-8 {
+  width: 83px;
+  top: 14px;
+  font-weight: 400;
+  color: #000000;
+  font-size: 11px;
+  position: absolute;
+  left: 132px;
+  font-family: "Lexend", Helvetica;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .div-9 {
+  width: 83px;
+  top: 13px;
+  font-weight: 400;
+  color: #000000;
+  font-size: 11px;
+  position: absolute;
+  left: 14px;
+  font-family: "Lexend", Helvetica;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .extreme-heat-annual-2 {
+  position: absolute;
+  width: 185px;
+  height: 14px;
+  top: 94px;
+  left: 202px;
+}
+
+.version .extreme-heat-3 {
+  position: absolute;
+  width: 185px;
+  height: 14px;
+  top: 419px;
+  left: 202px;
+}
+
+.version .footer {
+  position: absolute;
+  width: 850px;
+  height: 34px;
+  top: 632px;
+  left: 0px;
+  background-color: #000000;
+}
+
+.version .footer-website {
+  width: 325px;
+  top: 8px;
+  left: 19px;
+  font-size: 12px;
+  position: absolute;
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.version .text-wrapper-11 {
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.version .text-wrapper-12 {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.version .footer-LPPI {
+  width: 362px;
+  top: 10px;
+  left: 428px;
+  font-size: 11px;
+  text-align: right;
+  position: absolute;
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.version .page-number {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  top: 0;
+  left: 816px;
+  background-color: #8a2a60;
+}
+
+.version .page-number-2 {
+  position: absolute;
+  width: 34px;
+  top: 8px;
+  left: 0px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .extreme-heat-4 {
+  position: absolute;
+  width: 308px;
+  height: 43px;
+  top: 61px;
+  left: 524px;
+}
+
+.version .overlap-16 {
+  position: relative;
+  height: 44px;
+  top: -1px;
+}
+
+.version .extreme-heat-5 {
+  height: 40px;
+  top: 4px;
+  background-color: #8a2a60;
+  border-radius: 10px;
+  box-shadow: 4px 4px 0px #00000040;
+  position: absolute;
+  width: 294px;
+  left: 14px;
+}
+
+.version .extreme-heat-6 {
+  top: 10px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #f2f2f2;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  width: 294px;
+  left: 14px;
+}
+
+.version .text-wrapper-13 {
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #f2f2f2;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+
+.version .extreme-heat-bubble {
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  top: 4px;
+  left: 3px;
+  background-color: #f2f2f2;
+  border-radius: 11.5px;
+  box-shadow: 4px 4px 0px #00000040;
+}
+
+.version .extreme-heat-accent {
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  top: 5px;
+  left: 3px;
+  transform: rotate(-15.00deg);
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #8a2a60;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .topic-title {
+  position: absolute;
+  width: 581px;
+  height: 37px;
+  top: 63px;
+  left: -81px;
+}
+
+.version .overlap-17 {
+  position: relative;
+  width: 579px;
+  height: 37px;
+}
+
+.version .topic-title-2 {
+  position: absolute;
+  width: 381px;
+  height: 35px;
+  top: 2px;
+  left: 0;
+  background-color: #8a2a60;
+  border-radius: 15px;
+  box-shadow: 2px 3px 0px #333333bf;
+}
+
+.version .topic-title-3 {
+  position: absolute;
+  width: 480px;
+  top: 0;
+  left: 99px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #f2f2f2;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.version .county-statistics {
+  position: absolute;
+  width: 237px;
+  top: 110px;
+  left: 20px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ac3434;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.version .neighborhood-level {
+  position: absolute;
+  width: 437px;
+  top: 411px;
+  left: 20px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 700;
+  color: #ac3434;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.version .factsheet-heading {
+  position: absolute;
+  width: 850px;
+  height: 61px;
+  top: -1px;
+  left: 0;
+  background-color: #000000;
+}
+
+.version .factsheet-heading-2 {
+  position: absolute;
+  width: 345px;
+  top: 10px;
+  left: 20px;
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+.version .text-wrapper-14 {
+  font-family: "Lexend", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+.version .text-wrapper-15 {
+  font-size: 20px;
+}
+
+.version .factsheet-heading-3 {
+  position: absolute;
+  width: 212px;
+  height: 44px;
+  top: 9px;
+  left: 620px;
+  object-fit: cover;
+}
+
+.page-number a {
+	text-decoration: none;
+	color: inherit;
   }
-  
-  .version .map-legend-rectangle {
-	position: absolute;
-	width: 171px;
-	height: 87px;
-	top: 0;
-	left: 5px;
-	background-color: #ffffff;
-	border-radius: 10px;
-	box-shadow: 2px 2px 2px #00000040;
+
+  a, a:visited {
+	text-decoration: none;
+	color: #fff !important;
   }
-  
-  .version .legend-text {
-	position: absolute;
-	width: 165px;
-	top: 8px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 400;
-	color: #000000;
-	font-size: 11px;
-	text-align: right;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .text-wrapper-6 {
-	font-weight: 700;
-  }
-  
-  .version .zero-day-count {
-	position: absolute;
-	width: 20px;
-	height: 8px;
-	top: 26px;
-	left: 16px;
-	background-color: #f9bfbe;
-  }
-  
-  .version .below-equal-avg {
-	position: absolute;
-	width: 20px;
-	height: 8px;
-	top: 40px;
-	left: 16px;
-	background-color: #c98281;
-  }
-  
-  .version .above-avg-legend {
-	position: absolute;
-	width: 20px;
-	height: 8px;
-	top: 54px;
-	left: 16px;
-	background-color: #986261;
-  }
-  
-  .version .latino-neighborhoods {
-	position: absolute;
-	width: 20px;
-	height: 8px;
-	top: 68px;
-	left: 16px;
-  }
-  
-  .version .overlap-group-3 {
-	position: relative;
-	height: 8px;
-  }
-  
-  .version .line {
-	width: 11px;
-	height: 6px;
-	top: 0;
-	left: 1px;
-	position: absolute;
-	object-fit: cover;
-  }
-  
-  .version .line-2 {
-	width: 13px;
-	height: 7px;
-	top: 1px;
-	left: 7px;
-	position: absolute;
-	object-fit: cover;
-  }
-  
-  .version .border {
-	position: absolute;
-	width: 20px;
-	height: 8px;
-	top: 0;
-	left: 0;
-	border: 1px solid;
-	border-color: #463636;
-  }
-  
-  .version .extreme-heat-days {
-	position: absolute;
-	width: 437px;
-	top: 4px;
-	left: 20px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #333333;
-	font-size: 16px;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .map-title {
-	position: absolute;
-	width: 414px;
-	top: 61px;
-	left: 20px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #333333;
-	font-size: 16px;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .overlap-14 {
-	position: absolute;
-	width: 418px;
-	height: 475px;
-	top: 124px;
-	left: 421px;
-  }
-  
-  .version .extreme-heat-data {
-	position: absolute;
-	width: 418px;
-	height: 475px;
-	top: 0;
-	left: 0;
-  }
-  
-  .version .extreme-heat-info {
-	top: 44px;
-	position: absolute;
-	width: 169px;
-	height: 107px;
-	left: 0;
-  }
-  
-  .version .extreme-heat-info-wrapper {
-	position: relative;
-	width: 167px;
-	height: 107px;
-	background-color: #333333;
-	border-radius: 10px;
-	box-shadow: 0px 4px 4px #00000040;
-  }
-  
-  .version .extreme-heat-info-2 {
-	top: 25px;
-	position: absolute;
-	width: 138px;
-	left: 13px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 400;
-	color: #ffffff;
-	font-size: 11px;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .overlap-wrapper {
-	top: 203px;
-	position: absolute;
-	width: 169px;
-	height: 107px;
-	left: 0;
-  }
-  
-  .version .extreme-heat-info-3 {
-	top: 12px;
-	position: absolute;
-	width: 138px;
-	left: 13px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 400;
-	color: #ffffff;
-	font-size: 11px;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .overlap-group-wrapper {
-	top: 368px;
-	position: absolute;
-	width: 169px;
-	height: 107px;
-	left: 0;
-  }
-  
-  .version .extreme-heat-info-4 {
-	top: 19px;
-	position: absolute;
-	width: 138px;
-	left: 13px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 400;
-	color: #ffffff;
-	font-size: 11px;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .extreme-heat-annual {
-	position: absolute;
-	width: 411px;
-	top: 0;
-	left: 1px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #333333;
-	font-size: 16px;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .extreme-heat {
-	position: absolute;
-	width: 411px;
-	top: 159px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #333333;
-	font-size: 16px;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .extreme-heat-2 {
-	position: absolute;
-	width: 411px;
-	top: 322px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #333333;
-	font-size: 16px;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .div-wrapper {
-	position: absolute;
-	width: 185px;
-	height: 14px;
-	top: 254px;
-	left: 202px;
-  }
-  
-  .version .overlap-15 {
-	position: relative;
-	width: 234px;
-	height: 107px;
-	top: -51px;
-	left: -25px;
-	background-color: #f2f2f2;
-	border-radius: 10px;
-	box-shadow: 0px 4px 4px #00000040;
-  }
-  
-  .version .overlap-group-4 {
-	position: absolute;
-	width: 234px;
-	height: 16px;
-	top: 78px;
-	left: 0;
-  }
-  
-  .version .div-5 {
-	position: absolute;
-	width: 212px;
-	height: 15px;
-	top: 1px;
-	left: 11px;
-	background-color: #8a2a60;
-	border-radius: 10px;
-  }
-  
-  .version .text-wrapper-7 {
-	position: absolute;
-	width: 234px;
-	top: 0;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 500;
-	color: #f2f2f2;
-	font-size: 11px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .div-6 {
-	width: 86px;
-	top: 44px;
-	font-weight: 700;
-	color: #ac3434;
-	font-size: 20px;
-	position: absolute;
-	left: 14px;
-	font-family: "Lexend", Helvetica;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .text-wrapper-8 {
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ac3434;
-	font-size: 20px;
-	letter-spacing: 0;
-  }
-  
-  .version .text-wrapper-9 {
-	font-size: 14px;
-  }
-  
-  .version .div-7 {
-	width: 93px;
-	top: 44px;
-	font-weight: 700;
-	color: #ac6a34;
-	font-size: 20px;
-	position: absolute;
-	left: 132px;
-	font-family: "Lexend", Helvetica;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .text-wrapper-10 {
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ac6a34;
-	font-size: 20px;
-	letter-spacing: 0;
-  }
-  
-  .version .div-8 {
-	width: 83px;
-	top: 14px;
-	font-weight: 400;
-	color: #000000;
-	font-size: 11px;
-	position: absolute;
-	left: 132px;
-	font-family: "Lexend", Helvetica;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .div-9 {
-	width: 83px;
-	top: 13px;
-	font-weight: 400;
-	color: #000000;
-	font-size: 11px;
-	position: absolute;
-	left: 14px;
-	font-family: "Lexend", Helvetica;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .extreme-heat-annual-2 {
-	position: absolute;
-	width: 185px;
-	height: 14px;
-	top: 94px;
-	left: 202px;
-  }
-  
-  .version .extreme-heat-3 {
-	position: absolute;
-	width: 185px;
-	height: 14px;
-	top: 419px;
-	left: 202px;
-  }
-  
-  .version .footer {
-	position: absolute;
-	width: 850px;
-	height: 34px;
-	top: 632px;
-	left: 0;
-	background-color: #000000;
-  }
-  
-  .version .footer-website {
-	width: 325px;
-	top: 8px;
-	left: 19px;
-	font-size: 12px;
-	position: absolute;
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #ffffff;
-	letter-spacing: 0;
-	line-height: normal;
-	white-space: nowrap;
-  }
-  
-  .version .text-wrapper-11 {
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #ffffff;
-	font-size: 12px;
-	letter-spacing: 0;
-  }
-  
-  .version .text-wrapper-12 {
-	text-decoration: underline;
-  }
-  
-  .version .footer-LPPI {
-	width: 362px;
+
+.extreme-heat-info-bigger {
 	top: 10px;
-	left: 428px;
-	font-size: 11px;
-	text-align: right;
 	position: absolute;
+	width: 138px;
+	left: 13px;
 	font-family: "Lexend", Helvetica;
-	font-weight: 600;
+	font-weight: 400;
 	color: #ffffff;
-	letter-spacing: 0;
-	line-height: normal;
-	white-space: nowrap;
-  }
-  
-  .version .page-number {
-	position: absolute;
-	width: 34px;
-	height: 34px;
-	top: 0;
-	left: 816px;
-	background-color: #8a2a60;
-  }
-  
-  .version .page-number-2 {
-	position: absolute;
-	width: 34px;
-	top: 8px;
-	left: 0;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ffffff;
-	font-size: 12px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .extreme-heat-4 {
-	position: absolute;
-	width: 308px;
-	height: 43px;
-	top: 61px;
-	left: 524px;
-  }
-  
-  .version .overlap-16 {
-	position: relative;
-	height: 44px;
-	top: -1px;
-  }
-  
-  .version .extreme-heat-5 {
-	height: 40px;
-	top: 4px;
-	background-color: #8a2a60;
-	border-radius: 10px;
-	box-shadow: 4px 4px 0px #00000040;
-	position: absolute;
-	width: 294px;
-	left: 14px;
-  }
-  
-  .version .extreme-heat-6 {
-	top: 9px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #f2f2f2;
-	font-size: 11px;
-	text-align: center;
-	letter-spacing: 0;
-	line-height: normal;
-	position: absolute;
-	width: 294px;
-	left: 14px;
-  }
-  
-  .version .text-wrapper-13 {
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #f2f2f2;
 	font-size: 11px;
 	letter-spacing: 0;
-  }
-  
-  .version .extreme-heat-bubble {
-	position: absolute;
-	width: 23px;
-	height: 23px;
-	top: 4px;
-	left: 3px;
-	background-color: #f2f2f2;
-	border-radius: 11.5px;
-	box-shadow: 4px 4px 0px #00000040;
-  }
-  
-  .version .extreme-heat-accent {
-	position: absolute;
-	width: 23px;
-	height: 23px;
-	top: 3px;
-	left: 3px;
-	transform: rotate(-15.00deg);
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #8a2a60;
-	font-size: 16px;
-	text-align: center;
-	letter-spacing: 0;
 	line-height: normal;
   }
-  
-  .version .topic-title {
-	position: absolute;
-	width: 581px;
-	height: 37px;
-	top: 63px;
-	left: -81px;
-  }
-  
-  .version .overlap-17 {
-	position: relative;
-	width: 579px;
-	height: 37px;
-  }
-  
-  .version .topic-title-2 {
-	position: absolute;
-	width: 381px;
-	height: 35px;
-	top: 2px;
-	left: 0;
-	background-color: #8a2a60;
-	border-radius: 15px;
-	box-shadow: 2px 3px 0px #333333bf;
-  }
-  
-  .version .topic-title-3 {
-	position: absolute;
-	width: 480px;
-	top: 0;
-	left: 99px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #f2f2f2;
-	font-size: 32px;
-	letter-spacing: 0;
-	line-height: normal;
-	white-space: nowrap;
-  }
-  
-  .version .county-statistics {
-	position: absolute;
-	width: 237px;
-	top: 110px;
-	left: 20px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ac3434;
-	font-size: 20px;
-	letter-spacing: 0;
-	line-height: normal;
-  }
-  
-  .version .neighborhood-level {
-	position: absolute;
-	width: 437px;
-	top: 411px;
-	left: 20px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 700;
-	color: #ac3434;
-	font-size: 20px;
-	letter-spacing: 0;
-	line-height: normal;
-	white-space: nowrap;
-  }
-  
-  .version .factsheet-heading {
-	position: absolute;
-	width: 850px;
-	height: 61px;
-	top: -1px;
-	left: 0;
-	background-color: #000000;
-  }
-  
-  .version .factsheet-heading-2 {
-	position: absolute;
-	width: 345px;
-	top: 10px;
-	left: 20px;
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #ffffff;
-	font-size: 14px;
-	letter-spacing: 0;
-	line-height: 20px;
-  }
-  
-  .version .text-wrapper-14 {
-	font-family: "Lexend", Helvetica;
-	font-weight: 600;
-	color: #ffffff;
-	font-size: 14px;
-	letter-spacing: 0;
-	line-height: 20px;
-  }
-  
-  .version .text-wrapper-15 {
-	font-size: 20px;
-  }
-  
-  .version .factsheet-heading-3 {
-	position: absolute;
-	width: 212px;
-	height: 44px;
-	top: 9px;
-	left: 620px;
-	object-fit: cover;
-  }
-  

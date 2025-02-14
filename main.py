@@ -67,14 +67,14 @@ def generate_static_html(county_name_mapping, report_type, output_dir, build_for
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description='Run the Flask app to serve pages or build static HTML for deployment.'
+        description='Run the Flask app to serve pages, build static HTML or generate PDFs.'
     )
     parser.add_argument('--debug', action='store_true', help='Run Flask in debug mode')
-    parser.add_argument('mode', nargs='?', default='serve', choices=['serve', 'build', 'build-gh'],
-                        help="Choose: 'serve' to run the server, 'build' to build with local URLs (with PDFs), or 'build-gh' to build for GitHub Pages")
+    parser.add_argument('mode', nargs='?', default='serve', choices=['serve', 'build', 'build-gh', 'write-pdfs'],
+                        help="Choose: 'serve' to run the server, 'build' to build with local URLs (with PDFs), 'build-gh' for GitHub Pages, or 'write-pdfs' to generate PDFs only")
     args = parser.parse_args()
 
-    if args.mode == 'build' or args.mode == 'build-gh':
+    if args.mode in ['build', 'build-gh']:
         # Start Flask in a background thread so that the app can serve pages for static generation.
         flask_thread = threading.Thread(target=start_flask_app, kwargs={'debug': args.debug}, daemon=True)
         flask_thread.start()
@@ -83,5 +83,8 @@ if __name__ == '__main__':
         build_for_gh = (args.mode == 'build-gh')
         generate_static_html(county_name_mapping, report_type, output_dir, build_for_gh=build_for_gh)
         print("Static HTML build complete.")
+    elif args.mode == 'write-pdfs':
+        generate_pdfs(county_name_mapping, output_dir)
+        print("PDF generation complete.")
     else:
         start_flask_app(debug=args.debug)
