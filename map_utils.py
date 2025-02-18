@@ -13,16 +13,6 @@ MAJOR_CITIES = [
     "Fresno", "Sacramento", "Long Beach", "Oakland", "Bakersfield"
 ]
 
-special_adjustments = {
-	"Kings": {"shift_y": 5000},
-	"Los Angeles": {"shift_y": 10000},
-	"Merced": {"shift_y": 5000},
-	"Sacramento": {"shift_y": 5000},
-	"San Joaquin": {"shift_y": 5000},
-	"San Mateo": {"shift_y": 5000, "shift_x": 2000},
-	"Stanislaus": {"shift_y": 3000},
-	"Ventura": {"shift_y": 5000, "zoom_factor": 0.9}  # For example, zoom out slightly.
-}
 
 # Define colors for neighborhoods
 COLOR_ABOVE_AVERAGE = '#5b0000'
@@ -65,6 +55,51 @@ def join_heat_data_to_census(census_geojson_path, heat_data_path, output_geojson
 
 	except Exception as e:
 		print(f"An error occurred while joining heat data to census tracts: {e}")
+
+def apply_special_adjustments(county, bounds):
+    """
+    Adjust the bounds based on special adjustments for the given county.
+    
+    bounds: a tuple (minx, miny, maxx, maxy)
+    
+    Special adjustments are defined internally. They can include:
+      - 'shift_y': adds extra padding at the bottom (subtracts from y_min)
+      - 'shift_x': shifts the x bounds (added to both x_min and x_max)
+      - 'zoom_factor': rescales the bounds about the center
+      
+    Returns the adjusted bounds (minx, miny, maxx, maxy).
+    """
+    special_adjustments = {
+        "Kings": {"shift_y": 5000},
+        "Los Angeles": {"shift_y": 10000},
+        "Merced": {"shift_y": 5000},
+        "Sacramento": {"shift_y": 5000},
+        "San Joaquin": {"shift_y": 5000},
+        "San Mateo": {"shift_y": 5000, "shift_x": 2000},
+        "Stanislaus": {"shift_y": 3000},
+        "Ventura": {"shift_y": 5000, "zoom_factor": 0.9}  # For example, zoom out slightly.
+    }
+    
+    minx, miny, maxx, maxy = bounds
+    if county in special_adjustments:
+        adj = special_adjustments[county]
+        # For a bottom padding, subtract from y_min only:
+        if "shift_y" in adj:
+            miny -= adj["shift_y"]
+        if "shift_x" in adj:
+            minx += adj["shift_x"]
+            maxx += adj["shift_x"]
+        if "zoom_factor" in adj:
+            factor = adj["zoom_factor"]
+            x_center = (minx + maxx) / 2
+            y_center = (miny + maxy) / 2
+            width = (maxx - minx) / factor
+            height = (maxy - miny) / factor
+            minx = x_center - width / 2
+            maxx = x_center + width / 2
+            miny = y_center - height / 2
+            maxy = y_center + height / 2
+    return (minx, miny, maxx, maxy)
 
 def generate_majority_tracts_map(
 	geojson_path,
@@ -279,6 +314,8 @@ def generate_majority_tracts_map(
 
 				# Adjust plot limits to maintain aspect ratio
 				bounds = county_gdf.total_bounds  # minx, miny, maxx, maxy
+				bounds = apply_special_adjustments(county, bounds)
+
 				minx, miny, maxx, maxy = bounds
 				current_ratio = (maxx - minx) / (maxy - miny)
 				desired_ratio = aspect_ratio  # ≈0.776
@@ -297,28 +334,7 @@ def generate_majority_tracts_map(
 					x_min = x_center - expected_width / 2
 					x_max = x_center + expected_width / 2
 					ax.set_xlim(x_min, x_max)
-
-				if county in special_adjustments:
-					adj = special_adjustments[county]
-					if "shift_y" in adj:
-						y_min -= adj["shift_y"]
-						y_max -= adj["shift_y"]
-					if "shift_x" in adj:
-						x_min += adj["shift_x"]
-						x_max += adj["shift_x"]
-					if "zoom_factor" in adj:
-						factor = adj["zoom_factor"]
-						x_center = (x_min + x_max) / 2
-						y_center = (y_min + y_max) / 2
-						width = (x_max - x_min) / factor
-						height = (y_max - y_min) / factor
-						x_min = x_center - width / 2
-						x_max = x_center + width / 2
-						y_min = y_center - height / 2
-						y_max = y_center + height / 2
-
-				ax.set_xlim(x_min, x_max)
-				ax.set_ylim(y_min, y_max)
+	
 				# Add Legend
 				if legend_elements:
 					legend_elements.append(

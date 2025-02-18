@@ -1,0 +1,6753 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.43974715738882,
+          34.581412768538065
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Adelanto"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.76089791337955,
+          34.151011971441704
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Agoura hills"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.26640185581181,
+          37.76540361815144
+        ]
+      },
+      "properties": {
+        "county": "Alameda county",
+        "name": "Alameda"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.3002464296867,
+          37.889835231604
+        ]
+      },
+      "properties": {
+        "county": "Alameda county",
+        "name": "Albany"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.13552439355122,
+          34.08395792077297
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Alhambra"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.72890135907414,
+          33.57922195770187
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Aliso viejo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.55190131152729,
+          41.489762495228824
+        ]
+      },
+      "properties": {
+        "county": "Modoc county",
+        "name": "Alturas"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.82328763665498,
+          38.41899826636404
+        ]
+      },
+      "properties": {
+        "county": "Amador county",
+        "name": "Amador city"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.25839386273509,
+          38.179547473744705
+        ]
+      },
+      "properties": {
+        "county": "Napa county",
+        "name": "American canyon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.85768991917263,
+          33.83890137638582
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Anaheim"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.29446332702847,
+          40.44965792926008
+        ]
+      },
+      "properties": {
+        "county": "Shasta county",
+        "name": "Anderson"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.55051743311309,
+          38.07099804500905
+        ]
+      },
+      "properties": {
+        "county": "Calaveras county",
+        "name": "Angels"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.79591077647568,
+          37.97863226316362
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "Antioch"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.21089503156384,
+          34.535102997850636
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Apple valley"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.03731740707066,
+          34.13419221406684
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Arcadia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.07547803970769,
+          40.861974313713965
+        ]
+      },
+      "properties": {
+        "county": "Humboldt county",
+        "name": "Arcata"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.58457863880935,
+          35.12416378181521
+        ]
+      },
+      "properties": {
+        "county": "San luis obispo county",
+        "name": "Arroyo grande"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.08063495154869,
+          33.86755626542697
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Artesia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.83049799205165,
+          35.19434743449376
+        ]
+      },
+      "properties": {
+        "county": "Kern county",
+        "name": "Arvin"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.68571849133868,
+          35.482685498889076
+        ]
+      },
+      "properties": {
+        "county": "San luis obispo county",
+        "name": "Atascadero"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.20320429926608,
+          37.45397419585236
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "Atherton"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.59671643830502,
+          37.35109304752587
+        ]
+      },
+      "properties": {
+        "county": "Merced county",
+        "name": "Atwater"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.07793377113212,
+          38.895180742597326
+        ]
+      },
+      "properties": {
+        "county": "Placer county",
+        "name": "Auburn"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.33147154259102,
+          33.334106896783084
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Avalon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.11603632151991,
+          36.03124587588845
+        ]
+      },
+      "properties": {
+        "county": "Kings county",
+        "name": "Avenal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.9123918582084,
+          34.13862291033677
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Azusa"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.03609163473412,
+          35.352817664851585
+        ]
+      },
+      "properties": {
+        "county": "Kern county",
+        "name": "Bakersfield"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.97217507956209,
+          34.08285192488485
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Baldwin park"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.89912088092817,
+          33.94593831617113
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Banning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.04718540081487,
+          34.86611221463228
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Barstow"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.97667658066968,
+          33.90757713907305
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Beaumont"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.17981466879172,
+          33.980061953957524
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Bell"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.15503340727288,
+          33.96633604262026
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Bell gardens"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.12716094403079,
+          33.888023203164195
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Bellflower"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.29545609963412,
+          37.51534794470279
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "Belmont"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.46700549078876,
+          37.873719541594284
+        ]
+      },
+      "properties": {
+        "county": "Marin county",
+        "name": "Belvedere"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.15221197145301,
+          38.074086733258376
+        ]
+      },
+      "properties": {
+        "county": "Solano county",
+        "name": "Benicia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.27502634407034,
+          37.87247162735963
+        ]
+      },
+      "properties": {
+        "county": "Alameda county",
+        "name": "Berkeley"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.40213216280257,
+          34.078550936997495
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Beverly hills"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.89520315849865,
+          34.24290522680303
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Big bear lake"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.71143365861045,
+          39.41154164585177
+        ]
+      },
+      "properties": {
+        "county": "Butte county",
+        "name": "Biggs"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.39613122967474,
+          37.366654942480714
+        ]
+      },
+      "properties": {
+        "county": "Inyo county",
+        "name": "Bishop"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.99393459333751,
+          40.881490648110706
+        ]
+      },
+      "properties": {
+        "county": "Humboldt county",
+        "name": "Blue lake"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.61947296491743,
+          33.621855609022745
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Blythe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.96839337947722,
+          34.153563356963765
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Bradbury"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.52859737338173,
+          32.97839619510482
+        ]
+      },
+      "properties": {
+        "county": "Imperial county",
+        "name": "Brawley"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.8645732884956,
+          33.92525847119446
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Brea"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.71893584524821,
+          37.93557792129653
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "Brentwood"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40210496758172,
+          37.69014096424469
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "Brisbane"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1946486885653,
+          34.61520410149507
+        ]
+      },
+      "properties": {
+        "county": "Santa barbara county",
+        "name": "Buellton"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.00459023939808,
+          33.857281559166864
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Buena park"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.32348169741503,
+          34.18791418357445
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Burbank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.36681113801261,
+          37.58595824063387
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "Burlingame"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.66890666034604,
+          34.13748414317595
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Calabasas"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.49475828406506,
+          32.68490405918591
+        ]
+      },
+      "properties": {
+        "county": "Imperial county",
+        "name": "Calexico"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.87168191960427,
+          35.15793546056056
+        ]
+      },
+      "properties": {
+        "county": "Kern county",
+        "name": "California"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.05435534700617,
+          33.98734258538923
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Calimesa"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.50560527712433,
+          33.14914094540469
+        ]
+      },
+      "properties": {
+        "county": "Imperial county",
+        "name": "Calipatria"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.58255454601739,
+          38.58179858972312
+        ]
+      },
+      "properties": {
+        "county": "Napa county",
+        "name": "Calistoga"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.0322165052893,
+          34.222980341984524
+        ]
+      },
+      "properties": {
+        "county": "Ventura county",
+        "name": "Camarillo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.95378351125156,
+          37.280207177188224
+        ]
+      },
+      "properties": {
+        "county": "Santa clara county",
+        "name": "Campbell"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.26209227073372,
+          33.68829620473603
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Canyon lake"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.95391225434226,
+          36.977394857566495
+        ]
+      },
+      "properties": {
+        "county": "Santa cruz county",
+        "name": "Capitola"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.28348487400845,
+          33.124645249797666
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "Carlsbad"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.92181209082013,
+          36.55296611522345
+        ]
+      },
+      "properties": {
+        "county": "Monterey county",
+        "name": "Carmel-by-the-sea"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.51209193737326,
+          34.396366318020185
+        ]
+      },
+      "properties": {
+        "county": "Santa barbara county",
+        "name": "Carpinteria"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.25590555496163,
+          33.83741184316183
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Carson"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.46422707765998,
+          33.836143906146944
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Cathedral city"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.96200812438484,
+          37.59522279732808
+        ]
+      },
+      "properties": {
+        "county": "Stanislaus county",
+        "name": "Ceres"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.06859676971823,
+          33.86777077008726
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Cerritos"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.81693748197922,
+          39.757286429537174
+        ]
+      },
+      "properties": {
+        "county": "Butte county",
+        "name": "Chico"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.66533529111092,
+          33.98346814545022
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Chino"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.72538532163117,
+          33.950749736241654
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Chino hills"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.23245528047637,
+          37.1089970568921
+        ]
+      },
+      "properties": {
+        "county": "Madera county",
+        "name": "Chowchilla"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.01444142643203,
+          32.62810874537297
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "Chula vista"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.2879579340683,
+          38.694839495323265
+        ]
+      },
+      "properties": {
+        "county": "Sacramento county",
+        "name": "Citrus heights"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.7153360304911,
+          34.125939916234586
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Claremont"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.93011514970573,
+          37.940347211896636
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "Clayton"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.63296213113107,
+          38.95895073178393
+        ]
+      },
+      "properties": {
+        "county": "Lake county",
+        "name": "Clearlake"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.01477079346868,
+          38.79495035595664
+        ]
+      },
+      "properties": {
+        "county": "Sonoma county",
+        "name": "Cloverdale"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.68323944241293,
+          36.82951430805947
+        ]
+      },
+      "properties": {
+        "county": "Fresno county",
+        "name": "Clovis"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.14467759523322,
+          33.68902942571837
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Coachella"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.32556200141111,
+          36.14204969456204
+        ]
+      },
+      "properties": {
+        "county": "Fresno county",
+        "name": "Coalinga"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.95229275218541,
+          39.09270163431586
+        ]
+      },
+      "properties": {
+        "county": "Placer county",
+        "name": "Colfax"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4529201014092,
+          37.676655153333975
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "Colma"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.32540057436994,
+          34.053540357557296
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Colton"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.00962055560488,
+          39.19973076107923
+        ]
+      },
+      "properties": {
+        "county": "Colusa county",
+        "name": "Colusa"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.1519367649434,
+          33.996353846616884
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Commerce"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.22755889684935,
+          33.8929465645133
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Compton"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.00160776167303,
+          37.97221148302457
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "Concord"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.5611426012858,
+          36.08394689954968
+        ]
+      },
+      "properties": {
+        "county": "Kings county",
+        "name": "Corcoran"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.17959422826127,
+          39.92800332040196
+        ]
+      },
+      "properties": {
+        "county": "Tehama county",
+        "name": "Corning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.56493458975655,
+          33.86159664860929
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Corona"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.16369155273267,
+          32.6663428317903
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "Coronado"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.51271050286257,
+          37.92377149555842
+        ]
+      },
+      "properties": {
+        "county": "Marin county",
+        "name": "Corte madera"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.91346915000302,
+          33.666734395056785
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Costa mesa"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.70930528281745,
+          38.32784020026028
+        ]
+      },
+      "properties": {
+        "county": "Sonoma county",
+        "name": "Cotati"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.88185103452123,
+          34.09026943462548
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Covina"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.18906567479398,
+          41.778842770160104
+        ]
+      },
+      "properties": {
+        "county": "Del norte county",
+        "name": "Crescent city"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.1831093967037,
+          33.96311950990039
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Cudahy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.39684171626317,
+          34.005802997343245
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Culver city"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.04652678946042,
+          37.31678368310507
+        ]
+      },
+      "properties": {
+        "county": "Santa clara county",
+        "name": "Cupertino"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.03856400639194,
+          33.817134952883286
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Cypress"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4684211113292,
+          37.68617751603396
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "Daly city"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.6964604665318,
+          33.47385088599847
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Dana point"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.96985835221257,
+          37.81214776465506
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "Danville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.73714410907596,
+          38.555242851658456
+        ]
+      },
+      "properties": {
+        "county": "Yolo county",
+        "name": "Davis"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.2624029862083,
+          32.963446357658285
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "Del mar"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.82839000823219,
+          36.5910914564408
+        ]
+      },
+      "properties": {
+        "county": "Monterey county",
+        "name": "Del rey oaks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.26656106388765,
+          35.76443266823664
+        ]
+      },
+      "properties": {
+        "county": "Kern county",
+        "name": "Delano"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.54286378379365,
+          33.95490907335756
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Desert hot springs"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.81612875855326,
+          33.999177854407016
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Diamond bar"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.3986962835373,
+          36.54501013932568
+        ]
+      },
+      "properties": {
+        "county": "Tulare county",
+        "name": "Dinuba"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.82502846643489,
+          38.447072513285875
+        ]
+      },
+      "properties": {
+        "county": "Solano county",
+        "name": "Dixon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.92065992422692,
+          41.96416075360041
+        ]
+      },
+      "properties": {
+        "county": "Siskiyou county",
+        "name": "Dorris"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.63573107910837,
+          36.98569124467742
+        ]
+      },
+      "properties": {
+        "county": "Merced county",
+        "name": "Dos palos"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.13116063197634,
+          33.937876121469685
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Downey"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.95056446285561,
+          34.16093795306661
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Duarte"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.89620821473777,
+          37.71624131540273
+        ]
+      },
+      "properties": {
+        "county": "Alameda county",
+        "name": "Dublin"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.27101710228884,
+          41.23231660679595
+        ]
+      },
+      "properties": {
+        "county": "Siskiyou county",
+        "name": "Dunsmuir"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.13533912049107,
+          37.466997888806084
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "East palo alto"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.58038414351618,
+          33.961670430447505
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Eastvale"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.96046303029402,
+          32.80168544372745
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "El cajon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.55959504092364,
+          32.78603355302602
+        ]
+      },
+      "properties": {
+        "county": "Imperial county",
+        "name": "El centro"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.30258670186008,
+          37.91960803881378
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "El cerrito"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.02909357534485,
+          34.07395358029833
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "El monte"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.40201228245014,
+          33.917016277380725
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "El segundo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.38343252874668,
+          38.41552023892007
+        ]
+      },
+      "properties": {
+        "county": "Sacramento county",
+        "name": "Elk grove"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.29090114195095,
+          37.83798871647844
+        ]
+      },
+      "properties": {
+        "county": "Alameda county",
+        "name": "Emeryville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.26111293168121,
+          33.049120466278595
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "Encinitas"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.99809842554025,
+          37.791808596670926
+        ]
+      },
+      "properties": {
+        "county": "San joaquin county",
+        "name": "Escalon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.07226156937857,
+          33.13474482987724
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "Escondido"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.89450950773933,
+          41.45850450040945
+        ]
+      },
+      "properties": {
+        "county": "Siskiyou county",
+        "name": "Etna"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.15408040920745,
+          40.797716965344854
+        ]
+      },
+      "properties": {
+        "county": "Humboldt county",
+        "name": "Eureka"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.14593862053113,
+          36.294092715944274
+        ]
+      },
+      "properties": {
+        "county": "Tulare county",
+        "name": "Exeter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.59560034720208,
+          37.98826368312281
+        ]
+      },
+      "properties": {
+        "county": "Marin county",
+        "name": "Fairfax"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.03340460427367,
+          38.258328189943626
+        ]
+      },
+      "properties": {
+        "county": "Solano county",
+        "name": "Fairfield"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.20861481084528,
+          36.30482310504703
+        ]
+      },
+      "properties": {
+        "county": "Tulare county",
+        "name": "Farmersville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.26133667695406,
+          40.57863791392664
+        ]
+      },
+      "properties": {
+        "county": "Humboldt county",
+        "name": "Ferndale"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.91763333185695,
+          34.39888371908453
+        ]
+      },
+      "properties": {
+        "county": "Ventura county",
+        "name": "Fillmore"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.45377641013484,
+          36.85291551320667
+        ]
+      },
+      "properties": {
+        "county": "Fresno county",
+        "name": "Firebaugh"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.14240448472627,
+          38.66678538532579
+        ]
+      },
+      "properties": {
+        "county": "Sacramento county",
+        "name": "Folsom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.45981827686366,
+          34.09728022988164
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Fontana"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.8014156296307,
+          39.43972042967685
+        ]
+      },
+      "properties": {
+        "county": "Mendocino county",
+        "name": "Fort bragg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.84143276256341,
+          41.60832012473785
+        ]
+      },
+      "properties": {
+        "county": "Siskiyou county",
+        "name": "Fort jones"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.14193494275412,
+          40.58616494115279
+        ]
+      },
+      "properties": {
+        "county": "Humboldt county",
+        "name": "Fortuna"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.26619127258563,
+          37.55509340640918
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "Foster city"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.95137848552865,
+          33.710536143813776
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Fountain valley"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.67465999713026,
+          36.62445091265489
+        ]
+      },
+      "properties": {
+        "county": "Fresno county",
+        "name": "Fowler"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.98345818155234,
+          37.52714823709991
+        ]
+      },
+      "properties": {
+        "county": "Alameda county",
+        "name": "Fremont"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.7939354925945,
+          36.783143905190244
+        ]
+      },
+      "properties": {
+        "county": "Fresno county",
+        "name": "Fresno"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.92788255121003,
+          33.88406288418286
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Fullerton"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.29929957288097,
+          38.26925659217246
+        ]
+      },
+      "properties": {
+        "county": "Sacramento county",
+        "name": "Galt"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.96006661572561,
+          33.77873848052982
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Garden grove"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.30726906075375,
+          33.89438986719004
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Gardena"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.58541056607964,
+          37.00459457463859
+        ]
+      },
+      "properties": {
+        "county": "Santa clara county",
+        "name": "Gilroy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.24682706203335,
+          34.18193402165088
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Glendale"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.84673463305856,
+          34.1449584959626
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Glendora"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.85943229329557,
+          34.43605322039135
+        ]
+      },
+      "properties": {
+        "county": "Santa barbara county",
+        "name": "Goleta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.44268820725092,
+          36.50584275555626
+        ]
+      },
+      "properties": {
+        "county": "Monterey county",
+        "name": "Gonzales"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.31313374329366,
+          34.031028643169044
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Grand terrace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.05126219265274,
+          39.220392963856725
+        ]
+      },
+      "properties": {
+        "county": "Nevada county",
+        "name": "Grass valley"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.24311385608947,
+          36.32417780219851
+        ]
+      },
+      "properties": {
+        "county": "Monterey county",
+        "name": "Greenfield"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.69317867699229,
+          39.36240830916344
+        ]
+      },
+      "properties": {
+        "county": "Butte county",
+        "name": "Gridley"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.61990700044853,
+          35.12041609572478
+        ]
+      },
+      "properties": {
+        "county": "San luis obispo county",
+        "name": "Grover beach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.57334522508432,
+          34.96096108785382
+        ]
+      },
+      "properties": {
+        "county": "Santa barbara county",
+        "name": "Guadalupe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.995057143237,
+          37.253137460536074
+        ]
+      },
+      "properties": {
+        "county": "Merced county",
+        "name": "Gustine"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.437835110401,
+          37.468415425665484
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "Half moon bay"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.65442871585117,
+          36.32765253660957
+        ]
+      },
+      "properties": {
+        "county": "Kings county",
+        "name": "Hanford"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0728461292196,
+          33.83034158056467
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Hawaiian gardens"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.34765404574514,
+          33.91461591310939
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Hawthorne"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.07647167348742,
+          37.63315466561869
+        ]
+      },
+      "properties": {
+        "county": "Alameda county",
+        "name": "Hayward"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.8651231872494,
+          38.62249463343382
+        ]
+      },
+      "properties": {
+        "county": "Sonoma county",
+        "name": "Healdsburg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.99692794154254,
+          33.73404560553366
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Hemet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.25608883533455,
+          38.006132333960565
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "Hercules"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.39650493053307,
+          33.86528920903625
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Hermosa beach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.31459303910276,
+          34.39753745136883
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Hesperia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.661224996641,
+          34.1637572912189
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Hidden hills"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.16508944317474,
+          34.11131219392961
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Highland"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.35873525706647,
+          37.55727386305005
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "Hillsborough"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.39920853790105,
+          36.8555125720767
+        ]
+      },
+      "properties": {
+        "county": "San benito county",
+        "name": "Hollister"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.37828767900807,
+          32.81303917357663
+        ]
+      },
+      "properties": {
+        "county": "Imperial county",
+        "name": "Holtville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.86542644133664,
+          37.60251403046694
+        ]
+      },
+      "properties": {
+        "county": "Stanislaus county",
+        "name": "Hughson"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.00259350725905,
+          33.69578517109382
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Huntington beach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.21671725872802,
+          33.979982862153804
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Huntington park"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.09511287634223,
+          36.20440629319644
+        ]
+      },
+      "properties": {
+        "county": "Fresno county",
+        "name": "Huron"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.57190653037173,
+          32.83881418075145
+        ]
+      },
+      "properties": {
+        "county": "Imperial county",
+        "name": "Imperial"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.11816026452043,
+          32.56927282008189
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "Imperial beach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.33970241040937,
+          33.70360291662802
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Indian wells"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.23328154799479,
+          33.73397439374483
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Indio"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.92680248451184,
+          34.01750159311779
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Industry"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.34449805277589,
+          33.95654663800313
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Inglewood"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.94229319384044,
+          38.361326789875676
+        ]
+      },
+      "properties": {
+        "county": "Amador county",
+        "name": "Ione"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.77393030389231,
+          33.6771105168574
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Irvine"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.96365690103882,
+          34.112126349751925
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Irwindale"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.60433147193302,
+          38.1615526500617
+        ]
+      },
+      "properties": {
+        "county": "Sacramento county",
+        "name": "Isleton"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.77284453180202,
+          38.34856340885545
+        ]
+      },
+      "properties": {
+        "county": "Amador county",
+        "name": "Jackson"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.47059028532222,
+          34.00103839536315
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Jurupa valley"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.06258586163926,
+          36.72494276498119
+        ]
+      },
+      "properties": {
+        "county": "Fresno county",
+        "name": "Kerman"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.13340638865958,
+          36.216691341809586
+        ]
+      },
+      "properties": {
+        "county": "Monterey county",
+        "name": "King city"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.56035550219868,
+          36.52458602604193
+        ]
+      },
+      "properties": {
+        "county": "Fresno county",
+        "name": "Kingsburg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.20018219301224,
+          34.20969222927031
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "La ca\uff83\uff71ada flintridge"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.95155584469768,
+          33.928225549937295
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "La habra"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.95100880510954,
+          33.960265079754215
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "La habra heights"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.02036223844321,
+          32.77048300375378
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "La mesa"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.00934608775123,
+          33.90252158771677
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "La mirada"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.04067993768518,
+          33.85037213280565
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "La palma"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.95335832353534,
+          34.03222125192498
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "La puente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.27851746487238,
+          33.65356579007086
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "La quinta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.77032520239268,
+          34.12072239859867
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "La verne"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.11892087358154,
+          37.891920010450725
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "Lafayette"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.76124644379627,
+          33.54544785026231
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Laguna beach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.69923320483774,
+          33.59200740501903
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Laguna hills"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.70500750296723,
+          33.52749470721674
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Laguna niguel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.72994057433466,
+          33.60990275329994
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Laguna woods"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.3344155977704,
+          33.684681813376926
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Lake elsinore"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.67134377280877,
+          33.66054874974837
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Lake forest"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.9221898507443,
+          39.03915068676112
+        ]
+      },
+      "properties": {
+        "county": "Lake county",
+        "name": "Lakeport"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.12218114881273,
+          33.84708065968918
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Lakewood"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.17524126434539,
+          34.69349192960301
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Lancaster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.53137098213963,
+          37.93908886489619
+        ]
+      },
+      "properties": {
+        "county": "Marin county",
+        "name": "Larkspur"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.31248639091282,
+          37.80891233006824
+        ]
+      },
+      "properties": {
+        "county": "San joaquin county",
+        "name": "Lathrop"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.35319501056195,
+          33.88844503503631
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Lawndale"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.03442945760234,
+          32.733280896495735
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "Lemon grove"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.79716833855993,
+          36.29538663276519
+        ]
+      },
+      "properties": {
+        "county": "Kings county",
+        "name": "Lemoore"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.29214922610085,
+          38.87603676648323
+        ]
+      },
+      "properties": {
+        "county": "Placer county",
+        "name": "Lincoln"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.08948709764086,
+          36.20820982948642
+        ]
+      },
+      "properties": {
+        "county": "Tulare county",
+        "name": "Lindsay"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.6624494117231,
+          39.278788129575005
+        ]
+      },
+      "properties": {
+        "county": "Sutter county",
+        "name": "Live oak"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.76062165941218,
+          37.686796888040085
+        ]
+      },
+      "properties": {
+        "county": "Alameda county",
+        "name": "Livermore"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.72464161841857,
+          37.387543637020656
+        ]
+      },
+      "properties": {
+        "county": "Merced county",
+        "name": "Livingston"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.29317156471821,
+          38.121327094782615
+        ]
+      },
+      "properties": {
+        "county": "San joaquin county",
+        "name": "Lodi"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.24744775582872,
+          34.042732028737795
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Loma linda"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.31748036977126,
+          33.79332474095451
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Lomita"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.47135668509553,
+          34.66178481998427
+        ]
+      },
+      "properties": {
+        "county": "Santa barbara county",
+        "name": "Lompoc"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.15948524898023,
+          33.80524695010763
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Long beach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.1951897378058,
+          38.809200870619115
+        ]
+      },
+      "properties": {
+        "county": "Placer county",
+        "name": "Loomis"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.05925859537422,
+          33.79716274999116
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Los alamitos"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.09670630733108,
+          37.36863028267252
+        ]
+      },
+      "properties": {
+        "county": "Santa clara county",
+        "name": "Los altos"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.13872420048423,
+          37.36686034175677
+        ]
+      },
+      "properties": {
+        "county": "Santa clara county",
+        "name": "Los altos hills"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.40909361564786,
+          34.11991249446786
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Los angeles"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.83768469136339,
+          37.06421313118095
+        ]
+      },
+      "properties": {
+        "county": "Merced county",
+        "name": "Los banos"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.95619894193324,
+          37.230466277985
+        ]
+      },
+      "properties": {
+        "county": "Santa clara county",
+        "name": "Los gatos"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.24451388593032,
+          39.67740343176781
+        ]
+      },
+      "properties": {
+        "county": "Sierra county",
+        "name": "Loyalton"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.20169942434771,
+          33.92396232138361
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Lynwood"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.08585440377213,
+          36.965778935268936
+        ]
+      },
+      "properties": {
+        "county": "Madera county",
+        "name": "Madera"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.78412518952901,
+          34.03686273385124
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Malibu"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.98951060305457,
+          37.627157479603994
+        ]
+      },
+      "properties": {
+        "county": "Mono county",
+        "name": "Mammoth lakes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.3971771982419,
+          33.88945692979398
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Manhattan beach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.22683314291896,
+          37.792462939833946
+        ]
+      },
+      "properties": {
+        "county": "San joaquin county",
+        "name": "Manteca"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.40590477331533,
+          35.05169003684079
+        ]
+      },
+      "properties": {
+        "county": "Kern county",
+        "name": "Maricopa"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.78953829956315,
+          36.68102515545473
+        ]
+      },
+      "properties": {
+        "county": "Monterey county",
+        "name": "Marina"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.11516225699765,
+          37.99581496585883
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "Martinez"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.5844322016244,
+          39.151192498629015
+        ]
+      },
+      "properties": {
+        "county": "Yuba county",
+        "name": "Marysville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.18766588982731,
+          33.98851131630962
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Maywood"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.23046956894866,
+          35.66715452965024
+        ]
+      },
+      "properties": {
+        "county": "Kern county",
+        "name": "Mcfarland"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.37755586446444,
+          36.75547072579831
+        ]
+      },
+      "properties": {
+        "county": "Fresno county",
+        "name": "Mendota"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.18489002556531,
+          33.69090595426494
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Menifee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.1674702787434,
+          37.468572988527306
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "Menlo park"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.4772897223558,
+          37.306181876073715
+        ]
+      },
+      "properties": {
+        "county": "Merced county",
+        "name": "Merced"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.54244178462862,
+          37.90879077062378
+        ]
+      },
+      "properties": {
+        "county": "Marin county",
+        "name": "Mill valley"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40206249161385,
+          37.59941836328002
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "Millbrae"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.89217443806753,
+          37.43357399998814
+        ]
+      },
+      "properties": {
+        "county": "Santa clara county",
+        "name": "Milpitas"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.65513293350888,
+          33.609581019353705
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Mission viejo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.00274467905237,
+          37.637741378670256
+        ]
+      },
+      "properties": {
+        "county": "Stanislaus county",
+        "name": "Modesto"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.99214744071716,
+          34.165108207033036
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Monrovia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.53012063784381,
+          41.72737252102551
+        ]
+      },
+      "properties": {
+        "county": "Siskiyou county",
+        "name": "Montague"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.6981518152029,
+          34.0714863366144
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Montclair"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.98830610630834,
+          37.240396916988125
+        ]
+      },
+      "properties": {
+        "county": "Santa clara county",
+        "name": "Monte sereno"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.11082782567446,
+          34.01541994245022
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Montebello"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.88217127540463,
+          36.592000920412474
+        ]
+      },
+      "properties": {
+        "county": "Monterey county",
+        "name": "Monterey"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.13254326762963,
+          34.04970589426125
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Monterey park"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.87684044093776,
+          34.28610019350772
+        ]
+      },
+      "properties": {
+        "county": "Ventura county",
+        "name": "Moorpark"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.12254091440694,
+          37.84395664616629
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "Moraga"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.20466773418123,
+          33.924381948638185
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Moreno valley"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.64207007805749,
+          37.13253340122793
+        ]
+      },
+      "properties": {
+        "county": "Santa clara county",
+        "name": "Morgan hill"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.84816141666451,
+          35.36912664303477
+        ]
+      },
+      "properties": {
+        "county": "San luis obispo county",
+        "name": "Morro bay"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.31553730290213,
+          41.3209777229933
+        ]
+      },
+      "properties": {
+        "county": "Siskiyou county",
+        "name": "Mount shasta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.07949329873767,
+          37.399931413856926
+        ]
+      },
+      "properties": {
+        "county": "Santa clara county",
+        "name": "Mountain view"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.19070752583002,
+          33.5743649301829
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Murrieta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.30115700155442,
+          38.2975872214964
+        ]
+      },
+      "properties": {
+        "county": "Napa county",
+        "name": "Napa"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.09849228471529,
+          32.665724472440736
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "National city"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.61897812972646,
+          34.8166088941362
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Needles"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.02330792525916,
+          39.2608012934227
+        ]
+      },
+      "properties": {
+        "county": "Nevada county",
+        "name": "Nevada city"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.03089001943694,
+          37.52000622037943
+        ]
+      },
+      "properties": {
+        "county": "Alameda county",
+        "name": "Newark"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.02020652225842,
+          37.31682214927824
+        ]
+      },
+      "properties": {
+        "county": "Stanislaus county",
+        "name": "Newman"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.86722095455887,
+          33.615075529936455
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Newport beach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.55009195287289,
+          33.925203252368064
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Norco"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.08288813251968,
+          33.90687678157463
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Norwalk"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.5575110602038,
+          38.09223035483457
+        ]
+      },
+      "properties": {
+        "county": "Marin county",
+        "name": "Novato"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.84685077151265,
+          37.76169189409368
+        ]
+      },
+      "properties": {
+        "county": "Stanislaus county",
+        "name": "Oakdale"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.21494657072677,
+          37.7906196143673
+        ]
+      },
+      "properties": {
+        "county": "Alameda county",
+        "name": "Oakland"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.69520837585354,
+          37.99292775741107
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "Oakley"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.30830720554512,
+          33.22471343510971
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "Oceanside"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.24707250340067,
+          34.448695522857015
+        ]
+      },
+      "properties": {
+        "county": "Ventura county",
+        "name": "Ojai"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.60636193773793,
+          34.039180752434284
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Ontario"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.82179331225046,
+          33.80385328394882
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Orange"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.31875738080228,
+          36.62136116807647
+        ]
+      },
+      "properties": {
+        "county": "Fresno county",
+        "name": "Orange cove"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.179101093005,
+          37.88081054434345
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "Orinda"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.18575023890072,
+          39.746178783288336
+        ]
+      },
+      "properties": {
+        "county": "Glenn county",
+        "name": "Orland"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.56358808645788,
+          39.49990161824373
+        ]
+      },
+      "properties": {
+        "county": "Butte county",
+        "name": "Oroville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.18184404404272,
+          34.19639756347401
+        ]
+      },
+      "properties": {
+        "county": "Ventura county",
+        "name": "Oxnard"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.92599889402956,
+          36.619037772640326
+        ]
+      },
+      "properties": {
+        "county": "Monterey county",
+        "name": "Pacific grove"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.47801707715773,
+          37.611213579369696
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "Pacifica"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.36951763204556,
+          33.73783980024274
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Palm desert"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.5378945252376,
+          33.801353131778306
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Palm springs"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.10571780111287,
+          34.59444323265313
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Palmdale"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.14704549641085,
+          37.39024470452081
+        ]
+      },
+      "properties": {
+        "county": "Santa clara county",
+        "name": "Palo alto"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.39733123256335,
+          33.78720178040795
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Palos verdes estates"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.60615118790591,
+          39.756161114174986
+        ]
+      },
+      "properties": {
+        "county": "Butte county",
+        "name": "Paradise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.16517829706864,
+          33.897652958658256
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Paramount"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.54369842674765,
+          36.60892144273529
+        ]
+      },
+      "properties": {
+        "county": "Fresno county",
+        "name": "Parlier"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.13887242707439,
+          34.15967604212763
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Pasadena"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.65651812476733,
+          35.6388912977295
+        ]
+      },
+      "properties": {
+        "county": "San luis obispo county",
+        "name": "Paso robles"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.15187894115745,
+          37.47633699709382
+        ]
+      },
+      "properties": {
+        "county": "Stanislaus county",
+        "name": "Patterson"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.22331720826641,
+          33.78976419650403
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Perris"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.62656647386139,
+          38.24227095729791
+        ]
+      },
+      "properties": {
+        "county": "Sonoma county",
+        "name": "Petaluma"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.08874171569808,
+          33.99015633876111
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Pico rivera"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.23013027123154,
+          37.82265281809365
+        ]
+      },
+      "properties": {
+        "county": "Alameda county",
+        "name": "Piedmont"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.28307751184958,
+          37.992919561946636
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "Pinole"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.65004775896082,
+          35.148797404565805
+        ]
+      },
+      "properties": {
+        "county": "San luis obispo county",
+        "name": "Pismo beach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.9001702549897,
+          38.014016765489565
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "Pittsburg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.85529781072708,
+          33.880820603707605
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Placentia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.79775801145513,
+          38.730786887510504
+        ]
+      },
+      "properties": {
+        "county": "El dorado county",
+        "name": "Placerville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.07591575100412,
+          37.95403163589194
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "Pleasant hill"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8806145381232,
+          37.66639812746792
+        ]
+      },
+      "properties": {
+        "county": "Alameda county",
+        "name": "Pleasanton"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.85850365240957,
+          38.47760358423659
+        ]
+      },
+      "properties": {
+        "county": "Amador county",
+        "name": "Plymouth"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.6955551664578,
+          38.912294767409726
+        ]
+      },
+      "properties": {
+        "county": "Mendocino county",
+        "name": "Point arena"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.76266089100532,
+          34.058496108921915
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Pomona"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.20355773795612,
+          34.16174711156732
+        ]
+      },
+      "properties": {
+        "county": "Ventura county",
+        "name": "Port hueneme"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.03433442215687,
+          36.064755608774234
+        ]
+      },
+      "properties": {
+        "county": "Tulare county",
+        "name": "Porterville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.47326030406201,
+          39.824276582824034
+        ]
+      },
+      "properties": {
+        "county": "Plumas county",
+        "name": "Portola"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.22018169733124,
+          37.37120167184764
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "Portola valley"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.02014714967893,
+          32.98717716456773
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "Poway"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.25269949640254,
+          38.5735780069368
+        ]
+      },
+      "properties": {
+        "county": "Sacramento county",
+        "name": "Rancho cordova"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.56226857264095,
+          34.13059254778253
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Rancho cucamonga"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.42700246604652,
+          33.763495410888574
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Rancho mirage"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.36361477263588,
+          33.755383545815256
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Rancho palos verdes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.59889767896169,
+          33.63172966135379
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Rancho santa margarita"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.24112300329068,
+          40.17365904645381
+        ]
+      },
+      "properties": {
+        "county": "Tehama county",
+        "name": "Red bluff"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.36558517512474,
+          40.570342524850666
+        ]
+      },
+      "properties": {
+        "county": "Shasta county",
+        "name": "Redding"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.17118970388043,
+          34.051109371385216
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Redlands"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.3768609656786,
+          33.857329375650316
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Redondo beach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.22496476598427,
+          37.50181956383464
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "Redwood city"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.44717918071797,
+          36.59898723217122
+        ]
+      },
+      "properties": {
+        "county": "Fresno county",
+        "name": "Reedley"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.38924527763433,
+          34.117455023439554
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Rialto"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.33817505788117,
+          37.94816888397912
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "Richmond"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.66217693459622,
+          35.6308558672244
+        ]
+      },
+      "properties": {
+        "county": "Kern county",
+        "name": "Ridgecrest"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.11151958577815,
+          40.50308714037607
+        ]
+      },
+      "properties": {
+        "county": "Humboldt county",
+        "name": "Rio dell"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.70292853801236,
+          38.17678218819146
+        ]
+      },
+      "properties": {
+        "county": "Solano county",
+        "name": "Rio vista"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.1309938628127,
+          37.74168953504696
+        ]
+      },
+      "properties": {
+        "county": "San joaquin county",
+        "name": "Ripon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.94330315393543,
+          37.72592931147836
+        ]
+      },
+      "properties": {
+        "county": "Stanislaus county",
+        "name": "Riverbank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.39508395303932,
+          33.938122107918076
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Riverside"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.24865967968908,
+          38.807542062425675
+        ]
+      },
+      "properties": {
+        "county": "Placer county",
+        "name": "Rocklin"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.69640976419491,
+          38.34799096310298
+        ]
+      },
+      "properties": {
+        "county": "Sonoma county",
+        "name": "Rohnert park"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.34719103362553,
+          33.760026776119325
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Rolling hills"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.35082382106773,
+          33.77841737548837
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Rolling hills estates"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0822987757174,
+          34.06891356821516
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Rosemead"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.3194871459842,
+          38.770225514413205
+        ]
+      },
+      "properties": {
+        "county": "Placer county",
+        "name": "Roseville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.56167151918939,
+          37.96383249221865
+        ]
+      },
+      "properties": {
+        "county": "Marin county",
+        "name": "Ross"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.46846301640043,
+          38.56767487655632
+        ]
+      },
+      "properties": {
+        "county": "Sacramento county",
+        "name": "Sacramento"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.63168980155805,
+          36.6882617203148
+        ]
+      },
+      "properties": {
+        "county": "Monterey county",
+        "name": "Salinas"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.56996017537834,
+          37.98216718805239
+        ]
+      },
+      "properties": {
+        "county": "Marin county",
+        "name": "San anselmo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.2945175109833,
+          34.141721623228605
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "San bernardino"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.43148458631734,
+          37.62552190663909
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "San bruno"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.26781134298352,
+          37.4982438632294
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "San carlos"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.61019992040896,
+          33.44983420014309
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "San clemente"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.12187065188272,
+          32.83175249331729
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "San diego"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.80896343151629,
+          34.108200344562384
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "San dimas"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.43625984108031,
+          34.288674579722226
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "San fernando"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.44059830860014,
+          37.756130545255154
+        ]
+      },
+      "properties": {
+        "county": "San francisco county",
+        "name": "San francisco"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.09912003152449,
+          34.09484989370259
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "San gabriel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.99152828142671,
+          33.796912679308384
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "San jacinto"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1897758604013,
+          36.60564576551491
+        ]
+      },
+      "properties": {
+        "county": "Fresno county",
+        "name": "San joaquin"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.84757380131786,
+          37.300497809328945
+        ]
+      },
+      "properties": {
+        "county": "Santa clara county",
+        "name": "San jose"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.53710879872025,
+          36.84502163600984
+        ]
+      },
+      "properties": {
+        "county": "San benito county",
+        "name": "San juan bautista"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.65442982468744,
+          33.50090589988018
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "San juan capistrano"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.15929567265295,
+          37.70751945372284
+        ]
+      },
+      "properties": {
+        "county": "Alameda county",
+        "name": "San leandro"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.66879326078015,
+          35.266315171880244
+        ]
+      },
+      "properties": {
+        "county": "San luis obispo county",
+        "name": "San luis obispo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.17434324858209,
+          33.135263261403395
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "San marcos"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.11327661440643,
+          34.122377584921985
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "San marino"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.31214042599346,
+          37.55227748247323
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "San mateo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.34259025694827,
+          37.96283555270182
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "San pablo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.52259683903917,
+          37.990506780540954
+        ]
+      },
+      "properties": {
+        "county": "Marin county",
+        "name": "San rafael"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.93545504620958,
+          37.7620433224075
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "San ramon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.84779645668335,
+          36.618346142376915
+        ]
+      },
+      "properties": {
+        "county": "Monterey county",
+        "name": "Sand city"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.55776305892763,
+          36.70092581126255
+        ]
+      },
+      "properties": {
+        "county": "Fresno county",
+        "name": "Sanger"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.88184590284376,
+          33.73674183021361
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Santa ana"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.7203196104747,
+          34.428681680257
+        ]
+      },
+      "properties": {
+        "county": "Santa barbara county",
+        "name": "Santa barbara"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.96795389546453,
+          37.36452240611516
+        ]
+      },
+      "properties": {
+        "county": "Santa clara county",
+        "name": "Santa clara"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.49890410340726,
+          34.419903428302895
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Santa clarita"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.03453666580516,
+          36.978895872742285
+        ]
+      },
+      "properties": {
+        "county": "Santa cruz county",
+        "name": "Santa cruz"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0625328178441,
+          33.93308506472515
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Santa fe springs"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.44305493382437,
+          34.93360830321018
+        ]
+      },
+      "properties": {
+        "county": "Santa barbara county",
+        "name": "Santa maria"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.48179316054225,
+          34.02308983136809
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Santa monica"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.06559531883504,
+          34.35446224535599
+        ]
+      },
+      "properties": {
+        "county": "Ventura county",
+        "name": "Santa paula"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.70676695378631,
+          38.44576798420317
+        ]
+      },
+      "properties": {
+        "county": "Sonoma county",
+        "name": "Santa rosa"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.98514948010553,
+          32.85546998576952
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "Santee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.0262495387486,
+          37.26833529480407
+        ]
+      },
+      "properties": {
+        "county": "Santa clara county",
+        "name": "Saratoga"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.49352717357232,
+          37.85763075309255
+        ]
+      },
+      "properties": {
+        "county": "Marin county",
+        "name": "Sausalito"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.0117984666611,
+          37.05556991081797
+        ]
+      },
+      "properties": {
+        "county": "Santa cruz county",
+        "name": "Scotts valley"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.07184777189815,
+          33.75397695432852
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Seal beach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8197904232946,
+          36.62202710713821
+        ]
+      },
+      "properties": {
+        "county": "Monterey county",
+        "name": "Seaside"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.8276849848516,
+          38.399997078450575
+        ]
+      },
+      "properties": {
+        "county": "Sonoma county",
+        "name": "Sebastopol"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.61420408777255,
+          36.5716842722662
+        ]
+      },
+      "properties": {
+        "county": "Fresno county",
+        "name": "Selma"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.20141249551266,
+          35.47949456097772
+        ]
+      },
+      "properties": {
+        "county": "Kern county",
+        "name": "Shafter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.37765677982912,
+          40.679092778105925
+        ]
+      },
+      "properties": {
+        "county": "Shasta county",
+        "name": "Shasta lake"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.05034459739497,
+          34.168716845522546
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Sierra madre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.16827956204986,
+          33.80300769902063
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Signal hill"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.74901085395008,
+          34.266296698468885
+        ]
+      },
+      "properties": {
+        "county": "Ventura county",
+        "name": "Simi valley"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.2573501339639,
+          32.99429417210854
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "Solana beach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.3435879327747,
+          36.44380936814282
+        ]
+      },
+      "properties": {
+        "county": "Monterey county",
+        "name": "Soledad"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.14033700107821,
+          34.593144235895224
+        ]
+      },
+      "properties": {
+        "county": "Santa barbara county",
+        "name": "Solvang"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.45996723788026,
+          38.28974556922924
+        ]
+      },
+      "properties": {
+        "county": "Sonoma county",
+        "name": "Sonoma"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.38294370215864,
+          37.9819460877778
+        ]
+      },
+      "properties": {
+        "county": "Tuolumne county",
+        "name": "Sonora"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.04833985749468,
+          34.04936160757865
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "South el monte"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.19254762223204,
+          33.944731610653946
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "South gate"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.98312043335136,
+          38.941113557461215
+        ]
+      },
+      "properties": {
+        "county": "El dorado county",
+        "name": "South lake tahoe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.15733006670501,
+          34.1102467196423
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "South pasadena"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4212525692861,
+          37.65352706641028
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "South san francisco"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.46820612855956,
+          38.506290125726956
+        ]
+      },
+      "properties": {
+        "county": "Napa county",
+        "name": "St. helena"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.99352926355566,
+          33.800211646794175
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Stanton"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.30961811412982,
+          37.97647675159664
+        ]
+      },
+      "properties": {
+        "county": "San joaquin county",
+        "name": "Stockton"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.00919104608865,
+          38.24727128347877
+        ]
+      },
+      "properties": {
+        "county": "Solano county",
+        "name": "Suisun city"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.02552886339188,
+          37.3838752761297
+        ]
+      },
+      "properties": {
+        "county": "Santa clara county",
+        "name": "Sunnyvale"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.6121784163948,
+          40.4212378448689
+        ]
+      },
+      "properties": {
+        "county": "Lassen county",
+        "name": "Susanville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.81061141856084,
+          38.3827867093989
+        ]
+      },
+      "properties": {
+        "county": "Amador county",
+        "name": "Sutter creek"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.4243133776836,
+          35.12682745233146
+        ]
+      },
+      "properties": {
+        "county": "Kern county",
+        "name": "Taft"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.47491570126168,
+          35.12747325181851
+        ]
+      },
+      "properties": {
+        "county": "Kern county",
+        "name": "Tehachapi"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.12671075612157,
+          40.02183928017867
+        ]
+      },
+      "properties": {
+        "county": "Tehama county",
+        "name": "Tehama"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.1314457090138,
+          33.49275297029606
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Temecula"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.05795710844203,
+          34.10217249450982
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Temple city"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.87560515716692,
+          34.191330215645124
+        ]
+      },
+      "properties": {
+        "county": "Ventura county",
+        "name": "Thousand oaks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.46381593171083,
+          37.88572012640858
+        ]
+      },
+      "properties": {
+        "county": "Marin county",
+        "name": "Tiburon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.34167497168619,
+          33.83461060504431
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Torrance"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.45225422429439,
+          37.726422178070756
+        ]
+      },
+      "properties": {
+        "county": "San joaquin county",
+        "name": "Tracy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.14284398754977,
+          41.05897683897397
+        ]
+      },
+      "properties": {
+        "county": "Humboldt county",
+        "name": "Trinidad"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.18471960517837,
+          39.345324623824155
+        ]
+      },
+      "properties": {
+        "county": "Nevada county",
+        "name": "Truckee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.33997664288461,
+          36.20068977678742
+        ]
+      },
+      "properties": {
+        "county": "Tulare county",
+        "name": "Tulare"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.47547840885491,
+          41.95338451476874
+        ]
+      },
+      "properties": {
+        "county": "Siskiyou county",
+        "name": "Tulelake"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.8590775613066,
+          37.505304096918586
+        ]
+      },
+      "properties": {
+        "county": "Stanislaus county",
+        "name": "Turlock"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.81053598054581,
+          33.730968298749396
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Tustin"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.06598685773015,
+          34.14781318043046
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Twentynine palms"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.20586271286129,
+          39.1475646538656
+        ]
+      },
+      "properties": {
+        "county": "Mendocino county",
+        "name": "Ukiah"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.01879027608616,
+          37.60280697734027
+        ]
+      },
+      "properties": {
+        "county": "Alameda county",
+        "name": "Union city"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.66044118060573,
+          34.11768123452742
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Upland"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.96751573648723,
+          38.35896674154395
+        ]
+      },
+      "properties": {
+        "county": "Solano county",
+        "name": "Vacaville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.22978848084729,
+          38.115027168722435
+        ]
+      },
+      "properties": {
+        "county": "Solano county",
+        "name": "Vallejo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.23109311342273,
+          34.274140789740294
+        ]
+      },
+      "properties": {
+        "county": "Ventura county",
+        "name": "Ventura"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.21062428430554,
+          34.001917098055166
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Vernon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.35365088577106,
+          34.52775509901867
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Victorville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.81027071597852,
+          33.8181317877285
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Villa park"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.32660700963797,
+          36.32748105727629
+        ]
+      },
+      "properties": {
+        "county": "Tulare county",
+        "name": "Visalia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.23859747207196,
+          33.18954808341422
+        ]
+      },
+      "properties": {
+        "county": "San diego county",
+        "name": "Vista"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.85935364211603,
+          34.03347704299592
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Walnut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.03986083711676,
+          37.902457195726925
+        ]
+      },
+      "properties": {
+        "county": "Contra costa county",
+        "name": "Walnut creek"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.36703264866608,
+          35.593909579740185
+        ]
+      },
+      "properties": {
+        "county": "Kern county",
+        "name": "Wasco"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.75498432472835,
+          37.64281108023842
+        ]
+      },
+      "properties": {
+        "county": "Stanislaus county",
+        "name": "Waterford"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.77122389173803,
+          36.92163748473391
+        ]
+      },
+      "properties": {
+        "county": "Santa cruz county",
+        "name": "Watsonville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.38198582103857,
+          41.412818383364055
+        ]
+      },
+      "properties": {
+        "county": "Siskiyou county",
+        "name": "Weed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.91130932973495,
+          34.05544087304337
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "West covina"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.37178394336152,
+          34.08828403345232
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "West hollywood"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.55047597824245,
+          38.55553538410957
+        ]
+      },
+      "properties": {
+        "county": "Yolo county",
+        "name": "West sacramento"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.82201027931887,
+          34.136914899576425
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Westlake village"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.99397897863352,
+          33.75233789810748
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Westminster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.62251773430302,
+          33.03895130500994
+        ]
+      },
+      "properties": {
+        "county": "Imperial county",
+        "name": "Westmorland"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.39014499765187,
+          39.02875753587037
+        ]
+      },
+      "properties": {
+        "county": "Yuba county",
+        "name": "Wheatland"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.01882740039882,
+          33.96784716874175
+        ]
+      },
+      "properties": {
+        "county": "Los angeles county",
+        "name": "Whittier"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.25827096160675,
+          33.61731846569682
+        ]
+      },
+      "properties": {
+        "county": "Riverside county",
+        "name": "Wildomar"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.13950607722786,
+          39.14992622278084
+        ]
+      },
+      "properties": {
+        "county": "Colusa county",
+        "name": "Williams"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.34956056364078,
+          39.40493854350001
+        ]
+      },
+      "properties": {
+        "county": "Mendocino county",
+        "name": "Willits"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.19936304466074,
+          39.51505905995708
+        ]
+      },
+      "properties": {
+        "county": "Glenn county",
+        "name": "Willows"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.80871727739112,
+          38.54228348063817
+        ]
+      },
+      "properties": {
+        "county": "Sonoma county",
+        "name": "Windsor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.97533721590389,
+          38.5297158234294
+        ]
+      },
+      "properties": {
+        "county": "Yolo county",
+        "name": "Winters"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.10062482004592,
+          36.41308144670562
+        ]
+      },
+      "properties": {
+        "county": "Tulare county",
+        "name": "Woodlake"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.75185377738332,
+          38.67134030940875
+        ]
+      },
+      "properties": {
+        "county": "Yolo county",
+        "name": "Woodland"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.25865139351441,
+          37.42224847512448
+        ]
+      },
+      "properties": {
+        "county": "San mateo county",
+        "name": "Woodside"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.77169931281695,
+          33.88909616422395
+        ]
+      },
+      "properties": {
+        "county": "Orange county",
+        "name": "Yorba linda"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.367124418575,
+          38.39644722679682
+        ]
+      },
+      "properties": {
+        "county": "Napa county",
+        "name": "Yountville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.63120370250664,
+          41.72907392308489
+        ]
+      },
+      "properties": {
+        "county": "Siskiyou county",
+        "name": "Yreka"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.6396943290433,
+          39.1322111355597
+        ]
+      },
+      "properties": {
+        "county": "Sutter county",
+        "name": "Yuba city"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.04289138266765,
+          34.033567016578374
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Yucaipa"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.42159218863982,
+          34.12335793940372
+        ]
+      },
+      "properties": {
+        "county": "San bernardino county",
+        "name": "Yucca valley"
+      }
+    }
+  ]
+}

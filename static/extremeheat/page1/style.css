@@ -155,7 +155,7 @@
   .mongmongbliss-top {
 	position: absolute;
 	top: 25px;
-	left: 18px;
+	left: 23px;
 	width: 78%;
 	height: 62%;
 	object-fit: cover;
@@ -498,7 +498,7 @@
 .version .poverty-rate-2 {
   position: absolute;
   width: 95px;
-  top: 40px;
+  top: 41px;
   left: 2px;
   font-family: "Lexend", Helvetica;
   font-weight: 700;
