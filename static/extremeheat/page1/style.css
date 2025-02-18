@@ -130,6 +130,17 @@
   box-shadow: 0px 4px 4px #00000040;
 }
 
+.population-labeled-top {
+	position: absolute;
+	width: 177px;
+	height: 215px;
+	top: 0;
+	left: 35px;
+	background-color: #f2f2f2;
+	border-radius: 10px;
+	box-shadow: 0px 4px 4px #00000040;
+  }
+
 /* Make the donut image (mongmongbliss) cover the whole card and sit beneath the other layers */
 .version .mongmongbliss {
 	position: absolute;
@@ -140,7 +151,16 @@
 	object-fit: cover;
 	z-index: 1;
   }
-  
+
+  .mongmongbliss-top {
+	position: absolute;
+	top: 25px;
+	left: 18px;
+	width: 78%;
+	height: 62%;
+	object-fit: cover;
+	z-index: 1;
+  }
 
 .version .population-chart {
   position: absolute;
@@ -789,6 +809,7 @@
 	border-radius: 10px;
 	box-shadow: 2px 2px 2px #00000040;
   }
+  
   
   .version .map-legend-top {
 	  position: absolute;
