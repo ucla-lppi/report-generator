@@ -28,6 +28,33 @@ output_geojson_path = 'output/joined_heat_data.geojson'
 
 heat_variable = 'categorical_average'
 
+def adjust_bounds_to_ratio(bounds, desired_ratio):
+    """
+    Given bounds (minx, miny, maxx, maxy) and desired_ratio (width/height),
+    returns new bounds that preserve the center while ensuring the exact ratio.
+    """
+    minx, miny, maxx, maxy = bounds
+    center_x = (minx + maxx) / 2
+    center_y = (miny + maxy) / 2
+    width = maxx - minx
+    height = maxy - miny
+    current_ratio = width / height
+
+    if current_ratio < desired_ratio:
+        # width is too narrow – expand width
+        new_width = desired_ratio * height
+        new_height = height
+    else:
+        # height is too short – expand height
+        new_width = width
+        new_height = width / desired_ratio
+
+    new_minx = center_x - new_width / 2
+    new_maxx = center_x + new_width / 2
+    new_miny = center_y - new_height / 2
+    new_maxy = center_y + new_height / 2
+
+    return (new_minx, new_miny, new_maxx, new_maxy)
 def join_heat_data_to_census(census_geojson_path, heat_data_path, output_geojson_path):
 	try:
 		print(f"Loading census GeoJSON data from {census_geojson_path}")
@@ -70,14 +97,14 @@ def apply_special_adjustments(county, bounds):
     Returns the adjusted bounds (minx, miny, maxx, maxy).
     """
     special_adjustments = {
-        "Kings": {"shift_y": 5000},
-        "Los Angeles": {"shift_y": 10000},
-        "Merced": {"shift_y": 5000},
-        "Sacramento": {"shift_y": 5000},
-        "San Joaquin": {"shift_y": 5000},
-        "San Mateo": {"shift_y": 5000, "shift_x": 2000},
+        "Kings": {"shift_y": 20000, "zoom_factor": 0.7},
+        "Los Angeles": {"shift_y": 50000, "zoom_factor": 0.9},
+        "Merced": {"shift_y": 20000},
+        "Sacramento": {"shift_y": 15000, "zoom_factor": 0.8},
+        "San Joaquin": {"shift_y": 5000, "zoom_factor": 0.7},
+        "San Mateo": {"shift_y": 1000, "shift_x": 2000},
         "Stanislaus": {"shift_y": 3000},
-        "Ventura": {"shift_y": 5000, "zoom_factor": 0.9}  # For example, zoom out slightly.
+        "Ventura": {"shift_y": 5000, "zoom_factor": 0.75}  # For example, zoom out slightly.
     }
     
     minx, miny, maxx, maxy = bounds
@@ -313,10 +340,19 @@ def generate_majority_tracts_map(
 				)
 
 				# Adjust plot limits to maintain aspect ratio
-				bounds = county_gdf.total_bounds  # minx, miny, maxx, maxy
+				# Get raw bounds from the data
+				bounds = county_gdf.total_bounds  # (minx, miny, maxx, maxy)
+				
+				# Apply your special adjustments first
 				bounds = apply_special_adjustments(county, bounds)
-
+				
+				# Force the final bounds to have the exact aspect ratio
+				bounds = adjust_bounds_to_ratio(bounds, aspect_ratio)
+				
 				minx, miny, maxx, maxy = bounds
+				ax.set_xlim(minx, maxx)
+				ax.set_ylim(miny, maxy)
+				ax.set_aspect('equal')
 				current_ratio = (maxx - minx) / (maxy - miny)
 				desired_ratio = aspect_ratio  # ≈0.776
 
