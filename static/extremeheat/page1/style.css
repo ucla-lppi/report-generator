@@ -819,6 +819,13 @@
 	  left: 13px;
 	}
   
+	.version .map-legend-right{
+		position: absolute;
+		width: 176px;
+		height: 87px;
+		top: 15px;
+		left: 200px;
+	}
 
 .version .map-legend {
   position: absolute;

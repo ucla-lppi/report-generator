@@ -300,14 +300,14 @@
         </div>
         <div class="overlap-11">
 			<div class="version overlap-12" style="background-image: url('/report-generator/static/extremeheat/images/maps/{{ county_name }}_heat_map_combined.png');">
-				<div class="{{ 'map-averages-top' if county_name in ['Fresno','Madera','Monterrey'] else 'map-averages' }}">
+				<div class="{{ 'map-averages-top' if county_name in ['Stanislaus','Fresno','Madera','Monterrey'] else 'map-averages' }}">
 					<p class="map-averages-data">
 					  County Average: {{ county_statistics['Average Heat Days']['County'] }}
 					  <br/>
 					  State Average: 51
 					</p>
 				  </div>
-				  <div class="{{ 'map-legend-top' if county_name in ['Fresno','Madera','Monterrey'] else 'map-legend' }}">
+				  	<div class="{% if county_name == 'San Mateo' %}map-legend-right{% elif county_name in ['Stanislaus','Fresno','Madera','Monterrey'] %}map-legend-top{% else %}map-legend{% endif %}">
 					<div class="overlap-13">
 					  <div class="map-legend-rectangle"></div>
 					  <p class="legend-text">
