@@ -9,8 +9,8 @@ from matplotlib.font_manager import FontProperties
 from matplotlib.transforms import Bbox
 
 MAJOR_CITIES = [
-    "Los Angeles", "San Diego", "San Jose", "San Francisco",
-    "Fresno", "Sacramento", "Long Beach", "Oakland", "Bakersfield"
+    "Los Angeles", "San Diego", "San Jose", "San Francisco", "Santa Cruz","Santa Barbara", 
+    "Fresno", "Sacramento", "Long Beach", "Oakland", "Bakersfield", "Monterey"
 ]
 
 
@@ -28,33 +28,49 @@ output_geojson_path = 'output/joined_heat_data.geojson'
 
 heat_variable = 'categorical_average'
 
-def adjust_bounds_to_ratio(bounds, desired_ratio):
+def adjust_bounds_preserve_fixed_edge(bounds, desired_ratio, preserve='miny'):
     """
-    Given bounds (minx, miny, maxx, maxy) and desired_ratio (width/height),
-    returns new bounds that preserve the center while ensuring the exact ratio.
+    Adjust the bounds to have the exact desired_ratio (width/height) without recentering.
+    Instead, preserve the specified edge ('miny' or 'minx') and extend the opposite side.
+    
+    For example, if preserve == 'miny', the lower bound (miny) remains unchanged and the
+    upper bound is increased as needed.
     """
     minx, miny, maxx, maxy = bounds
-    center_x = (minx + maxx) / 2
-    center_y = (miny + maxy) / 2
     width = maxx - minx
     height = maxy - miny
     current_ratio = width / height
 
     if current_ratio < desired_ratio:
-        # width is too narrow – expand width
+        # Width is too narrow relative to height; need to increase width.
         new_width = desired_ratio * height
-        new_height = height
-    else:
-        # height is too short – expand height
-        new_width = width
+        if preserve == 'minx':
+            new_maxx = minx + new_width
+            return (minx, miny, new_maxx, maxy)
+        elif preserve == 'maxx':
+            new_minx = maxx - new_width
+            return (new_minx, miny, maxx, maxy)
+        else:
+            # Default: preserve the left edge.
+            new_maxx = minx + new_width
+            return (minx, miny, new_maxx, maxy)
+    elif current_ratio > desired_ratio:
+        # Height is too short relative to width; increase height.
         new_height = width / desired_ratio
-
-    new_minx = center_x - new_width / 2
-    new_maxx = center_x + new_width / 2
-    new_miny = center_y - new_height / 2
-    new_maxy = center_y + new_height / 2
-
-    return (new_minx, new_miny, new_maxx, new_maxy)
+        if preserve == 'miny':
+            new_maxy = miny + new_height
+            return (minx, miny, maxx, new_maxy)
+        elif preserve == 'maxy':
+            new_miny = maxy - new_height
+            return (minx, new_miny, maxx, maxy)
+        else:
+            # Default: preserve the bottom edge.
+            new_maxy = miny + new_height
+            return (minx, miny, maxx, new_maxy)
+    else:
+        # Already matches
+        return bounds
+	
 def join_heat_data_to_census(census_geojson_path, heat_data_path, output_geojson_path):
 	try:
 		print(f"Loading census GeoJSON data from {census_geojson_path}")
@@ -87,46 +103,51 @@ def apply_special_adjustments(county, bounds):
     """
     Adjust the bounds based on special adjustments for the given county.
     
-    bounds: a tuple (minx, miny, maxx, maxy)
+    Returns a tuple of (adjusted_bounds, adjustment_applied) where adjustment_applied is True
+    if any special adjustment was applied.
     
-    Special adjustments are defined internally. They can include:
+    Special adjustments can include:
       - 'shift_y': adds extra padding at the bottom (subtracts from y_min)
       - 'shift_x': shifts the x bounds (added to both x_min and x_max)
       - 'zoom_factor': rescales the bounds about the center
-      
-    Returns the adjusted bounds (minx, miny, maxx, maxy).
     """
     special_adjustments = {
         "Kings": {"shift_y": 20000, "zoom_factor": 0.7},
-        "Los Angeles": {"shift_y": 50000, "zoom_factor": 0.9},
-        "Merced": {"shift_y": 20000},
+        "Los Angeles": {"shift_y": 40000, "zoom_factor": 0.9},
+        "Merced": {"shift_y": 35000},
+        "San Diego": {"shift_y": 50000},
         "Sacramento": {"shift_y": 15000, "zoom_factor": 0.8},
-        "San Joaquin": {"shift_y": 5000, "zoom_factor": 0.7},
+        "San Joaquin": {"shift_y": 35000, "zoom_factor": 0.8},
         "San Mateo": {"shift_y": 1000, "shift_x": 2000},
+        "Monterey": {"shift_y": 15000},
         "Stanislaus": {"shift_y": 3000},
-        "Ventura": {"shift_y": 5000, "zoom_factor": 0.75}  # For example, zoom out slightly.
+        "Ventura": {"shift_y": 5000, "zoom_factor": 0.75}
     }
     
+    # Use default values if no adjustment is provided.
+    defaults = {"shift_y": 0, "shift_x": 0, "zoom_factor": 1}
+    adj = special_adjustments.get(county, defaults)
+    adjustment_applied = (adj.get("shift_y", 0) != 0 or adj.get("shift_x", 0) != 0 or adj.get("zoom_factor", 1) != 1)
+    
     minx, miny, maxx, maxy = bounds
-    if county in special_adjustments:
-        adj = special_adjustments[county]
-        # For a bottom padding, subtract from y_min only:
-        if "shift_y" in adj:
-            miny -= adj["shift_y"]
-        if "shift_x" in adj:
-            minx += adj["shift_x"]
-            maxx += adj["shift_x"]
-        if "zoom_factor" in adj:
-            factor = adj["zoom_factor"]
-            x_center = (minx + maxx) / 2
-            y_center = (miny + maxy) / 2
-            width = (maxx - minx) / factor
-            height = (maxy - miny) / factor
-            minx = x_center - width / 2
-            maxx = x_center + width / 2
-            miny = y_center - height / 2
-            maxy = y_center + height / 2
-    return (minx, miny, maxx, maxy)
+    # Apply shift adjustments with defaults
+    miny -= adj.get("shift_y", 0)
+    minx += adj.get("shift_x", 0)
+    maxx += adj.get("shift_x", 0)
+    
+    # Only apply zoom if needed
+    if adj.get("zoom_factor", 1) != 1:
+        factor = adj.get("zoom_factor", 1)
+        x_center = (minx + maxx) / 2
+        y_center = (miny + maxy) / 2
+        width = (maxx - minx) / factor
+        height = (maxy - miny) / factor
+        minx = x_center - width / 2
+        maxx = x_center + width / 2
+        miny = y_center - height / 2
+        maxy = y_center + height / 2
+    
+    return (minx, miny, maxx, maxy), adjustment_applied
 
 def generate_majority_tracts_map(
 	geojson_path,
@@ -339,38 +360,30 @@ def generate_majority_tracts_map(
 					alpha=0.6
 				)
 
-				# Adjust plot limits to maintain aspect ratio
-				# Get raw bounds from the data
-				bounds = county_gdf.total_bounds  # (minx, miny, maxx, maxy)
+				# Compute the raw bounds and apply special adjustments (which move the center)
+				raw_bounds = county_gdf.total_bounds  # (minx, miny, maxx, maxy)
+				adjusted_bounds, adjusted = apply_special_adjustments(county, raw_bounds)
 				
-				# Apply your special adjustments first
-				bounds = apply_special_adjustments(county, bounds)
+				# Get the center of the adjusted bounds
+				minx, miny, maxx, maxy = adjusted_bounds
+				center_x = (minx + maxx) / 2
+				center_y = (miny + maxy) / 2
 				
-				# Force the final bounds to have the exact aspect ratio
-				bounds = adjust_bounds_to_ratio(bounds, aspect_ratio)
+				# Define a fixed final width (in coordinate units) for every map.
+				# The height is then derived from the desired aspect ratio.
+				fixed_width = maxx - minx  # You could choose a constant here if you prefer
+				fixed_height = fixed_width / aspect_ratio
 				
-				minx, miny, maxx, maxy = bounds
-				ax.set_xlim(minx, maxx)
-				ax.set_ylim(miny, maxy)
-				ax.set_aspect('equal')
-				current_ratio = (maxx - minx) / (maxy - miny)
-				desired_ratio = aspect_ratio  # ≈0.776
-
-				if current_ratio > desired_ratio:
-					# Adjust y limits
-					expected_height = (maxx - minx) / desired_ratio
-					y_center = (miny + maxy) / 2
-					y_min = y_center - expected_height / 2
-					y_max = y_center + expected_height / 2
-					ax.set_ylim(y_min, y_max)
-				else:
-					# Adjust x limits
-					expected_width = (maxy - miny) * desired_ratio
-					x_center = (minx + maxx) / 2
-					x_min = x_center - expected_width / 2
-					x_max = x_center + expected_width / 2
-					ax.set_xlim(x_min, x_max)
-	
+				# Now compute the final extent keeping the same pixel size (same coordinate width/height)
+				final_minx = center_x - fixed_width / 2
+				final_maxx = center_x + fixed_width / 2
+				final_miny = center_y - fixed_height / 2
+				final_maxy = center_y + fixed_height / 2
+				
+				bounds = (final_minx, final_miny, final_maxx, final_maxy)
+				ax.set_xlim(final_minx, final_maxx)
+				ax.set_ylim(final_miny, final_maxy)
+				ax.set_aspect('equal')	
 				# Add Legend
 				if legend_elements:
 					legend_elements.append(
