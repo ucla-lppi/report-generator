@@ -118,8 +118,8 @@ def apply_special_adjustments(county, bounds):
         "San Diego": {"shift_y": 50000},
         "Sacramento": {"shift_y": 15000, "zoom_factor": 0.8},
         "San Joaquin": {"shift_y": 35000, "zoom_factor": 0.8},
-        "San Mateo": {"shift_y": 1000, "shift_x": 2000},
-        "Monterey": {"shift_y": 15000},
+        # "San Mateo": {"shift_y": 1000, "shift_x": 2000},
+        "Monterey": {"shift_y": 15000, "zoom_factor": 0.8},
         "Stanislaus": {"shift_y": 3000},
         "Ventura": {"shift_y": 5000, "zoom_factor": 0.75}
     }
@@ -359,32 +359,35 @@ def generate_majority_tracts_map(
 					linewidth=0.5,
 					alpha=0.6
 				)
-
-				# Compute the raw bounds and apply special adjustments (which move the center)
+				# 1. Get the raw bounds and apply your special adjustments.
 				raw_bounds = county_gdf.total_bounds  # (minx, miny, maxx, maxy)
-				adjusted_bounds, adjusted = apply_special_adjustments(county, raw_bounds)
-				
-				# Get the center of the adjusted bounds
+				adjusted_bounds, adjustments_applied = apply_special_adjustments(county, raw_bounds)
 				minx, miny, maxx, maxy = adjusted_bounds
-				center_x = (minx + maxx) / 2
-				center_y = (miny + maxy) / 2
-				
-				# Define a fixed final width (in coordinate units) for every map.
-				# The height is then derived from the desired aspect ratio.
-				fixed_width = maxx - minx  # You could choose a constant here if you prefer
-				fixed_height = fixed_width / aspect_ratio
-				
-				# Now compute the final extent keeping the same pixel size (same coordinate width/height)
-				final_minx = center_x - fixed_width / 2
-				final_maxx = center_x + fixed_width / 2
-				final_miny = center_y - fixed_height / 2
-				final_maxy = center_y + fixed_height / 2
-				
-				bounds = (final_minx, final_miny, final_maxx, final_maxy)
-				ax.set_xlim(final_minx, final_maxx)
-				ax.set_ylim(final_miny, final_maxy)
-				ax.set_aspect('equal')	
-				# Add Legend
+
+				# 2. Then, enforce the desired aspect ratio.
+				desired_ratio = aspect_ratio  # e.g., 387/507
+				current_ratio = (maxx - minx) / (maxy - miny)
+
+				if current_ratio > desired_ratio:
+					# The map is too wide; fix x limits and adjust y limits.
+					expected_height = (maxx - minx) / desired_ratio
+					y_center = (miny + maxy) / 2
+					new_miny = y_center - expected_height / 2
+					new_maxy = y_center + expected_height / 2
+					ax.set_xlim(minx, maxx)
+					ax.set_ylim(new_miny, new_maxy)
+				else:
+					# The map is too tall; fix y limits and adjust x limits.
+					expected_width = (maxy - miny) * desired_ratio
+					x_center = (minx + maxx) / 2
+					new_minx = x_center - expected_width / 2
+					new_maxx = x_center + expected_width / 2
+					ax.set_xlim(new_minx, new_maxx)
+					ax.set_ylim(miny, maxy)
+
+				ax.set_aspect('equal')
+
+
 				if legend_elements:
 					legend_elements.append(
 						Patch(
