@@ -1,19 +1,21 @@
-# python -m unittest test_heat_maps.py
 import unittest
 import os
 from map_utils import generate_majority_tracts_map
+
 test_county = ""
+
 class TestHeatMaps(unittest.TestCase):
 
     def setUp(self):
         self.geojson_path = 'inputs/geojson/ca_census_tracts.geojson'
         self.ca_counties_path = 'inputs/geojson/ca_counties_simplified.geojson'
         self.pop_data_path = 'inputs/tract_level_data.csv'
-        self.heat_data_path = 'inputs/heat_data.csv'
-        self.output_dir = 'output/final_heat_maps'
+        self.topical_data_path = 'inputs/heat_data.csv'  # Renamed from heat_data_path
+        self.output_dir = 'output/heat_maps'  # Cleaned up naming
         self.roads_path = 'inputs/geojson/ca_primary_secondary_roads.geojson'
         self.ca_counties = self.get_all_counties()
         os.makedirs(self.output_dir, exist_ok=True)
+
     def get_all_counties(self):
         import json
         with open(self.ca_counties_path, 'r') as f:
@@ -30,30 +32,15 @@ class TestHeatMaps(unittest.TestCase):
                     county_geojson_path=self.ca_counties_path,
                     output_dir=self.output_dir,
                     map_type="heat",
-                    heat_data_path=self.heat_data_path,
+                    topical_data_path=self.topical_data_path,  # Updated to generic name
                     road_data_path=self.roads_path,
                     population_filter="latino",
                     county_filter=county
                 )
-                expected_output_file = os.path.join(self.output_dir, "combined_maps", county + "_heat_map_combined.png")
+                expected_output_file = os.path.join(self.output_dir, county + "_heat_map.png")
                 print(f"Expected output file: {expected_output_file}")
-                print(f"Contents of output directory: {os.listdir(os.path.join(self.output_dir, 'latino'))}")
+                print(f"Contents of output directory: {os.listdir(self.output_dir)}")
                 self.assertTrue(os.path.exists(expected_output_file))
-    # def test_generate_white_heat_map(self):
-    #     generate_majority_tracts_map(
-    #         geojson_path='inputs/geojson/ca_census_tracts.geojson',
-    #         pop_data_path='inputs/tract_level_data.csv',
-    #         county_geojson_path='inputs/geojson/ca_counties_simplified.geojson',
-    #         output_dir='output/final_heat_maps',
-    #         map_type="heat",
-    #         heat_data_path='inputs/heat_data.csv',
-    #         road_data_path='inputs/geojson/ca_primary_secondary_roads.geojson',
-    #         county_filter='Los Angeles'  # Specify the county here
-    #     )
-    #     expected_output_file = os.path.join(self.output_dir, 'white', 'Alameda_heat_map.png')
-        # print(f"Expected output file: {expected_output_file}")
-        # print(f"Contents of output directory: {os.listdir(os.path.join(self.output_dir, 'white'))}")
-        # self.assertTrue(os.path.exists(expected_output_file))
 
 if __name__ == '__main__':
     unittest.main()
