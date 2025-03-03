@@ -42,7 +42,9 @@ def generate_static_html(county_name_mapping, report_type, output_dir, build_for
                     else:
                         # Local build: keep the original or modify to relative paths as needed.
                         updated_html = r.text.replace('href="/static/', 'href="/static/')
+                        updated_html = r.text.replace('/report-generator/static/', '/static/')
                         updated_html = updated_html.replace('src="/static/', 'src="/static/')
+                        updated_html = updated_html.replace('/report-generator/static/', '/static/')
                     # Write Github (or primary) output
                     out_file = os.path.join(reports_dir, f'{standardized_county_name}_page{page}.html')
                     with open(out_file, 'w', encoding='utf-8') as f:

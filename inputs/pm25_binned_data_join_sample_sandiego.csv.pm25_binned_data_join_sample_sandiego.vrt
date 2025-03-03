@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OGRVRTDataSource>
+    <OGRVRTLayer name="pm25_binned_data_join_sample_sandiego-pm25_binned_data_join_sample_sandiego">
+        <SrcDataSource relativeToVRT="1">pm25_binned_data_join_sample_sandiego.csv</SrcDataSource>
+        <!--Header=False-->
+        <SrcLayer>pm25_binned_data_join_sample_sandiego</SrcLayer>
+        <Field name="GEOID" src="GEOID" type="String"/>
+        <Field name="County" src="County" type="String"/>
+        <Field name="Neighborhood_type" src="Neighborhood_type" type="String"/>
+        <Field name="categorical_average" src="categorical_average" type="String"/>
+    </OGRVRTLayer>
+</OGRVRTDataSource>

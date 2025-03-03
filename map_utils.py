@@ -9,8 +9,8 @@ from matplotlib.font_manager import FontProperties
 from matplotlib.transforms import Bbox
 
 MAJOR_CITIES = [
-    "Los Angeles", "San Diego", "San Jose", "San Francisco", "Santa Cruz", "Santa Barbara",
-    "Fresno", "Sacramento", "Long Beach", "Oakland", "Bakersfield", "Monterey"
+	"Los Angeles", "San Diego", "San Jose", "San Francisco", "Santa Cruz", "Santa Barbara",
+	"Fresno", "Sacramento", "Long Beach", "Oakland", "Bakersfield", "Monterey"
 ]
 
 # Define colors for neighborhoods
@@ -25,166 +25,170 @@ COUNTY_BOUNDARY_ALPHA = 0.45
 
 output_geojson_path = 'output/joined_data.geojson'
 
+def join_heat_data_to_census(census_geojson_path, topical_data_path, temp_output_geojson_path):
+    try:
+        print(f"Loading census GeoJSON data from {census_geojson_path}")
+        census_gdf = gpd.read_file(census_geojson_path)
+        print(f"Census data loaded: {census_gdf.shape[0]} records")
+        print(census_gdf.head())
+
+        print(f"Loading heat data from {topical_data_path}")
+        heat_df = pd.read_csv(topical_data_path, dtype={'GEOID': str})
+        print(f"Heat data loaded: {heat_df.shape[0]} records")
+        print(heat_df.head())
+
+        print("Ensuring GEOID columns have the same data type and padding with leading zeros")
+        census_gdf['GEOID'] = census_gdf['GEOID'].astype(str).str.zfill(11)
+        heat_df['GEOID'] = heat_df['GEOID'].astype(str).str.zfill(11)
+
+        print("Performing the join on GEOID")
+        joined_gdf = census_gdf.merge(heat_df, on='GEOID', how='left')
+        print(f"Joined data: {joined_gdf.shape[0]} records")
+        print(joined_gdf.head())
+
+        print(f"Saving joined data to {temp_output_geojson_path}")
+        joined_gdf.to_file(temp_output_geojson_path, driver='GeoJSON')
+        print("Join and save successful.")
+
+    except Exception as e:
+        print(f"An error occurred while joining heat data to census tracts: {e}")
 	
-def join_heat_data_to_census(census_geojson_path, topical_data_path, output_geojson_path):
-	try:
-		print(f"Loading census GeoJSON data from {census_geojson_path}")
-		census_gdf = gpd.read_file(census_geojson_path)
-		print(f"Census data loaded: {census_gdf.shape[0]} records")
-		print(census_gdf.head())
 
-		print(f"Loading heat data from {topical_data_path}")
-		heat_df = pd.read_csv(topical_data_path, dtype={'GEOID': str})
-		print(f"Heat data loaded: {heat_df.shape[0]} records")
-		print(heat_df.head())
+# "Medium": "#403e83",
 
-		print("Ensuring GEOID columns have the same data type and padding with leading zeros")
-		census_gdf['GEOID'] = census_gdf['GEOID'].astype(str).str.zfill(11)
-		heat_df['GEOID'] = heat_df['GEOID'].astype(str).str.zfill(11)
-
-		print("Performing the join on GEOID")
-		joined_gdf = census_gdf.merge(heat_df, on='GEOID', how='left')
-		print(f"Joined data: {joined_gdf.shape[0]} records")
-		print(joined_gdf.head())
-
-		print(f"Saving joined data to {output_geojson_path}")
-		joined_gdf.to_file(output_geojson_path, driver='GeoJSON')
-		print("Join and save successful.")
-
-	except Exception as e:
-		print(f"An error occurred while joining heat data to census tracts: {e}")
-
+# "Below County Average (option b)": "#C3B6E8" alt, old #9190bf
+# alt_road_gdf_color (option b) b2b5b8 old #eaeaea
 
 map_configs = {
-    "heat": {
-        "value_field": "categorical_average",
-        "color_mapping": {
-            "Zero Day Count": COLOR_ZERO_DAY_COUNT,
-            "Below/Equal Average": COLOR_BELOW_EQUAL_AVERAGE,
-            "Above Average": COLOR_ABOVE_AVERAGE
-        },
-        "legend_mapping": {
-            "Zero Day Count": "Zero Days",
-            "Below/Equal Average": "Below Average",
-            "Above Average": "Above Average"
-        },
-        "state_average_field": "avgDays_90F_state",
-        "county_average_field": "avgDays_90F_county",
-        "join_data_func": join_heat_data_to_census  # Using the same function for now
-    },
-    "air_pollution": {
-        "value_field": "air_pollution_index",  # assuming this field exists
-        "color_mapping": {
-            "Low": "#00ff00",
-            "Medium": "#ffff00",
-            "High": "#ff0000"
-        },
-        "legend_mapping": {
-            "Low": "Low Pollution",
-            "Medium": "Medium Pollution",
-            "High": "High Pollution"
-        },
-        "state_average_field": "statePollution",
-        "county_average_field": "countyPollution",
-        "join_data_func": join_heat_data_to_census  # or another function if needed
-    }
+	"heat": {
+		"value_field": "categorical_average",
+		"color_mapping": {
+			"Zero Day Count": COLOR_ZERO_DAY_COUNT,
+			"Below/Equal Average": COLOR_BELOW_EQUAL_AVERAGE,
+			"Above Average": COLOR_ABOVE_AVERAGE
+		},
+		"legend_mapping": {
+			"Zero Day Count": "Zero Days",
+			"Below/Equal Average": "Below Average",
+			"Above Average": "Above Average"
+		},
+		"state_average_field": "avgDays_90F_state",
+		"county_average_field": "avgDays_90F_county",
+		"join_data_func": join_heat_data_to_census  # Using the same function for now
+	},
+	"air_pollution": {
+		"value_field": "categorical_average",  # assuming this field exists
+		"color_mapping": {
+			"Below County Average": "#C3B6E8",
+			"Above County Average": "#100e48"
+		},
+		"legend_mapping": {
+			"Below County Average": "Below County Avg.",
+			"Above County Average": "Above County Avg."
+		},
+		"state_average_field": "avgPM25_state_avg",
+		"county_average_field": "avgPM25_county_avg",
+		"join_data_func": join_heat_data_to_census  # or another function if needed
+	}
 }
 def adjust_bounds_preserve_fixed_edge(bounds, desired_ratio, preserve='miny'):
-    """
-    Adjust the bounds to have the exact desired_ratio (width/height) without recentering.
-    Instead, preserve the specified edge ('miny' or 'minx') and extend the opposite side.
-    
-    For example, if preserve == 'miny', the lower bound (miny) remains unchanged and the
-    upper bound is increased as needed.
-    """
-    minx, miny, maxx, maxy = bounds
-    width = maxx - minx
-    height = maxy - miny
-    current_ratio = width / height
+	"""
+	Adjust the bounds to have the exact desired_ratio (width/height) without recentering.
+	Instead, preserve the specified edge ('miny' or 'minx') and extend the opposite side.
+	
+	For example, if preserve == 'miny', the lower bound (miny) remains unchanged and the
+	upper bound is increased as needed.
+	"""
+	minx, miny, maxx, maxy = bounds
+	width = maxx - minx
+	height = maxy - miny
+	current_ratio = width / height
 
-    if current_ratio < desired_ratio:
-        # Width is too narrow relative to height; need to increase width.
-        new_width = desired_ratio * height
-        if preserve == 'minx':
-            new_maxx = minx + new_width
-            return (minx, miny, new_maxx, maxy)
-        elif preserve == 'maxx':
-            new_minx = maxx - new_width
-            return (new_minx, miny, maxx, maxy)
-        else:
-            # Default: preserve the left edge.
-            new_maxx = minx + new_width
-            return (minx, miny, new_maxx, maxy)
-    elif current_ratio > desired_ratio:
-        # Height is too short relative to width; increase height.
-        new_height = width / desired_ratio
-        if preserve == 'miny':
-            new_maxy = miny + new_height
-            return (minx, miny, maxx, new_maxy)
-        elif preserve == 'maxy':
-            new_miny = maxy - new_height
-            return (minx, new_miny, maxx, maxy)
-        else:
-            # Default: preserve the bottom edge.
-            new_maxy = miny + new_height
-            return (minx, miny, maxx, new_maxy)
-    else:
-        # Already matches
-        return bounds
+	if current_ratio < desired_ratio:
+		# Width is too narrow relative to height; need to increase width.
+		new_width = desired_ratio * height
+		if preserve == 'minx':
+			new_maxx = minx + new_width
+			return (minx, miny, new_maxx, maxy)
+		elif preserve == 'maxx':
+			new_minx = maxx - new_width
+			return (new_minx, miny, maxx, maxy)
+		else:
+			# Default: preserve the left edge.
+			new_maxx = minx + new_width
+			return (minx, miny, new_maxx, maxy)
+	elif current_ratio > desired_ratio:
+		# Height is too short relative to width; increase height.
+		new_height = width / desired_ratio
+		if preserve == 'miny':
+			new_maxy = miny + new_height
+			return (minx, miny, maxx, new_maxy)
+		elif preserve == 'maxy':
+			new_miny = maxy - new_height
+			return (minx, new_miny, maxx, maxy)
+		else:
+			# Default: preserve the bottom edge.
+			new_maxy = miny + new_height
+			return (minx, miny, maxx, new_maxy)
+	else:
+		# Already matches
+		return bounds
 
 def apply_special_adjustments(county, bounds):
-    """
-    Adjust the bounds based on special adjustments for the given county.
-    
-    Returns a tuple of (adjusted_bounds, adjustment_applied) where adjustment_applied is True
-    if any special adjustment was applied.
-    
-    Special adjustments can include:
-      - 'shift_y': adds extra padding at the bottom (subtracts from y_min)
-      - 'shift_x': shifts the x bounds (added to both x_min and x_max)
-      - 'zoom_factor': rescales the bounds about the center
-    """
-    special_adjustments = {
-        "Kings": {"shift_y": 20000, "zoom_factor": 0.7},
-        "Los Angeles": {"shift_y": 40000, "zoom_factor": 0.9},
-        "Merced": {"shift_y": 35000},
-        "San Diego": {"shift_y": 50000},
-        "Sacramento": {"shift_y": 15000, "zoom_factor": 0.8},
-        "San Joaquin": {"shift_y": 35000, "zoom_factor": 0.8},
-        # "San Mateo": {"shift_y": 1000, "shift_x": 2000},
-        "Monterey": {"shift_y": 15000, "zoom_factor": 0.8},
-        "Stanislaus": {"shift_y": 3000},
-        "Ventura": {"shift_y": 5000, "zoom_factor": 0.75}
-    }
-    
-    # Use default values if no adjustment is provided.
-    defaults = {"shift_y": 0, "shift_x": 0, "zoom_factor": 1}
-    adj = special_adjustments.get(county, defaults)
-    adjustment_applied = (adj.get("shift_y", 0) != 0 or adj.get("shift_x", 0) != 0 or adj.get("zoom_factor", 1) != 1)
-    
-    minx, miny, maxx, maxy = bounds
-    # Apply shift adjustments with defaults
-    miny -= adj.get("shift_y", 0)
-    minx += adj.get("shift_x", 0)
-    maxx += adj.get("shift_x", 0)
-    
-    # Only apply zoom if needed
-    if adj.get("zoom_factor", 1) != 1:
-        factor = adj.get("zoom_factor", 1)
-        x_center = (minx + maxx) / 2
-        y_center = (miny + maxy) / 2
-        width = (maxx - minx) / factor
-        height = (maxy - miny) / factor
-        minx = x_center - width / 2
-        maxx = x_center + width / 2
-        miny = y_center - height / 2
-        maxy = y_center + height / 2
-    
-    return (minx, miny, maxx, maxy), adjustment_applied
+	"""
+	Adjust the bounds based on special adjustments for the given county.
+	
+	Returns a tuple of (adjusted_bounds, adjustment_applied) where adjustment_applied is True
+	if any special adjustment was applied.
+	
+	Special adjustments can include:
+	  - 'shift_y': adds extra padding at the bottom (subtracts from y_min)
+	  - 'shift_x': shifts the x bounds (added to both x_min and x_max)
+	  - 'zoom_factor': rescales the bounds about the center
+	"""
+	special_adjustments = {
+		"Kings": {"shift_y": 20000, "zoom_factor": 0.7},
+		"Los Angeles": {"shift_y": 40000, "zoom_factor": 0.9},
+		"Merced": {"shift_y": 35000},
+		"San Diego": {"shift_y": 50000},
+		"Sacramento": {"shift_y": 15000, "zoom_factor": 0.8},
+		"San Joaquin": {"shift_y": 35000, "zoom_factor": 0.8},
+		# "San Mateo": {"shift_y": 1000, "shift_x": 2000},
+		"Monterey": {"shift_y": 15000, "zoom_factor": 0.8},
+		"Stanislaus": {"shift_y": 3000},
+		"Ventura": {"shift_y": 5000, "zoom_factor": 0.75}
+	}
+	
+	# Use default values if no adjustment is provided.
+	defaults = {"shift_y": 0, "shift_x": 0, "zoom_factor": 1}
+	adj = special_adjustments.get(county, defaults)
+	adjustment_applied = (adj.get("shift_y", 0) != 0 or adj.get("shift_x", 0) != 0 or adj.get("zoom_factor", 1) != 1)
+	
+	minx, miny, maxx, maxy = bounds
+	# Apply shift adjustments with defaults
+	miny -= adj.get("shift_y", 0)
+	minx += adj.get("shift_x", 0)
+	maxx += adj.get("shift_x", 0)
+	
+	# Only apply zoom if needed
+	if adj.get("zoom_factor", 1) != 1:
+		factor = adj.get("zoom_factor", 1)
+		x_center = (minx + maxx) / 2
+		y_center = (miny + maxy) / 2
+		width = (maxx - minx) / factor
+		height = (maxy - miny) / factor
+		minx = x_center - width / 2
+		maxx = x_center + width / 2
+		miny = y_center - height / 2
+		maxy = y_center + height / 2
+	
+	return (minx, miny, maxx, maxy), adjustment_applied
+
+
 
 def generate_majority_tracts_map(
     geojson_path,
-    pop_data_path,
+    pop_data_path,  # Keeping the argument but not using it
     county_geojson_path,
     output_dir,
     basemap_source=ctx.providers.CartoDB.PositronNoLabels,
@@ -219,11 +223,6 @@ def generate_majority_tracts_map(
         print(f"GeoJSON data loaded: {gdf.shape[0]} records")
         print(gdf.head())
 
-        print(f"Loading population data from {pop_data_path}")
-        pop_df = pd.read_csv(pop_data_path, dtype={'GEOID': str})
-        print(f"Population data loaded: {pop_df.shape[0]} records")
-        print(pop_df.head())
-
         if map_type and topical_data_path:
             print(f"Loading {map_type} data from {topical_data_path}")
             topical_df = pd.read_csv(topical_data_path, dtype={'GEOID': str})
@@ -254,21 +253,15 @@ def generate_majority_tracts_map(
 
         print("Ensuring the columns used for joining have the same data type and padding GEOID with leading zeros")
         gdf['GEOID'] = gdf['GEOID'].astype(str).str.zfill(11)
-        pop_df['GEOID'] = pop_df['GEOID'].astype(str).str.zfill(11)
         if map_type and topical_data_path:
             topical_df['GEOID'] = topical_df['GEOID'].astype(str).str.zfill(11)
-        join_func(geojson_path, topical_data_path, output_geojson_path)
-        print("Setting index for join")
-        gdf.set_index('GEOID', inplace=True)
-        pop_df.set_index('GEOID', inplace=True)
-        if map_type and topical_data_path:
-            topical_df.set_index('GEOID', inplace=True)
-
-        print("Performing the join")
-        joined_gdf = gdf.join(pop_df, how='inner')
-        if map_type and topical_data_path:
-            joined_gdf = joined_gdf.join(topical_df[[value_field]], how='inner')
-        print(f"Joined data: {joined_gdf.shape[0]} records")
+        
+        temp_output_geojson_path = 'output/temp_joined_data.geojson'
+        join_func(geojson_path, topical_data_path, temp_output_geojson_path)
+        
+        print("Loading joined data from temporary file")
+        joined_gdf = gpd.read_file(temp_output_geojson_path)
+        print(f"Joined data loaded: {joined_gdf.shape[0]} records")
         print(joined_gdf.head())
 
         print("Reprojecting to Web Mercator (EPSG:3857)")
@@ -280,7 +273,7 @@ def generate_majority_tracts_map(
         if county_filter:
             counties = [county_filter]
         else:
-            counties = joined_gdf['county'].dropna().unique()
+            counties = joined_gdf['County'].dropna().unique()
         print(f"Counties to process: {counties}")
 
         state_average = counties_gdf[state_avg_field].iloc[0]
@@ -289,7 +282,10 @@ def generate_majority_tracts_map(
         for county in counties:
             try:
                 print(f"Processing county: {county}")
-                county_gdf = joined_gdf[joined_gdf['county'] == county]
+                if 'County' not in joined_gdf.columns:
+                    print(f"Column 'County' not found in joined_gdf")
+                    continue
+                county_gdf = joined_gdf[joined_gdf['County'] == county]
                 print(f"County data: {county_gdf.shape[0]} records")
 
                 # Ensure geometries are valid and not empty
@@ -361,18 +357,19 @@ def generate_majority_tracts_map(
                         dissolved_latino_gdf[mask].plot(
                             ax=ax,
                             color='none',
-                            edgecolor='black',
+                            edgecolor='#333333',
                             linewidth=1.0,
-                            alpha=0.6
+                            alpha=0.9,
+                            zorder=6
                         )
                         dissolved_latino_gdf[mask].plot(
                             ax=ax,
                             color='none',
-                            edgecolor='gray',
+                            edgecolor='#FFB347',
                             linewidth=0.5,
-                            alpha=0.3,
-                            hatch='/',
-                            zorder=4
+                            alpha=0.6,
+                            hatch='//',
+                            zorder=7
                         )
 
                 # Plot areas with no data in light gray
@@ -385,6 +382,16 @@ def generate_majority_tracts_map(
                     linewidth=0.5,
                     alpha=0.6
                 )
+
+                # Plot roads with increased linewidth and a prominent color
+                roads_gdf.plot(
+                    ax=ax,
+                    color='#b2b5b8',  # Change to a more prominent color
+                    linewidth=1,  # Increase the linewidth
+                    alpha=0.7,
+                    zorder=2
+                )
+
                 # 1. Get the raw bounds and apply your special adjustments.
                 raw_bounds = county_gdf.total_bounds  # (minx, miny, maxx, maxy)
                 adjusted_bounds, adjustments_applied = apply_special_adjustments(county, raw_bounds)
@@ -412,7 +419,7 @@ def generate_majority_tracts_map(
                     ax.set_ylim(miny, maxy)
 
                 ax.set_aspect('equal')
-
+                ax.axis('off')
                 if legend_elements:
                     legend_elements.append(
                         Patch(
@@ -509,7 +516,19 @@ def generate_majority_tracts_map(
                         text.set_visible(False)
                     else:
                         placed_bboxes.append(padded_bbox)
+                # Save the figure for the current county
+                output_path = os.path.join(output_dir, f'{county}_map.png')
+                print(f"Saving map to {output_path}")
 
+                plt.savefig(
+                    output_path,
+                    bbox_inches='tight',
+                    pad_inches=0.1,
+                    dpi=dpi  # Ensure dpi is consistent with figsize
+                )
+                plt.close()
+
+                print(f"Map for {county} saved to {output_path}")
             except Exception as e:
                 print(f"An error occurred while processing county {county}: {e}")
 
