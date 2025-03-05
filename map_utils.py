@@ -79,8 +79,8 @@ map_configs = {
 	"air_pollution": {
 		"value_field": "categorical_average",  # assuming this field exists
 		"color_mapping": {
-			"Below County Average": "#C3B6E8",
-			"Above County Average": "#100e48"
+			"Below County Average": "#d3ebe0",
+			"Above County Average": "#10462e"
 		},
 		"legend_mapping": {
 			"Below County Average": "Below County Avg.",
@@ -365,9 +365,9 @@ def generate_majority_tracts_map(
                         dissolved_latino_gdf[mask].plot(
                             ax=ax,
                             color='none',
-                            edgecolor='#FFB347',
+                            edgecolor='#333333',
                             linewidth=0.5,
-                            alpha=0.6,
+                            alpha=0.5,
                             hatch='//',
                             zorder=7
                         )
@@ -386,7 +386,7 @@ def generate_majority_tracts_map(
                 # Plot roads with increased linewidth and a prominent color
                 roads_gdf.plot(
                     ax=ax,
-                    color='#b2b5b8',  # Change to a more prominent color
+                    color='lightgray',  # Change to a more prominent color
                     linewidth=1,  # Increase the linewidth
                     alpha=0.7,
                     zorder=2

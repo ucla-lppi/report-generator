@@ -12,7 +12,7 @@ class TestAirPollutionMaps(unittest.TestCase):
         self.ca_counties_path = 'inputs/geojson/ca_counties_simplified.geojson'
         self.pop_data_path = 'inputs/tract_level_data.csv'
         self.topical_data_path = 'inputs/pm25_binned_data.csv'  # Renamed from heat_data_path
-        self.output_dir = 'output/air_pollution_maps_gray'
+        self.output_dir = 'output/air_pollution_maps'
         self.roads_path = 'inputs/geojson/ca_primary_secondary_roads.geojson'
         self.ca_counties = self.get_all_counties()
         os.makedirs(self.output_dir, exist_ok=True)
