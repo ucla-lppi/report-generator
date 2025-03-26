@@ -74,23 +74,43 @@ map_configs = {
 		},
 		"state_average_field": "avgDays_90F_state",
 		"county_average_field": "avgDays_90F_county",
-		"join_data_func": join_heat_data_to_census  # Using the same function for now
+		"join_data_func": join_heat_data_to_census
 	},
 	"air_pollution": {
-		"value_field": "categorical_average",  # assuming this field exists
+		"value_field": "geo_interval",
 		"color_mapping": {
-			"Below County Average": "#d3ebe0",
-			"Above County Average": "#10462e"
+			"Low": "#55947a",
+            "Medium" : "#d3ebe0",
+			"High": "#10462e"
 		},
 		"legend_mapping": {
-			"Below County Average": "Below County Avg.",
-			"Above County Average": "Above County Avg."
+			"Low": "Low PM2.5 Concentration",
+			"Medium": "Medium PM2.5 Concentration",
+			"High": "High PM2.5 Concentration"
 		},
 		"state_average_field": "avgPM25_state_avg",
 		"county_average_field": "avgPM25_county_avg",
-		"join_data_func": join_heat_data_to_census  # or another function if needed
+		"join_data_func": join_heat_data_to_census
 	}
 }
+
+# for standard deviation
+# 	"air_pollution": {
+# 		"value_field": "classification",
+# 		"color_mapping": {
+# 			"Below County Average": "#55947a",
+#             "Near County Average" : "#d3ebe0",
+# 			"Above County Average": "#10462e"
+# 		},
+# 		"legend_mapping": {
+# 			"Below County Average": "Below County Avg.",
+# 			"Near County Average": "Near County Avg.",
+# 			"Above County Average": "Above County Avg."
+# 		},
+# 		"state_average_field": "avgPM25_state_avg",
+# 		"county_average_field": "avgPM25_county_avg",
+# 		"join_data_func": join_heat_data_to_census
+
 def adjust_bounds_preserve_fixed_edge(bounds, desired_ratio, preserve='miny'):
 	"""
 	Adjust the bounds to have the exact desired_ratio (width/height) without recentering.
