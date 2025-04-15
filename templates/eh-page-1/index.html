@@ -5,8 +5,11 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='extremeheat/page' + page|string + '/style.css') }}" />
 	 <link rel="stylesheet" href="{{ url_for('static', filename='extremeheat/page' + page|string + '/globals.css') }}" /></head>
 
-  <body>
-    <div class="version">
+	<body>
+	{% set nl_exceptions = ['Merced', 'Imperial', 'Kings'] %}
+	{% set nl_label = 'NL' if county_name in nl_exceptions else 'NL white' %}
+	{% set nl_definition = '*NL = Non-Latino' if county_name in nl_exceptions else '*NL white = Non-Latino white' %}
+	<div class="version">
       <div class="div">
         <div class="overlap">
           <div class="overlap-group">
@@ -28,7 +31,7 @@
                     {{ county_statistics['Median Age']['Latino'] }} yrs
                     <br/>
                   </span>
-                  <span class="text-wrapper">NL white:</span>
+                  <span class="text-wrapper">{{ nl_label }}:</span>
                   <span class="span" id="median-age-nl-white">
                     {{ county_statistics['Median Age']['NL White'] }} yrs
                   </span>
@@ -50,7 +53,7 @@
                     </div>
                     <div class="NLW-legend-item">
                       <div class="NLW-color"></div>
-                      <div class="text-wrapper-2">NL white</div>
+                      <div class="text-wrapper-2">{{ nl_label }}</div>
                     </div>
                     <div class="NLW-count" id="nl-white-population">
                       {{ county_statistics['Population']['NL White'] }}
@@ -83,7 +86,7 @@
                       {{ county_statistics['SNAP benefits']['Latino'] }}
                     </span>
                     <br/>
-                    <span class="text-wrapper">NL white:</span>
+                    <span class="text-wrapper">{{ nl_label }}:</span>
                     <span class="span" id="snap-benefits-nl-white">
                       {{ county_statistics['SNAP benefits']['NL White'] }}
                     </span>
@@ -94,7 +97,7 @@
                   />
                 </div>
               </div>
-              <p class="text-wrapper-4">*NL white = Non-Latino white</p>
+              <p class="text-wrapper-4">{{ nl_definition }}</p>
             </div>
           </div>
           <div class="non-citzen">
@@ -108,7 +111,7 @@
                 {{ county_statistics['Non-U.S. Citizen Population']['Latino'] }}
                 <br/>
               </span>
-              <span class="text-wrapper">NL white:</span>
+              <span class="text-wrapper">{{ nl_label }}:</span>
               <span class="span">
                 {{ county_statistics['Non-U.S. Citizen Population']['NL White'] }}
               </span>
@@ -132,7 +135,7 @@
                   {{ county_statistics['Limited English Proficiency']['Latino'] }}
                   <br/>
                 </span>
-                <span class="text-wrapper">NL white:</span>
+                <span class="text-wrapper">{{ nl_label }}:</span>
                 <span class="span">
                   {{ county_statistics['Limited English Proficiency']['NL White'] }}
                 </span>
@@ -156,7 +159,7 @@
                       {{ county_statistics['Poverty Rate']['Latino'] }}
                       <br/>
                     </span>
-                    <span class="text-wrapper">NL white:</span>
+                    <span class="text-wrapper">{{ nl_label }}:</span>
                     <span class="span">
                       {{ county_statistics['Poverty Rate']['NL White'] }}
                     </span>
@@ -180,7 +183,7 @@
                       {{ county_statistics['Renter Occupied Households']['Latino'] }}
                       <br/>
                     </span>
-                    <span class="text-wrapper">NL white:</span>
+                    <span class="text-wrapper">{{ nl_label }}:</span>
                     <span class="span">
                       {{ county_statistics['Renter Occupied Households']['NL White'] }}
                     </span>
@@ -202,7 +205,7 @@
                     {{ county_statistics['No Health Insurance']['Latino'] }}
                     <br/>
                   </span>
-                  <span class="text-wrapper">NL white:</span>
+                  <span class="text-wrapper">{{ nl_label }}:</span>
                   <span class="span">
                     {{ county_statistics['No Health Insurance']['NL White'] }}
                   </span>
@@ -229,7 +232,7 @@
                     {{ county_statistics['Life Expectancy']['Latino'] }}
                     <br/>
                   </span>
-                  <span class="text-wrapper">NL white:</span>
+                  <span class="text-wrapper">{{ nl_label }}:</span>
                   <span class="span">
                     {{ county_statistics['Life Expectancy']['NL White'] }}
                   </span>
@@ -246,7 +249,7 @@
                     {{ county_statistics['Fair/Poor Health Status']['Latino'] }}
                     <br/>
                   </span>
-                  <span class="text-wrapper">NL white:</span>
+                  <span class="text-wrapper">{{ nl_label }}:</span>
                   <span class="span">
                     {{ county_statistics['Fair/Poor Health Status']['NL White'] }}
                   </span>
@@ -265,7 +268,7 @@
                   {{ county_statistics['Median Household Income']['Latino'] }}
                   <br/>
                 </span>
-                <span class="text-wrapper">NL white:</span>
+                <span class="text-wrapper">{{ nl_label }}:</span>
                 <span class="span">
                   {{ county_statistics['Median Household Income']['NL White'] }}
                 </span>
@@ -287,7 +290,7 @@
                 {{ county_statistics['Food Insecurity']['Latino'] }}
                 <br/>
               </span>
-              <span class="text-wrapper">NL white:</span>
+              <span class="text-wrapper">{{ nl_label }}:</span>
               <span class="span">
                 {{ county_statistics['Food Insecurity']['NL White'] }}
               </span>
@@ -299,7 +302,7 @@
           </div>
         </div>
         <div class="overlap-11">
-			<div class="version overlap-12" style="background-image: url('/report-generator/static/extremeheat/images/maps/{{ county_name }}_heat_map_combined.png');">
+			<div class="version overlap-12" style="background-image: url('/static/extremeheat/images/maps/{{ county_name }}_heat_map_combined.png');">
 				<div class="{{ 'map-averages-top' if county_name in ['Stanislaus','Fresno','Madera','Monterrey'] else 'map-averages' }}">
 					<p class="map-averages-data">
 					  County Average: {{ county_statistics['Average Heat Days']['County'] }}
@@ -409,7 +412,7 @@
                     <span class="text-wrapper-9"> days</span>
                   </p>
                   <p class="div-8">
-                    <span class="text-wrapper-6">NL white<br/></span>
+                    <span class="text-wrapper-6">{{ nl_label }}<br/></span>
                     <span class="span">neighborhoods</span>
                   </p>
                   <p class="div-9">
@@ -437,7 +440,7 @@
                     <span class="text-wrapper-9"> days</span>
                   </p>
                   <p class="div-8">
-                    <span class="text-wrapper-6">NL white<br/></span>
+                    <span class="text-wrapper-6">{{ nl_label }}<br/></span>
                     <span class="span">neighborhoods</span>
                   </p>
                   <p class="div-9">
@@ -466,7 +469,7 @@
                   <span class="text-wrapper-9"> days</span>
                 </p>
                 <p class="div-8">
-                  <span class="text-wrapper-6">NL white<br/></span>
+                  <span class="text-wrapper-6">{{ nl_label }}<br/></span>
                   <span class="span">neighborhoods</span>
                 </p>
                 <p class="div-9">

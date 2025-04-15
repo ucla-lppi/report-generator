@@ -112,8 +112,8 @@ def build_county_report_data(standardized_county_name):
 			'NL White': f"{county_pop_data['pct_lep_nlw']}%"
 		},
 		'Median Household Income': {
-			'Latino': f"${format_as_thousands(county_pop_data['med_inc_lat'])}",
-			'NL White': f"${format_as_thousands(county_pop_data['med_inc_nlw'])}"
+			'Latino': f"${format_as_thousands(round(county_pop_data['med_inc_lat']))}",
+			'NL White': f"${format_as_thousands(round(county_pop_data['med_inc_nlw']))}"
 		},
 		'Life Expectancy': {
 			'Latino': f"{round(county_pop_data['life_exp_lat'])} yrs",

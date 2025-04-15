@@ -59,8 +59,9 @@ This project generates a PDF report for a specified county using GeoJSON data an
 
 ## Usage
 
-Update the county_name variable in generate_report.py to the desired county name.
 Run the script:
 ```sh
-python generate_report.py
+python python main.py build
 ```
+
+Make sure geckodriver is up to date and in your PATH. You can download it from [here](https://github.com/mozilla/geckodriver/releases).
