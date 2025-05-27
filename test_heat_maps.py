@@ -11,7 +11,7 @@ class TestHeatMaps(unittest.TestCase):
         self.ca_counties_path = 'inputs/geojson/ca_counties_simplified.geojson'
         self.pop_data_path = 'inputs/tract_level_data.csv'
         self.topical_data_path = 'inputs/heat_data.csv'  # Renamed from heat_data_path
-        self.output_dir = 'output/heat_maps'  # Cleaned up naming
+        self.output_dir = 'output/extreme_heat_final_maps'  # Cleaned up naming
         self.roads_path = 'inputs/geojson/ca_primary_secondary_roads.geojson'
         self.ca_counties = self.get_all_counties()
         os.makedirs(self.output_dir, exist_ok=True)

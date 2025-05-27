@@ -8,7 +8,7 @@ from data_utils import create_county_name_mapping, fetch_population_data
 class PDFGenerationTestCase(unittest.TestCase):
     def setUp(self):
         # Fetch population data and create county name mapping
-        csv_url = 'https://docs.google.com/spreadsheets/d/.../pub?output=csv'
+        csv_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTDl0u8xAvazJjlCn62edUDjjK1tLwyi4hXihYpYIGOxawrN3_HfzvYKJ1ARzH4AzhrHZysIpkc_1Nc/pub?gid=1778580211&single=true&output=csv'
         self.pop_data = fetch_population_data(csv_url)
         self.county_name_mapping = create_county_name_mapping(self.pop_data)
 
@@ -31,7 +31,7 @@ class PDFGenerationTestCase(unittest.TestCase):
         os.makedirs(self.output_dir, exist_ok=True)
 
         # Call the generate_pdfs function without mocking pdfkit
-        generate_pdfs(self.county_name_mapping, self.output_dir, use_openai=False)
+        generate_pdfs(self.county_name_mapping, self.output_dir)
 
         # Check that PDF files were created
         pdf_files = [f for f in os.listdir(self.output_dir) if f.endswith('.pdf')]

@@ -39,7 +39,7 @@ def generate_maps(joined_geojson_path, pop_data_path, county_geojson_path, roads
 
 		# Load Google Sheet data
 		print("Loading Google Sheet data from CSV")
-		google_sheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTDl0u8xAvazJjlCn62edUDjjK1tLwyi4hXihYpYIGOxawrN3_HfzvYKJ1ARzH4AzhrHZysIpkc_1Nc/pub?output=csv'
+		google_sheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTDl0u8xAvazJjlCn62edUDjjK1tLwyi4hXihYpYIGOxawrN3_HfzvYKJ1ARzH4AzhrHZysIpkc_1Nc/pub?gid=1778580211&single=true&output=csv'
 		google_df = pd.read_csv(google_sheet_url, dtype={'County': str})
 		print(f"Google Sheet data loaded: {google_df.shape[0]} records")
 		print(google_df.head())
@@ -59,8 +59,8 @@ def generate_maps(joined_geojson_path, pop_data_path, county_geojson_path, roads
 		pop_df['GEOID'] = pop_df['GEOID'].astype(str).str.zfill(11)
 
 		print("Dropping 'county' column from population data to avoid overlap")
-		if 'county' in pop_df.columns:
-			pop_df = pop_df.drop(columns=['county'])
+		if 'County' in pop_df.columns:
+			pop_df = pop_df.drop(columns=['County'])
 			print("Dropped 'county' column from population data.")
 
 		print("Setting index for join")
@@ -79,20 +79,20 @@ def generate_maps(joined_geojson_path, pop_data_path, county_geojson_path, roads
 
 		print("Getting unique counties")
 		if target_county:
-			if target_county in joined_gdf['county'].unique():
+			if target_county in joined_gdf['County'].unique():
 				counties = [target_county]
 				print(f"Processing only target county: {target_county}")
 			else:
 				print(f"Target county '{target_county}' not found in data.")
 				counties = []
 		else:
-			counties = joined_gdf['county'].dropna().unique()
+			counties = joined_gdf['County'].dropna().unique()
 			print(f"Counties to process: {counties}")
 
 		for county in counties:
 			try:
 				print(f"Processing county: {county}")
-				county_gdf = joined_gdf[joined_gdf['county'] == county]
+				county_gdf = joined_gdf[joined_gdf['County'] == county]
 				print(f"County data: {county_gdf.shape[0]} records")
 
 				# Ensure geometries are valid and not empty
@@ -103,7 +103,7 @@ def generate_maps(joined_geojson_path, pop_data_path, county_geojson_path, roads
 					continue
 
 				# Filter based on neighborhood type
-				latino_gdf = county_gdf[county_gdf['neighborhood_type'].isin(['50+ Latino', '70+ Latino'])]
+				latino_gdf = county_gdf[county_gdf['Neighborhood_type'].isin(['50+ Latino', '70+ Latino'])]
 
 				# Dissolve Latino boundaries
 				dissolved_latino_gdf = latino_gdf.dissolve()
