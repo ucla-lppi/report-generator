@@ -15,7 +15,7 @@ gdf = load_geojson(geojson_path)
 output_dir = 'output'
 map_dir, img_dir = ensure_directories(output_dir)
 
-csv_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTDl0u8xAvazJjlCn62edUDjjK1tLwyi4hXihYpYIGOxawrN3_HfzvYKJ1ARzH4AzhrHZysIpkc_1Nc/pub?output=csv'
+csv_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTyGBCxXjMIztPF1IL5JrP0nss-H4GwJwyecXDRy7Hv5oyC3s54ytPaNotzoqTMKzkPCxFqgEItfSLz/pub?gid=1869860862&single=true&output=csv'
 pop_data = fetch_population_data(csv_url)
 
 county_name_mapping = create_county_name_mapping(pop_data)
@@ -70,7 +70,24 @@ def build_county_report_data(standardized_county_name):
 		'pct_under_18_lat', 'pct_under_18_comp',
 		'pct_over_65_lat', 'pct_over_65_comp',
 		'pct_broad_lat', 'pct_broad_comp',
-		'pct_dac_lat', 'pct_dac_comp'
+		'pct_dac_lat', 'pct_dac_comp',
+		'avgPM25_state_avg', 'avgPM25_county_avg',
+		'avgPM25_lat', 'avgPM25_comp',
+		'dieselPM_lat', 'dieselPM_comp',
+		'tox_conc_lat', 'tox_conc_comp',
+		'trafficDens_lat', 'trafficDens_comp',
+		'cleanupSites_lat', 'cleanupSites_comp',
+		'hazFacilites_lat', 'hazFacilites_comp',
+		'prox_rmp_lat', 'prox_rmp_comp',
+		'pct_poverty_lat', 'pct_poverty_comp',
+		'pct_walk_lat', 'pct_walk_comp',
+		'pct_pub_lat', 'pct_pub_comp',
+		'pct_lowBirthWght_lat', 'pct_lowBirthWght_comp',
+		'pct_dac_lat', 'pct_dac_comp',
+		'pct_clean_veh_lat', 'pct_clean_veh_comp',
+		'pct_veh_20yrs_lat', 'pct_veh_20yrs_comp',
+		'pct_asthma_lat', 'pct_asthma_comp',
+		'pct_chd_lat', 'pct_chd_comp'
 	]
 
 	for column in columns_to_check:
@@ -78,7 +95,6 @@ def build_county_report_data(standardized_county_name):
 			print(f"Warning: Column '{column}' not found in county_pop_data")
 
 	column_values = {column: county_pop_data.get(column, 'N/A') for column in columns_to_check}
-
 	county_statistics = {
 		'Population': {
 			'Total': total_pop,
@@ -87,109 +103,167 @@ def build_county_report_data(standardized_county_name):
 			'Other': pop_county_other
 		},
 		'Average Heat Days': {
-			'County': int(round(county_pop_data['avgDays_90F_county'])),
-			'Latino': int(round(county_pop_data['avgDays90F_lat'])),
-			'NL White': int(round(county_pop_data['avgDays90F_comp']))
+			'County': int(county_pop_data['avgDays_90F_county']),
+			'Latino': int(county_pop_data['avgDays90F_lat']),
+			'NL White': int(county_pop_data['avgDays90F_comp'])
 		},
 		'Average Longest Heat Wave': {
-			'Latino': int(round(county_pop_data['avgLong90F_lat'])),
-			'NL White': int(round(county_pop_data['avgLong90F_comp']))
+			'Latino': int(county_pop_data['avgLong90F_lat']),
+			'NL White': int(county_pop_data['avgLong90F_comp'])
 		},
 		'Mid-Century Projections': {
-			'Latino': int(round(county_pop_data['mid_cent_90F_lat'])),
-			'NL White': int(round(county_pop_data['mid_cent_90F_comp']))
+			'Latino': int(county_pop_data['mid_cent_90F_lat']),
+			'NL White': int(county_pop_data['mid_cent_90F_comp'])
 		},
 		'Median Age': {
-			'Latino': round(county_pop_data['med_age_lat']),
-			'NL White': round(county_pop_data['med_age_nlw'])
+			'Latino': f"{int(county_pop_data['med_age_lat'])} yrs",
+			'NL White': f"{int(county_pop_data['med_age_nlw'])} yrs"
 		},
 		'Non-U.S. Citizen Population': {
-			'Latino': f"{county_pop_data['pct_non_cit_lat']}%",
-			'NL White': f"{county_pop_data['pct_non_cit_nlw']}%"
+			'Latino': f"{int(county_pop_data['pct_non_cit_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_non_cit_nlw'])}%",
 		},
 		'Limited English Proficiency': {
-			'Latino': f"{county_pop_data['pct_lep_lat']}%",
-			'NL White': f"{county_pop_data['pct_lep_nlw']}%"
+			'Latino': f"{int(county_pop_data['pct_lep_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_lep_nlw'])}%"
 		},
 		'Median Household Income': {
-			'Latino': f"${format_as_thousands(round(county_pop_data['med_inc_lat']))}",
-			'NL White': f"${format_as_thousands(round(county_pop_data['med_inc_nlw']))}"
+			'Latino': f"${format_as_thousands(county_pop_data['med_inc_lat'])}",
+			'NL White': f"${format_as_thousands(county_pop_data['med_inc_nlw'])}"
+		},
+		'Percentage Asthma': {
+			'Latino': f"{int(county_pop_data['pct_asthma_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_asthma_comp'])}%"
 		},
 		'Life Expectancy': {
-			'Latino': f"{round(county_pop_data['life_exp_lat'])} yrs",
-			'NL White': f"{round(county_pop_data['life_exp_nlw'])} yrs"
+			'Latino': f"{int(county_pop_data['life_exp_lat'])} yrs",
+			'NL White': f"{int(county_pop_data['life_exp_nlw'])} yrs"
+		},
+		'Low Birth Weight Babies': {
+			'Latino': f"{int(county_pop_data['pct_lowBirthWght_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_lowBirthWght_comp'])}%"
+		},
+		'Low Birth Weight Babies Number': {
+			'Latino': county_pop_data['pct_lowBirthWght_lat'],
+			'NL White': county_pop_data['pct_lowBirthWght_comp']
 		},
 		'Poverty Rate': {
-			'Latino': f"{county_pop_data['pct_pov_lat']}%",
-			'NL White': f"{county_pop_data['pct_pov_nlw']}%"
+			'Latino': f"{int(county_pop_data['pct_pov_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_pov_nlw'])}%"
 		},
 		'No Health Insurance': {
-			'Latino': f"{county_pop_data['pct_no_ins_lat']}%",
-			'NL White': f"{county_pop_data['pct_no_ins_nlw']}%"
+			'Latino': f"{int(county_pop_data['pct_no_ins_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_no_ins_nlw'])}%"
 		},
 		'Renter Occupied Households': {
-			'Latino': f"{county_pop_data['pct_rent_lat']}%",
-			'NL White': f"{county_pop_data['pct_rent_nlw']}%"
+			'Latino': f"{int(county_pop_data['pct_rent_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_rent_nlw'])}%"
 		},
 		'SNAP benefits': {
-			'Latino': f"{county_pop_data['pct_snap_lat']}%",
-			'NL White': f"{county_pop_data['pct_snap_nlw']}%"
+			'Latino': f"{int(county_pop_data['pct_snap_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_snap_nlw'])}%"
 		},
 		'Food Insecurity': {
-			'Latino': f"{county_pop_data['pct_food_insecure_lat']}%",
-			'NL White': f"{county_pop_data['pct_food_insecure_nlw']}%"
+			'Latino': f"{int(county_pop_data['pct_food_insecure_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_food_insecure_nlw'])}%"
 		},
 		'Fair/Poor Health Status': {
-			'Latino': f"{county_pop_data['pct_health_stat_lat']}%",
-			'NL White': f"{county_pop_data['pct_health_stat_nlw']}%"
+			'Latino': f"{int(county_pop_data['pct_health_stat_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_health_stat_nlw'])}%"
 		},
-		'Workers Heat Exposed':{
-			'Latino': f"{round(county_pop_data['pct_broad_lat'])}%",
-			'NL White': f"{round(county_pop_data['pct_broad_comp'])}%"
+		'Workers Heat Exposed': {
+			'Latino': f"{int(county_pop_data['pct_broad_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_broad_comp'])}%"
 		},
 		'Percentage of Population Under 18': {
-			'Latino': f"{round(county_pop_data['pct_under_18_lat'])}%",
-			'NL White': f"{round(county_pop_data['pct_under_18_comp'])}%"
+			'Latino': f"{int(county_pop_data['pct_under_18_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_under_18_comp'])}%"
 		},
-		'Percentage of Population Over 60': {
-			'Latino': f"{round(county_pop_data['pct_over_65_lat'])}%",
-			'NL White': f"{round(county_pop_data['pct_over_65_comp'])}%"
+		'Percentage of Population Under 5': {
+			'Latino': f"{int(county_pop_data['pct_under_5_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_under_5_comp'])}%"
 		},
-		'Percentage of Population with Diabetes':{
-			'Latino': f"{round(county_pop_data['pct_diabetes_lat'])}%",
-			'NL White': f"{round(county_pop_data['pct_diabetes_comp'])}%"
+		'Percentage of Population Over 65': {
+			'Latino': f"{int(county_pop_data['pct_over_65_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_over_65_comp'])}%"
 		},
-		'Percentage of Population with Obesity':{
-			'Latino': f"{round(county_pop_data['pct_obesity_lat'])}%",
-			'NL White': f"{round(county_pop_data['pct_obesity_comp'])}%"
+		'Percentage of Population with Diabetes': {
+			'Latino': f"{int(county_pop_data['pct_diabetes_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_diabetes_comp'])}%"
 		},
-		'Rate Heart Attacks':{
-			'Latino': f"{round(county_pop_data['rate_cvd_ed_lat'])}",
-			'NL White': f"{round(county_pop_data['rate_cvd_ed_comp'])}"
+		'Percentage of Population with Obesity': {
+			'Latino': f"{int(county_pop_data['pct_obesity_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_obesity_comp'])}%"
 		},
-		'Rate Asthma':{
-			'Latino': f"{round(county_pop_data['rate_asthma_ed_lat'])}",
-			'NL White': f"{round(county_pop_data['rate_asthma_ed_comp'])}"
+		'Rate Heart Attacks': {
+			'Latino': int(county_pop_data['rate_cvd_ed_lat']),
+			'NL White': int(county_pop_data['rate_cvd_ed_comp'])
 		},
-		'Heat Related Emergency Department Visits':{
-			'Latino': f"{round(county_pop_data['rate_heat_ed_lat'])}",
-			'NL White': f"{round(county_pop_data['rate_heat_ed_comp'])}"
+		'Rate Asthma': {
+			'Latino': int(county_pop_data['rate_asthma_ed_lat']),
+			'NL White': int(county_pop_data['rate_asthma_ed_comp'])
 		},
-		'Percentage Disadvantaged Communities':{
-			'Latino': f"{round(county_pop_data['pct_dac_lat'])}%",
-			'NL White': f"{round(county_pop_data['pct_dac_comp'])}%"
+		'Coronary Heart Disease': {
+			'Latino': f"{round(county_pop_data['pct_chd_lat'],0)}%",
+			'NL White': f"{round(county_pop_data['pct_chd_comp'],0)}%"
 		},
-		'Impervious Surfaces':{
-			'Latino': f"{round(county_pop_data['pct_imp_surf_lat'])}%",
-			'NL White': f"{round(county_pop_data['pct_imp_surf_comp'])}%"
+		'Heat Related Emergency Department Visits': {
+			'Latino': int(county_pop_data['rate_heat_ed_lat']),
+			'NL White': int(county_pop_data['rate_heat_ed_comp'])
 		},
-		'Tree Canopy':{
-			'Latino': f"{round(county_pop_data['pct_tree_lat'])}%",
-			'NL White': f"{round(county_pop_data['pct_tree_comp'])}%"
+		'Percentage Disadvantaged Communities': {
+			'Latino': f"{round(int(county_pop_data['pct_dac_lat']),0)}%",
+			'NL White': f"{round(int(county_pop_data['pct_dac_comp']),0)}%"
 		},
-		'Old Housing':{
-			'Latino': f"{round(county_pop_data['pct_old_house_lat'])}%",
-			'NL White': f"{round(county_pop_data['pct_old_house_comp'])}%"
+		'Percentage of Clunker Vehicles': {
+			'Latino': f"{county_pop_data['pct_veh_20yrs_lat']}%",
+			'NL White': f"{county_pop_data['pct_veh_20yrs_comp']}%"
+		},
+		'Impervious Surfaces': {
+			'Latino': f"{int(county_pop_data['pct_imp_surf_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_imp_surf_comp'])}%"
+		},
+		'Tree Canopy': {
+			'Latino': f"{int(county_pop_data['pct_tree_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_tree_comp'])}%"
+		},
+		'Old Housing': {
+			'Latino': f"{int(county_pop_data['pct_old_house_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_old_house_comp'])}%"
+		},
+		'Disadvantaged Communities': {
+			'Latino': f"{county_pop_data['pct_dac_lat']}%",
+			'NL White': f"{county_pop_data['pct_dac_comp']}%"
+		},
+		'Low Electric Vehicle Adoption': {
+			'Latino': f"{int(county_pop_data['pct_clean_veh_lat'])}%",
+			'NL White': f"{int(county_pop_data['pct_clean_veh_comp'])}%"
+		},
+		'Traffic Density': {
+			'Latino': int(county_pop_data['trafficDens_lat']),
+			'NL White': int(county_pop_data['trafficDens_comp'])
+		},
+		'Cleanup Sites': {
+			'Latino': int(county_pop_data['cleanupSites_lat']),
+			'NL White': int(county_pop_data['cleanupSites_comp'])
+		},
+		'RMP Proximity': {
+			'Latino': county_pop_data['prox_rmp_lat'],
+			'NL White': county_pop_data['prox_rmp_comp']
+		},
+		'Hazardous Facilities': {
+			'Latino': county_pop_data['hazFacilites_lat'],
+			'NL White': county_pop_data['hazFacilites_comp']
+		},
+		'Average PM2.5': {
+			'County': county_pop_data['avgPM25_county_avg'],
+			'State': county_pop_data['avgPM25_state_avg'],
+			'Latino': county_pop_data['avgPM25_lat'],
+			'NL White': county_pop_data['avgPM25_comp']
+		},
+		'Diesel PM': {
+			'Latino': county_pop_data['dieselPM_lat'],
+			'NL White': county_pop_data['dieselPM_comp']
 		}
 	}
 
@@ -221,12 +295,12 @@ def county_report_multi(report_type, standardized_county_name):
 		# Pick a template based on the report type and page number
 		template_map = {
 			'extremeheat': {
-				1: 'eh-page-1/index.html',
-				2: 'eh-page-2/index.html'
+				1: 'extreme-heat-page-1/index.html',
+				2: 'extreme-heat-page-2/index.html'
 			},
 			'airpollution': {
-				1: 'ap-page-1/index.html',
-				2: 'ap-page-2/index.html'
+				1: 'air-pollution-page-1/index.html',
+				2: 'air-pollution-page-2/index.html'
 			}
 		}
 

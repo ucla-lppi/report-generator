@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='extremeheat/page' ~ page ~ '/globals.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='extremeheat/page' ~ page ~ '/style.css') }}" />
+<!-- for local testing -->
+   <!-- <link rel="stylesheet" href="style.css" />
+   <link rel="stylesheet" href="globals.css" /> -->
+</head>
+  <body>
+		{% set nl_exceptions = ['Merced', 'Imperial', 'Kings'] %}
+		{% set nl_label = 'NL' if county_name in nl_exceptions else 'NL white' %}
+		{% set nl_definition = '*NL white = Non-Latino white' %}
+		{% set nl_display = 'Non-Latino' if nl_label == 'NL' else nl_label %}
+		{% if county_name == 'Sacramento' %}
+		{% set pct = 50 %}
+		{% set nl_text = 'NL white' %}
+		{% set nl_residents_text = 'NL white residents' %}
+		{% elif county_name in nl_exceptions %}
+		{% set pct = 70 %}
+		{% set nl_text = 'Non-Latino' %}
+		{% set nl_residents_text = 'non-Latino residents' %}
+		{% else %}
+		{% set pct = 70 %}
+		{% set nl_text = 'NL white' %}
+		{% set nl_residents_text = 'NL white residents' %}
+		{% endif %}
+		{% set update_date = 'JUNE 2025' %}
+    <div class="EH-final" data-model-id="1:593">
+      <div class="overlap-wrapper">
+        <div class="overlap">
+          <img class="swoosh-BG" src="{{ url_for('static', filename='extremeheat/page' ~ page ~ '/img/swoosh-bg.png') }}" />
+          <img class="map" src="{{ url_for('static', filename='extremeheat/images/maps/' ~ county_name ~ '_map.png') }}" />
+			<div class="{% if county_name in ['San Mateo', 'Ventura'] %}map-legend-right{% elif county_name in ['Fresno','Madera','Monterrey','Tulare'] %}map-legend-top{% elif county_name == 'Stanislaus' %}map-legend-top-left{% else %}map-legend{% endif %}">
+
+            <div class="overlap-group">
+              <div class="div">
+                <p class="legend-text">
+				<span class="span">Zero Days</span>
+				<span class="span">Below County Avg.</span>
+				  <span class="span">Above County Avg.</span>
+  				<span class="span">Latino Neighborhoods</span>
+                </p>
+                <div class="zero-day-count"></div>
+                <div class="below-equal-avg"></div>
+                <div class="above-avg-legend"></div>
+                <div class="latino-neighborhoods">
+                  <div class="overlap-group-2">
+                    <img class="line" src="{{ url_for('static', filename='extremeheat/images/line-1.svg') }}" />
+                    <img class="img" src="{{ url_for('static', filename='extremeheat/images/line-2.svg') }}" />
+                    <div class="border"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="legend-text-2">Extreme Heat Days</div>
+            </div>
+          </div>
+          <div class="map-averages">
+            <div class="overlap-2">
+              <div class="map-averages-2"></div>
+              <p class="map-averages-data">County Average: {{ county_statistics['Average Heat Days']['County'] }} days<br />State Average: 51 days</p>
+            </div>
+          </div>
+          <div class="county-statistics">County Statistics</div>
+          <div class="neighborhood-level">Neighborhood Statistics</div>
+          <div class="extreme-heat-days">Extreme Heat Days</div>
+          <p class="p">Factors Influencing Exposure to Extreme Heat</p>
+          <p class="map-title">Latino Neighborhoods and Exposure to<br />Extreme Heat Days (≥ 90°F), 2018-2022</p>
+          <div class="factsheet-heading">
+            <div class="overlap-3">
+              <div class="factsheet-heading-2"></div>
+              <p class="factsheet-heading-3">Climate Change and Health Factsheets</p>
+              <div class="topic-title">
+                <div class="overlap-group-3">
+                  <div class="topic-title-2"></div>
+                  <div class="topic-title-3">EXTREME HEAT</div>
+                </div>
+              </div>
+              <div class="factsheet-heading-4">{{ county_name }} County</div>
+			  <img class="dashboard-logo-white" src="{{ url_for('static', filename='extremeheat/images/dashboard-logo-white.png') }}" />
+            </div>
+          </div>
+          <p class="NL-white-definition">{{ nl_definition }}</p>
+          <footer class="footer">
+            <p class="footer-website">
+              <span class="text-wrapper-2">For more information, visit </span>
+              <span class="text-wrapper-3">LatinoClimateHealth.org</span>
+            </p>
+            <div class="footer-LPPI">UPDATED {{ update_date }}</div>
+            <div class="page-number"><div class="page-number-2">{{ page }}</div></div>
+          </footer>
+          <div class="median-age-card">
+            <div class="overlap-4">
+              <div class="median-age">Median<br />Age</div>
+              <img class="median-age-icon" src="{{ url_for('static', filename='extremeheat/images/median-age-icon.svg') }}" />
+            </div>
+            <p class="div-2">
+              <span class="text-wrapper-4">Latino:</span>
+              <span class="span"> {{ county_statistics['Median Age']['Latino'] }}<br /></span>
+              <span class="text-wrapper-4">NL white:</span>
+              <span class="span">{{ county_statistics['Median Age']['NL White'] }}</span>
+            </p>
+          </div>
+          <div class="limited-english">
+            <div class="limited-english-2">Limited English<br />Proficiency</div>
+            <p class="div-2">
+              <span class="text-wrapper-4">Latino:</span>
+              <span class="span"> {{ county_statistics['Limited English Proficiency']['Latino'] }}<br /></span>
+              <span class="text-wrapper-4">NL white:</span>
+              <span class="span">{{ county_statistics['Limited English Proficiency']['NL White'] }}</span>
+            </p>
+            <img class="limited-english-3" src="{{ url_for('static', filename='extremeheat/images/limited-english-proficiency-icon.svg') }}" />
+          </div>
+          <div class="non-citzen">
+            <div class="text-wrapper-5">Noncitizen<br />Population</div>
+            <p class="div-2">
+              <span class="text-wrapper-4">Latino:</span>
+              <span class="span"> {{ county_statistics['Non-U.S. Citizen Population']['Latino'] }}<br /></span>
+              <span class="text-wrapper-4">NL white:</span>
+              <span class="span">{{ county_statistics['Non-U.S. Citizen Population']['NL White'] }}</span>
+            </p>
+            <img class="non-citizen" src="{{ url_for('static', filename='extremeheat/images/non-citizen-population-icon.svg') }}" />
+          </div>
+          <div class="poverty-rate-card">
+            <div class="overlap-5">
+              <div class="poverty-rate"></div>
+              <div class="poverty-rate-2">Poverty<br />Rate</div>
+              <p class="poverty-rate-data">
+                <span class="text-wrapper-4">Latino:</span>
+                <span class="span"> {{ county_statistics['Poverty Rate']['Latino'] }}<br /></span>
+                <span class="text-wrapper-4">NL white:</span>
+                <span class="span">{{ county_statistics['Poverty Rate']['NL White'] }}</span>
+              </p>
+              <img class="poverty-rate-icon" src="{{ url_for('static', filename='extremeheat/images/poverty-rate-icon.svg') }}" />
+            </div>
+          </div>
+          <div class="renter-occupied">
+            <div class="overlap-5">
+              <div class="div-3"></div>
+              <div class="text-wrapper-5">Renter<br />Households</div>
+              <p class="div-4">
+                <span class="text-wrapper-4">Latino:</span>
+                <span class="span">{{ county_statistics['Renter Occupied Households']['Latino'] }}<br /></span>
+                <span class="text-wrapper-4">NL white:</span>
+                <span class="span">{{ county_statistics['Renter Occupied Households']['NL White'] }}</span>
+              </p>
+              <img class="renter-occupied-2" src="{{ url_for('static', filename='extremeheat/images/renter-occupied-households-icon.svg') }}" />
+            </div>
+          </div>
+          <div class="household-median">
+            <div class="text-wrapper-5">Median Income (Household)</div>
+            <p class="div-4">
+              <span class="text-wrapper-4">Latino:</span>
+              <span class="span"> {{ county_statistics['Median Household Income']['Latino'] }}<br /></span>
+              <span class="text-wrapper-4">NL white:</span>
+              <span class="span"> {{ county_statistics['Median Household Income']['NL White'] }}</span>
+            </p>
+            <img class="household-median-2" src="{{ url_for('static', filename='extremeheat/images/household-median-income-icon.svg') }}" />
+          </div>
+          <div class="SNAP-benefits-card">
+            <div class="overlap-6">
+              <div class="div-3"></div>
+              <div class="SNAP-benefits">SNAP<br />Benefits</div>
+              <p class="SNAP-benefits-data">
+                <span class="text-wrapper-4">Latino:</span>
+                <span class="span"> {{ county_statistics['SNAP benefits']['Latino'] }}<br /></span>
+                <span class="text-wrapper-4">NL white:</span>
+                <span class="span"> {{ county_statistics['SNAP benefits']['NL White'] }}</span>
+              </p>
+              <img class="SNAP-benefits-icon" src="{{ url_for('static', filename='extremeheat/images/snap-benefits-icon.svg') }}" />
+            </div>
+          </div>
+          <div class="uninsured-rate-card">
+            <div class="uninsured-rate">Uninsured<br />Rate</div>
+            <p class="div-5">
+              <span class="text-wrapper-4">Latino:</span>
+              <span class="span"> {{ county_statistics['No Health Insurance']['Latino'] }}<br /></span>
+              <span class="text-wrapper-4">NL white:</span>
+              <span class="span"> {{ county_statistics['No Health Insurance']['NL White'] }}</span>
+            </p>
+            <img class="img-2" src="{{ url_for('static', filename='extremeheat/images/uninsured-rate-icon.svg') }}" />
+          </div>
+          <div class="life-expectancy-card">
+            <div class="overlap-7">
+              <div class="life-expectancy">Life<br />Expectancy</div>
+              <img class="life-expectancy-icon" src="{{ url_for('static', filename='extremeheat/images/life-expectancy-icon.svg') }}" />
+            </div>
+            <p class="div-2">
+              <span class="text-wrapper-4">Latino:</span>
+              <span class="span"> {{ county_statistics['Life Expectancy']['Latino'] }}<br /></span>
+              <span class="text-wrapper-4">NL white:</span>
+              <span class="span"> {{ county_statistics['Life Expectancy']['NL White'] }}</span>
+            </p>
+          </div>
+          <div class="fair-poor-health">
+            <div class="fair-poor-health-2">Fair/Poor<br />Health Status</div>
+            <p class="div-5">
+              <span class="text-wrapper-4">Latino:</span>
+              <span class="span"> {{ county_statistics['Fair/Poor Health Status']['Latino'] }}<br /></span>
+              <span class="text-wrapper-4">NL white:</span>
+              <span class="span"> {{ county_statistics['Fair/Poor Health Status']['NL White'] }}</span>
+            </p>
+            <img class="img-2" src="{{ url_for('static', filename='extremeheat/images/fair-poor-health-status-icon.svg') }}" />
+          </div>
+          <div class="food-insecurity-card">
+            <div class="food-insecurity">Food<br />Insecurity</div>
+            <p class="food-insecurity-data">
+              <span class="text-wrapper-4">Latino:</span>
+              <span class="span"> {{ county_statistics['Food Insecurity']['Latino'] }}<br /></span>
+              <span class="text-wrapper-4">NL white:</span>
+              <span class="span"> {{ county_statistics['Food Insecurity']['NL White'] }}</span>
+            </p>
+            <img class="food-insecurity-icon" src="{{ url_for('static', filename='extremeheat/images/food-insecurity-icon.svg') }}" />
+          </div>
+          <div class="population-card">
+            <div class="overlap-8">
+              <div class="population-labeled">
+				<img
+						class="{% if county_name|lower == 'imperial' %}mongmongbliss-top{% else %}mongmongbliss{% endif %}"
+						src="{{ url_for('static', filename='extremeheat/images/population_donut/{}_donut.svg'.format(county_name|replace(' ', '_'))) }}"
+					/>
+				</div>
+              <div class="population-chart">Population</div>
+              <div class="population-legend">
+                <div class="latino-legend-item">
+                  <div class="latino-color"></div>
+                  <div class="text-wrapper-6">Latino</div>
+                </div>
+                <div class="NLW-legend-item">
+                  <div class="NLW-color"></div>
+                  <div class="text-wrapper-6">NL white</div>
+                </div>
+                <div class="NLW-count">{{ county_statistics['Population']['NL White'] }}</div>
+                <div class="latino-count">{{ county_statistics['Population']['Latino'] }}</div>
+                <div class="other-legend-item">
+                  <div class="other-color"></div>
+                  <div class="text-wrapper-7">Other</div>
+                </div>
+                <div class="other-count">{{ county_statistics['Population']['Other'] }}</div>
+              </div>
+            </div>
+          </div>
+			<p class="{% if county_name in ['Kings','Imperial','Merced'] %}neighborhood-kim{% else %}neighborhood{% endif %}">
+			<span class="text-wrapper-8">Latino neighborhoods</span>
+			{% if county_name == 'Sacramento' %}
+				<span class="text-wrapper-9">
+				= Census tracts with 50%+ Latino residents
+				</span><br />
+			{% else %}
+				<span class="text-wrapper-9">
+				= Census tracts with 70%+ Latino residents
+				</span><br />
+			{% endif %}
+			{%- set is_kim_county = county_name in ['Kings', 'Imperial', 'Merced'] -%}
+			<span class="text-wrapper-8">
+				{{ "NL" if is_kim_county else nl_text }} neighborhoods
+			</span>
+			{% set space = ' ' %}
+			
+			{% set nl_neighborhood_copy = 'less than ' %}
+			<span class="{{ 'text-wrapper-99' if is_kim_county else 'text-wrapper-9' }}">
+				= Census tracts with  {{ space }}
+				{%- if is_kim_county %} {{ nl_neighborhood_copy }} {%- endif %}
+				{%- if is_kim_county -%}
+      {{ pct }}%
+    {%- else -%}
+      {{ pct }}%+
+    {%- endif -%}
+				{%- if is_kim_county %} Latino residents {%- else %} {{ nl_residents_text }} {%- endif %}
+			</span>
+
+			</p>
+          <div class="extreme-heat-data">
+            <div class="extreme-heat-info">
+              <div class="extreme-heat-info-wrapper">
+                <p class="extreme-heat-info-2">
+                  At 90°F, the risk of <br />heat-related illnesses and conditions increases significantly.
+                </p>
+              </div>
+            </div>
+            <div class="overlap-group-wrapper">
+              <div class="extreme-heat-info-wrapper">
+                <p class="extreme-heat-info-3">
+                  The Federal Emergency Management Agency defines a period of extreme heat in most of the U.S. as a
+                  period of 2 to 3 days above 90°F.
+                </p>
+              </div>
+            </div>
+            <div class="extreme-heat-info-4">
+              <div class="extreme-heat-info-wrapper">
+				{% set lat = county_statistics['Mid-Century Projections']['Latino'] %}
+				{% set nl  = county_statistics['Mid-Century Projections']['NL White'] %}
+				{% set avg = (lat + nl) / 2 %}
+
+				{% if lat == nl %}
+      <p class="extreme-heat-info-5-long">
+        Looking forward, Latino and {{ nl_label }} neighborhoods are projected to experience the same number of extreme heat days.
+      </p>
+    {% elif avg != 0 and ((lat - nl)|abs / avg) < 0.021 %}
+      <p class="extreme-heat-info-5-long">
+        Looking forward, Latino and {{ nl_label }} neighborhoods are projected to experience a similar number of extreme heat days.
+      </p>
+    {% elif lat > nl %}
+      <p class="extreme-heat-info-5">
+        Looking forward, Latino neighborhoods are projected to experience more extreme heat days.
+      </p>
+    {% else %}
+      <p class="extreme-heat-info-5">
+        Looking forward, Latino neighborhoods are projected to experience less extreme heat days.
+      </p>
+    {% endif %}
+              </div>
+            </div>
+            <p class="extreme-heat-annual">Annual Number of Extreme Heat Days<br />(2018-2022)</p>
+            <p class="extreme-heat">Longest Period of Consecutive Extreme Heat <br />Days (2022)</p>
+            <p class="extreme-heat-2">Projected Number of Extreme Heat Days by <br />Mid-Century (2035–2064)</p>
+            <div class="div-wrapper">
+              <div class="overlap-9">
+                <div class="overlap-group-4">
+                  <div class="div-6"></div>
+                  <p class="text-wrapper-10">consecutive days ≥ 90°F annually</p>
+                </div>
+                <p class="div-7"><span class="text-wrapper-11"> {{ county_statistics['Average Longest Heat Wave']['Latino'] }}</span> <span class="text-wrapper-12">days</span></p>
+                <p class="div-8"><span class="text-wrapper-13">{{ county_statistics['Average Longest Heat Wave']['NL White'] }}</span> <span class="text-wrapper-12">days</span></p>
+                <p class="div-9">
+                  <span class="text-wrapper-8">{{nl_label}}<br /></span> <span class="span">neighborhoods</span>
+                </p>
+                <p class="div-10">
+                  <span class="text-wrapper-8">Latino<br /></span> <span class="span">neighborhoods</span>
+                </p>
+              </div>
+            </div>
+            <div class="extreme-heat-annual-2">
+              <div class="overlap-9">
+                <div class="overlap-group-4">
+                  <div class="div-6"></div>
+                  <p class="text-wrapper-10">average days ≥ 90°F annually</p>
+                </div>
+                <p class="div-7"><span class="text-wrapper-11">{{ county_statistics['Average Heat Days']['Latino'] }} </span> <span class="text-wrapper-12">days</span></p>
+                <p class="div-8"><span class="text-wrapper-13">{{ county_statistics['Average Heat Days']['NL White'] }} </span> <span class="text-wrapper-12">days</span></p>
+                <p class="div-9">
+                  <span class="text-wrapper-8">{{nl_label}}<br /></span> <span class="span">neighborhoods</span>
+                </p>
+                <p class="div-10">
+                  <span class="text-wrapper-8">Latino<br /></span> <span class="span">neighborhoods</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="extreme-heat-3">
+            <div class="overlap-10">
+              <div class="overlap-group-4">
+                <div class="div-6"></div>
+                <p class="text-wrapper-10">expected days ≥ 90°F annually</p>
+              </div>
+              <p class="div-7"><span class="text-wrapper-11">{{ county_statistics['Mid-Century Projections']['Latino'] }} </span> <span class="text-wrapper-12">days</span></p>
+              <p class="div-8"><span class="text-wrapper-13">{{ county_statistics['Mid-Century Projections']['NL White'] }} </span> <span class="text-wrapper-12">days</span></p>
+              <p class="div-9">
+                <span class="text-wrapper-8">{{nl_label}}<br /></span> <span class="span">neighborhoods</span>
+              </p>
+              <p class="div-10">
+                <span class="text-wrapper-8">Latino<br /></span> <span class="span">neighborhoods</span>
+              </p>
+            </div>
+          </div>
+          <div class="extreme-heat-4">
+            <div class="extreme-heat-wrapper">
+              <p class="extreme-heat-5">
+                <span class="text-wrapper-4">Extreme heat days</span>
+                <span class="text-wrapper-14">
+                  are defined as days where the temperature is at or above 90°F. Exposure to extreme heat poses
+                  significant health risks.</span
+                >
+              </p>
+            </div>
+          </div>
+          <div class="extreme-heat-bubble"></div>
+          <div class="extreme-heat-accent">!!</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

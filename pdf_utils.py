@@ -6,6 +6,8 @@ from selenium.webdriver.firefox.options import Options
 from PIL import Image, ImageChops
 import requests
 
+current_year = time.strftime("%Y")
+
 def trim(im):
     bg = Image.new(im.mode, im.size, (255, 255, 255))
     diff = ImageChops.difference(im, bg)
@@ -29,8 +31,8 @@ def check_url(url):
         print(error_msg)
         return False, error_msg
 
-def generate_pdfs(county_name_mapping, output_dir):
-    reports_dir = os.path.join(output_dir, "heatreports")
+def generate_pdfs(county_name_mapping, output_dir,report_type):
+    reports_dir = os.path.join(output_dir, f"{report_type}")
     pdf_output_dir = os.path.join(reports_dir, "pdfs")
     os.makedirs(pdf_output_dir, exist_ok=True)
 
@@ -62,7 +64,7 @@ def generate_pdfs(county_name_mapping, output_dir):
                 print(f"HTML file not found: {html_file}")
                 continue
 
-            file_url = f'http://127.0.0.1:5000/county_report/extremeheat/{standardized_county_name}.html?page={page}'
+            file_url = f'http://127.0.0.1:5000/county_report/{report_type}/{standardized_county_name}.html?page={page}'
             driver.get(file_url)
             time.sleep(2)  # Wait for page to load; adjust delay if needed
 
@@ -106,7 +108,7 @@ def generate_pdfs(county_name_mapping, output_dir):
             html_string += f'<img src="{file_uri}"><div class="page-break"></div>'
         html_string += "</body></html>"
 
-        final_pdf_path = os.path.join(pdf_output_dir, f'{standardized_county_name}_extreme_heat.pdf')
+        final_pdf_path = os.path.join(pdf_output_dir, f'{standardized_county_name}_{report_type}_{current_year}.pdf')
         try:
             pdfkit.from_string(html_string, final_pdf_path, options=pdfkit_options)
             print(f"Saved merged PDF for county {standardized_county_name}: {final_pdf_path}")

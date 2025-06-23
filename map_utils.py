@@ -14,9 +14,9 @@ MAJOR_CITIES = [
 ]
 
 # Define colors for neighborhoods
+COLOR_ZERO_DAY_COUNT = '#d3ebe0'
+COLOR_BELOW_EQUAL_AVERAGE = '#55947A'
 COLOR_ABOVE_AVERAGE = '#10462e'
-COLOR_ZERO_DAY_COUNT = '#55947A'
-COLOR_BELOW_EQUAL_AVERAGE = '#d3ebe0'
 
 # Define county boundary style
 COUNTY_BOUNDARY_COLOR = 'gray'
@@ -208,9 +208,10 @@ def apply_special_adjustments(county, bounds):
 		"Los Angeles": {"shift_y": 40000, "zoom_factor": 0.9},
 		"Merced": {"shift_y": 35000},
 		"San Diego": {"shift_y": 50000},
-		"Sacramento": {"shift_y": 15000, "zoom_factor": 0.8},
+		"Sacramento": {"shift_y": 21000, "zoom_factor": 0.8},
 		"San Joaquin": {"shift_y": 35000, "zoom_factor": 0.8},
-		# "San Mateo": {"shift_y": 1000, "shift_x": 2000},
+		"Tulare": {"shift_y": 5000, "zoom_factor": 1.0},
+		"San Mateo": {"shift_y": 500, "shift_x": 500},
 		"Monterey": {"shift_y": 15000, "zoom_factor": 0.8},
 		"Stanislaus": {"shift_y": 3000},
 		"Ventura": {"shift_y": 5000, "zoom_factor": 0.75}

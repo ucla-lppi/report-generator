@@ -22,8 +22,9 @@ county_name_mapping = create_county_name_mapping(pop_data)
 report_type = 'extremeheat'
 
 def generate_static_html(county_name_mapping, report_type, output_dir, build_for_gh=False):
-    reports_dir = os.path.join(output_dir, "heatreports")
-    local_reports_dir = os.path.join("temp", "heatreports")
+    # create type-specific output folders
+    reports_dir = os.path.join(output_dir, f"{report_type}")
+    local_reports_dir = os.path.join("temp", f"{report_type}")
     os.makedirs(reports_dir, exist_ok=True)
     os.makedirs(local_reports_dir, exist_ok=True)
 
@@ -65,7 +66,7 @@ def generate_static_html(county_name_mapping, report_type, output_dir, build_for
 
     # For a local build only, generate PDFs/images.
     if not build_for_gh:
-        generate_pdfs(county_name_mapping, output_dir)
+        generate_pdfs(county_name_mapping, output_dir, report_type)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
@@ -74,16 +75,21 @@ if __name__ == '__main__':
     parser.add_argument('--debug', action='store_true', help='Run Flask in debug mode')
     parser.add_argument('mode', nargs='?', default='serve', choices=['serve', 'build', 'build-gh'],
                         help="Choose: 'serve' to run the server, 'build' to build with local URLs (with PDFs), or 'build-gh' to build for GitHub Pages")
+    parser.add_argument('-t', '--report-type', default='all', choices=['all','extremeheat','airpollution'],
+                        help="Which report type to generate (default 'all')")
     args = parser.parse_args()
 
-    if args.mode == 'build' or args.mode == 'build-gh':
-        # Start Flask in a background thread so that the app can serve pages for static generation.
+    if args.mode in ['build', 'build-gh']:
+        # Start Flask in a background thread to serve pages for static generation
         flask_thread = threading.Thread(target=start_flask_app, kwargs={'debug': args.debug}, daemon=True)
         flask_thread.start()
-        # Wait a short time to ensure the server is up.
-        time.sleep(3)
+        time.sleep(3)  # ensure server is up
         build_for_gh = (args.mode == 'build-gh')
-        generate_static_html(county_name_mapping, report_type, output_dir, build_for_gh=build_for_gh)
+        # Determine which report types to build
+        report_types = [args.report_type] if args.report_type != 'all' else ['extremeheat', 'airpollution']
+        for rtype in report_types:
+            print(f"Building static HTML for report type: {rtype}")
+            generate_static_html(county_name_mapping, rtype, output_dir, build_for_gh=build_for_gh)
         print("Static HTML build complete.")
     else:
         start_flask_app(debug=args.debug)

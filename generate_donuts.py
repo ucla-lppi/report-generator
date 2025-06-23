@@ -22,15 +22,15 @@ fp_extra_bold = fm.FontProperties(fname=font_path_extra_bold)
 fp_semi_bold = fm.FontProperties(fname=font_path_semi_bold)
 
 def format_total(num):
+    # millions: allow one decimal
     if num >= 1_000_000:
         rounded_num = round(num / 1_000_000, 1)
         if rounded_num.is_integer():
             return f"{int(rounded_num)}M"
         return f"{rounded_num:.1f}M"
-    rounded_num = round(num / 1_000, 1)
-    if rounded_num.is_integer():
-        return f"{int(rounded_num)}K"
-    return f"{rounded_num:.1f}K"
+    # for all totals under 1M, show thousands with no decimal
+    thousands = round(num / 1_000)
+    return f"{int(thousands)}K"
 
 def font_to_base64(font_path):
     with open(font_path, 'rb') as font_file:
@@ -39,7 +39,7 @@ def font_to_base64(font_path):
 def draw_donut(data, county_name, output_dir):
     wedge_names = [k for k in data if k != 'Total']
     wedge_sizes = [data[k] for k in wedge_names]
-    colors = ['#ac3434', '#ac6a34', '#333333']
+    colors = ['#005587', '#338F87', '#002E45']
 
     fig_width_inches = 3.0
     fig_height_inches = 3.0
@@ -68,10 +68,24 @@ def draw_donut(data, county_name, output_dir):
 
     # Adjust center text positions
     center_fontsize = 18
-    unit_fontsize = 14
-    label_fontsize = 14
+    unit_fontsize   = 14
+    label_fontsize  = 14
+
+    # make the little bubble labels smaller for Imperial
+    if county_name.lower() == "imperial":
+        label_fontsize = 12     # drop from 14 to 12
+        # optionally also shrink center text:
+        center_fontsize -= 2    # now 16
+        unit_fontsize   -= 2    # now 12
 
     wedge_angles = np.cumsum([0] + wedge_sizes) / sum(wedge_sizes) * 360
+
+    bubble_radius = 0.35
+    shadow_base   = 0.25
+    if county_name.lower() == "imperial":
+        # shrink both for Imperial
+        bubble_radius -= 0.05    # now 0.30
+        shadow_base   -= 0.05    # now 0.20
 
     # Modify the label placement logic to adjust both the radial distance and the angle
     # if bubbles are too close together.
@@ -109,11 +123,11 @@ def draw_donut(data, county_name, output_dir):
         
         placed_labels.append((label_x, label_y))
         
-        # Draw shadow effect with multiple circles with transparency
+        # Draw shadow effect
         for j in range(1, 4):
             shadow_circle = Circle(
                 (label_x, label_y),
-                0.25 + j*0.01,
+                shadow_base + j*0.01,
                 facecolor='#dedede',
                 edgecolor='none',
                 alpha=0.05 * (4-j),
@@ -121,10 +135,10 @@ def draw_donut(data, county_name, output_dir):
             )
             ax.add_patch(shadow_circle)
         
-        # Draw main bubble circle (the white circle)
+        # Draw main bubble circle
         circle = Circle(
             (label_x, label_y),
-            0.35,
+            bubble_radius,
             facecolor='#ffffff',
             edgecolor='#dedede',
             linewidth=1,

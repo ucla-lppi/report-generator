@@ -1,5 +1,5 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-@import url("https://fonts.googleapis.com/css?family=Lexend:700,600,400");
+@import url("https://fonts.googleapis.com/css?family=Lexend:400,700,600,800");
 * {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
@@ -16,22 +16,4 @@ button:focus-visible {
 }
 a {
   text-decoration: none;
-}
-
-@media print {
-	html, body {
-	  margin: 0;
-	  padding: 0;
-	  width: 2550px; /* full letter width at 300 DPI */
-	  height: 3300px; /* full letter height */
-	  overflow: visible;
-	}
-  }
-
-  @media print {
-  body {
-    margin: 0;
-    padding: 0;
-    width: 100% !important;
-  }
 }

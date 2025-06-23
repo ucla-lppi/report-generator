@@ -64,4 +64,8 @@ Run the script:
 python python main.py build
 ```
 
+• `python main.py build -t extremeheat`  
+• `python main.py build -t airpollution`  
+• `python main.py build`  (or `-t all`) to generate both.
+
 Make sure geckodriver is up to date and in your PATH. You can download it from [here](https://github.com/mozilla/geckodriver/releases).

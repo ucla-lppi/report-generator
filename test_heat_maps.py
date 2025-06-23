@@ -1,3 +1,4 @@
+# python -m unittest test_heat_maps.py
 import unittest
 import os
 from map_utils import generate_majority_tracts_map

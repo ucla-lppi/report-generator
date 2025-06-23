@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='airpollution/page' ~ page ~ '/globals.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='airpollution/page' ~ page ~ '/styleguide.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='airpollution/page' ~ page ~ '/style.css') }}" />
+    <!-- <link rel="stylesheet" href="globals.css" /> -->
+    <!-- <link rel="stylesheet" href="styleguide.css" /> -->
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+
+</head>
+  <body>
+
+		{% set nl_exceptions = ['Merced', 'Imperial', 'Kings'] %}
+		{% set nl_label = 'NL' if county_name in nl_exceptions else 'NL white' %}
+		{% set nl_definition = '*NL white = Non-Latino white' %}
+		{% set nl_display = 'Non-Latino' if nl_label == 'NL' else nl_label %}
+		{% if county_name == 'Sacramento' %}
+		{% set pct = 50 %}
+		{% set nl_text = 'NL white' %}
+		{% set nl_residents_text = 'NL white residents' %}
+		{% elif county_name in nl_exceptions %}
+		{% set pct = 70 %}
+		{% set nl_text = 'NL' %}
+		{% set nl_residents_text = 'non-Latino residents' %}
+		{% else %}
+		{% set pct = 70 %}
+		{% set nl_text = 'NL white' %}
+		{% set nl_residents_text = 'NL white residents' %}
+		{% endif %}
+
+		{# first define the raw values #}
+		{% set pm_latino = county_statistics['Average PM2.5']['Latino']  | float %}
+		{% set pm_nlw    = county_statistics['Average PM2.5']['NL White']| float %}
+		{# now it’s safe to compare them #}
+		{% set pm_conjunction  = 'than'       if pm_latino > pm_nlw else 'similar to' %}
+		{% set pm_comparison   = 'higher'     if pm_latino > pm_nlw else 'lower'     %}
+
+		{# compute pm_pct_diff/pm_exposure #}
+		{% set pm_diff = pm_latino - pm_nlw %}
+		{% if pm_nlw != 0 %}
+		{% set pm_pct_diff = (pm_diff / pm_nlw) * 100 %}
+		{% else %}
+		{% set pm_pct_diff = 0 %}
+		{% endif %}
+		{% if pm_pct_diff > 10 %}
+		{% set pm_exposure = 'higher' %}
+		{% elif pm_pct_diff < -10 %}
+		{% set pm_exposure = 'lower' %}
+		{% else %}
+		{% set pm_exposure = 'about the same' %}
+		{% endif %}
+
+		{# same for diesel #}
+		{% set diesel_latino = county_statistics['Diesel PM']['Latino']  | float %}
+		{% set diesel_nlw    = county_statistics['Diesel PM']['NL White']| float %}
+		{% set diesel_conjunction  = 'than'   if diesel_latino > diesel_nlw else 'similar to' %}
+		{% set diesel_comparison   = 'higher' if diesel_latino > diesel_nlw else 'lower'  %}
+
+		{# compute diesel_pct_diff/diesel_exposure… #}
+		{% set diesel_diff = diesel_latino - diesel_nlw %}
+		{% if diesel_nlw != 0 %}
+		{% set diesel_pct_diff = (diesel_diff / diesel_nlw) * 100 %}
+		{% else %}
+		{% set diesel_pct_diff = 0 %}
+		{% endif %}
+		{% if diesel_pct_diff > 10 %}
+		{% set diesel_exposure = 'higher' %}
+		{% elif diesel_pct_diff < -10 %}
+		{% set diesel_exposure = 'lower' %}
+		{% else %}
+		{% set diesel_exposure = 'about the same' %}
+		{% endif %}
+
+	{% set data_model_id = 'air-pollution-page-1' %}
+	{% set update_date = 'JUNE 2025' %}
+	{% set pm_nlw = county_statistics['Average PM2.5']['NL White'] | float %}
+	<div class="AP-final" data-model-id="{{ data_model_id }}">
+      <div class="div">
+        <div class="overlap">
+          <!-- <img class="swoosh-BG" src="./img/swoosh-bg.png" /> -->
+          <img class="swoosh-BG" src="{{ url_for('static', filename='airpollution/page' ~ page ~ '/img/swoosh-bg.png') }}" />
+          <img class="map" src="{{ url_for('static', filename='airpollution/images/maps/' ~ county_name ~ '_map.png') }}" />
+          <div class="{{ 'map-averages-top' if county_name in ['Fresno','Madera','Monterey','Tulare'] else 'map-averages' }}">
+            <div class="overlap-5">				
+              <div class="map-averages-2"></div>
+              <p class="map-averages-data">County Average: {{ county_statistics['Average PM2.5']['County'] | round(0,'common') | int }} μg/m³<br />State Average: 10 μg/m³</p>
+            </div>
+          </div>
+          <div class="neighborhood-level">Neighborhood Statistics</div>
+          <div class="extreme-heat-days">Air Pollutants</div>
+          <p class="map-title">Latino Neighborhoods and Exposure to Particulate Matter 2.5 (PM2.5), 2015-2017</p>
+          <div class="extreme-heat-data">
+            <div class="overlap-group">
+              <div class="extreme-heat-info">
+                <div class="extreme-heat-info-wrapper">
+                  <p class="p">
+                    <span class="text-wrapper">PM2.5</span>
+                    <span class="span">
+                      is produced from sources like vehicle exhaust, wildfires, and industrial activity. These fine air
+                      particles enter the lungs and bloodstream and worsen conditions like asthma and heart disease.<br /><br
+                    /></span>														
+					{% if pm_latino == pm_nlw %}
+					Latino neighborhoods had 
+					<span class="text-wrapper-2">the same exposure</span>
+					to PM2.5 as {{ nl_label }} neighborhoods.
+					{% elif pm_exposure == 'about the same' %}
+					Latino neighborhoods had 
+					<span class="text-wrapper-2"> similar exposure</span>
+					to PM2.5 as {{ nl_label }} neighborhoods.
+					{% else %}
+					Latino neighborhoods had
+					<span class="text-wrapper-2">{{ pm_exposure }} exposure</span>
+					to PM2.5 {{ pm_conjunction }} {{ nl_label }} neighborhoods.
+					{% endif %}
+                  </p>
+                </div>
+                <div class="div-wrapper">
+                  <p class="extreme-heat-info-2">
+                    <span class="text-wrapper">Diesel emissions</span>
+                    <span class="span">
+                      from vehicles and heavy-duty equipment release harmful particulate matter. Exposure to diesel
+                      exhaust can raise blood pressure, trigger heart attacks, and worsen lung conditions. <br /><br
+                    /></span>
+				{% if county_name in ['Tulare','Madera'] %}
+				Latino neighborhoods had 
+				<span class="text-wrapper-2">higher exposure</span>
+				to diesel PM than {{ nl_label }} neighborhoods.
+				{% elif diesel_latino == diesel_nlw %}
+				Latino neighborhoods had 
+				<span class="text-wrapper-2">the same exposure</span>
+				to diesel PM as {{ nl_label }} neighborhoods.
+				{% elif diesel_exposure == 'about the same' %}
+				Latino neighborhoods had 
+				<span class="text-wrapper-2">similar exposure</span>
+				to diesel PM as {{ nl_label }} neighborhoods.
+
+				{% else %}
+				Latino neighborhoods had 
+				<span class="text-wrapper-2">{{ diesel_exposure }} exposure</span>
+				to diesel PM {{ diesel_conjunction }} {{ nl_label }} neighborhoods.
+				{% endif %}
+                  </p>
+                </div>
+              </div>
+              <div class="extreme-heat-data-2">
+                <div class="diesel-PM-data">
+                  <div class="overlap-group-2">
+                    <p class="EH-annual-lat-count">
+                      <span class="text-wrapper-3">{{county_statistics['Diesel PM']['Latino']}} </span> <span class="text-wrapper-4">tons/year</span>
+                    </p>
+                    <p class="EH-annual-lat-count-2">
+                      <span class="text-wrapper-5">{{county_statistics['Diesel PM']['NL White']}} </span> <span class="text-wrapper-4">tons/year</span>
+                    </p>
+                    <p class="EH-annual-lat-text">
+                      <span class="text-wrapper">Latino </span> <span class="text-wrapper-6">neighborhoods</span>
+                    </p>
+                    <p class="EH-annual-lat-text-2">
+                      <span class="text-wrapper">{{nl_label}} </span> <span class="text-wrapper-6">neighborhoods</span>
+                    </p>
+                    <div class="EH-annual-label"></div>
+                    <div class="average-days-text">Emissions</div>
+                  </div>
+                </div>
+                <div class="data-container">
+                  <div class="overlap-2">
+                    <p class="EH-annual-lat-count">
+                      <span class="text-wrapper-3">{{ county_statistics['Average PM2.5']['Latino'] | round(0, 'common') | int }} </span> <span class="text-wrapper-4">μg/m³</span>
+                    </p>
+                    <p class="EH-annual-lat-count-2">
+                      <span class="text-wrapper-5">{{ county_statistics['Average PM2.5']['NL White'] | round(0, 'common') | int }} </span> <span class="text-wrapper-4">μg/m³</span>
+                    </p>
+                    <p class="EH-annual-lat-text">
+                      <span class="text-wrapper">Latino </span> <span class="text-wrapper-6">neighborhoods</span>
+                    </p>
+                    <p class="EH-annual-lat-text-2">
+                      <span class="text-wrapper">{{nl_label}} </span> <span class="text-wrapper-6">neighborhoods</span>
+                    </p>
+                    <div class="EH-annual-label"></div>
+                    <div class="average-days-text">Annual mean concentration</div>
+                  </div>
+                </div>
+              </div>
+              <div class="extreme-heat-annual">Diesel PM</div>
+            </div>
+            <div class="extreme-heat-annual-2">PM2.5</div>
+          </div>
+            <div class="{% if county_name in ['San Mateo', 'Ventura'] %}map-legend-right{% elif county_name in ['Fresno','Madera','Monterrey','Tulare'] %}map-legend-top{% elif county_name in ['Stanislaus'] %}map-legend-top-left{% else %}map-legend{% endif %}">
+
+            <div class="overlap-3">
+              <div class="overlap-4">
+				<p class="legend-text">
+					<span class="text-wrapper-6">Below County Avg.</span>
+					<span class="text-wrapper-6">Near County Avg.</span>
+					<span class="text-wrapper-6">Above County Avg.</span>
+					<span class="text-wrapper-6">Latino Neighborhoods</span>
+				</p>
+                <div class="zero-day-count"></div>
+                <div class="below-equal-avg"></div>
+                <div class="above-avg-legend"></div>
+                <div class="latino-neighborhoods">
+                  <div class="overlap-group-3">
+                    <img class="line" src="{{ url_for('static', filename='airpollution/page' ~ page ~ '/img/line-1.svg') }}" />
+                    <img class="img" src="{{ url_for('static', filename='airpollution/page' ~ page ~ '/img/line-2.svg') }}" />
+                    <div class="border"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="legend-text-2">PM2.5<br />Concentration Levels</div>
+            </div>
+          </div>
+          <footer class="footer">
+            <p class="footer-website">
+              <span class="text-wrapper-8">For more information, visit </span>
+              <span class="text-wrapper-9">LatinoClimateHealth.org</span>
+            </p>
+            <div class="footer-LPPI">UPDATED {{ update_date }}</div>
+            <div class="page-number"><div class="page-number-2">{{ page }}</div></div>
+          </footer>
+			<p class="neighborhood">
+				<span class="text-wrapper-10">Latino neighborhoods</span>
+				<span class="text-wrapper-6"> = Census tracts with {{ pct }}%+ Latino residents<br /></span>
+				<span class="text-wrapper-10">{{ nl_text }} neighborhoods</span>
+				{% if county_name in nl_exceptions %}
+    <span class="text-wrapper-6"> = Census tracts with less than 70% Latino residents</span>
+  {% else %}
+    <span class="text-wrapper-6"> = Census tracts with {{ pct }}%+ {{ nl_residents_text }}</span>
+  {% endif %}
+			</p>
+          <p class="extreme-heat">
+            <span class="text-wrapper-11">Note: </span>
+            <span class="text-wrapper-12"
+              >California's state standard for PM2.5 is an annual average of 12 µg/m³, while the federal standard is
+              9 µg/m³. There is no state or federal or state standard for Diesel PM.</span
+            >
+          </p>
+          <p class="note">
+            <span class="text-wrapper-11">Note:</span>
+            <span class="text-wrapper-12"> μg/m³ = one-millionth of a gram per cubic meter of air.</span>
+          </p>
+          <div class="divider"></div>
+        </div>
+        <div class="county-statistics">County Statistics</div>
+        <div class="overlap-6">
+          <div class="overlap-7">
+            <div class="overlap-8">
+              <p class="extreme-heat-days-2">Factors Influencing Exposure to Air Pollution</p>
+              <div class="median-age-card">
+                <div class="overlap-9">
+                  <div class="median-age">Median<br />Age</div>
+                  <img class="median-age-icon" src="{{ url_for('static', filename='airpollution/page' ~ page ~ '/img/median-age-icon.svg') }}" />
+                </div>
+                <p class="div-2">
+                  <span class="text-wrapper-10">Latino:</span>
+                  <span class="text-wrapper-6"> {{county_statistics['Median Age']['Latino']}}<br /></span>
+                  <span class="text-wrapper-10">NL white:</span>
+                  <span class="text-wrapper-6"> {{county_statistics['Median Age']['NL White']}}</span>
+                </p>
+              </div>
+              <div class="limited-english">
+                <div class="limited-english-2">Limited English<br />Proficiency</div>
+                <p class="div-2">
+                  <span class="text-wrapper-10">Latino:</span>
+                  <span class="text-wrapper-6"> {{county_statistics['Limited English Proficiency']['Latino']}}<br /></span>
+                  <span class="text-wrapper-10">NL white:</span>
+                  <span class="text-wrapper-6"> {{county_statistics['Limited English Proficiency']['NL White']}}</span>
+                </p>
+                <img class="limited-english-3" src="{{ url_for('static', filename='airpollution/page' ~ page ~ '/img/limited-english-proficiency-icon.svg') }}" />
+              </div>
+              <div class="non-citzen">
+                <div class="text-wrapper-13">Noncitizen<br />Population</div>
+                <p class="div-2">
+                  <span class="text-wrapper-10">Latino:</span>
+                  <span class="text-wrapper-6"> {{county_statistics['Non-U.S. Citizen Population']['Latino']}}<br /></span>
+                  <span class="text-wrapper-10">NL white:</span>
+                  <span class="text-wrapper-6"> {{county_statistics['Non-U.S. Citizen Population']['NL White']}}</span>
+                </p>
+                <img class="non-citizen" src="{{ url_for('static', filename='airpollution/page' ~ page ~ '/img/non-citizen-population-icon.svg') }}" />
+              </div>
+              <div class="population-card">
+                <div class="overlap-10">
+                  <div class="population-labeled">
+						<img
+  class="{% if county_name|lower in ['imperial','madera','merced','santa barbara','monterey','tulare','riverside','santa cruz','stanislaus','ventura'] %}mongmongbliss-top{% elif county_name|lower in ['contra costa','orange','san joaquin','san mateo','santa clara'] %}mongmongbliss-mid{% else %}mongmongbliss{% endif %}"
+  src="{{ url_for('static',
+                  filename='airpollution/images/population_donut/{}_donut.svg'
+                            .format(county_name|replace(' ', '_'))) }}"
+/>
+				</div>
+                  <div class="population-chart">Population</div>
+                  <div class="population-legend">
+                    <div class="latino-legend-item">
+                      <div class="latino-color"></div>
+                      <div class="text-wrapper-14">Latino</div>
+                    </div>
+                    <div class="NLW-legend-item">
+                      <div class="NLW-color"></div>
+                      <div class="text-wrapper-14">NL white</div>
+                    </div>
+                    <div class="NLW-count">{{county_statistics['Population']['NL White']}}</div>
+                    <div class="latino-count">{{county_statistics['Population']['Latino']}}</div>
+                    <div class="other-legend-item">
+                      <div class="other-color"></div>
+                      <div class="text-wrapper-15">Other</div>
+                    </div>
+                    <div class="other-count">{{county_statistics['Population']['Other']}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="overlap-11">
+              <div class="poverty-rate-card">
+                <div class="overlap-12">
+                  <div class="poverty-rate"></div>
+                  <div class="poverty-rate-2">Poverty<br />Rate</div>
+                  <p class="poverty-rate-data">
+                    <span class="text-wrapper-10">Latino:</span>
+                    <span class="text-wrapper-6"> {{county_statistics['Poverty Rate']['Latino']}}<br /></span>
+                    <span class="text-wrapper-10">NL white:</span>
+                    <span class="text-wrapper-6"> {{county_statistics['Poverty Rate']['NL White']}}</span>
+                  </p>
+                  <img class="poverty-rate-icon" src="{{ url_for('static', filename='airpollution/images/poverty-rate-icon.svg') }}" />
+                </div>
+              </div>
+              <div class="renter-occupied">
+                <div class="overlap-12">
+                  <div class="div-3"></div>
+                  <div class="text-wrapper-13">Renter<br />Households</div>
+                  <p class="div-4">
+                    <span class="text-wrapper-10">Latino:</span>
+                    <span class="text-wrapper-6"> {{county_statistics['Renter Occupied Households']['Latino']}}<br /></span>
+                    <span class="text-wrapper-10">NL white:</span>
+                    <span class="text-wrapper-6"> {{county_statistics['Renter Occupied Households']['NL White']}}</span>
+                  </p>
+                  <img class="renter-occupied-2" src="{{ url_for('static', filename='airpollution/images/renter-occupied-households-icon.svg') }}" />
+                </div>
+              </div>
+              <div class="uninsured-rate-card">
+                <div class="uninsured-rate">Uninsured<br />Rate</div>
+                <p class="div-5">
+                  <span class="text-wrapper-10">Latino:</span>
+                  <span class="text-wrapper-6"> {{county_statistics['No Health Insurance']['Latino']}}<br /></span>
+                  <span class="text-wrapper-10">NL white:</span>
+                  <span class="text-wrapper-6"> {{county_statistics['No Health Insurance']['NL White']}}</span>
+                </p>
+                <img class="img-2" src="{{ url_for('static', filename='airpollution/images/uninsured-rate-icon.svg') }}" />
+              </div>
+              <div class="life-expectancy-card">
+                <div class="overlap-13">
+                  <div class="life-expectancy">Life<br />Expectancy</div>
+                  <img class="life-expectancy-icon" src="{{ url_for('static', filename='airpollution/images/life-expectancy-icon.svg') }}" />
+                </div>
+                <p class="div-2">
+                  <span class="text-wrapper-10">Latino:</span>
+                  <span class="text-wrapper-6"> {{county_statistics['Life Expectancy']['Latino']}}<br /></span>
+                  <span class="text-wrapper-10">NL white:</span>
+                  <span class="text-wrapper-6"> {{county_statistics['Life Expectancy']['NL White']}}</span>
+                </p>
+              </div>
+              <div class="fair-poor-health">
+                <div class="fair-poor-health-2">Fair/Poor<br />Health Status</div>
+                <p class="div-5">
+                  <span class="text-wrapper-10">Latino:</span>
+                  <span class="text-wrapper-6"> {{county_statistics['Fair/Poor Health Status']['Latino']}}<br /></span>
+                  <span class="text-wrapper-10">NL white:</span>
+                  <span class="text-wrapper-6"> {{county_statistics['Fair/Poor Health Status']['NL White']}}</span>
+                </p>
+                <img class="img-2" src="{{ url_for('static', filename='airpollution/images/fair-poor-health-status-icon.svg') }}" />
+              </div>
+            </div>
+            <div class="household-median">
+              <div class="text-wrapper-13">Median Income (Household)</div>
+              <p class="div-4">
+                <span class="text-wrapper-10">Latino:</span>
+                <span class="text-wrapper-6"> {{county_statistics['Median Household Income']['Latino']}}<br /></span>
+                <span class="text-wrapper-10">NL white:</span>
+                <span class="text-wrapper-6"> {{county_statistics['Median Household Income']['NL White']}}</span>
+              </p>
+              <img class="household-median-2" src="{{ url_for('static', filename='airpollution/images/household-median-income-icon.svg') }}" />
+            </div>
+            <div class="SNAP-benefits-card">
+              <div class="overlap-14">
+                <div class="div-3"></div>
+                <div class="SNAP-benefits">SNAP<br />Benefits</div>
+                <p class="SNAP-benefits-data">
+                  <span class="text-wrapper-10">Latino:</span>
+                  <span class="text-wrapper-6"> {{county_statistics['SNAP benefits']['Latino']}}<br /></span>
+                  <span class="text-wrapper-10">NL white:</span>
+                  <span class="text-wrapper-6"> {{county_statistics['SNAP benefits']['NL White']}}</span>
+                </p>
+                <img class="SNAP-benefits-icon" src="{{ url_for('static', filename='airpollution/images/snap-benefits-icon.svg') }}" />
+              </div>
+            </div>
+            <div class="food-insecurity-card">
+              <div class="food-insecurity">Food<br />Insecurity</div>
+              <p class="food-insecurity-data">
+                <span class="text-wrapper-10">Latino:</span>
+                <span class="text-wrapper-6"> {{county_statistics['Food Insecurity']['Latino']}}<br /></span>
+                <span class="text-wrapper-10">NL white:</span>
+                <span class="text-wrapper-6"> {{county_statistics['Food Insecurity']['NL White']}}</span>
+              </p>
+              <img class="food-insecurity-icon" src="{{ url_for('static', filename='airpollution/images/food-insecurity-icon.svg') }}" />
+            </div>
+          </div>
+          <p class="NL-white-definition">{{ nl_definition }}</p>
+        </div>
+        <div class="factsheet-heading">
+          <div class="overlap-15">
+            <div class="factsheet-heading-2"></div>
+            <p class="factsheet-heading-3">Climate Change and Health Factsheets</p>
+            <div class="topic-title">
+              <div class="overlap-group-4">
+                <div class="topic-title-2"></div>
+                <div class="topic-title-3">AIR POLLUTION</div>
+              </div>
+            </div>
+            <div class="factsheet-heading-4">{{county_name}} County</div>
+            <img class="dashboard-logo-white" src="{{ url_for('static', filename='airpollution/images/dashboard-logo-white.png') }}" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
