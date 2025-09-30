@@ -60,7 +60,7 @@ def update_img_src_paths(html_file_path, static_subdir='extremeheat'):
 
 if __name__ == "__main__":
     # Define the path to your index.html file
-    html_file = os.path.join('templates', 'extremeheat', 'index.html')
+    html_file = os.path.join('..','templates', 'extremeheat', 'index.html')
 
     # Call the function to update image src paths
     update_img_src_paths(html_file, static_subdir='extremeheat')
