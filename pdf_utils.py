@@ -2,11 +2,82 @@ import os
 import time
 import pdfkit
 from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.common.exceptions import WebDriverException
 from PIL import Image, ImageChops
 import requests
 
 current_year = time.strftime("%Y")
+
+def setup_webdriver():
+    """
+    Set up a webdriver with fallback from Firefox to Chrome.
+    Returns the driver instance or raises an exception with installation instructions.
+    """
+    # Try Firefox first
+    try:
+        firefox_options = FirefoxOptions()
+        firefox_options.add_argument('--headless')
+        firefox_options.set_preference("layout.css.devPixelsPerPx", "2.0")
+        driver = webdriver.Firefox(options=firefox_options)
+        driver.set_window_size(2550, 3300)
+        print("Successfully initialized Firefox webdriver")
+        return driver
+    except WebDriverException as e:
+        print(f"Firefox webdriver failed: {e}")
+        print("Attempting Chrome fallback...")
+        
+        # Fallback to Chrome
+        try:
+            chrome_options = ChromeOptions()
+            chrome_options.add_argument('--headless')
+            chrome_options.add_argument('--no-sandbox')
+            chrome_options.add_argument('--disable-dev-shm-usage')
+            chrome_options.add_argument('--force-device-scale-factor=2')
+            driver = webdriver.Chrome(options=chrome_options)
+            driver.set_window_size(2550, 3300)
+            print("Successfully initialized Chrome webdriver as fallback")
+            return driver
+        except WebDriverException as chrome_error:
+            print(f"Chrome webdriver also failed: {chrome_error}")
+            
+            # Both drivers failed - provide installation instructions
+            error_msg = """
+ERROR: Neither Firefox nor Chrome webdriver could be initialized.
+
+To fix this issue, you need to install one of the following:
+
+Option 1 - Firefox (geckodriver):
+1. Download geckodriver from: https://github.com/mozilla/geckodriver/releases
+2. Extract the executable and add it to your system PATH
+3. Or place geckodriver.exe in this project directory
+4. Ensure Firefox browser is installed
+
+Option 2 - Chrome (chromedriver):
+1. Download chromedriver from: https://chromedriver.chromium.org/
+2. Extract the executable and add it to your system PATH
+3. Or place chromedriver.exe in this project directory
+4. Ensure Chrome browser is installed
+
+Alternatively, install via package manager:
+- Windows (chocolatey): choco install selenium-gecko-driver or choco install selenium-chrome-driver
+- pip install webdriver-manager (then use WebDriverManager in code)
+
+Original errors:
+- Firefox: {e}
+- Chrome: {chrome_error}
+"""
+            raise Exception(error_msg)
+    except Exception as e:
+        # Handle other potential errors (like browser not installed)
+        error_msg = f"""
+ERROR: Unexpected error setting up webdriver: {e}
+
+Please ensure you have either Firefox or Chrome browser installed, along with their respective drivers.
+See the installation instructions above.
+"""
+        raise Exception(error_msg)
 
 def trim(im):
     bg = Image.new(im.mode, im.size, (255, 255, 255))
@@ -36,12 +107,12 @@ def generate_pdfs(county_name_mapping, output_dir,report_type):
     pdf_output_dir = os.path.join(reports_dir, "pdfs")
     os.makedirs(pdf_output_dir, exist_ok=True)
 
-    # Set up Firefox options for headless mode.
-    firefox_options = Options()
-    firefox_options.add_argument('--headless')
-    firefox_options.set_preference("layout.css.devPixelsPerPx", "2.0")
-    driver = webdriver.Firefox(options=firefox_options)  # Ensure geckodriver is in your PATH
-    driver.set_window_size(2550, 3300)
+    # Set up webdriver with Firefox/Chrome fallback
+    try:
+        driver = setup_webdriver()
+    except Exception as e:
+        print(str(e))
+        return  # Exit gracefully if no webdriver can be set up
     
     # Options for wkhtmltopdf via pdfkit
     pdfkit_options = {

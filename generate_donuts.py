@@ -39,6 +39,15 @@ def font_to_base64(font_path):
 def draw_donut(data, county_name, output_dir):
     wedge_names = [k for k in data if k != 'Total']
     wedge_sizes = [data[k] for k in wedge_names]
+    # Validate wedge sizes: skip if empty, all zeros, or contains only NaNs
+    try:
+        arr = np.array(wedge_sizes, dtype=float)
+    except Exception:
+        print(f"[SKIP] Invalid wedge data for {county_name}: {wedge_sizes}")
+        return
+    if arr.size == 0 or np.all(np.isnan(arr)) or np.nansum(arr) == 0:
+        print(f"[SKIP] No valid data for {county_name}, skipping donut.")
+        return
     colors = ['#005587', '#338F87', '#002E45']
 
     fig_width_inches = 3.0
@@ -50,12 +59,18 @@ def draw_donut(data, county_name, output_dir):
         facecolor='none'
     )
 
-    wedges, _ = ax.pie(
-        wedge_sizes,
-        colors=colors,
-        startangle=90,
-        wedgeprops=dict(width=0.4, edgecolor='none')
-    )
+    try:
+        wedges, _ = ax.pie(
+            wedge_sizes,
+            colors=colors,
+            startangle=90,
+            wedgeprops=dict(width=0.4, edgecolor='none')
+        )
+    except ValueError as e:
+        # Matplotlib can raise ValueError if wedge sizes are invalid (e.g., NaN/empty)
+        print(f"[SKIP] Matplotlib failed to draw donut for {county_name}: {e}")
+        plt.close(fig)
+        return
 
     centre_circle = plt.Circle((0, 0), 0.65, fc='none')
     ax.add_artist(centre_circle)
