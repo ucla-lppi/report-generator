@@ -102,10 +102,10 @@ python -c "from report_generator import quick_demo; quick_demo(offline_mode=True
 Generate factsheets using the original interface:
 
 ```bash
-# Generate all report types for all counties
+# Generate all factsheet types for all counties
 python main.py build
 
-# Generate specific report type
+# Generate specific factsheet type
 python main.py build -t extremeheat
 python main.py build -t airpollution
 
@@ -189,7 +189,7 @@ report-generator/
 │   ├── 01_Quick_Start_Guide.ipynb
 │   └── 02_Advanced_Usage.ipynb
 ├── 📄 main.py                      # Original command-line interface
-├── 📄 flask_app.py                 # Main tool for factsheet generation
+├── 📄 flask_app.py                 # Main factsheet generation
 ├── 📄 data_utils.py                # Data loading and processing utilities
 ├── 📄 map_utils.py                 # Geographic map generation
 ├── 📄 pdf_utils.py                 # PDF export functionality
