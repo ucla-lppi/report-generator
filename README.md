@@ -5,7 +5,7 @@ This repository contains tools for generating Latino Climate and Health Dashboar
 The data used in these factsheets was curated by the Data and Research team at the UCLA Latino Policy and Politics Institute (LPPI) and can be found from this Google Sheet: https://docs.google.com/spreadsheets/d/e/2PACX-1vTyGBCxXjMIztPF1IL5JrP0nss-H4GwJwyecXDRy7Hv5oyC3s54ytPaNotzoqTMKzkPCxFqgEItfSLz/pub?gid=1869860862&single=true&output=csv
 
 ## What This Tool Does
-The UCLA LPPI Report Generator creates comprehensive factsheets that include:
+The UCLA LPPI Factsheet Generator creates comprehensive factsheets that include:
 - Population Demographics: Donut charts showing population composition by ethnicity
 - Environmental Heat Maps: Geographic visualization of extreme heat exposure disparities
 - Air Pollution Maps: Geographic visualization of air quality disparities
@@ -18,7 +18,7 @@ The UCLA LPPI Report Generator creates comprehensive factsheets that include:
 2. Generate population figures
 3. Generate maps
 4. Generate html factsheets
-5. Generate pdf from html report screenshots
+5. Generate pdf from html factsheet screenshots
 
 ## Quick Start
 
@@ -189,7 +189,7 @@ report-generator/
 │   ├── 01_Quick_Start_Guide.ipynb
 │   └── 02_Advanced_Usage.ipynb
 ├── 📄 main.py                      # Original command-line interface
-├── 📄 flask_app.py                 # Web interface for report generation
+├── 📄 flask_app.py                 # Main tool for factsheet generation
 ├── 📄 data_utils.py                # Data loading and processing utilities
 ├── 📄 map_utils.py                 # Geographic map generation
 ├── 📄 pdf_utils.py                 # PDF export functionality
@@ -209,7 +209,7 @@ report-generator/
 
 ## Workflow Overview
 
-The report generation follows this process:
+The factsheet generation follows this process:
 
 1. **Data Loading**: 
    - Population demographics from Google Sheets
@@ -225,7 +225,7 @@ The report generation follows this process:
    - Air pollution exposure maps
    - Neighborhood-level analysis comparing Latino and Non-Latino White areas
 
-4. **Report Assembly**:
+4. **Factsheet Assembly**:
    - HTML factsheets using Flask/Jinja2 templates
    - Multi-page layouts with embedded charts and maps
    - Statistical narratives generated from data
@@ -358,7 +358,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 If you use this tool in research or policy work, please cite:
 
 ```
-UCLA Latino Policy and Politics Institute. (2024). Environmental Health Report Generator. 
+UCLA Latino Policy and Politics Institute. (2024). Environmental Health Factsheet Generator. 
 GitHub. https://github.com/ucla-lppi/report-generator
 ```
 
