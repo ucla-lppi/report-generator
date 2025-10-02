@@ -1,16 +1,6 @@
 # UCLA LPPI Report Generator
 
-This repository contains tools for generating comprehensive environmental health disparity reports that compare conditions between Latino and Non-Latino White populations across California counties. The reports analyze extreme heat exposure, air pollution, and related health outcomes.
-
-## What This Tool Does
-
-The UCLA LPPI Report Generator creates comprehensive reports that include:
-
-- **Population Demographics**: Donut charts showing population composition by ethnicity
-- **Environmental Heat Maps**: Geographic visualization of extreme heat exposure disparities  
-- **Air Pollution Maps**: Geographic visualization of air quality disparities
-- **Statistical Comparisons**: Detailed analysis of health and environmental indicators
-- **Multi-format Outputs**: HTML reports and PDF exports for sharing and publication
+This repository contains tools for generating Latino Climate and Health Dashboard Reports. The scripts are used to create data visualizations, maps, and comprehensive reports on environmental health disparities affecting Latino communities in California. Most of the data has been curated by the Data and Research team at the UCLA Latino Policy and Politics Institute (LPPI) and can be found from this Google Sheet: https://docs.google.com/spreadsheets/d/e/2PACX-1vTyGBCxXjMIztPF1IL5JrP0nss-H4GwJwyecXDRy7Hv5oyC3s54ytPaNotzoqTMKzkPCxFqgEItfSLz/pub?gid=1869860862&single=true&output=csv
 
 ## Quick Start
 
@@ -63,9 +53,16 @@ print(f"Generated {len(results['files_generated'])} files")
 - **Python 3.8+**
 - **Git** (for cloning the repository)
 
-### For PDF Generation (Optional)
+### Optional
+- [Miniconda](https://docs.conda.io/en/latest/miniconda.html) for managing Python environments
+
+### For PDF Generation
+
 - **wkhtmltopdf**: [Download here](https://wkhtmltopdf.org/downloads.html)
+
 - **geckodriver**: [Download here](https://github.com/mozilla/geckodriver/releases) and add to PATH
+
+- Alternatively, for chrome, use **chromedriver**: [Download here](https://sites.google.com/chromium.org/driver/)
 
 ### System Requirements
 - **Memory**: 4GB+ RAM recommended for processing multiple counties
@@ -82,15 +79,14 @@ print(f"Generated {len(results['files_generated'])} files")
    cd report-generator
    ```
 
-2. **Create and activate a virtual environment:**
+2. **Optional: Create and activate a virtual environment using Miniconda:**
    ```bash
-   python -m venv venv
-   
-   # On Windows:
-   venv\Scripts\activate
+   conda create --name report-generator python=3.8
+   conda activate report-generator
+   ```
    
    # On macOS/Linux:
-   source venv/bin/activate
+   conda activate report-generator
    ```
 
 3. **Install Python dependencies:**
@@ -301,9 +297,7 @@ generator = ReportGenerator(config=custom_config)
 
 ## Additional Documentation
 
-- **[Methodology Guide](docs/methodology.md)**: Detailed explanation of the analysis approach for researchers and policymakers
 - **[API Reference](docs/api.md)**: Complete documentation of the ReportGenerator class
-- **[Data Sources](docs/data-sources.md)**: Information about input data requirements and formats
 
 ## Troubleshooting
 
