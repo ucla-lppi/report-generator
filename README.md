@@ -290,7 +290,7 @@ generator = ReportGenerator(config=custom_config)
 
 ### Development Guidelines
 
-- Follow PEP 8 style guidelines
+- Follow [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guidelines
 - Add tests for new functionality
 - Update documentation for any API changes
 - Use meaningful commit messages
