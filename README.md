@@ -1,28 +1,10 @@
 # UCLA LPPI Report Generator
 
-This repository contains tools for generating Latino Climate and Health Dashboard Reports. The scripts are used to create data visualizations, maps, and comprehensive reports on environmental health disparities affecting Latino communities in California. Most of the data has been curated by the Data and Research team at the UCLA Latino Policy and Politics Institute (LPPI) and can be found from this Google Sheet: https://docs.google.com/spreadsheets/d/e/2PACX-1vTyGBCxXjMIztPF1IL5JrP0nss-H4GwJwyecXDRy7Hv5oyC3s54ytPaNotzoqTMKzkPCxFqgEItfSLz/pub?gid=1869860862&single=true&output=csv
+This repository contains tools for generating Latino Climate and Health Dashboard Reports. The scripts are used to create data visualizations, maps, and comprehensive reports on environmental health disparities affecting Latino communities in California. 
+
+The data used in these reports was curated by the Data and Research team at the UCLA Latino Policy and Politics Institute (LPPI) and can be found from this Google Sheet: https://docs.google.com/spreadsheets/d/e/2PACX-1vTyGBCxXjMIztPF1IL5JrP0nss-H4GwJwyecXDRy7Hv5oyC3s54ytPaNotzoqTMKzkPCxFqgEItfSLz/pub?gid=1869860862&single=true&output=csv
 
 ## Quick Start
-
-### Requirements
-
-- Python 3.8+
-- Jupyter Notebook
-- Required Python packages (see `requirements.txt`)
-
-### Jupyter Notebooks
-
-1. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. **Launch Jupyter and open the Quick Start Guide:**
-   ```bash
-   jupyter notebook notebooks/01_Quick_Start_Guide.ipynb
-   ```
-
-3. **Follow the step-by-step instructions** in the notebook to generate your first reports.
 
 ### For Developers and Researchers
 
@@ -278,6 +260,26 @@ custom_config = {
 
 generator = ReportGenerator(config=custom_config)
 ```
+## Jupyter Notebooks (Experimental)
+### Requirements
+
+- Python 3.8+
+- Jupyter Notebook
+- Required Python packages (see `requirements.txt`)
+
+### Jupyter Notebooks
+
+1. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Launch Jupyter and open the Quick Start Guide:**
+   ```bash
+   jupyter notebook notebooks/01_Quick_Start_Guide.ipynb
+   ```
+
+3. **Follow the step-by-step instructions** in the notebook to generate your first reports.
 
 ## 🤝 Contributing
 
