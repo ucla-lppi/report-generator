@@ -6,29 +6,6 @@ The data used in these reports was curated by the Data and Research team at the 
 
 ## Quick Start
 
-### For Developers and Researchers
-
-Use the unified `ReportGenerator` class for programmatic access:
-
-```python
-from report_generator import ReportGenerator
-
-# Initialize the generator
-generator = ReportGenerator()
-
-# Load data
-generator.load_data(offline_mode=False)  # Set to True for demo mode
-
-# Generate complete reports for specific counties
-results = generator.generate_full_report(
-    counties=['Los Angeles', 'San Diego'],
-    include_pdfs=True,
-    offline_mode=False
-)
-
-print(f"Generated {len(results['files_generated'])} files")
-```
-
 ## Prerequisites
 
 ### Required Software
@@ -147,6 +124,30 @@ results = generator.generate_full_report(
     include_pdfs=True
 )
 ```
+
+### For Developers and Researchers
+
+Use the unified `ReportGenerator` class for programmatic access:
+
+```python
+from report_generator import ReportGenerator
+
+# Initialize the generator
+generator = ReportGenerator()
+
+# Load data
+generator.load_data(offline_mode=False)  # Set to True for demo mode
+
+# Generate complete reports for specific counties
+results = generator.generate_full_report(
+    counties=['Los Angeles', 'San Diego'],
+    include_pdfs=True,
+    offline_mode=False
+)
+
+print(f"Generated {len(results['files_generated'])} files")
+```
+
 
 ### Jupyter Notebooks
 
