@@ -225,7 +225,7 @@ The factsheet generation follows this process:
    - Air pollution exposure maps
    - Neighborhood-level analysis comparing Latino and Non-Latino White areas
 
-4. **Report Assembly**:
+4. **Factsheet Assembly**:
    - HTML factsheets using Flask/Jinja2 templates
    - Multi-page layouts with embedded charts and maps
    - Statistical narratives generated from data
