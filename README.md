@@ -1,10 +1,27 @@
-# UCLA LPPI Report Generator
+# UCLA LPPI Factsheet Generator
 
-This repository contains tools for generating Latino Climate and Health Dashboard Reports. The scripts are used to create data visualizations, maps, and comprehensive reports on environmental health disparities affecting Latino communities in California. 
+This repository contains tools for generating Latino Climate and Health Dashboard Factsheets. The scripts are used to create data visualizations, maps, and comprehensive factsheets on environmental health disparities affecting Latino communities in California.
 
-The data used in these reports was curated by the Data and Research team at the UCLA Latino Policy and Politics Institute (LPPI) and can be found from this Google Sheet: https://docs.google.com/spreadsheets/d/e/2PACX-1vTyGBCxXjMIztPF1IL5JrP0nss-H4GwJwyecXDRy7Hv5oyC3s54ytPaNotzoqTMKzkPCxFqgEItfSLz/pub?gid=1869860862&single=true&output=csv
+The data used in these factsheets was curated by the Data and Research team at the UCLA Latino Policy and Politics Institute (LPPI) and can be found from this Google Sheet: https://docs.google.com/spreadsheets/d/e/2PACX-1vTyGBCxXjMIztPF1IL5JrP0nss-H4GwJwyecXDRy7Hv5oyC3s54ytPaNotzoqTMKzkPCxFqgEItfSLz/pub?gid=1869860862&single=true&output=csv
+
+## What This Tool Does
+The UCLA LPPI Report Generator creates comprehensive factsheets that include:
+- Population Demographics: Donut charts showing population composition by ethnicity
+- Environmental Heat Maps: Geographic visualization of extreme heat exposure disparities
+- Air Pollution Maps: Geographic visualization of air quality disparities
+- Statistical Comparisons: Detailed analysis of health and environmental indicators
+- Multi-format Outputs: HTML factsheets and PDF exports for sharing and publication
+
+### Workflow
+
+1. Prepare the input data sources
+2. Generate population figures
+3. Generate maps
+4. Generate html factsheets
+5. Generate pdf from html report screenshots
 
 ## Quick Start
+
 
 ## Prerequisites
 
@@ -25,7 +42,7 @@ The data used in these reports was curated by the Data and Research team at the 
 
 ### System Requirements
 - **Memory**: 4GB+ RAM recommended for processing multiple counties
-- **Storage**: 1GB+ free space for generated reports and maps
+- **Storage**: 1GB+ free space for generated factsheets and maps
 - **Network**: Internet connectivity for real data (offline mode available for testing)
 
 ## Installation
@@ -82,7 +99,7 @@ python -c "from report_generator import quick_demo; quick_demo(offline_mode=True
 
 ### Command Line Interface
 
-Generate reports using the original interface:
+Generate factsheets using the original interface:
 
 ```bash
 # Generate all report types for all counties
@@ -92,7 +109,7 @@ python main.py build
 python main.py build -t extremeheat
 python main.py build -t airpollution
 
-# Serve reports locally for preview
+# Serve factsheets locally for preview
 python main.py serve
 ```
 
@@ -115,7 +132,7 @@ generator.load_data()
 generator.generate_population_charts(['Los Angeles'])
 generator.generate_heat_maps(['Los Angeles']) 
 generator.generate_air_pollution_maps(['Los Angeles'])
-generator.generate_html_reports('all', ['Los Angeles'])
+generator.generate_html_factsheets('all', ['Los Angeles'])
 generator.generate_pdfs('all', ['Los Angeles'])
 
 # Or generate everything at once
@@ -138,7 +155,7 @@ generator = ReportGenerator()
 # Load data
 generator.load_data(offline_mode=False)  # Set to True for demo mode
 
-# Generate complete reports for specific counties
+# Generate complete factsheets for specific counties
 results = generator.generate_full_report(
     counties=['Los Angeles', 'San Diego'],
     include_pdfs=True,
@@ -180,8 +197,8 @@ report-generator/
 ├── 📁 inputs/                      # Input data files
 │   ├── 📁 geojson/                # Geographic boundary files
 │   └── 📄 *.csv                   # Statistical data files
-├── 📁 output/                      # Generated reports and files
-├── 📁 templates/                   # HTML templates for reports
+├── 📁 output/                      # Generated factsheets and files
+├── 📁 templates/                   # HTML templates for factsheets
 ├── 📁 static/                      # CSS, fonts, and assets
 ├── 📁 tests/                       # Test files
 │   ├── test_pdf_utils.py
@@ -209,7 +226,7 @@ The report generation follows this process:
    - Neighborhood-level analysis comparing Latino and Non-Latino White areas
 
 4. **Report Assembly**:
-   - HTML reports using Flask/Jinja2 templates
+   - HTML factsheets using Flask/Jinja2 templates
    - Multi-page layouts with embedded charts and maps
    - Statistical narratives generated from data
 
@@ -280,7 +297,7 @@ generator = ReportGenerator(config=custom_config)
    jupyter notebook notebooks/01_Quick_Start_Guide.ipynb
    ```
 
-3. **Follow the step-by-step instructions** in the notebook to generate your first reports.
+3. **Follow the step-by-step instructions** in the notebook to generate your first factsheets.
 
 ## 🤝 Contributing
 
