@@ -7,9 +7,24 @@ logging.basicConfig(level=logging.WARNING, format='%(asctime)s - %(levelname)s -
 import pandas as pd
 import requests
 
-# Fetch the new data
-csv_url_for_text = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQiypgV-S8LImCs_esQOIbFsEXkXiAndnmo7RdW9pFutH-hYMwl5eZf3RddwzUy8PcdEEu4PLk9a1k6/pub?output=csv'
-text_data = pd.read_csv(csv_url_for_text)
+# Initialize text_data as None - will be loaded when needed
+text_data = None
+
+def load_text_data():
+    """Load text data from Google Sheets, with error handling."""
+    global text_data
+    if text_data is not None:
+        return text_data
+    
+    try:
+        csv_url_for_text = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQiypgV-S8LImCs_esQOIbFsEXkXiAndnmo7RdW9pFutH-hYMwl5eZf3RddwzUy8PcdEEu4PLk9a1k6/pub?output=csv'
+        text_data = pd.read_csv(csv_url_for_text)
+        return text_data
+    except Exception as e:
+        logging.warning(f"Could not load text data: {e}")
+        # Return empty DataFrame with expected structure
+        text_data = pd.DataFrame(columns=['Latino Variable Name', 'Comparison Variable Name', 'Type', 'Copy'])
+        return text_data
 
 def classify_relationship(latino_value, comparison_value):
     if latino_value > comparison_value:
@@ -25,8 +40,12 @@ def generate_case_text(
     latino_mid_cent_90F, nl_white_mid_cent_90F, latino_end_cent_90F, nl_white_end_cent_90F,
     latino_mid_cent_100F, nl_white_mid_cent_100F, latino_end_cent_100F, nl_white_end_cent_100F,
     avg_pct_under_18_latino, avg_pct_under_18_nl_white, avg_pct_over_65_latino, avg_pct_over_65_nl_white,
-    text_data
+    text_data=None
 ):
+    # Load text data if not provided
+    if text_data is None:
+        text_data = load_text_data()
+        
     # Helper function to check for NaN values
     def is_nan(value):
         return math.isnan(value)
