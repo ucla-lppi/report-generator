@@ -8,3 +8,4 @@ requests
 contextily
 selenium
 Pillow
+PyPDF2

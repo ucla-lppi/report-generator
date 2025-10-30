@@ -1,0 +1,29 @@
+name: lppi-report
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10,<3.12
+  # Core scientific stack (installed together to avoid ABI mismatch)
+  - numpy>=1.26
+  - pandas>=2.1
+  - scipy
+  # Geo stack
+  - geopandas
+  - shapely>=2.0
+  - fiona
+  - pyproj
+  - gdal
+  - rtree
+  - contextily
+  # Web/app + utils
+  - flask
+  - requests
+  - selenium
+  - pillow
+  - pdfkit
+  - pypdf2
+  - wkhtmltopdf
+  - pip
+  - pip:
+      # If Chrome/Gecko drivers are troublesome, you can uncomment the next line
+      # - webdriver-manager

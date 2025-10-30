@@ -1,5 +1,6 @@
 import os
 import time
+import base64
 import pdfkit
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
@@ -7,6 +8,10 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.common.exceptions import WebDriverException
 from PIL import Image, ImageChops
 import requests
+try:
+    from PyPDF2 import PdfMerger
+except Exception:
+    PdfMerger = None  # Graceful fallback if dependency is missing
 
 current_year = time.strftime("%Y")
 
@@ -31,10 +36,15 @@ def setup_webdriver():
         # Fallback to Chrome
         try:
             chrome_options = ChromeOptions()
-            chrome_options.add_argument('--headless')
+            chrome_options.add_argument('--headless=new')
             chrome_options.add_argument('--no-sandbox')
             chrome_options.add_argument('--disable-dev-shm-usage')
             chrome_options.add_argument('--force-device-scale-factor=2')
+            chrome_options.add_argument('--disable-gpu')
+            chrome_options.add_experimental_option('prefs', {
+                'printing.print_preview_sticky_settings.appState': '{"recentDestinations":[{"id":"Save as PDF","origin":"local","account":""}],"selectedDestinationId":"Save as PDF","version":2}',
+                'savefile.default_directory': os.getcwd()
+            })
             driver = webdriver.Chrome(options=chrome_options)
             driver.set_window_size(2550, 3300)
             print("Successfully initialized Chrome webdriver as fallback")
@@ -102,7 +112,7 @@ def check_url(url):
         print(error_msg)
         return False, error_msg
 
-def generate_pdfs(county_name_mapping, output_dir,report_type):
+def generate_pdfs(county_name_mapping, output_dir, report_type):
     reports_dir = os.path.join(output_dir, f"{report_type}")
     pdf_output_dir = os.path.join(reports_dir, "pdfs")
     os.makedirs(pdf_output_dir, exist_ok=True)
@@ -114,7 +124,7 @@ def generate_pdfs(county_name_mapping, output_dir,report_type):
         print(str(e))
         return  # Exit gracefully if no webdriver can be set up
     
-    # Options for wkhtmltopdf via pdfkit
+    # Options for wkhtmltopdf via pdfkit (used for Firefox path and as a fallback)
     pdfkit_options = {
         'page-size': 'Letter',
         'margin-top': '0in',
@@ -129,6 +139,13 @@ def generate_pdfs(county_name_mapping, output_dir,report_type):
     
     for original_county_name, standardized_county_name in county_name_mapping.items():
         screenshot_paths = []
+        per_page_pdf_paths = []  # For Chrome DevTools printToPDF
+        # Detect browser
+        browser_name = None
+        try:
+            browser_name = getattr(driver, 'name', None) or driver.capabilities.get('browserName')
+        except Exception:
+            pass
         for page in [1, 2]:
             html_file = os.path.join(reports_dir, f'{standardized_county_name}_page{page}.html')
             if not os.path.exists(html_file):
@@ -139,13 +156,114 @@ def generate_pdfs(county_name_mapping, output_dir,report_type):
             driver.get(file_url)
             time.sleep(2)  # Wait for page to load; adjust delay if needed
 
-            # Optionally set window size to capture the full page.
-            driver.set_window_size(1200, 1600)
-            screenshot_path = os.path.join(pdf_output_dir, f'{standardized_county_name}_page{page}.png')
-            driver.save_screenshot(screenshot_path)
-            print(f"Saved screenshot: {screenshot_path}")
-            screenshot_paths.append(screenshot_path)
+            if browser_name and str(browser_name).lower().startswith('chrome'):
+                # Use DevTools printToPDF for Chrome to avoid whitespace and capture full page
+                try:
+                    pdf_params = {
+                        'landscape': False,
+                        'printBackground': True,
+                        'preferCSSPageSize': True,
+                        'marginTop': 0,
+                        'marginBottom': 0,
+                        'marginLeft': 0,
+                        'marginRight': 0,
+                        # Letter size in inches; ignored if @page size present
+                        'paperWidth': 8.5,
+                        'paperHeight': 11,
+                        'scale': 1
+                    }
+                    result = driver.execute_cdp_cmd('Page.printToPDF', pdf_params)
+                    pdf_b64 = result.get('data')
+                    if pdf_b64:
+                        page_pdf_path = os.path.join(pdf_output_dir, f'{standardized_county_name}_page{page}.pdf')
+                        with open(page_pdf_path, 'wb') as f:
+                            f.write(base64.b64decode(pdf_b64))
+                        per_page_pdf_paths.append(page_pdf_path)
+                        print(f"Saved Chrome PDF page: {page_pdf_path}")
+                    else:
+                        print("Chrome printToPDF returned no data; falling back to screenshot path.")
+                        raise RuntimeError('Empty PDF data from Chrome')
+                except Exception as e:
+                    print(f"Chrome printToPDF failed: {e}. Falling back to full-page screenshot.")
+                    try:
+                        # Compute full page size and capture full-page screenshot
+                        full_width = driver.execute_script(
+                            "return Math.max(document.body.scrollWidth, document.documentElement.scrollWidth, document.documentElement.clientWidth);"
+                        )
+                        full_height = driver.execute_script(
+                            "return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.documentElement.clientHeight);"
+                        )
+                        # Clamp to a reasonable maximum to avoid driver limits
+                        max_w, max_h = 4000, 6000
+                        full_width = min(int(full_width), max_w)
+                        full_height = min(int(full_height), max_h)
+                        driver.set_window_size(full_width, full_height)
+                        time.sleep(0.5)
+                        screenshot_path = os.path.join(pdf_output_dir, f'{standardized_county_name}_page{page}.png')
+                        driver.save_screenshot(screenshot_path)
+                        print(f"Saved screenshot (fallback): {screenshot_path}")
+                        screenshot_paths.append(screenshot_path)
+                    except Exception as ee:
+                        print(f"Full-page screenshot fallback failed: {ee}")
+            else:
+                # Firefox (or unknown): continue with screenshot approach, try to size to full page
+                try:
+                    full_width = driver.execute_script(
+                        "return Math.max(document.body.scrollWidth, document.documentElement.scrollWidth, document.documentElement.clientWidth);"
+                    )
+                    full_height = driver.execute_script(
+                        "return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.documentElement.clientHeight);"
+                    )
+                    # Clamp to avoid excessive sizes that some drivers can't handle
+                    max_w, max_h = 4000, 6000
+                    full_width = min(int(full_width), max_w)
+                    full_height = min(int(full_height), max_h)
+                    driver.set_window_size(full_width, full_height)
+                except Exception:
+                    # Last resort fixed size
+                    driver.set_window_size(1200, 1600)
 
+                screenshot_path = os.path.join(pdf_output_dir, f'{standardized_county_name}_page{page}.png')
+                driver.save_screenshot(screenshot_path)
+                print(f"Saved screenshot: {screenshot_path}")
+                screenshot_paths.append(screenshot_path)
+
+        # If Chrome generated per-page PDFs, merge them and continue
+        if len(per_page_pdf_paths) == 2:
+            final_pdf_path = os.path.join(pdf_output_dir, f'{standardized_county_name}_{report_type}_{current_year}.pdf')
+            if PdfMerger is None:
+                print("PyPDF2 not available to merge Chrome PDF pages; outputting first page only.")
+                try:
+                    os.replace(per_page_pdf_paths[0], final_pdf_path)
+                    # Clean up the second page if exists
+                    try:
+                        os.remove(per_page_pdf_paths[1])
+                    except Exception:
+                        pass
+                except Exception as e:
+                    print(f"Error finalizing PDF for {standardized_county_name}: {e}")
+            else:
+                try:
+                    merger = PdfMerger()
+                    for p in per_page_pdf_paths:
+                        merger.append(p)
+                    with open(final_pdf_path, 'wb') as out_f:
+                        merger.write(out_f)
+                    merger.close()
+                    print(f"Saved merged PDF for county {standardized_county_name}: {final_pdf_path}")
+                except Exception as e:
+                    print(f"Error merging Chrome PDF pages for {standardized_county_name}: {e}")
+                finally:
+                    # Cleanup page PDFs
+                    for p in per_page_pdf_paths:
+                        try:
+                            os.remove(p)
+                        except Exception:
+                            pass
+            # Done with this county
+            continue
+
+        # Otherwise, expect two screenshots and use the existing image->PDF path
         if len(screenshot_paths) < 2:
             print(f"Not all screenshots found for {standardized_county_name}; skipping PDF generation.")
             continue
